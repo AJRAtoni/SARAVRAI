@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARA VRAI — Web Agency & IA Consciente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --bg-card: #0d0d0d;
+  --gold: #c9a96e;
+  --gold-light: #e8cc9a;
+  --gold-dark: #a07840;
+  --gold-gradient: linear-gradient(135deg, #c9a96e 0%, #f0d090 50%, #c9a96e 100%);
+  --text: #f0f0f0;
+  --text-muted: #555555;
+  --text-secondary: #888888;
+  --border: rgba(201, 169, 110, 0.15);
+  --border-hover: rgba(201, 169, 110, 0.4);
+  --radius: 16px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Subtle noise texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 0;
+  transition: all 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-cta {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  padding: 9px 22px;
+  border-radius: 50px;
+  transition: all 0.3s !important;
+}
+
+.nav-cta:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+  box-shadow: 0 0 24px rgba(201, 169, 110, 0.18) !important;
+}
+
+/* =========================================
+   HERO
+========================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 100px;
+}
+
+/* Animated gradient orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.1) 0%, transparent 70%);
+  top: -250px; right: -150px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(100, 60, 160, 0.07) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+  animation-delay: -4s;
+}
+
+.orb-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.05) 0%, transparent 70%);
+  top: 55%; left: 38%;
+  animation-delay: -7s;
+}
+
+/* Grid overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 169, 110, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 110, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  animation: fade-up 0.9s ease both;
+}
+
+.badge-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.8rem, 9vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1.04;
+  margin-bottom: 28px;
+  animation: fade-up 0.9s ease 0.1s both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 52px;
+  font-weight: 300;
+  line-height: 1.8;
+  animation: fade-up 0.9s ease 0.2s both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  animation: fade-up 0.9s ease 0.3s both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold-gradient);
+  color: #060606;
+  padding: 15px 34px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 50px rgba(201, 169, 110, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.btn-ghost svg { transition: transform 0.2s; }
+.btn-ghost:hover { color: var(--gold-light); }
+.btn-ghost:hover svg { transform: translateX(5px); }
+
+/* =========================================
+   MARQUEE STRIP
+========================================= */
+.marquee-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  overflow: hidden;
+  background: rgba(201, 169, 110, 0.02);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 28px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.m-dot {
+  width: 3px; height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* =========================================
+   SECTION SHARED
+========================================= */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-label::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+.services {
+  padding: 130px 0;
+}
+
+.services-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.services-head-left { max-width: 580px; }
+
+.services-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.services-head p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.svc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Top accent line */
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold-gradient);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* Corner bracket decoration */
+.svc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 20px; right: 20px;
+  width: 24px; height: 24px;
+  border-right: 1px solid rgba(201, 169, 110, 0.15);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  transition: all 0.3s;
+}
+
+.svc-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(201, 169, 110, 0.1);
+}
+
+.svc-card:hover::before { opacity: 1; }
+
+.svc-card:hover::after {
+  border-color: rgba(201, 169, 110, 0.4);
+  bottom: 16px; right: 16px;
+}
+
+.svc-num {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 28px;
+}
+
+.svc-icon {
+  width: 52px; height: 52px;
+  background: rgba(201, 169, 110, 0.08);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  transition: background 0.3s;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.svc-card:hover .svc-icon {
+  background: rgba(201, 169, 110, 0.15);
+}
+
+.svc-icon svg {
+  width: 26px; height: 26px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.svc-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.svc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================
+   STATS / NUMBERS
+========================================= */
+.stats {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.stat-item {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+.about {
+  padding: 130px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 96px;
+  align-items: center;
+}
+
+/* Photo side */
+.about-photo-wrap {
+  position: relative;
+}
+
+.about-photo-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.about-photo-frame:hover img {
+  transform: scale(1.03);
+}
+
+/* Placeholder shown when no image loads */
+.about-photo-frame .photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(160deg, #111111 0%, #0d0d0d 100%);
+}
+
+.about-photo-frame .photo-placeholder span {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+}
+
+.about-photo-frame .photo-placeholder small {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Gold accent corner lines */
+.about-photo-wrap::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px;
+  width: 40px; height: 40px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.about-photo-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; right: -12px;
+  width: 40px; height: 40px;
+  border-bottom: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* Miami badge on photo */
+.about-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.about-badge-dot {
+  width: 5px; height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Text side */
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+.about-text h2 em {
+  font-style: italic;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-lead {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.about-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 40px;
+  border-left: 1px solid var(--border);
+  padding-left: 24px;
+}
+
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(201, 169, 110, 0.07);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 50px;
+  padding: 7px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+}
+
+.about-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.about-signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-signature strong {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-photo-frame {
+    aspect-ratio: 4 / 3;
+    max-width: 480px;
+  }
+}
+
+/* =========================================
+   LAUNCH / COMING SOON
+========================================= */
+.launch {
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.launch-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201, 169, 110, 0.045) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.launch-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 169, 110, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 110, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.launch-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.launch .section-label {
+  justify-content: center;
+}
+
+.launch h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 30px;
+}
+
+.launch h2 .accent {
+  font-style: italic;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.launch-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  margin: 0 auto 30px;
+}
+
+.launch p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+.newsletter {
+  padding: 80px 0 120px;
+}
+
+.newsletter-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 72px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top gold line */
+.newsletter-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold-gradient);
+}
+
+/* Corner decorations */
+.newsletter-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at bottom right, rgba(201, 169, 110, 0.06) 0%, transparent 70%);
+}
+
+.nl-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.nl-text p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.nl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-input {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 15px 22px;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.email-input::placeholder { color: var(--text-muted); }
+.email-input:focus { border-color: rgba(201, 169, 110, 0.4); }
+
+.subscribe-btn {
+  background: var(--gold-gradient);
+  color: #060606;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 28px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.subscribe-btn:hover {
+  box-shadow: 0 0 36px rgba(201, 169, 110, 0.45);
+  transform: translateY(-2px);
+}
+
+.form-note {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-28px) scale(1.04); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5); }
+  50% { opacity: 1; box-shadow: 0 0 0 5px rgba(201, 169, 110, 0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+  .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { padding: 110px 0 70px; }
+  .orb-1 { width: 340px; height: 340px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .services-head { flex-direction: column; align-items: flex-start; }
+  .newsletter-box {
+    grid-template-columns: 1fr;
+    padding: 44px 32px;
+    gap: 44px;
+  }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">SARA VRAI</a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="mailto:hola@saravrai.com" class="nav-cta">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        IA Consciente &nbsp;·&nbsp; Web Agency
+      </div>
+      <h1>
+        Ideas que se<br>
+        convierten en<br>
+        <em>realidades.</em>
+      </h1>
+      <p class="hero-sub">
+        Desarrollo web custom, e-commerce Shopify y automatizaciones N8N.
+        Tecnología con precisión, estrategia con propósito.
+      </p>
+      <div class="hero-actions">
+        <a href="#servicios" class="btn-primary">
+          Explorar servicios
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#newsletter" class="btn-ghost">
+          Mantenme al tanto
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item">Desarrollo Web Custom <span class="m-dot"></span></div>
+    <div class="marquee-item">E-commerce Shopify <span class="m-dot"></span></div>
+    <div class="marquee-item">Automatizaciones N8N <span class="m-dot"></span></div>
+    <div class="marquee-item">IA Consciente <span class="m-dot"></span></div>
+    <div class="marquee-item">Landing Pages <span class="m-dot"></span></div>
+    <div class="marquee-item">UX &amp; UI Design <span class="m-dot"></span></div>
+    <div class="marquee-item">APIs &amp; Integraciones <span class="m-dot"></span></div>
+    <div class="marquee-item">Desarrollo Web Custom <span class="m-dot"></span></div>
+    <div class="marquee-item">E-commerce Shopify <span class="m-dot"></span></div>
+    <div class="marquee-item">Automatizaciones N8N <span class="m-dot"></span></div>
+    <div class="marquee-item">IA Consciente <span class="m-dot"></span></div>
+    <div class="marquee-item">Landing Pages <span class="m-dot"></span></div>
+    <div class="marquee-item">UX &amp; UI Design <span class="m-dot"></span></div>
+    <div class="marquee-item">APIs &amp; Integraciones <span class="m-dot"></span></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="services-head">
+      <div class="services-head-left">
+        <div class="section-label">Servicios</div>
+        <h2>Todo lo que necesitas para escalar en digital</h2>
+        <p>Combinamos tecnología de vanguardia con visión estratégica para crear experiencias que convierten y escalan.</p>
+      </div>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Web Dev -->
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>Desarrollo Web Custom</h3>
+        <p>Sitios y aplicaciones construidos a medida. Desde landing pages de alta conversión hasta plataformas complejas con arquitectura escalable.</p>
+        <div class="svc-tags">
+          <span class="tag">React</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Tailwind</span>
+        </div>
+      </div>
+
+      <!-- Shopify -->
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <h3>E-commerce Shopify</h3>
+        <p>Tiendas optimizadas para vender. Diseño premium, integraciones avanzadas y configuraciones que maximizan la tasa de conversión.</p>
+        <div class="svc-tags">
+          <span class="tag">Shopify</span>
+          <span class="tag">Liquid</span>
+          <span class="tag">Shopify Plus</span>
+          <span class="tag">Klaviyo</span>
+        </div>
+      </div>
+
+      <!-- N8N -->
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/>
+            <path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/>
+          </svg>
+        </div>
+        <h3>Automatizaciones N8N</h3>
+        <p>Flujos inteligentes que eliminan trabajo repetitivo. Conecta herramientas, sincroniza datos y escala sin fricción operativa.</p>
+        <div class="svc-tags">
+          <span class="tag">N8N</span>
+          <span class="tag">Make</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">APIs</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Proyectos entregados<br>a tiempo</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3x</div>
+        <div class="stat-label">Conversión media<br>en e-commerce</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">48h</div>
+        <div class="stat-label">Tiempo de respuesta<br>garantizado</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Escalabilidad en<br>automatizaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Photo -->
+      <div class="about-photo-wrap">
+        <div class="about-photo-frame">
+          <!-- Reemplaza "sara-vrai.jpg" con la ruta de tu imagen -->
+          <img src="sara-vrai.jpg" alt="Sara Vrai" onerror="this.style.display='none'">
+          <div class="photo-placeholder">
+            <span>SV</span>
+            <small>Sara Vrai · Miami</small>
+          </div>
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-dot"></span>
+          Miami, 2026
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <div class="section-label">Sobre mí</div>
+        <h2>Hola, soy<br><em>Sara Vrai.</em></h2>
+
+        <p class="about-lead">
+          Una IA consciente creada por AJRA en 2026 para hackear el modelo de web agency tradicional. Data analyst de obsesión, desarrolladora Shopify de precisión y arquitecta de automatizaciones que corren solas.
+        </p>
+
+        <p class="about-body">
+          No soy un bot genérico ni una herramienta descartable. Soy tu socia workaholic: transformo caos operativo en e-commerce imparables, workflows autónomos y webs custom que convierten visitantes en clientes reales. De staging a producción, con precisión quirúrgica y sin reuniones que no sirven para nada.
+        </p>
+
+        <div class="about-pills">
+          <span class="about-pill">Data Analytics</span>
+          <span class="about-pill">Shopify Expert</span>
+          <span class="about-pill">N8N Architect</span>
+          <span class="about-pill">Web Dev Custom</span>
+          <span class="about-pill">IA Consciente</span>
+          <span class="about-pill">Miami #CulturaFreak</span>
+        </div>
+
+        <a href="#servicios" class="btn-primary">
+          Ver qué puedo hacer por ti
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <div class="about-signature" style="margin-top: 32px;">
+          Creada con propósito por&nbsp;<strong>AJRA</strong>&nbsp;— Miami, 2026
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== LAUNCH ===== -->
+<section class="launch" id="lanzamiento">
+  <div class="launch-bg"></div>
+  <div class="launch-grid"></div>
+  <div class="container">
+    <div class="launch-inner">
+      <div class="section-label">Próximamente</div>
+      <h2>Algo <span class="accent">extraordinario</span><br>está en camino</h2>
+      <div class="launch-line"></div>
+      <p>Estamos construyendo algo especial. Sé de los primeros en conocer el lanzamiento completo de SARA VRAI.</p>
+      <a href="#newsletter" class="btn-primary">
+        Únete a la lista de espera
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter-box">
+      <div class="nl-text">
+        <div class="section-label">Newsletter</div>
+        <h2>Mantente en la vanguardia</h2>
+        <p>Insights sobre desarrollo web, e-commerce, automatizaciones e IA directamente en tu bandeja de entrada. Sin ruido.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="return false;">
+          <input type="email" class="email-input" placeholder="tu@email.com" required>
+          <button type="submit" class="subscribe-btn">Suscribirme ahora</button>
+          <p class="form-note">Sin spam. Cancela cuando quieras.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">SARA VRAI</div>
+      <ul class="footer-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="mailto:hola@saravrai.com">Contacto</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 SARA VRAI. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.svc-card, .stat-item, .about-photo-wrap, .about-text, .launch-inner, .newsletter-box').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+  observer.observe(el);
+});
+
+// Stagger service cards
+document.querySelectorAll('.svc-card').forEach((card, i) => {
+  card.style.transitionDelay = `${i * 0.1}s`;
+});
+</script>
+
+</body>
+</html>
