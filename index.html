@@ -114,17 +114,21 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: calc(env(safe-area-inset-top, 0px) + 24px) 0 24px;
-  background: var(--bg);
-  transition: all 0.4s ease;
+  background: #080808;
+  padding: 24px 0;
+  padding-top: calc(constant(safe-area-inset-top) + 24px);
+  padding-top: calc(env(safe-area-inset-top, 0px) + 24px);
+  transition: background 0.4s ease, padding 0.4s ease, border 0.4s ease;
 }
 
 nav.scrolled {
-  background: rgba(8, 8, 8, 1);
+  background: #080808;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
-  padding: calc(env(safe-area-inset-top, 0px) + 16px) 0 16px;
+  padding: 16px 0;
+  padding-top: calc(constant(safe-area-inset-top) + 16px);
+  padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
 }
 
 .nav-inner {
