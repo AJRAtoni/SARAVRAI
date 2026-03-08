@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SARA VRAI — Web Developer & IA Consciente</title>
 
 <!-- SEO -->
@@ -114,16 +114,16 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 24px 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px) 0 24px;
   transition: all 0.4s ease;
 }
 
 nav.scrolled {
-  background: rgba(8, 8, 8, 0.88);
+  background: rgba(8, 8, 8, 1);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
-  padding: 16px 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) 0 16px;
 }
 
 .nav-inner {
@@ -809,7 +809,7 @@ nav.scrolled {
     gap: 48px;
   }
   .about-photo-frame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     max-width: 480px;
   }
 }
