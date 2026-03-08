@@ -80,7 +80,10 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
 
 body {
   font-family: 'Space Grotesk', sans-serif;
@@ -97,8 +100,23 @@ body::after {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 9995;
+  z-index: 9980;
   opacity: 0.35;
+}
+
+/* iOS safe-area status bar shield */
+#status-bar-shield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: constant(safe-area-inset-top);
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 9999;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  pointer-events: none;
 }
 
 .container {
@@ -113,8 +131,8 @@ body::after {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 9990;
-  background: #080808;
+  z-index: 9998;
+  background: var(--bg);
   padding: 24px 0;
   padding-top: calc(constant(safe-area-inset-top) + 24px);
   padding-top: calc(env(safe-area-inset-top, 0px) + 24px);
@@ -1094,6 +1112,9 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- iOS safe-area shield -->
+<div id="status-bar-shield" aria-hidden="true"></div>
 
 <!-- ===== NAV ===== -->
 <nav id="navbar">
