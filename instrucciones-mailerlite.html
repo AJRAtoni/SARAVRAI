@@ -57,7 +57,7 @@
     <p><strong>Cuenta MailerLite:</strong> sara@ajra.es (ID: 2170745)</p>
     <p><strong>Grupo:</strong> Lista de Espera — Sara Vrai</p>
     <p><strong>Formulario:</strong> Newsletter — Sara Vrai (embebido)</p>
-    <p><strong>Double opt-in:</strong> Activado (los suscriptores recibirán email de confirmación)</p>
+    <p><strong>Double opt-in:</strong> Desactivado (los suscriptores se añadirán directamente al grupo)</p>
   </div>
 
   <hr>
@@ -116,15 +116,15 @@
     <p>1. El visitante escribe su email y pulsa "Suscribirme ahora"</p>
     <p>2. El script envía el email a MailerLite</p>
     <p>3. Aparece un mensaje de confirmación en la web</p>
-    <p>4. El suscriptor recibe un email de confirmación (double opt-in)</p>
-    <p>5. Al confirmar, se añade al grupo "Lista de Espera — Sara Vrai"</p>
+    <p>4. El suscriptor se añade automáticamente al grupo "Lista de Espera — Sara Vrai"</p>
+    <p>5. Se dispara el correo de bienvenida (si está configurado en Automations)</p>
   </div>
 
   <div class="note">
-    <strong>Nota:</strong> El formulario tiene activado el <em>double opt-in</em>,
-    lo que significa que los suscriptores recibirán un email pidiendo que confirmen
-    su suscripción. Esto es una buena práctica para cumplir con GDPR y mantener
-    una lista limpia.
+    <strong>Nota:</strong> El formulario tiene el <em>double opt-in</em> desactivado, 
+    por lo que los usuarios entran directamente a la lista sin tener que hacer click en 
+    un correo de confirmación previo. Asegúrate de tener una automatización (workflow) de 
+    bienvenida configurada para recibirlos.
   </div>
 
 </body>
