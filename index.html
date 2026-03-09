@@ -1464,7 +1464,7 @@ document.querySelectorAll('.svc-card').forEach((card, i) => {
     fetch('https://assets.mailerlite.com/jsonp/2170745/forms/181330494966728632/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: 'fields[email]=' + encodeURIComponent(email)
+      body: 'fields%5Bemail%5D=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
     })
     .then(function(res) { return res.json(); })
     .then(function(data) {
