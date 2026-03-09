@@ -1004,6 +1004,22 @@ nav.scrolled {
 .form-note {
   font-size: 0.76rem;
   color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.form-note.success {
+  color: #4ade80;
+}
+
+.form-note.error {
+  color: #f87171;
+}
+
+.subscribe-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 /* =========================================
@@ -1371,10 +1387,10 @@ footer {
         <p>Insights sobre desarrollo web, e-commerce, automatizaciones e IA directamente en tu bandeja de entrada. Sin ruido.</p>
       </div>
       <div>
-        <form class="nl-form" onsubmit="return false;">
-          <input type="email" class="email-input" placeholder="tu@email.com" required>
-          <button type="submit" class="subscribe-btn">Suscribirme ahora</button>
-          <p class="form-note">Sin spam. Cancela cuando quieras.</p>
+        <form class="nl-form" id="newsletter-form">
+          <input type="email" class="email-input" id="nl-email" placeholder="tu@email.com" required>
+          <button type="submit" class="subscribe-btn" id="nl-btn">Suscribirme ahora</button>
+          <p class="form-note" id="nl-note">Sin spam. Cancela cuando quieras.</p>
         </form>
       </div>
     </div>
@@ -1426,7 +1442,59 @@ document.querySelectorAll('.svc-card, .stat-item, .about-photo-wrap, .about-text
 document.querySelectorAll('.svc-card').forEach((card, i) => {
   card.style.transitionDelay = `${i * 0.1}s`;
 });
+
+// MailerLite Newsletter Form
+(function() {
+  const form = document.getElementById('newsletter-form');
+  const emailInput = document.getElementById('nl-email');
+  const btn = document.getElementById('nl-btn');
+  const note = document.getElementById('nl-note');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    note.className = 'form-note';
+    note.textContent = 'Sin spam. Cancela cuando quieras.';
+
+    fetch('https://assets.mailerlite.com/jsonp/2170745/forms/181330494966728632/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'fields[email]=' + encodeURIComponent(email)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        note.textContent = 'Te has suscrito correctamente. ¡Bienvenido/a!';
+        note.className = 'form-note success';
+        emailInput.value = '';
+      } else {
+        note.textContent = data.msg || 'Hubo un error. Inténtalo de nuevo.';
+        note.className = 'form-note error';
+      }
+    })
+    .catch(function() {
+      note.textContent = 'Error de conexión. Inténtalo de nuevo.';
+      note.className = 'form-note error';
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Suscribirme ahora';
+    });
+  });
+})();
 </script>
+
+<!-- MailerLite Universal -->
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account', '2170745');
+</script>
+<!-- End MailerLite Universal -->
 
 </body>
 </html>
