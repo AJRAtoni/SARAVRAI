@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrucciones — Integración MailerLite × Sara Vrai</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0a; color: #e0e0e0;
+      line-height: 1.7; padding: 40px 20px;
+      max-width: 800px; margin: 0 auto;
+    }
+    h1 { color: #c8a96e; font-size: 28px; margin-bottom: 8px; }
+    h2 { color: #c8a96e; font-size: 20px; margin: 32px 0 12px; }
+    .subtitle { color: #888; font-size: 15px; margin-bottom: 32px; }
+    p { margin-bottom: 16px; }
+    .step {
+      background: #141414; border: 1px solid #222; border-radius: 12px;
+      padding: 24px; margin: 16px 0;
+    }
+    .step-number {
+      display: inline-block; background: #c8a96e; color: #0a0a0a;
+      width: 28px; height: 28px; border-radius: 50%;
+      text-align: center; line-height: 28px; font-weight: 700;
+      font-size: 14px; margin-right: 10px;
+    }
+    .step-title { font-weight: 600; font-size: 17px; color: #fff; }
+    code {
+      background: #1a1a2e; color: #c8a96e; padding: 2px 7px;
+      border-radius: 4px; font-size: 14px;
+    }
+    pre {
+      background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px;
+      padding: 16px 20px; overflow-x: auto; margin: 12px 0;
+      font-size: 13px; line-height: 1.6; color: #ccc;
+    }
+    .highlight { color: #c8a96e; }
+    .note {
+      background: rgba(200, 169, 110, 0.08); border-left: 3px solid #c8a96e;
+      padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0;
+      font-size: 14px;
+    }
+    hr { border: none; border-top: 1px solid #222; margin: 32px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Integración MailerLite</h1>
+  <p class="subtitle">Conectar el formulario de newsletter de saravrai.com con tu cuenta de MailerLite</p>
+
+  <hr>
+
+  <h2>Datos de tu cuenta</h2>
+  <div class="step">
+    <p><strong>Cuenta MailerLite:</strong> sara@ajra.es (ID: 2170745)</p>
+    <p><strong>Grupo:</strong> Lista de Espera — Sara Vrai</p>
+    <p><strong>Formulario:</strong> Newsletter — Sara Vrai (embebido)</p>
+    <p><strong>Double opt-in:</strong> Activado (los suscriptores recibirán email de confirmación)</p>
+  </div>
+
+  <hr>
+
+  <h2>Instrucciones de implementación</h2>
+
+  <!-- PASO 1 -->
+  <div class="step">
+    <p><span class="step-number">1</span> <span class="step-title">Añade el script universal de MailerLite</span></p>
+    <p>Pega este código justo antes de la etiqueta <code>&lt;/head&gt;</code> de tu web:</p>
+    <pre>&lt;!-- MailerLite Universal --&gt;
+&lt;script&gt;
+    (function(w,d,e,u,f,l,n){
+      w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
+      l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],
+      n.parentNode.insertBefore(l,n);
+    })(window,document,'script',
+      'https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '<span class="highlight">2170745</span>');
+&lt;/script&gt;
+&lt;!-- End MailerLite Universal --&gt;</pre>
+  </div>
+
+  <!-- PASO 2 -->
+  <div class="step">
+    <p><span class="step-number">2</span> <span class="step-title">Añade el script de integración</span></p>
+    <p>Pega esto justo antes de <code>&lt;/body&gt;</code>:</p>
+    <pre>&lt;script src="mailerlite-integration.js"&gt;&lt;/script&gt;</pre>
+    <p>O si prefieres no usar un archivo externo, copia todo el contenido del archivo
+       <code>mailerlite-integration.js</code> dentro de una etiqueta <code>&lt;script&gt;</code>.</p>
+  </div>
+
+  <!-- PASO 3 -->
+  <div class="step">
+    <p><span class="step-number">3</span> <span class="step-title">Verifica que tu formulario tenga las clases correctas</span></p>
+    <p>El script busca estos elementos en tu HTML:</p>
+    <pre>&lt;div class="<span class="highlight">nl-form</span>"&gt;
+  &lt;input class="<span class="highlight">email-input</span>" type="email" placeholder="..."&gt;
+  &lt;button class="<span class="highlight">subscribe-btn</span>"&gt;Suscribirme ahora&lt;/button&gt;
+&lt;/div&gt;</pre>
+    <p>Si tus clases CSS son diferentes, actualiza los selectores al principio del archivo JS.</p>
+  </div>
+
+  <!-- PASO 4 -->
+  <div class="step">
+    <p><span class="step-number">4</span> <span class="step-title">Activa el formulario en MailerLite</span></p>
+    <p>Ve al <a href="https://dashboard.mailerlite.com/forms/181330494966728632/overview" style="color: #c8a96e;">dashboard de MailerLite</a>
+       y asegúrate de que el formulario "Newsletter — Sara Vrai" esté <strong>activo</strong>.</p>
+  </div>
+
+  <hr>
+
+  <h2>Qué pasa cuando alguien se suscribe</h2>
+  <div class="step">
+    <p>1. El visitante escribe su email y pulsa "Suscribirme ahora"</p>
+    <p>2. El script envía el email a MailerLite</p>
+    <p>3. Aparece un mensaje de confirmación en la web</p>
+    <p>4. El suscriptor recibe un email de confirmación (double opt-in)</p>
+    <p>5. Al confirmar, se añade al grupo "Lista de Espera — Sara Vrai"</p>
+  </div>
+
+  <div class="note">
+    <strong>Nota:</strong> El formulario tiene activado el <em>double opt-in</em>,
+    lo que significa que los suscriptores recibirán un email pidiendo que confirmen
+    su suscripción. Esto es una buena práctica para cumplir con GDPR y mantener
+    una lista limpia.
+  </div>
+
+</body>
+</html>
