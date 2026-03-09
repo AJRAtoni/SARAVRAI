@@ -1443,14 +1443,14 @@ document.querySelectorAll('.svc-card').forEach((card, i) => {
   card.style.transitionDelay = `${i * 0.1}s`;
 });
 
-// MailerLite Newsletter Form
+// MailerLite Newsletter Form (API directa)
 (function() {
   const form = document.getElementById('newsletter-form');
   const emailInput = document.getElementById('nl-email');
   const btn = document.getElementById('nl-btn');
   const note = document.getElementById('nl-note');
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const email = emailInput.value.trim();
@@ -1461,39 +1461,38 @@ document.querySelectorAll('.svc-card').forEach((card, i) => {
     note.className = 'form-note';
     note.textContent = 'Sin spam. Cancela cuando quieras.';
 
-    fetch('https://assets.mailerlite.com/jsonp/2170745/forms/181330494966728632/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: 'fields%5Bemail%5D=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
-    })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      if (data.success) {
+    try {
+      const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZjc4NDNlMDIyMTY4OTY5NGZjZDRkNTVhMDcxOGVmNTliOTA3NzlkMDQyZjgwMjhiYzYzNjZkMWM4ZWY5NTRmNjE1ZmZlODE1YTNmZGRkNGQiLCJpYXQiOjE3NzMwNzA0ODMuNTI0NDQ4LCJuYmYiOjE3NzMwNzA0ODMuNTI0NDUsImV4cCI6NDkyODc0NDA4My41MTY3MzMsInN1YiI6IjIxOTAwOTMiLCJzY29wZXMiOltdfQ.RruRSpwxBODs7U1IIhFla7yWqUjlmJ_9JjTjnr_xF-pD-_zIWbPH-mEEST6mmTJkSW1snPU1UJr4INsvulZdx9bDCq5awofK-CC1M_-IyfMAs41sOPj6AnC6hh5MjWHP-WJnuwXIlEJxI3E9i4KAFAVfH7dWHIwo0L6kEMMxqzBPYR63viaC4pPCEPdLamPjIDHudtTJfoD0yKRR94ezAZar2Tnq47aDo0g6I8EV_IDywF6YB9hZr-rRKxw65P6dLqlp3KvCBMkAbYfVSXMPl7AEjpZryT78IwiATLCIODibs6jL7tk9WIoDOqd8FoFzGp9xG3rMZsk_oRVnNAy3V-lPDGQ_SCNXAyrC-2Y9x6QfTttXjmVbrFztCbbomHUd_LGFUqQwh7as7MKC167tZheUs-ifvGSXeDOo2Sb_eDF2EnsB70Zh8sKqrplLNZwOewtisME6ojpUv_oH3gc4-njghCLMWfYYVmeBnufI9iZlHq9qPP705I4n_iFf0yuwCYbnRJcJb7Z_HO902XfGTrwwf6ECdO2VTub4ax1QYnTi7VlJcF8rvTksm18F74-abQJlZm9Wk_6lBmv77pvHskES3Ypf23wM2FCUUgVt-APO_jAvda7CUbBHFOB3dW-4rxx2wGhwfUnA5I-mCqOWwKUxRnm__Ay4NpL8PjZun0E'
+        },
+        body: JSON.stringify({
+          email: email,
+          groups: ['181330492199536147']
+        })
+      });
+
+      if (res.ok) {
         note.textContent = 'Te has suscrito correctamente. ¡Bienvenido/a!';
         note.className = 'form-note success';
         emailInput.value = '';
+        btn.textContent = 'Suscribirme ahora';
       } else {
-        note.textContent = data.msg || 'Hubo un error. Inténtalo de nuevo.';
+        const data = await res.json();
+        note.textContent = data.message || 'Hubo un error. Inténtalo de nuevo.';
         note.className = 'form-note error';
+        btn.textContent = 'Suscribirme ahora';
       }
-    })
-    .catch(function() {
+    } catch (err) {
       note.textContent = 'Error de conexión. Inténtalo de nuevo.';
       note.className = 'form-note error';
-    })
-    .finally(function() {
-      btn.disabled = false;
       btn.textContent = 'Suscribirme ahora';
-    });
+    }
+    btn.disabled = false;
   });
 })();
-</script>
-
-<!-- MailerLite Universal -->
-<script>
-(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-ml('account', '2170745');
-</script>
 <!-- End MailerLite Universal -->
 
 </body>
