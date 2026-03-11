@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doral Fence & Gates – Seguridad y estilo para tu propiedad.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <style>
+    :root { --brand: #198754; --dark: #0a0a0a; }
+    body { font-family: 'Segoe UI', sans-serif; }
+    .hero { background: linear-gradient(135deg, #198754 0%, #0c4f30 100%); color: #fff; padding: 100px 0 80px; }
+    .hero h1 { font-size: 3rem; font-weight: 800; }
+    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-icon { font-size: 2.2rem; color: var(--brand); }
+    #contacto { background: #f8f9fa; }
+    footer { background: var(--dark); color: #aaa; }
+    footer a { color: #fff; text-decoration: none; }
+    .sara-badge { background: #198754; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Doral Fence & Gates</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center">
+  <div class="container">
+    <div class="mb-3"><i class="bi bi-house-fill" style="font-size:3.5rem;opacity:.8"></i></div>
+    <h1>Doral Fence & Gates</h1>
+    <p class="lead mt-3 mb-4 opacity-75">Seguridad y estilo para tu propiedad.</p>
+    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
+    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card service-card h-100 p-4">
+          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
+          <h5 class="fw-bold">Cercas de Aluminio</h5>
+          <p class="text-muted small">Instalación de cercas de aluminio resistentes y elegantes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card service-card h-100 p-4">
+          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
+          <h5 class="fw-bold">Portones Automáticos</h5>
+          <p class="text-muted small">Puertas automáticas con control remoto y acceso seguro.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card service-card h-100 p-4">
+          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h5 class="fw-bold">Cercas de Privacidad</h5>
+          <p class="text-muted small">Madera compuesta y PVC para total privacidad en tu patio.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card service-card h-100 p-4">
+          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
+          <h5 class="fw-bold">Reparación & Mantenimiento</h5>
+          <p class="text-muted small">Servicio rápido de reparación para todo tipo de cercas y portones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
+    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <ul class="list-unstyled fs-6">
+          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#198754"></i><a href="tel:3055550404">(305) 555-0404</a></li>
+          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#198754"></i><a href="mailto:cotiza@doralfence.com">cotiza@doralfence.com</a></li>
+          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#198754"></i>4567 NW 87th Ave, Doral, FL 33178</li>
+        </ul>
+      </div>
+      <div class="col-lg-7">
+        <form>
+          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
+          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
+          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
+          <button class="btn px-5 text-white fw-semibold" style="background:#198754">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-4 text-center">
+  <div class="container">
+    <p class="mb-1">&copy; 2026 Doral Fence & Gates. Todos los derechos reservados.</p>
+    <p class="mb-0 small">
+      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
+      <span class="sara-badge ms-2">$99</span>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
