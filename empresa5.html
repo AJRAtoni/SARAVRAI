@@ -3,126 +3,1278 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>South Beach Yoga & Wellness – Encuentra tu equilibrio a pasos del mar.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>South Beach Yoga &amp; Wellness – Encuentra tu equilibrio a pasos del mar</title>
+  <meta name="description" content="Clases de yoga, meditación y masajes terapéuticos en South Beach. Tu primera clase gratis. 5678 Collins Ave, Miami Beach." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #20c997; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #20c997 0%, #0e7a5c 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #20c997; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #4ade80;
+      --teal: #0d9488;
+      --teal-dark: #0f766e;
+      --teal-deep: #134e4a;
+      --teal-pale: #ccfbf1;
+      --sand: #fef3c7;
+      --sand-mid: #fde68a;
+      --warm-white: #fafaf9;
+      --dark: #1c1917;
+      --dark-mid: #3d3530;
+      --mid: #78716c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--warm-white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ─── MINIMAL STICKY NAVBAR ─── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250,250,249,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(13,148,136,0.1);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .nav-brand em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .nav-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin: 0 0.4rem;
+      vertical-align: middle;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--mid);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); background: rgba(13,148,136,0.06); }
+    .btn-nav-free {
+      background: transparent !important;
+      color: var(--teal) !important;
+      border: 1.5px solid var(--teal) !important;
+      font-weight: 700 !important;
+      padding: 0.45rem 1.1rem !important;
+      border-radius: 100px !important;
+      font-size: 0.83rem !important;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .btn-nav-free:hover { background: var(--teal) !important; color: #fff !important; }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--dark); border-radius: 2px; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(175deg, var(--sand) 0%, rgba(250,250,249,0.6) 55%, var(--teal-pale) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-circle-1 {
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-circle-2 {
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(254,243,199,0.8) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    .hero-ornament {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    .hero-ornament::before,
+    .hero-ornament::after {
+      content: '—';
+      margin: 0 0.7rem;
+      opacity: 0.5;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal);
+      font-weight: 400;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.5;
+      margin-bottom: 3rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-teal-solid {
+      background: var(--teal);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+    .btn-teal-solid:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13,148,136,0.3);
+    }
+    .btn-outline-teal {
+      background: transparent;
+      color: var(--teal-dark);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.83rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1.5px solid var(--teal);
+      transition: background 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-outline-teal:hover { background: var(--teal); color: #fff; }
+
+    /* ─── LAYOUT ─── */
+    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .section-pad { padding: 6rem 0; }
+
+    .section-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+    .section-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--teal);
+      margin: 1.2rem auto 0;
+      opacity: 0.5;
+    }
+    .section-rule-left { margin: 1.2rem 0 0; }
+
+    /* ─── HORARIO DE CLASES — visual schedule grid ─── */
+    .bg-warm { background: var(--warm-white); }
+    .bg-sand { background: var(--sand); }
+    .schedule-legend {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--mid);
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .schedule-table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(13,148,136,0.12);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.04);
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 700px;
+    }
+    .schedule-table th {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--mid);
+      padding: 1rem 0.8rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(13,148,136,0.1);
+      background: #fafaf9;
+    }
+    .schedule-table th:first-child { text-align: left; min-width: 90px; }
+    .schedule-table td {
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      vertical-align: middle;
+      font-size: 0.82rem;
+    }
+    .schedule-table td:first-child {
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-align: left;
+      color: var(--mid);
+      padding-left: 1.2rem;
+      background: #fafaf9;
+      white-space: nowrap;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .class-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 8px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .chip-hatha { background: rgba(74,222,128,0.15); color: #16a34a; }
+    .chip-vinyasa { background: rgba(13,148,136,0.12); color: var(--teal-dark); }
+    .chip-yin { background: rgba(147,51,234,0.1); color: #7c3aed; }
+    .chip-medi { background: rgba(249,115,22,0.1); color: #c2410c; }
+    .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-green { background: #16a34a; }
+    .dot-teal { background: var(--teal); }
+    .dot-purple { background: #7c3aed; }
+    .dot-orange { background: #c2410c; }
+
+    /* ─── SERVICIOS — 4 vertical cards ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      border-radius: 20px;
+      padding: 2.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(13,148,136,0.14);
+    }
+    .svc-card-1 { background: linear-gradient(160deg, #ccfbf1 0%, #a7f3d0 100%); }
+    .svc-card-2 { background: linear-gradient(160deg, #cffafe 0%, #a5f3fc 100%); }
+    .svc-card-3 { background: linear-gradient(160deg, #fef9c3 0%, var(--sand-mid) 100%); }
+    .svc-card-4 { background: linear-gradient(160deg, #ede9fe 0%, #ddd6fe 100%); }
+    .service-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1.4rem;
+      line-height: 1;
+    }
+    .service-card h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.7rem;
+    }
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--dark-mid);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+    .service-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.6);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    /* ─── INSTRUCTORES ─── */
+    .instructors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .instructor-card {
+      background: #fff;
+      border: 1px solid rgba(13,148,136,0.12);
+      border-radius: 20px;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .instructor-card:hover {
+      box-shadow: 0 10px 36px rgba(13,148,136,0.1);
+      transform: translateY(-4px);
+    }
+    .instructor-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.2rem;
+    }
+    .av-1 { background: linear-gradient(135deg, var(--teal-pale), #a7f3d0); }
+    .av-2 { background: linear-gradient(135deg, var(--sand), var(--sand-mid)); }
+    .av-3 { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+    .instructor-card h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+    .instructor-specialty {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      margin-bottom: 0.9rem;
+    }
+    .instructor-bio {
+      font-size: 0.87rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .instructor-exp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.28rem 0.8rem;
+      border-radius: 100px;
+    }
+
+    /* ─── MEMBRESÍAS & PRECIOS ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .pricing-card {
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      border: 1.5px solid transparent;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .pricing-card:hover { transform: translateY(-5px); }
+    .pricing-base {
+      background: #fff;
+      border-color: rgba(13,148,136,0.15);
+    }
+    .pricing-featured {
+      background: var(--teal-deep);
+      border-color: var(--teal);
+      box-shadow: 0 12px 48px rgba(13,148,136,0.25);
+      transform: translateY(-8px);
+    }
+    .pricing-featured:hover { transform: translateY(-13px); }
+    .pricing-accent {
+      background: var(--sand);
+      border-color: rgba(245,158,11,0.35);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pricing-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .pricing-base .pricing-label { color: var(--mid); }
+    .pricing-featured .pricing-label { color: rgba(255,255,255,0.6); }
+    .pricing-accent .pricing-label { color: #a05c00; }
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .pricing-base .pricing-price { color: var(--dark); }
+    .pricing-featured .pricing-price { color: #fff; }
+    .pricing-accent .pricing-price { color: var(--dark); }
+    .pricing-period {
+      font-size: 0.83rem;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-base .pricing-period { color: var(--mid); }
+    .pricing-featured .pricing-period { color: rgba(255,255,255,0.6); }
+    .pricing-accent .pricing-period { color: #a05c00; }
+    .pricing-divider { height: 1px; margin: 0 0 1.5rem; }
+    .pricing-base .pricing-divider { background: rgba(13,148,136,0.1); }
+    .pricing-featured .pricing-divider { background: rgba(255,255,255,0.1); }
+    .pricing-accent .pricing-divider { background: rgba(0,0,0,0.08); }
+    .pricing-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.87rem;
+    }
+    .pricing-base .pricing-feature { color: var(--dark-mid); }
+    .pricing-featured .pricing-feature { color: rgba(255,255,255,0.85); }
+    .pricing-accent .pricing-feature { color: var(--dark-mid); }
+    .pricing-check {
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    .check-teal { color: var(--teal); }
+    .check-white { color: rgba(255,255,255,0.7); }
+    .check-amber { color: #b45309; }
+    .btn-pricing-teal {
+      display: block;
+      background: var(--teal);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .btn-pricing-teal:hover { background: var(--teal-dark); color: #fff; }
+    .btn-pricing-white {
+      display: block;
+      background: #fff;
+      color: var(--teal-deep);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      text-align: center;
+    }
+    .btn-pricing-white:hover { opacity: 0.88; color: var(--teal-deep); }
+    .btn-pricing-amber {
+      display: block;
+      background: #d97706;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .btn-pricing-amber:hover { background: #b45309; color: #fff; }
+
+    /* ─── TESTIMONIOS ─── */
+    .testimonials-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testi-quote {
+      padding: 3rem;
+      border-radius: 24px;
+      position: relative;
+    }
+    .testi-quote-1 { background: var(--teal-pale); }
+    .testi-quote-2 { background: var(--sand); }
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 0.5;
+      color: var(--teal);
+      opacity: 0.25;
+      position: absolute;
+      top: 2rem;
+      left: 2.5rem;
+    }
+    .testi-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
+      padding-top: 1rem;
+    }
+    .testi-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .testi-monogram {
+      width: 44px;
+      height: 44px;
+      background: var(--teal);
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+    .testi-detail { font-size: 0.78rem; color: var(--mid); }
+
+    /* ─── VISÍTANOS ─── */
+    .visit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .visit-info { }
+    .visit-info h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+    .visit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(13,148,136,0.1);
+    }
+    .visit-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .visit-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--teal-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .visit-text strong {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--teal-dark);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .visit-text a { color: var(--dark); font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+    .visit-text a:hover { color: var(--teal); }
+    .visit-text span { color: var(--dark); font-size: 0.9rem; font-weight: 500; }
+    .hours-block {
+      background: var(--teal-pale);
+      border-radius: 16px;
+      padding: 1.8rem;
+    }
+    .hours-block h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--teal-deep);
+      margin-bottom: 1rem;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(13,148,136,0.12);
+      font-size: 0.87rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { font-weight: 600; color: var(--dark-mid); }
+    .hours-time { font-weight: 700; color: var(--teal-dark); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--dark);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .footer-brand em { font-style: italic; color: var(--sage); }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.45);
+      margin: 0.4rem 0 1.5rem;
+    }
+    .footer-contact-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-contact-links a {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .footer-contact-links a:hover { color: var(--sage); }
+    .footer-col-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+      opacity: 0.7;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-divider { border-color: rgba(255,255,255,0.07); margin: 0 0 1.5rem; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .footer-copy { font-size: 0.77rem; color: rgba(255,255,255,0.28); }
+    .sara-credit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .sara-credit a { color: var(--sage); font-weight: 700; text-decoration: none; }
+    .sara-pill {
+      background: var(--teal);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.67rem;
+      border-radius: 100px;
+      padding: 0.1rem 0.5rem;
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 62px;
+      height: 62px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      animation: wapulse 2.5s infinite;
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); animation: none; }
+    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+    @keyframes wapulse {
+      0%   { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4); }
+      60%  { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 15px rgba(37,211,102,0); }
+      100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .instructors-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .pricing-featured { transform: none; }
+      .testimonials-pair { grid-template-columns: 1fr; }
+      .visit-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: rgba(250,250,249,0.98); border-top: 1px solid rgba(13,148,136,0.1); padding: 0.75rem 1.5rem; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .instructors-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .hero h1 { font-size: 2.8rem; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">South Beach Yoga & Wellness</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">South Beach <span class="nav-dot"></span><em>Yoga &amp; Wellness</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#horario">Horario</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#instructores">Instructores</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#visita">Visítanos</a></li>
+      <li><a href="#precios" class="btn-nav-free">Primera Clase Gratis</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
     </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-person-hearts" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>South Beach Yoga & Wellness</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Encuentra tu equilibrio a pasos del mar.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
+<section class="hero">
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-content">
+    <span class="hero-ornament">Miami Beach</span>
+    <h1>Encuentra tu <em>equilibrio</em><br>a pasos del mar.</h1>
+    <p class="hero-tagline">"Respira. Muévete. Sana. El océano te espera."</p>
+    <div class="hero-ctas">
+      <a href="#precios" class="btn-teal-solid">🌿 Primera Clase Gratis</a>
+      <a href="#horario" class="btn-outline-teal">Ver Horarios</a>
+    </div>
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
+<!-- HORARIO DE CLASES -->
+<section class="section-pad bg-warm" id="horario">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Semana a semana</span>
+      <h2 class="section-title">Horario de <em>Clases</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="schedule-legend" style="margin-top:2rem;">
+      <div class="legend-item"><span class="legend-dot dot-green"></span>Hatha Yoga</div>
+      <div class="legend-item"><span class="legend-dot dot-teal"></span>Vinyasa Flow</div>
+      <div class="legend-item"><span class="legend-dot dot-purple"></span>Yin Yoga</div>
+      <div class="legend-item"><span class="legend-dot dot-orange"></span>Meditación</div>
+    </div>
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miér.</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sáb.</th>
+            <th>Dom.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7:00 am</td>
+            <td><span class="class-chip chip-hatha"><span class="chip-dot dot-green"></span>Hatha</span></td>
+            <td>—</td>
+            <td><span class="class-chip chip-hatha"><span class="chip-dot dot-green"></span>Hatha</span></td>
+            <td>—</td>
+            <td><span class="class-chip chip-hatha"><span class="chip-dot dot-green"></span>Hatha</span></td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>9:00 am</td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td><span class="class-chip chip-medi"><span class="chip-dot dot-orange"></span>Meditación</span></td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td><span class="class-chip chip-medi"><span class="chip-dot dot-orange"></span>Meditación</span></td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td><span class="class-chip chip-hatha"><span class="chip-dot dot-green"></span>Hatha</span></td>
+            <td><span class="class-chip chip-yin"><span class="chip-dot dot-purple"></span>Yin</span></td>
+          </tr>
+          <tr>
+            <td>12:00 pm</td>
+            <td>—</td>
+            <td><span class="class-chip chip-hatha"><span class="chip-dot dot-green"></span>Hatha</span></td>
+            <td>—</td>
+            <td><span class="class-chip chip-yin"><span class="chip-dot dot-purple"></span>Yin</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="class-chip chip-medi"><span class="chip-dot dot-orange"></span>Meditación</span></td>
+          </tr>
+          <tr>
+            <td>6:00 pm</td>
+            <td><span class="class-chip chip-yin"><span class="chip-dot dot-purple"></span>Yin</span></td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td><span class="class-chip chip-medi"><span class="chip-dot dot-orange"></span>Meditación</span></td>
+            <td><span class="class-chip chip-vinyasa"><span class="chip-dot dot-teal"></span>Vinyasa</span></td>
+            <td><span class="class-chip chip-yin"><span class="chip-dot dot-purple"></span>Yin</span></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Clases de Yoga</h5>
-          <p class="text-muted small">Sesiones diarias de Hatha, Vinyasa y Yin Yoga para todos los niveles.</p>
+<!-- NUESTROS SERVICIOS -->
+<section class="section-pad bg-sand" id="servicios">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Para tu bienestar</span>
+      <h2 class="section-title">Nuestros <em>Servicios</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card svc-card-1">
+        <div class="service-icon">🧘</div>
+        <h4>Clases de Yoga</h4>
+        <p>Hatha, Vinyasa, Yin y más estilos para todos los niveles. Clases pequeñas con atención personalizada y vista al mar.</p>
+        <span class="service-tag">Todos los niveles</span>
+      </div>
+      <div class="service-card svc-card-2">
+        <div class="service-icon">🧠</div>
+        <h4>Meditación &amp; Mindfulness</h4>
+        <p>Técnicas de respiración, meditación guiada y mindfulness para reducir el estrés y conectar con tu centro interno.</p>
+        <span class="service-tag">Sesiones diarias</span>
+      </div>
+      <div class="service-card svc-card-3">
+        <div class="service-icon">💆</div>
+        <h4>Masajes Terapéuticos</h4>
+        <p>Masajes de tejido profundo, sueco y ayurvédico realizados por terapeutas certificados. Recuperación y relajación total.</p>
+        <span class="service-tag">Con cita previa</span>
+      </div>
+      <div class="service-card svc-card-4">
+        <div class="service-icon">🌊</div>
+        <h4>Retiros de Fin de Semana</h4>
+        <p>Retiros completos de 2 días con yoga al amanecer, meditación, alimentación consciente y actividades junto al mar.</p>
+        <span class="service-tag">Plazas limitadas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTORES -->
+<section class="section-pad bg-warm" id="instructores">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Nuestro equipo</span>
+      <h2 class="section-title">Conoce a Nuestros <em>Instructores</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="instructors-grid">
+      <div class="instructor-card">
+        <div class="instructor-avatar av-1">🧘</div>
+        <h4>Sofia Marín</h4>
+        <div class="instructor-specialty">Hatha · Vinyasa</div>
+        <p class="instructor-bio">Certificada en la tradición Sivananda y en Vinyasa Krama. Sofia estudió en India y lleva la sabiduría del yoga clásico a cada clase con calidez y precisión técnica.</p>
+        <span class="instructor-exp">✦ 12 años de experiencia</span>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-avatar av-2">🌿</div>
+        <h4>Marco Reyes</h4>
+        <div class="instructor-specialty">Yin · Meditación</div>
+        <p class="instructor-bio">Especialista en Yin Yoga y meditación mindfulness. Marco combina técnicas orientales con neurociencia moderna para una práctica transformadora y accesible.</p>
+        <span class="instructor-exp">✦ 9 años de experiencia</span>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-avatar av-3">💜</div>
+        <h4>Camila Torres</h4>
+        <div class="instructor-specialty">Masajes Terapéuticos</div>
+        <p class="instructor-bio">Terapeuta licenciada con formación en masaje sueco, tejido profundo y técnicas ayurvédicas. Su enfoque holístico combina cuerpo, mente y energía.</p>
+        <span class="instructor-exp">✦ 7 años de experiencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBRESÍAS & PRECIOS -->
+<section class="section-pad bg-sand" id="precios">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Planes flexibles</span>
+      <h2 class="section-title">Membresías &amp; <em>Precios</em></h2>
+      <div class="section-rule"></div>
+      <p style="margin-top:1.2rem; font-size:0.9rem; color:var(--mid);">Tu primera clase siempre es gratis. Sin compromisos.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card pricing-base">
+        <div class="pricing-label">Drop-in</div>
+        <div class="pricing-price">$22</div>
+        <div class="pricing-period">por clase</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check check-teal">✓</span>Acceso a cualquier clase</div>
+          <div class="pricing-feature"><span class="pricing-check check-teal">✓</span>Sin reserva anticipada</div>
+          <div class="pricing-feature"><span class="pricing-check check-teal">✓</span>Mat y accesorios incluidos</div>
+        </div>
+        <a href="#visita" class="btn-pricing-teal">Reservar Clase</a>
+      </div>
+      <div class="pricing-card pricing-featured">
+        <div class="pricing-badge">Más popular</div>
+        <div class="pricing-label">Mensual Ilimitado</div>
+        <div class="pricing-price">$85</div>
+        <div class="pricing-period">por mes · acceso ilimitado</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check check-white">✓</span>Clases ilimitadas al mes</div>
+          <div class="pricing-feature"><span class="pricing-check check-white">✓</span>Reserva anticipada prioritaria</div>
+          <div class="pricing-feature"><span class="pricing-check check-white">✓</span>10% descuento en masajes</div>
+          <div class="pricing-feature"><span class="pricing-check check-white">✓</span>Acceso a clases especiales</div>
+          <div class="pricing-feature"><span class="pricing-check check-white">✓</span>Mat guardado en el estudio</div>
+        </div>
+        <a href="#visita" class="btn-pricing-white">Comenzar ahora</a>
+      </div>
+      <div class="pricing-card pricing-accent">
+        <div class="pricing-label">Retiro Weekend</div>
+        <div class="pricing-price">$249</div>
+        <div class="pricing-period">por retiro de 2 días</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check check-amber">✓</span>Yoga al amanecer en la playa</div>
+          <div class="pricing-feature"><span class="pricing-check check-amber">✓</span>Sesiones de meditación</div>
+          <div class="pricing-feature"><span class="pricing-check check-amber">✓</span>1 masaje terapéutico incluido</div>
+          <div class="pricing-feature"><span class="pricing-check check-amber">✓</span>Alimentación consciente</div>
+        </div>
+        <a href="#visita" class="btn-pricing-amber">Reservar Retiro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE DICEN -->
+<section class="section-pad bg-warm">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Voces reales</span>
+      <h2 class="section-title"><em>Lo Que Dicen</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="testimonials-pair">
+      <div class="testi-quote testi-quote-1">
+        <div class="quote-mark">"</div>
+        <blockquote>"South Beach Yoga cambió mi vida. Empecé sin saber doblarme y ahora no puedo imaginar mi semana sin las clases con Sofia. El estudio tiene una energía especial que te abraza desde que entras."</blockquote>
+        <div class="testi-footer">
+          <div class="testi-monogram">V</div>
+          <div>
+            <div class="testi-name">Valentina Cruz</div>
+            <div class="testi-detail">Miembro desde hace 2 años · Vinyasa</div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Meditación & Mindfulness</h5>
-          <p class="text-muted small">Programas guiados para reducir el estrés y mejorar el enfoque.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Masajes Terapéuticos</h5>
-          <p class="text-muted small">Masajes de tejido profundo, sueco y prenatal por terapeutas certificados.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Retiros de Fin de Semana</h5>
-          <p class="text-muted small">Experiencias inmersivas de bienestar en South Beach.</p>
+      <div class="testi-quote testi-quote-2">
+        <div class="quote-mark" style="color:#b45309;">"</div>
+        <blockquote>"El retiro de fin de semana fue lo mejor que hice en mucho tiempo. El masaje de Camila más las meditaciones de Marco crearon una experiencia que sigo recordando meses después."</blockquote>
+        <div class="testi-footer">
+          <div class="testi-monogram" style="background:#d97706;">A</div>
+          <div>
+            <div class="testi-name">Andrés Fuentes</div>
+            <div class="testi-detail">Retiro de fin de semana · Yin Yoga</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#20c997"></i><a href="tel:3055550505">(305) 555-0505</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#20c997"></i><a href="mailto:hola@sbywellness.com">hola@sbywellness.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#20c997"></i>5678 Collins Ave, Miami Beach, FL 33140</li>
-        </ul>
+<!-- VISÍTANOS -->
+<section class="section-pad bg-sand" id="visita">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-label">Encuéntranos</span>
+      <h2 class="section-title"><em>Visítanos</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="visit-layout">
+      <div class="visit-info">
+        <h3>Estamos aquí para ti</h3>
+        <div class="visit-item">
+          <div class="visit-icon">📍</div>
+          <div class="visit-text">
+            <strong>Dirección</strong>
+            <span>5678 Collins Ave, Miami Beach, FL 33140</span>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">📞</div>
+          <div class="visit-text">
+            <strong>Teléfono</strong>
+            <a href="tel:3055550505">(305) 555-0505</a>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">✉️</div>
+          <div class="visit-text">
+            <strong>Email</strong>
+            <a href="mailto:hola@sbywellness.com">hola@sbywellness.com</a>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">🅿️</div>
+          <div class="visit-text">
+            <strong>Estacionamiento</strong>
+            <span>Estacionamiento gratuito para miembros en Collins Ave</span>
+          </div>
+        </div>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="tel:3055550505" class="btn-teal-solid">📞 Llamar ahora</a>
+          <a href="https://wa.me/13055550505" target="_blank" rel="noopener" class="btn-outline-teal" style="color:var(--teal-dark);">💬 WhatsApp</a>
+        </div>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#20c997">Enviar mensaje</button>
-        </form>
+      <div class="hours-block">
+        <h4>Horario del estudio</h4>
+        <div class="hours-row">
+          <span class="hours-day">Lunes – Viernes</span>
+          <span class="hours-time">6:30 am – 8:30 pm</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sábado</span>
+          <span class="hours-time">7:00 am – 6:00 pm</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Domingo</span>
+          <span class="hours-time">8:00 am – 4:00 pm</span>
+        </div>
+        <div style="margin-top:1.5rem; padding:1rem; background:rgba(13,148,136,0.08); border-radius:10px; font-size:0.85rem; color:var(--teal-deep); line-height:1.6;">
+          <strong>🌅 Clases al amanecer</strong><br>
+          Cada sábado a las 6:30 am tenemos una clase especial de Hatha en la terraza con vista al océano. ¡Completamente gratis para miembros!
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 South Beach Yoga & Wellness. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+<footer class="footer">
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">South Beach <em>Yoga &amp; Wellness</em></div>
+        <div class="footer-tagline">Encuentra tu equilibrio a pasos del mar.</div>
+        <div class="footer-contact-links">
+          <a href="tel:3055550505">📞 (305) 555-0505</a>
+          <a href="mailto:hola@sbywellness.com">✉️ hola@sbywellness.com</a>
+          <a href="#">📍 5678 Collins Ave, Miami Beach, FL 33140</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Explorar</div>
+        <div class="footer-links">
+          <a href="#horario">Horario de clases</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#instructores">Instructores</a>
+          <a href="#precios">Precios</a>
+          <a href="#visita">Visítanos</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-label">Servicios</div>
+        <div class="footer-links">
+          <a href="#servicios">Clases de Yoga</a>
+          <a href="#servicios">Meditación &amp; Mindfulness</a>
+          <a href="#servicios">Masajes Terapéuticos</a>
+          <a href="#servicios">Retiros de Fin de Semana</a>
+          <a href="#precios">Primera Clase Gratis</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 South Beach Yoga &amp; Wellness · 5678 Collins Ave, Miami Beach, FL 33140</span>
+      <span class="sara-credit">
+        Sitio web por <a href="https://saravrai.com" target="_blank" rel="noopener">Sara Vrai</a>
+        <span class="sara-pill">$99</span>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- WHATSAPP -->
+<a href="https://wa.me/13055550505" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle) {
+    toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
 </body>
 </html>

@@ -3,126 +3,1130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aventura Pet Grooming – Tu mascota, feliz y hermosa.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Aventura Pet Grooming — Tu mascota, feliz y hermosa.</title>
+  <meta name="description" content="Grooming profesional para perros y gatos en Aventura, Miami. Productos naturales, personal certificado, servicio a domicilio. Reserva tu cita hoy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #fd7e14; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #fd7e14 0%, #a04800 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #fd7e14; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    /* ══════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #1c1917;
+      background: #fffbeb;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       TOP PROMO BANNER
+    ══════════════════════════════════════ */
+    .promo-banner {
+      background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+      color: #fff;
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .promo-banner a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); margin-left: 0.5rem; }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    .navbar {
+      background: #fff;
+      border-bottom: 2px solid #fef3c7;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+    }
+    .nav-brand {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #f59e0b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+    }
+    .brand-paw { font-size: 1.4rem; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #78350f;
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { background: #fef3c7; color: #f59e0b; }
+    .btn-nav-book {
+      background: #f59e0b !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      border-radius: 50px !important;
+      padding: 0.45rem 1.2rem !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .btn-nav-book:hover { background: #d97706 !important; transform: translateY(-1px) !important; }
+    .nav-burger {
+      display: none;
+      background: none;
+      border: 2px solid #fde68a;
+      border-radius: 50px;
+      padding: 0.4rem 0.7rem;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-burger span { display: block; width: 20px; height: 2px; background: #f59e0b; border-radius: 2px; }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background: linear-gradient(145deg, #f59e0b 0%, #f97316 60%, #ea580c 100%);
+      padding: 5.5rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-blob1 {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-blob2 {
+      position: absolute;
+      bottom: -100px; left: -60px;
+      width: 250px; height: 250px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .hero-loc {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.3rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2.2rem;
+    }
+    .hero-ctas { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; }
+    .btn-white-orange {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #fff;
+      color: #d97706;
+      font-weight: 800;
+      font-size: 0.96rem;
+      padding: 0.82rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    }
+    .btn-white-orange:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); color: #d97706; }
+    .btn-ghost-white {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: transparent;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.96rem;
+      padding: 0.82rem 1.8rem;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    .hero-trust {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+    }
+    .trust-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+    .trust-lbl { font-size: 0.76rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+    /* ══════════════════════════════════════
+       SECTION COMMON
+    ══════════════════════════════════════ */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .eyebrow {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f59e0b;
+      margin-bottom: 0.5rem;
+    }
+    .sec-h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 900;
+      color: #1c1917;
+      letter-spacing: -0.025em;
+      line-height: 1.18;
+      margin-bottom: 0.5rem;
+    }
+    .sec-p { font-size: 1rem; color: #78350f; margin-bottom: 0; }
+
+    /* ══════════════════════════════════════
+       PET TYPE TABS
+    ══════════════════════════════════════ */
+    .pets-section {
+      background: #fff;
+      padding: 5.5rem 0;
+    }
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      background: #fef3c7;
+      padding: 6px;
+      border-radius: 50px;
+      width: fit-content;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #92400e;
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .tab-btn.active {
+      background: #f59e0b;
+      color: #fff;
+      box-shadow: 0 3px 12px rgba(245,158,11,0.35);
+    }
+    .tab-btn:hover:not(.active) { background: rgba(245,158,11,0.12); color: #f59e0b; }
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .pet-pkg-card {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .pet-pkg-card:hover {
+      box-shadow: 0 12px 32px rgba(245,158,11,0.15);
+      transform: translateY(-4px);
+      border-color: #f59e0b;
+    }
+    .pet-pkg-card.featured {
+      background: #f59e0b;
+      border-color: #f59e0b;
+      color: #fff;
+    }
+    .pkg-em { font-size: 2.2rem; display: block; margin-bottom: 0.7rem; }
+    .pkg-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 0.2rem;
+    }
+    .pet-pkg-card.featured .pkg-title { color: #fff; }
+    .pkg-price-tag {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #f59e0b;
+      margin-bottom: 0.7rem;
+    }
+    .pet-pkg-card.featured .pkg-price-tag { color: #fff3c4; }
+    .pkg-ul { list-style: none; padding: 0; }
+    .pkg-ul li {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #78350f;
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .pet-pkg-card.featured .pkg-ul li { color: rgba(255,255,255,0.9); }
+    .pkg-ul li::before { content: '🐾'; font-size: 0.7rem; }
+
+    /* ══════════════════════════════════════
+       SERVICES CARDS
+    ══════════════════════════════════════ */
+    .services-section {
+      background: #fffbeb;
+      padding: 5.5rem 0;
+    }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    .svc-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.6rem;
+      border: 1.5px solid #fde68a;
+      text-align: center;
+      transition: box-shadow 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card:hover { box-shadow: 0 16px 40px rgba(245,158,11,0.15); transform: translateY(-5px); }
+    .svc-emoji { font-size: 2.6rem; margin-bottom: 0.8rem; display: block; }
+    .svc-card h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1c1917;
+      margin-bottom: 0.4rem;
+    }
+    .svc-card p {
+      font-size: 0.84rem;
+      color: #78350f;
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .price-pill {
+      display: inline-block;
+      background: #fef3c7;
+      color: #d97706;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+    }
+
+    /* ══════════════════════════════════════
+       WHY US — FEATURE BOXES
+    ══════════════════════════════════════ */
+    .why-section {
+      background: #fff7ed;
+      padding: 5.5rem 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .why-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1.5px solid #fed7aa;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .why-box:hover { box-shadow: 0 12px 32px rgba(249,115,22,0.12); transform: translateY(-3px); }
+    .why-emoji { font-size: 2.8rem; margin-bottom: 0.8rem; display: block; }
+    .why-box h4 {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #1c1917;
+      margin-bottom: 0.4rem;
+    }
+    .why-box p {
+      font-size: 0.83rem;
+      color: #92400e;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════ */
+    .gallery-section {
+      background: #fff;
+      padding: 5.5rem 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .gallery-cell {
+      background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
+      border-radius: 16px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 3.5rem;
+      transition: transform 0.25s;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-cell:hover { transform: scale(1.03); }
+    .gallery-cell:nth-child(1) { --c1: #fbbf24; --c2: #f59e0b; }
+    .gallery-cell:nth-child(2) { --c1: #fb923c; --c2: #f97316; }
+    .gallery-cell:nth-child(3) { --c1: #f87171; --c2: #ef4444; }
+    .gallery-cell:nth-child(4) { --c1: #34d399; --c2: #10b981; }
+    .gallery-cell:nth-child(5) { --c1: #60a5fa; --c2: #3b82f6; }
+    .gallery-cell:nth-child(6) { --c1: #a78bfa; --c2: #8b5cf6; }
+    .gallery-label {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    /* ══════════════════════════════════════
+       BOOKING FORM
+    ══════════════════════════════════════ */
+    .booking-section {
+      background: #fffbeb;
+      padding: 5.5rem 0;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .booking-form-card {
+      background: #fff;
+      border: 1.5px solid #fde68a;
+      border-radius: 24px;
+      padding: 2.4rem 2.2rem;
+    }
+    .booking-form-card h3 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #1c1917;
+      margin-bottom: 0.3rem;
+    }
+    .bf-sub { font-size: 0.86rem; color: #78350f; margin-bottom: 1.8rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .fg { margin-bottom: 1rem; }
+    .fl {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #78350f;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .fc {
+      width: 100%;
+      border: 1.5px solid #fde68a;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #1c1917;
+      background: #fffbeb;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .fc:focus {
+      outline: none;
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 3px rgba(245,158,11,0.15);
+      background: #fff;
+    }
+    textarea.fc { resize: vertical; min-height: 90px; }
+    .pet-type-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .pet-type-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #78350f;
+    }
+    .pet-type-label input[type="radio"] {
+      accent-color: #f59e0b;
+      width: 16px; height: 16px;
+    }
+    .btn-book {
+      width: 100%;
+      background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 0.88rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+    }
+    .btn-book:hover { opacity: 0.92; transform: translateY(-2px); }
+    .contact-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-card-pet {
+      background: #fff;
+      border-radius: 18px;
+      border: 1.5px solid #fde68a;
+      padding: 1.6rem 1.5rem;
+    }
+    .contact-card-pet h4 {
+      font-size: 0.96rem;
+      font-weight: 900;
+      color: #1c1917;
+      margin-bottom: 1rem;
+    }
+    .ct-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 0.9rem;
+      font-size: 0.87rem;
+      color: #78350f;
+    }
+    .ct-icon {
+      width: 34px; height: 34px;
+      background: #fef3c7;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .ct-lbl { font-size: 0.7rem; font-weight: 800; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.06em; }
+    .ct-val { font-size: 0.87rem; color: #78350f; font-weight: 600; }
+    .ct-val a { color: #d97706; }
+    .hours-card {
+      background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+      border-radius: 18px;
+      padding: 1.6rem 1.5rem;
+      color: #fff;
+    }
+    .hours-card h4 {
+      font-size: 0.96rem;
+      font-weight: 900;
+      margin-bottom: 0.8rem;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:first-child { color: rgba(255,255,255,0.8); }
+    .hours-row span:last-child { font-weight: 700; color: #fff; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: #1c0a00;
+      color: rgba(255,255,255,0.55);
+      padding: 2.8rem 0 1.4rem;
+      text-align: center;
+    }
+    .footer-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-brand-name { font-size: 1.2rem; font-weight: 900; color: #f59e0b; }
+    .footer-tag { font-size: 0.83rem; color: rgba(255,255,255,0.35); margin: 0.2rem 0 1.2rem; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 1.4rem;
+    }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-links a:hover { color: #f59e0b; }
+    .sara-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: #f59e0b;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 0.28rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+    }
+    .copy { font-size: 0.76rem; color: rgba(255,255,255,0.25); }
+
+    /* WhatsApp */
+    .wa-float {
+      position: fixed;
+      bottom: 26px; right: 26px;
+      z-index: 9999;
+      width: 60px; height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 22px rgba(37,211,102,0.45);
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 22px rgba(37,211,102,0.45); }
+      50%       { box-shadow: 0 4px 38px rgba(37,211,102,0.8), 0 0 0 10px rgba(37,211,102,0.1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .tab-content.active { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .booking-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 66px; left: 0; right: 0;
+        background: #fff;
+        border-top: 1px solid #fef3c7;
+        border-bottom: 2px solid #fef3c7;
+        padding: 1rem 1.5rem;
+        gap: 0.2rem;
+        z-index: 999;
+      }
+      .hero { padding: 4rem 1.2rem 3.5rem; }
+      .hero-trust { gap: 1.3rem; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .tab-content.active { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
 
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  🐾 ¡Nuevos clientes: 15% de descuento en tu primera visita! <a href="#reserva">Reservar ahora →</a>
+</div>
+
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Aventura Pet Grooming</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar" id="top">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">
+      <span class="brand-paw">🐾</span> Aventura Pet Grooming
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
     </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#mascotas">Mascotas</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#reserva" class="btn-nav-book">🐶 Reservar Cita</a></li>
+    </ul>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-emoji-smile-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Aventura Pet Grooming</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Tu mascota, feliz y hermosa.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Baño & Corte</h5>
-          <p class="text-muted small">Servicio completo de higiene con productos naturales e hipoalergénicos.</p>
-        </div>
+<section class="hero" id="inicio">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-loc">📍 Aventura, Miami, FL</div>
+    <h1>Tu Mascota,<br>Feliz y Hermosa. 🐾</h1>
+    <p class="hero-sub">Grooming profesional con productos naturales y mucho amor.</p>
+    <div class="hero-ctas">
+      <a href="#reserva" class="btn-white-orange">📅 Reservar mi cita</a>
+      <a href="tel:3055550909" class="btn-ghost-white">📞 (305) 555-0909</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-num">500+</div>
+        <div class="trust-lbl">Mascotas felices</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Grooming Spa</h5>
-          <p class="text-muted small">Tratamiento premium con mascarilla, aromaterapia y bandana.</p>
-        </div>
+      <div class="trust-item">
+        <div class="trust-num">5 ★</div>
+        <div class="trust-lbl">Calificación promedio</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Corte de Uñas & Limpieza Dental</h5>
-          <p class="text-muted small">Mantenimiento esencial para la salud de tu mascota.</p>
-        </div>
+      <div class="trust-item">
+        <div class="trust-num">100%</div>
+        <div class="trust-lbl">Productos naturales</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Servicio a Domicilio</h5>
-          <p class="text-muted small">Grooming profesional en la comodidad de tu hogar.</p>
-        </div>
+      <div class="trust-item">
+        <div class="trust-num">🏠</div>
+        <div class="trust-lbl">Servicio a domicilio</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#fd7e14"></i><a href="tel:3055550909">(305) 555-0909</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#fd7e14"></i><a href="mailto:citas@aventurapets.com">citas@aventurapets.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#fd7e14"></i>9012 Biscayne Blvd, Aventura, FL 33160</li>
+<!-- PET TYPE TABS -->
+<section class="pets-section" id="mascotas">
+  <div class="wrap">
+    <div style="margin-bottom: 2.5rem;">
+      <span class="eyebrow">Servicios por tipo</span>
+      <h2 class="sec-h2">¿Qué Tipo de Mascota?</h2>
+      <p class="sec-p">Elige tu mascota y descubre los paquetes disponibles.</p>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="perros">🐕 Perros</button>
+      <button class="tab-btn" data-tab="gatos">🐈 Gatos</button>
+      <button class="tab-btn" data-tab="otros">🐇 Otros</button>
+    </div>
+    <div class="tab-content active" id="tab-perros">
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🛁</span>
+        <div class="pkg-title">Baño Básico</div>
+        <div class="pkg-price-tag">$35</div>
+        <ul class="pkg-ul">
+          <li>Baño con shampoo natural</li>
+          <li>Secado profesional</li>
+          <li>Cepillado básico</li>
+          <li>Perfume hipoalergénico</li>
         </ul>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#fd7e14">Enviar mensaje</button>
+      <div class="pet-pkg-card featured">
+        <span class="pkg-em">✂️</span>
+        <div class="pkg-title">Baño & Corte Completo</div>
+        <div class="pkg-price-tag">$55</div>
+        <ul class="pkg-ul">
+          <li>Baño con shampoo premium</li>
+          <li>Corte personalizado</li>
+          <li>Corte de uñas incluido</li>
+          <li>Limpieza de orejas</li>
+          <li>Bandana de regalo</li>
+        </ul>
+      </div>
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🌟</span>
+        <div class="pkg-title">Spa Premium</div>
+        <div class="pkg-price-tag">$75</div>
+        <ul class="pkg-ul">
+          <li>Todo lo del corte completo</li>
+          <li>Mascarilla hidratante</li>
+          <li>Aromaterapia de lavanda</li>
+          <li>Limpieza dental</li>
+          <li>Foto de recuerdo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-gatos">
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🛁</span>
+        <div class="pkg-title">Baño para Gatos</div>
+        <div class="pkg-price-tag">$40</div>
+        <ul class="pkg-ul">
+          <li>Baño calmante especializado</li>
+          <li>Secado suave</li>
+          <li>Cepillado anti-pelusa</li>
+          <li>Ambiente de bajo estrés</li>
+        </ul>
+      </div>
+      <div class="pet-pkg-card featured">
+        <span class="pkg-em">✂️</span>
+        <div class="pkg-title">Grooming Felino</div>
+        <div class="pkg-price-tag">$60</div>
+        <ul class="pkg-ul">
+          <li>Baño + corte Lion Cut</li>
+          <li>Deslanado especializado</li>
+          <li>Corte de uñas</li>
+          <li>Limpieza de orejas</li>
+          <li>Técnicos certificados</li>
+        </ul>
+      </div>
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🌟</span>
+        <div class="pkg-title">Spa Felino</div>
+        <div class="pkg-price-tag">$80</div>
+        <ul class="pkg-ul">
+          <li>Grooming completo</li>
+          <li>Tratamiento hidratante</li>
+          <li>Limpieza dental suave</li>
+          <li>Masaje relajante</li>
+          <li>Bandana especial</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-otros">
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🐇</span>
+        <div class="pkg-title">Conejos</div>
+        <div class="pkg-price-tag">$30</div>
+        <ul class="pkg-ul">
+          <li>Cepillado suave</li>
+          <li>Corte de uñas</li>
+          <li>Revisión de piel</li>
+          <li>Limpieza de área</li>
+        </ul>
+      </div>
+      <div class="pet-pkg-card featured">
+        <span class="pkg-em">🦜</span>
+        <div class="pkg-title">Aves pequeñas</div>
+        <div class="pkg-price-tag">$25</div>
+        <ul class="pkg-ul">
+          <li>Corte de pico y uñas</li>
+          <li>Revisión de plumaje</li>
+          <li>Baño suave</li>
+          <li>Personal especializado</li>
+        </ul>
+      </div>
+      <div class="pet-pkg-card">
+        <span class="pkg-em">🐹</span>
+        <div class="pkg-title">Roedores & Otros</div>
+        <div class="pkg-price-tag">Consultar</div>
+        <ul class="pkg-ul">
+          <li>Atención personalizada</li>
+          <li>Técnicos certificados</li>
+          <li>Ambiente seguro</li>
+          <li>Llama para cotizar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS CARDS -->
+<section class="services-section" id="servicios">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="eyebrow">Todos los servicios</span>
+      <h2 class="sec-h2">Nuestros Servicios</h2>
+      <p class="sec-p">Todo lo que tu mascota necesita en un solo lugar.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-emoji">🛁</span>
+        <h4>Baño & Corte</h4>
+        <p>Servicio completo con productos naturales hipoalergénicos. Para todas las razas y tamaños.</p>
+        <span class="price-pill">Desde $35</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">💆</span>
+        <h4>Grooming Spa</h4>
+        <p>Experiencia de spa completa: mascarilla, aromaterapia, masaje relajante y bandana de regalo.</p>
+        <span class="price-pill">Desde $55</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">✂️</span>
+        <h4>Uñas & Limpieza Dental</h4>
+        <p>Servicio de mantenimiento esencial para la salud y bienestar de tu compañero peludo.</p>
+        <span class="price-pill">Desde $20</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🏠</span>
+        <h4>Servicio a Domicilio</h4>
+        <p>El groomer llega a tu casa. Sin traslados, sin estrés. Disponible en toda Aventura.</p>
+        <span class="price-pill">Desde $65</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="porqué">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2 class="sec-h2">¿Por Qué Elegirnos?</h2>
+      <p class="sec-p">Somos más que un grooming — somos el lugar favorito de tu mascota.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-box">
+        <span class="why-emoji">🌿</span>
+        <h4>Productos Naturales</h4>
+        <p>Shampoos y tratamientos sin parabenos, sulfatos ni químicos agresivos. Seguros para la piel.</p>
+      </div>
+      <div class="why-box">
+        <span class="why-emoji">🧘</span>
+        <h4>Ambiente Calmante</h4>
+        <p>Música suave, aromaterapia y espacio diseñado para reducir la ansiedad en mascotas nerviosas.</p>
+      </div>
+      <div class="why-box">
+        <span class="why-emoji">🎓</span>
+        <h4>Personal Certificado</h4>
+        <p>Todos nuestros groomers tienen certificación profesional y experiencia comprobada con diversas razas.</p>
+      </div>
+      <div class="why-box">
+        <span class="why-emoji">🚗</span>
+        <h4>Servicio a Domicilio</h4>
+        <p>Llevamos el spa hasta tu puerta. Sin colas, sin traslados estresantes — solo comodidad total.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="gallery-section" id="galeria">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="eyebrow">Nuestros clientes</span>
+      <h2 class="sec-h2">Fotos de Nuestras Mascotas</h2>
+      <p class="sec-p">Cada uno de ellos sale feliz y hermoso. ¡El tuyo será el próximo!</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-cell">
+        <span>🐶</span>
+        <div class="gallery-label">Golden Retriever<br>Grooming Spa</div>
+      </div>
+      <div class="gallery-cell">
+        <span>🐩</span>
+        <div class="gallery-label">Poodle Miniatura<br>Corte Francés</div>
+      </div>
+      <div class="gallery-cell">
+        <span>😺</span>
+        <div class="gallery-label">Persa Blanco<br>Baño Calmante</div>
+      </div>
+      <div class="gallery-cell">
+        <span>🐕</span>
+        <div class="gallery-label">Bulldog Francés<br>Baño & Uñas</div>
+      </div>
+      <div class="gallery-cell">
+        <span>🐈</span>
+        <div class="gallery-label">Siamés<br>Deslanado</div>
+      </div>
+      <div class="gallery-cell">
+        <span>🐾</span>
+        <div class="gallery-label">Yorkshire Terrier<br>Corte Show</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="booking-section" id="reserva">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="eyebrow">Agenda tu cita</span>
+      <h2 class="sec-h2">Reserva Tu Cita 🐾</h2>
+      <p class="sec-p">Te confirmamos en menos de 2 horas en horario de atención.</p>
+    </div>
+    <div class="booking-grid">
+      <div class="booking-form-card">
+        <h3>Formulario de Reserva</h3>
+        <p class="bf-sub">Cuéntanos sobre tu mascota y te asignamos el groomer perfecto.</p>
+        <form onsubmit="alert('¡Perfecto! Recibirás confirmación en menos de 2 horas. 🐾'); return false;">
+          <div class="form-row">
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Tu nombre</label>
+              <input type="text" class="fc" placeholder="Nombre del dueño" required />
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Teléfono</label>
+              <input type="tel" class="fc" placeholder="(305) 000-0000" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Nombre de la mascota</label>
+              <input type="text" class="fc" placeholder="¿Cómo se llama?" />
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Raza</label>
+              <input type="text" class="fc" placeholder="Ej: Golden, Persa…" />
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Tipo de mascota</label>
+            <div class="pet-type-row">
+              <label class="pet-type-label"><input type="radio" name="tipo" value="perro" checked /> 🐕 Perro</label>
+              <label class="pet-type-label"><input type="radio" name="tipo" value="gato" /> 🐈 Gato</label>
+              <label class="pet-type-label"><input type="radio" name="tipo" value="otro" /> 🐇 Otro</label>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Servicio</label>
+            <select class="fc">
+              <option value="">Seleccionar servicio…</option>
+              <option>Baño & Corte</option>
+              <option>Grooming Spa</option>
+              <option>Corte de Uñas & Limpieza Dental</option>
+              <option>Servicio a Domicilio</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Fecha preferida</label>
+              <input type="date" class="fc" />
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label class="fl">Hora preferida</label>
+              <select class="fc">
+                <option>8:00 AM</option>
+                <option>9:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-book" style="margin-top:0.5rem;">
+            🐾 Confirmar Mi Cita
+          </button>
         </form>
+      </div>
+      <div class="contact-side">
+        <div class="contact-card-pet">
+          <h4>📍 Encuéntranos</h4>
+          <div class="ct-row">
+            <div class="ct-icon">📞</div>
+            <div>
+              <div class="ct-lbl">Teléfono</div>
+              <div class="ct-val"><a href="tel:3055550909">(305) 555-0909</a></div>
+            </div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-icon">✉️</div>
+            <div>
+              <div class="ct-lbl">Email</div>
+              <div class="ct-val"><a href="mailto:citas@aventurapets.com">citas@aventurapets.com</a></div>
+            </div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-icon">📍</div>
+            <div>
+              <div class="ct-lbl">Dirección</div>
+              <div class="ct-val">9012 Biscayne Blvd,<br>Aventura, FL 33160</div>
+            </div>
+          </div>
+          <div class="ct-row" style="margin-bottom:0">
+            <div class="ct-icon">💬</div>
+            <div>
+              <div class="ct-lbl">WhatsApp</div>
+              <div class="ct-val"><a href="https://wa.me/13055550909" target="_blank">Enviar mensaje directo</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="hours-card">
+          <h4>🕐 Horario de Atención</h4>
+          <div class="hours-row"><span>Lunes – Viernes</span><span>8 AM – 7 PM</span></div>
+          <div class="hours-row"><span>Sábado</span><span>8 AM – 6 PM</span></div>
+          <div class="hours-row"><span>Domingo</span><span>10 AM – 4 PM</span></div>
+          <div class="hours-row"><span>Domicilio</span><span>Todos los días</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Aventura Pet Grooming. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-brand-name">🐾 Aventura Pet Grooming</div>
+    <div class="footer-tag">Tu mascota, feliz y hermosa.</div>
+    <div class="footer-links">
+      <a href="#mascotas">Mascotas</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="tel:3055550909">(305) 555-0909</a>
+      <a href="mailto:citas@aventurapets.com">citas@aventurapets.com</a>
+    </div>
+    <div><span class="sara-badge">Sitio web por Sara Vrai · $99</span></div>
+    <p class="copy">© 2026 Aventura Pet Grooming · 9012 Biscayne Blvd, Aventura, FL 33160</p>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- WhatsApp -->
+<a href="https://wa.me/13055550909" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Nav toggle
+  document.getElementById('navBurger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Tab switcher
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('navLinks').classList.remove('open');
+      }
+    });
+  });
+</script>
 </body>
 </html>

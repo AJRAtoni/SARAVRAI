@@ -3,126 +3,1418 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miami Gardens Landscaping – Tu jardín, nuestra pasión.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Miami Gardens Landscaping — Tu jardin, nuestra pasion</title>
+  <meta name="description" content="Diseno, instalacion y mantenimiento de jardines tropicales en Miami-Dade desde 2010. Riego automatico, pavers, plantas tropicales. Presupuesto gratis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #28a745; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #28a745 0%, #155724 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #28a745; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #14532d;
+      --forest-mid: #166534;
+      --forest-light: #15803d;
+      --lime: #84cc16;
+      --lime-pale: #ecfccb;
+      --earth: #78350f;
+      --earth-light: #92400e;
+      --cream: #fefce8;
+      --warm-white: #fafaf9;
+      --dark: #1c1917;
+      --mid: #57534e;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--warm-white); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* SEASON BANNER */
+    .season-banner {
+      background: var(--forest);
+      padding: 0.55rem 0;
+      overflow: hidden;
+    }
+    .season-banner-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 0 2rem;
+    }
+    .season-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.04em;
+    }
+    .season-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-rain { background: #38bdf8; }
+    .dot-dry { background: var(--lime); }
+    .season-pill strong { color: #fff; }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--lime-pale);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(20,83,45,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-leaf {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-leaf svg { width: 36px; height: 36px; }
+    .nav-brand-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--forest);
+      line-height: 1.15;
+    }
+    .nav-brand-text span { display: block; font-size: 0.6rem; font-weight: 500; color: #a8a29e; letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-menu { display: flex; align-items: center; gap: 0; list-style: none; }
+    .nav-menu a {
+      display: block;
+      padding: 0 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover { color: var(--forest); }
+    .btn-nav-green {
+      background: var(--forest);
+      color: #fff !important;
+      padding: 0.6rem 1.4rem !important;
+      border-radius: 100px !important;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+      white-space: nowrap;
+    }
+    .btn-nav-green:hover { background: var(--forest-mid) !important; transform: translateY(-1px); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--forest); margin: 5px 0; border-radius: 2px; }
+
+    /* HERO */
+    .hero {
+      background: var(--forest);
+      min-height: 88vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* Big leaf shapes */
+    .hero-leaf-1 {
+      position: absolute;
+      bottom: -80px;
+      right: -60px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse at 30% 70%, rgba(132,204,22,0.15), transparent 70%);
+      border-radius: 50% 0;
+      transform: rotate(-20deg);
+    }
+    .hero-leaf-2 {
+      position: absolute;
+      top: -100px;
+      right: 15%;
+      width: 400px;
+      height: 500px;
+      background: radial-gradient(ellipse at 60% 40%, rgba(21,128,61,0.4), transparent 70%);
+      border-radius: 0 50%;
+      transform: rotate(15deg);
+    }
+    .hero-leaf-3 {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      width: 300px;
+      height: 380px;
+      background: radial-gradient(ellipse at 40% 60%, rgba(132,204,22,0.1), transparent 70%);
+      border-radius: 50%;
+      transform: rotate(-30deg);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(132,204,22,0.15);
+      border: 1px solid rgba(132,204,22,0.3);
+      color: var(--lime);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      max-width: 680px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--lime);
+      display: block;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .btn-green-solid {
+      background: var(--lime);
+      color: var(--forest);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-green-solid:hover { background: #a3e635; transform: translateY(-2px); }
+    .btn-white-outline {
+      border: 2px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.8);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-white-outline:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+    .hero-stats-row {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat-item {}
+    .hero-stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.2rem;
+    }
+
+    /* SEASONS SECTION */
+    .seasons-section {
+      background: var(--cream);
+      padding: 5rem 0;
+    }
+    .seasons-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .sec-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .sec-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .seasons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .season-card {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .season-card-header {
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .season-card.rain .season-card-header { background: linear-gradient(135deg, #0c4a6e, #075985); }
+    .season-card.dry .season-card-header { background: linear-gradient(135deg, var(--forest), var(--forest-light)); }
+    .season-header-icon { font-size: 2.5rem; }
+    .season-header-text {}
+    .season-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .season-months {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+    }
+    .season-card-body {
+      background: #fff;
+      padding: 1.75rem 2rem;
+    }
+    .season-intro {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .season-services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .season-svc {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .season-svc-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .season-card.rain .season-svc-icon { background: #e0f2fe; }
+    .season-card.dry .season-svc-icon { background: var(--lime-pale); }
+    .season-svc-body {}
+    .season-svc-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.1rem;
+    }
+    .season-svc-desc { font-size: 0.78rem; color: #94a3b8; line-height: 1.45; }
+    .season-tip {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+    .season-card.rain .season-tip { background: #f0f9ff; color: #0369a1; }
+    .season-card.dry .season-tip { background: var(--lime-pale); color: var(--earth); }
+    .season-tip strong { display: block; margin-bottom: 0.2rem; }
+
+    /* SERVICES */
+    .services-section {
+      padding: 6rem 0;
+      background: #fff;
+    }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-rows {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .svc-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.2s;
+    }
+    .svc-row:first-child { border-top: 1px solid #f1f5f9; }
+    .svc-row:hover { background: #fafdf5; margin: 0 -2rem; padding: 2.25rem 2rem; }
+    .svc-icon-box {
+      width: 64px;
+      height: 64px;
+      background: var(--lime-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .svc-body {}
+    .svc-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .svc-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.6; max-width: 580px; }
+    .svc-right { text-align: right; flex-shrink: 0; }
+    .svc-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--forest);
+      white-space: nowrap;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .btn-svc-quote {
+      display: inline-block;
+      background: var(--forest);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.5rem 1.1rem;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-svc-quote:hover { background: var(--forest-mid); }
+
+    /* BEFORE / AFTER */
+    .ba-section {
+      padding: 6rem 0;
+      background: var(--forest);
+      background-image: linear-gradient(135deg, rgba(132,204,22,0.05) 0%, transparent 50%);
+    }
+    .ba-header { text-align: center; margin-bottom: 3.5rem; }
+    .ba-section .sec-title { color: #fff; }
+    .ba-section .sec-eyebrow { color: var(--lime); }
+    .ba-section .sec-sub { color: rgba(255,255,255,0.55); }
+    .ba-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .ba-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .ba-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      height: 200px;
+    }
+    .ba-side {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .ba-side.before { background: #2d1f1a; }
+    .ba-side.after { background: #1a3d2d; }
+    .ba-emoji { font-size: 3rem; opacity: 0.3; }
+    .ba-label {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.6rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+    .ba-side.before .ba-label { background: rgba(0,0,0,0.5); color: #fca5a5; }
+    .ba-side.after .ba-label { background: rgba(0,0,0,0.5); color: var(--lime); }
+    .ba-info {
+      padding: 1.25rem 1.5rem;
+    }
+    .ba-type {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 0.3rem;
+    }
+    .ba-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .ba-detail { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* PLANT EXPERTISE */
+    .plants-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+    .plants-header { text-align: center; margin-bottom: 3rem; }
+    .plants-intro {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 620px;
+      margin: 0.75rem auto 0;
+      line-height: 1.65;
+      text-align: center;
+    }
+    .plants-grid {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+    .plant-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.25rem 0.75rem;
+      text-align: center;
+      border: 1.5px solid var(--lime-pale);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .plant-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(20,83,45,0.12); border-color: var(--lime); }
+    .plant-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .plant-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.2rem;
+    }
+    .plant-note { font-size: 0.68rem; color: #a8a29e; }
+
+    /* PACKAGES */
+    .packages-section {
+      padding: 6rem 0;
+      background: #fff;
+    }
+    .packages-header { text-align: center; margin-bottom: 3.5rem; }
+    .packages-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .pkg-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--lime-pale);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pkg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(20,83,45,0.12); }
+    .pkg-card.featured { border-color: var(--forest); }
+    .pkg-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--lime-pale);
+    }
+    .pkg-card.featured .pkg-header { background: var(--forest); border-color: rgba(255,255,255,0.1); }
+    .pkg-tier {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 0.4rem;
+    }
+    .pkg-card.featured .pkg-tier { color: rgba(255,255,255,0.5); }
+    .pkg-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+    .pkg-card.featured .pkg-name { color: #fff; }
+    .pkg-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      color: var(--forest);
+      font-weight: 700;
+    }
+    .pkg-card.featured .pkg-price { color: var(--lime); }
+    .pkg-body { padding: 1.5rem 2rem; }
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem; }
+    .pkg-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.45;
+    }
+    .pkg-features li::before { content: '✓'; color: var(--forest); font-weight: 700; flex-shrink: 0; }
+    .pkg-card.featured .pkg-features li { color: rgba(255,255,255,0.75); }
+    .pkg-card.featured .pkg-body { background: var(--forest); }
+    .pkg-card.featured .pkg-features li::before { color: var(--lime); }
+    .btn-pkg {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 100px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-pkg-outline { border: 2px solid var(--forest); color: var(--forest); }
+    .btn-pkg-outline:hover { background: var(--forest); color: #fff; }
+    .btn-pkg-solid { background: var(--lime); color: var(--forest); }
+    .btn-pkg-solid:hover { background: #a3e635; }
+
+    /* SERVICE AREAS */
+    .areas-section {
+      padding: 5rem 0;
+      background: var(--cream);
+    }
+    .areas-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .areas-text-side {}
+    .areas-text-side .sec-title { margin-bottom: 1rem; }
+    .areas-desc { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-bottom: 2rem; }
+    .areas-contact-box {
+      background: var(--forest);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .areas-contact-box h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--lime);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+    .areas-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .areas-contact-item:last-child { border-bottom: none; }
+    .areas-contact-item strong { color: #fff; }
+    .areas-chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .area-chip {
+      background: #fff;
+      border: 1.5px solid #d4edda;
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--forest-mid);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .area-chip:hover { background: var(--forest); color: #fff; border-color: var(--forest); }
+    .area-chip.featured {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+      grid-column: span 3;
+      font-size: 0.78rem;
+    }
+
+    /* QUOTE */
+    .quote-section {
+      padding: 6rem 0;
+      background: var(--dark);
+      background-image: linear-gradient(135deg, rgba(20,83,45,0.4) 0%, transparent 50%);
+    }
+    .quote-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .quote-section .sec-title { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+    .quote-section .sec-eyebrow { color: var(--lime); }
+    .quote-bullets { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .q-bullet { display: flex; gap: 1rem; }
+    .q-bullet-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--lime);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+    .q-bullet-text {}
+    .q-bullet-text strong {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .q-bullet-text p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
+    .quote-form-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .qfc-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+    .qfc-sub { font-size: 0.88rem; color: #94a3b8; margin-bottom: 2rem; }
+    .fg { margin-bottom: 1rem; }
+    .fg label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+    .fg input, .fg select, .fg textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--forest); }
+    .fg textarea { min-height: 90px; resize: vertical; }
+    .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .btn-quote-green {
+      width: 100%;
+      background: var(--forest);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 1rem;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-quote-green:hover { background: var(--forest-light); transform: translateY(-1px); }
+    .quote-form-note { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 0.75rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--forest);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+    .footer-brand-logo svg { width: 32px; height: 32px; }
+    .footer-brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.65; }
+    .footer-col h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1rem;
+    }
+    .footer-col a, .footer-col span {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+      line-height: 1.5;
+    }
+    .footer-col a:hover { color: var(--lime); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+    .footer-cert { font-size: 0.72rem; color: var(--lime); opacity: 0.7; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .plants-grid { grid-template-columns: repeat(4, 1fr); }
+      .ba-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .nav-menu.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--warm-white); padding: 1rem 0; z-index: 999; border-bottom: 2px solid var(--lime-pale); }
+      .nav-menu.open a { padding: 0.85rem 2rem; }
+      .nav-toggle { display: block; }
+      .seasons-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .areas-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .quote-inner { grid-template-columns: 1fr; }
+      .plants-grid { grid-template-columns: repeat(3, 1fr); }
+      .areas-chips { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .season-banner-inner { gap: 1rem; }
+      .svc-row { grid-template-columns: 60px 1fr; }
+      .svc-right { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Miami Gardens Landscaping</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+  <!-- SEASON BANNER -->
+  <div class="season-banner">
+    <div class="season-banner-inner">
+      <div class="season-pill"><div class="season-dot dot-rain"></div>Temporada de Lluvia (May–Oct): <strong>Riego, drenaje, poda preventiva</strong></div>
+      <div class="season-pill"><div class="season-dot dot-dry"></div>Temporada Seca (Nov–Abr): <strong>Siembra, diseno, pavers</strong></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">
+        <div class="nav-leaf">
+          <svg viewBox="0 0 36 36" fill="none">
+            <ellipse cx="18" cy="18" rx="14" ry="9" fill="#15803d" transform="rotate(-30 18 18)"/>
+            <line x1="18" y1="6" x2="18" y2="30" stroke="#14532d" stroke-width="1.5"/>
+            <line x1="18" y1="14" x2="26" y2="10" stroke="#14532d" stroke-width="1"/>
+            <line x1="18" y1="20" x2="10" y2="16" stroke="#14532d" stroke-width="1"/>
+            <line x1="18" y1="24" x2="24" y2="21" stroke="#14532d" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="nav-brand-text">
+          Miami Gardens Landscaping
+          <span>Jardines Tropicales — Miami-Dade</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#plantas">Plantas</a></li>
+        <li><a href="#paquetes">Paquetes</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#presupuesto" class="btn-nav-green">Presupuesto Gratis</a></li>
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-tree-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Miami Gardens Landscaping</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Tu jardín, nuestra pasión.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Diseño de Jardines</h5>
-          <p class="text-muted small">Diseño personalizado de paisajismo tropical y subtropical.</p>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-leaf-1"></div>
+    <div class="hero-leaf-2"></div>
+    <div class="hero-leaf-3"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Especialistas en jardines tropicales — Miami-Dade desde 2010</div>
+      <h1>TRANSFORMAMOS<br/><em>TU EXTERIOR.</em></h1>
+      <p class="hero-sub">De un patio seco a un jardin tropical exuberante. Diseno, instalacion y mantenimiento profesional adaptado al clima unico de South Florida.</p>
+      <div class="hero-ctas">
+        <a href="#presupuesto" class="btn-green-solid">Presupuesto Gratis</a>
+        <a href="tel:3055550808" class="btn-white-outline">Llamar ahora</a>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Mantenimiento Semanal</h5>
-          <p class="text-muted small">Corte de césped, poda y limpieza con contrato mensual.</p>
+      <div class="hero-stats-row">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Jardines transformados</div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Instalación de Riego</h5>
-          <p class="text-muted small">Sistemas de riego automático eficientes y programables.</p>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">15 anos</div>
+          <div class="hero-stat-label">En Miami-Dade</div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Paver & Hardscape</h5>
-          <p class="text-muted small">Instalación de pavers, bordes decorativos y áreas de descanso.</p>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Clientes satisfechos</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">24h</div>
+          <div class="hero-stat-label">Respuesta garantizada</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#28a745"></i><a href="tel:3055550808">(305) 555-0808</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#28a745"></i><a href="mailto:jardin@mgardenscape.com">jardin@mgardenscape.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#28a745"></i>8901 NW 27th Ave, Miami Gardens, FL 33056</li>
-        </ul>
+  <!-- SEASONS -->
+  <section class="seasons-section">
+    <div class="seasons-header">
+      <div class="sec-eyebrow">Expertise Local</div>
+      <h2 class="sec-title">El paisajismo en Miami<br/>tiene su propio ritmo</h2>
+      <p class="sec-sub">South Florida tiene dos estaciones, no cuatro. Conocemos exactamente que necesita tu jardin cada mes del ano.</p>
+    </div>
+    <div class="seasons-grid">
+      <div class="season-card rain">
+        <div class="season-card-header">
+          <div class="season-header-icon">🌧️</div>
+          <div class="season-header-text">
+            <div class="season-name">Temporada de Lluvia</div>
+            <div class="season-months">Mayo — Octubre &nbsp;|&nbsp; 6 meses de humedad y calor intenso</div>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p class="season-intro">Las lluvias diarias de verano son una bendicion y un desafio. El exceso de agua puede pudrir raices, crear zonas encharcadas y disparar el crecimiento de malas hierbas. Saber gestionarlo es clave.</p>
+          <div class="season-services-list">
+            <div class="season-svc">
+              <div class="season-svc-icon">💧</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Ajuste de sistemas de riego</div>
+                <div class="season-svc-desc">Reducimos o desactivamos el riego automatico para evitar sobresaturacion del suelo.</div>
+              </div>
+            </div>
+            <div class="season-svc">
+              <div class="season-svc-icon">✂️</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Poda intensiva y control de maleza</div>
+                <div class="season-svc-desc">El cesped crece rapido. Visitas semanales para mantener el jardín bajo control.</div>
+              </div>
+            </div>
+            <div class="season-svc">
+              <div class="season-svc-icon">🌀</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Prevencion de inundaciones</div>
+                <div class="season-svc-desc">Evaluamos el drenaje y corregimos zonas de acumulacion de agua antes que lleguen los huracanes.</div>
+              </div>
+            </div>
+          </div>
+          <div class="season-tip"><strong>Consejo de temporada</strong>Aprovecha la lluvia para fertilizar — los nutrientes penetran con el agua de forma mas eficiente. Usamos fertilizantes lentos liberados para palmas y tropicales.</div>
+        </div>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#28a745">Enviar mensaje</button>
-        </form>
+      <div class="season-card dry">
+        <div class="season-card-header">
+          <div class="season-header-icon">☀️</div>
+          <div class="season-header-text">
+            <div class="season-name">Temporada Seca</div>
+            <div class="season-months">Noviembre — Abril &nbsp;|&nbsp; El momento ideal para grandes proyectos</div>
+          </div>
+        </div>
+        <div class="season-card-body">
+          <p class="season-intro">El clima seco y fresco de invierno es el momento perfecto para grandes instalaciones. Las plantas se adaptan mejor sin el estres del calor extremo, y los proyectos de diseno se completan mas rapido.</p>
+          <div class="season-services-list">
+            <div class="season-svc">
+              <div class="season-svc-icon">🌱</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Siembra de nuevas areas</div>
+                <div class="season-svc-desc">Temperatura ideal para plantar palmeras, arboledas y nuevas zonas verdes sin estres por calor.</div>
+              </div>
+            </div>
+            <div class="season-svc">
+              <div class="season-svc-icon">🪨</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Instalacion de pavers y hardscape</div>
+                <div class="season-svc-desc">Sin lluvias impredecibles, ideal para instalar caminos, terrazas y bordes decorativos.</div>
+              </div>
+            </div>
+            <div class="season-svc">
+              <div class="season-svc-icon">🗺️</div>
+              <div class="season-svc-body">
+                <div class="season-svc-title">Rediseno y renovacion completa</div>
+                <div class="season-svc-desc">Planificamos y ejecutamos proyectos de paisajismo grande sin las limitaciones de la temporada de lluvia.</div>
+              </div>
+            </div>
+          </div>
+          <div class="season-tip"><strong>Consejo de temporada</strong>Noviembre y diciembre son los mejores meses para instalar un sistema de riego nuevo — antes que vuelva el calor de marzo y las plantas lo necesiten urgentemente.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Miami Gardens Landscaping. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
-  </div>
-</footer>
+  <!-- SERVICES -->
+  <section class="services-section" id="servicios">
+    <div style="max-width:1200px;margin:0 auto;padding:0 2rem;">
+      <div class="services-header">
+        <div class="sec-eyebrow">Lo Que Hacemos</div>
+        <h2 class="sec-title">Servicios de Paisajismo</h2>
+        <p class="sec-sub" style="margin:0 auto;">Desde el diseno inicial hasta el mantenimiento continuo — un solo equipo para todo tu exterior.</p>
+      </div>
+    </div>
+    <div class="services-rows">
+      <div class="svc-row">
+        <div class="svc-icon-box">🎨</div>
+        <div class="svc-body">
+          <div class="svc-name">Diseno de Jardines Tropicales</div>
+          <div class="svc-desc">Creamos el jardin de tus suenos desde cero. Plan en 2D/3D, seleccion de plantas tropicales nativas de Florida, disposicion estetica y funcional. Cada jardin refleja tu estilo.</div>
+        </div>
+        <div class="svc-right">
+          <span class="svc-price">Desde $350</span>
+          <a href="#presupuesto" class="btn-svc-quote">Cotizar</a>
+        </div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-icon-box">✂️</div>
+        <div class="svc-body">
+          <div class="svc-name">Mantenimiento Semanal y Quincenal</div>
+          <div class="svc-desc">Corte de cesped, poda de arbustos y palmas, limpieza de bordes, rastrillado, aplicacion de fertilizante. Con contrato mensual o por visita segun tus necesidades.</div>
+        </div>
+        <div class="svc-right">
+          <span class="svc-price">Desde $80/visita</span>
+          <a href="#presupuesto" class="btn-svc-quote">Cotizar</a>
+        </div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-icon-box">💧</div>
+        <div class="svc-body">
+          <div class="svc-name">Instalacion de Riego Inteligente</div>
+          <div class="svc-desc">Sistemas automaticos con sensores de lluvia y humedad. Ahorra hasta un 40% de agua, protege tus plantas y olvídate de regar manualmente. Programables desde tu celular.</div>
+        </div>
+        <div class="svc-right">
+          <span class="svc-price">Desde $450</span>
+          <a href="#presupuesto" class="btn-svc-quote">Cotizar</a>
+        </div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-icon-box">🪨</div>
+        <div class="svc-body">
+          <div class="svc-name">Pavers, Caminos y Hardscape</div>
+          <div class="svc-desc">Instalacion de pavers de concreto o piedra natural, caminos, bordes decorativos, muros de retencion y areas de descanso. Combinamos funcionalidad con estetica tropical.</div>
+        </div>
+        <div class="svc-right">
+          <span class="svc-price">Desde $12/sq ft</span>
+          <a href="#presupuesto" class="btn-svc-quote">Cotizar</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- BEFORE / AFTER -->
+  <section class="ba-section">
+    <div class="ba-header">
+      <div class="sec-eyebrow">Transformaciones Reales</div>
+      <h2 class="sec-title">ANTES Y DESPUES</h2>
+      <p class="sec-sub">Jardines reales de clientes en Miami-Dade. De terra seca a paraiso tropical.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-side before">
+            <div class="ba-emoji">🏜️</div>
+            <div class="ba-label">Antes</div>
+          </div>
+          <div class="ba-side after">
+            <div class="ba-emoji">🌴</div>
+            <div class="ba-label">Despues</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">Diseno completo · Miami Gardens</div>
+          <div class="ba-title">Patio frontal con palmeras reales y cesped Zoysia</div>
+          <div class="ba-detail">3,200 sq ft · 3 semanas de instalacion · Riego automatico incluido</div>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-side before">
+            <div class="ba-emoji">🌿</div>
+            <div class="ba-label">Antes</div>
+          </div>
+          <div class="ba-side after">
+            <div class="ba-emoji">🪨</div>
+            <div class="ba-label">Despues</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">Hardscape + Plantas · Miramar</div>
+          <div class="ba-title">Caminos de paver natural con jardines laterales</div>
+          <div class="ba-detail">1,800 sq ft · 12 dias · Travertino importado + Heliconias</div>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-side before">
+            <div class="ba-emoji">🏚️</div>
+            <div class="ba-label">Antes</div>
+          </div>
+          <div class="ba-side after">
+            <div class="ba-emoji">🌺</div>
+            <div class="ba-label">Despues</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">Renovacion total · Kendall</div>
+          <div class="ba-title">Patio trasero: piscina seca + jardin tropical privado</div>
+          <div class="ba-detail">2,600 sq ft · 4 semanas · Bambu gigante + Plumeria + iluminacion LED</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANT EXPERTISE -->
+  <section class="plants-section" id="plantas">
+    <div style="max-width:1200px;margin:0 auto;padding:0 2rem;">
+      <div class="plants-header">
+        <div class="sec-eyebrow">Nuestra Especialidad</div>
+        <h2 class="sec-title">Plantas Tropicales<br/>de South Florida</h2>
+        <p class="plants-intro">Trabajamos exclusivamente con especies adaptadas al clima de Miami. No vendemos plantas que van a morir en el primer verano — conocemos cada especie, su mantenimiento y sus condiciones ideales.</p>
+      </div>
+    </div>
+    <div class="plants-grid">
+      <div class="plant-card"><div class="plant-emoji">🌴</div><div class="plant-name">Palma Real</div><div class="plant-note">Alta resistencia</div></div>
+      <div class="plant-card"><div class="plant-emoji">🦜</div><div class="plant-name">Ave del Paraiso</div><div class="plant-note">Baja humedad</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌺</div><div class="plant-name">Heliconia</div><div class="plant-note">Todo el año</div></div>
+      <div class="plant-card"><div class="plant-emoji">🎋</div><div class="plant-name">Bambu Gigante</div><div class="plant-note">Privacidad rapida</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌸</div><div class="plant-name">Plumeria</div><div class="plant-note">Fragante tropical</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌿</div><div class="plant-name">Philodendron</div><div class="plant-note">Sombra y humedad</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌻</div><div class="plant-name">Bougainvillea</div><div class="plant-note">Color todo el año</div></div>
+      <div class="plant-card"><div class="plant-emoji">🍃</div><div class="plant-name">Ficus Benjamina</div><div class="plant-note">Seto decorativo</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌱</div><div class="plant-name">Cesped Bahia</div><div class="plant-note">Resistente al calor</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌿</div><div class="plant-name">Cesped Zoysia</div><div class="plant-note">Alta densidad</div></div>
+      <div class="plant-card"><div class="plant-emoji">🍀</div><div class="plant-name">Cesped St. Augustine</div><div class="plant-note">Sombra parcial</div></div>
+      <div class="plant-card"><div class="plant-emoji">🌵</div><div class="plant-name">Agave Americana</div><div class="plant-note">Minimo riego</div></div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages-section" id="paquetes">
+    <div style="max-width:1200px;margin:0 auto;padding:0 2rem;">
+      <div class="packages-header">
+        <div class="sec-eyebrow">Mantenimiento Regular</div>
+        <h2 class="sec-title">Paquetes de Contrato</h2>
+        <p class="sec-sub" style="max-width:500px;margin:0.75rem auto 0;">Elige el plan que mas se adapta a tu jardin y presupuesto. Todos con visita de evaluacion inicial gratis.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-tier">Plan 01</div>
+            <div class="pkg-name">Mantenimiento Basico</div>
+            <div class="pkg-price">Desde $80 / visita</div>
+          </div>
+          <div class="pkg-body">
+            <ul class="pkg-features">
+              <li>Corte de cesped + bordes</li>
+              <li>Rastrillado y limpieza</li>
+              <li>Poda basica de arbustos</li>
+              <li>Informe de estado del jardin</li>
+              <li>Visitas quincenales o semanales</li>
+            </ul>
+            <a href="#presupuesto" class="btn-pkg btn-pkg-outline">Elegir Plan</a>
+          </div>
+        </div>
+        <div class="pkg-card featured">
+          <div class="pkg-header">
+            <div class="pkg-tier">Mas Popular</div>
+            <div class="pkg-name">Mantenimiento Premium</div>
+            <div class="pkg-price">Desde $140 / visita</div>
+          </div>
+          <div class="pkg-body">
+            <ul class="pkg-features">
+              <li>Todo lo del Plan Basico</li>
+              <li>Fertilizacion incluida</li>
+              <li>Poda de palmas (hasta 10 pies)</li>
+              <li>Control de plagas preventivo</li>
+              <li>Ajuste del riego automatico</li>
+              <li>Prioridad en emergencias post-huracan</li>
+            </ul>
+            <a href="#presupuesto" class="btn-pkg btn-pkg-solid">Elegir Plan</a>
+          </div>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-header">
+            <div class="pkg-tier">Plan Completo</div>
+            <div class="pkg-name">Jardin Sin Preocupaciones</div>
+            <div class="pkg-price">Precio personalizado</div>
+          </div>
+          <div class="pkg-body">
+            <ul class="pkg-features">
+              <li>Todo lo del Plan Premium</li>
+              <li>Diseñador de jardines asignado</li>
+              <li>Reemplazos de plantas incluidos</li>
+              <li>Reparacion de riego incluida</li>
+              <li>Reportes mensuales con fotos</li>
+              <li>Garantia total de resultado final</li>
+            </ul>
+            <a href="#presupuesto" class="btn-pkg btn-pkg-outline">Cotizar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="areas-section" id="areas">
+    <div class="areas-inner">
+      <div class="areas-text-side">
+        <div class="sec-eyebrow">Cobertura</div>
+        <h2 class="sec-title">Servimos todo Miami-Dade</h2>
+        <p class="areas-desc">Nuestro equipo de 15 profesionales cubre desde Miami Gardens hasta Homestead, con enfasis en los vecindarios del sur y noroeste del condado donde trabajamos desde 2010.</p>
+        <div class="areas-contact-box">
+          <h4>Contacto Directo</h4>
+          <div class="areas-contact-item"><span>📞</span><span>(305) 555-0808 — Llamar o WhatsApp</span></div>
+          <div class="areas-contact-item"><span>✉️</span><span>jardin@mgardenscape.com</span></div>
+          <div class="areas-contact-item"><span>📍</span><span><strong>8901 NW 27th Ave, Miami Gardens FL 33056</strong></span></div>
+          <div class="areas-contact-item"><span>🕐</span><span>Lun–Sab 7am–6pm</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="areas-chips">
+          <div class="area-chip featured">Miami Gardens — Zona Principal</div>
+          <div class="area-chip">Hialeah</div>
+          <div class="area-chip">Miramar</div>
+          <div class="area-chip">Doral</div>
+          <div class="area-chip">Kendall</div>
+          <div class="area-chip">Westchester</div>
+          <div class="area-chip">Cutler Bay</div>
+          <div class="area-chip">Homestead</div>
+          <div class="area-chip">Miami Lakes</div>
+          <div class="area-chip">Opa-locka</div>
+          <div class="area-chip">North Miami</div>
+          <div class="area-chip">Aventura</div>
+          <div class="area-chip">Pembroke Pines</div>
+          <div class="area-chip">Hollywood</div>
+          <div class="area-chip">+Broward*</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section" id="presupuesto">
+    <div class="quote-inner">
+      <div>
+        <div class="sec-eyebrow">Presupuesto Gratuito</div>
+        <h2 class="sec-title">Tu jardin ideal empieza con una llamada.</h2>
+        <div class="quote-bullets">
+          <div class="q-bullet"><div class="q-bullet-dot"></div><div class="q-bullet-text"><strong>Visita de evaluacion sin costo</strong><p>Un especialista visita tu propiedad, evalua el terreno, el suelo y las condiciones de luz para recomendar las mejores plantas y diseno.</p></div></div>
+          <div class="q-bullet"><div class="q-bullet-dot"></div><div class="q-bullet-text"><strong>Presupuesto detallado en 48h</strong><p>Recibes un presupuesto escrito con materiales, plantas, mano de obra y cronograma de trabajo.</p></div></div>
+          <div class="q-bullet"><div class="q-bullet-dot"></div><div class="q-bullet-text"><strong>Garantia de satisfaccion</strong><p>Si algun trabajo no queda como acordado, lo corregimos sin costo adicional. Sin excusas.</p></div></div>
+        </div>
+      </div>
+      <div class="quote-form-card">
+        <div class="qfc-title">Solicita Tu Presupuesto</div>
+        <p class="qfc-sub">Respuesta garantizada en 48 horas. Evaluacion gratuita.</p>
+        <div class="form-2col">
+          <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
+          <div class="fg"><label>Telefono</label><input type="tel" placeholder="(305) 000-0000" /></div>
+        </div>
+        <div class="fg"><label>Direccion de la propiedad</label><input type="text" placeholder="Ciudad, codigo postal" /></div>
+        <div class="form-2col">
+          <div class="fg">
+            <label>Tipo de servicio</label>
+            <select>
+              <option value="">Selecciona</option>
+              <option>Diseno de jardin nuevo</option>
+              <option>Mantenimiento regular</option>
+              <option>Instalacion de riego</option>
+              <option>Pavers / Hardscape</option>
+              <option>Siembra de plantas</option>
+              <option>Poda de palmas</option>
+              <option>Emergencia post-huracan</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Tamano aprox. del area</label>
+            <select>
+              <option value="">Selecciona</option>
+              <option>Menos de 500 sq ft</option>
+              <option>500 – 1,500 sq ft</option>
+              <option>1,500 – 3,000 sq ft</option>
+              <option>Mas de 3,000 sq ft</option>
+              <option>Propiedad comercial</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Describe tu proyecto</label><textarea placeholder="Que tienes ahora, que quieres lograr, alguna planta o estilo que te guste especialmente..."></textarea></div>
+        <button class="btn-quote-green" type="button">Solicitar Visita y Presupuesto Gratis</button>
+        <p class="quote-form-note">Sin compromiso. Evaluacion gratuita en tu propiedad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <svg viewBox="0 0 36 36" fill="none">
+              <ellipse cx="18" cy="18" rx="14" ry="9" fill="#15803d" transform="rotate(-30 18 18)" opacity="0.7"/>
+              <line x1="18" y1="6" x2="18" y2="30" stroke="#84cc16" stroke-width="1.5"/>
+            </svg>
+            <div class="footer-brand-name">Miami Gardens Landscaping</div>
+          </div>
+          <p>Especialistas en jardines tropicales en Miami-Dade desde 2010. Diseno, instalacion y mantenimiento con garantia de satisfaccion.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <a href="#">Diseno de Jardines</a>
+          <a href="#">Mantenimiento</a>
+          <a href="#">Riego Automatico</a>
+          <a href="#">Pavers y Hardscape</a>
+          <a href="#">Poda de Palmas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#">Sobre Nosotros</a>
+          <a href="#">Proyectos</a>
+          <a href="#">Blog de Jardines</a>
+          <a href="#">Trabaja con Nosotros</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:3055550808">(305) 555-0808</a>
+          <a href="mailto:jardin@mgardenscape.com">jardin@mgardenscape.com</a>
+          <span>8901 NW 27th Ave<br/>Miami Gardens, FL 33056</span>
+          <span>Lun–Sab 7am–6pm</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Miami Gardens Landscaping. Todos los derechos reservados.</p>
+        <p class="footer-cert">CGC Licensed · Insured · Miami-Dade Est. 2010</p>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.2);">Diseno por <strong style="color:rgba(255,255,255,0.3);">Sara Vrai</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // WhatsApp
+    const wa = document.createElement('a');
+    wa.href = 'https://wa.me/13055550808?text=Hola,%20me%20interesa%20un%20presupuesto%20de%20jardineria';
+    wa.target = '_blank';
+    wa.textContent = '💬';
+    wa.style.cssText = 'position:fixed;bottom:2rem;right:2rem;width:3.2rem;height:3.2rem;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.3);z-index:999;text-decoration:none;';
+    document.body.appendChild(wa);
+  </script>
 </body>
 </html>

@@ -3,129 +3,805 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brickell Auto Detailing – Tu auto, impecable. Siempre.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Brickell Auto Detailing — Tu auto, impecable. Siempre.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #0d6efd; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #0d6efd 0%, #0a3d91 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #0d6efd; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #dc2626;
+      --red-dark: #991b1b;
+      --carbon: #0f0f0f;
+      --dark: #1a1a1a;
+      --mid: #2a2a2a;
+      --light: #f5f5f5;
+      --muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--carbon);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .topbar a { color: var(--muted); text-decoration: none; }
+    .topbar a:hover { color: var(--red); }
+    .topbar-right { display: flex; gap: 1.5rem; }
+
+    /* NAVBAR */
+    nav {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .btn-call {
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-call:hover { background: var(--red-dark); }
+
+    /* HERO */
+    .hero {
+      background: var(--carbon);
+      min-height: 95vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(220,38,38,0.06) 100%);
+      pointer-events: none;
+    }
+    /* diagonal stripe accent */
+    .hero-stripe {
+      position: absolute;
+      left: 48%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
+      transform: skewX(-4deg);
+    }
+    .hero-content {
+      padding: 4rem 3rem 4rem 5vw;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(220,38,38,0.12);
+      border: 1px solid rgba(220,38,38,0.3);
+      color: var(--red);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--red); font-style: normal; }
+    .hero p {
+      color: #999;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ccc;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: #fff; color: #fff; }
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+    /* SVG car silhouette area */
+    .car-svg-wrap {
+      width: 100%;
+      max-width: 520px;
+      opacity: 0.9;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      margin-top: 2.5rem;
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+    }
+    .hero-stat-label { font-size: 0.72rem; color: #666; margin-top: 0.25rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* PROCESS SECTION */
+    .process {
+      background: var(--carbon);
+      padding: 6rem 5vw;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: #666; font-size: 1rem; max-width: 480px; line-height: 1.6; margin-bottom: 3.5rem; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right, var(--red), rgba(220,38,38,0.2));
+    }
+    .process-step {
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .step-num {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--dark);
+      border: 2px solid var(--red);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .step-desc { font-size: 0.82rem; color: #666; line-height: 1.55; }
+
+    /* SERVICES */
+    .services {
+      background: #fff;
+      padding: 6rem 5vw;
+    }
+    .services .section-title { color: var(--carbon); }
+    .services .section-label { }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: #e5e5e5;
+    }
+    .service-card {
+      background: #fff;
+      padding: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: #fafafa; }
+    .service-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(220,38,38,0.08);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+    .service-body { flex: 1; }
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--carbon);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+    }
+    .service-desc { font-size: 0.88rem; color: #666; line-height: 1.55; margin-bottom: 1rem; }
+    .service-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.05em;
+    }
+
+    /* PACKAGES TABLE */
+    .packages {
+      background: var(--carbon);
+      padding: 6rem 5vw;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .pkg-card {
+      background: var(--dark);
+      padding: 2.5rem 2rem;
+    }
+    .pkg-card.featured {
+      background: var(--red);
+    }
+    .pkg-tier {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .pkg-card.featured .pkg-tier { color: rgba(255,255,255,0.75); }
+    .pkg-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .pkg-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+    }
+    .pkg-card.featured .pkg-price { color: rgba(255,255,255,0.8); }
+    .pkg-features { list-style: none; }
+    .pkg-features li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .pkg-card.featured .pkg-features li { color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.15); }
+    .pkg-features li::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+    .pkg-card.featured .pkg-features li::before { color: #fff; }
+    .pkg-cta {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      padding: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      border-radius: 3px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .pkg-cta:hover { background: rgba(255,255,255,0.1); }
+    .pkg-card.featured .pkg-cta { background: rgba(0,0,0,0.25); border-color: rgba(0,0,0,0.2); }
+    .pkg-card.featured .pkg-cta:hover { background: rgba(0,0,0,0.4); }
+
+    /* CONTACT */
+    .contact {
+      background: #f8f8f8;
+      padding: 6rem 5vw;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact .section-title { color: var(--carbon); }
+    .contact-info { margin-top: 2rem; }
+    .contact-info-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .ci-icon { font-size: 1.2rem; margin-top: 0.1rem; }
+    .ci-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.2rem; }
+    .ci-val { font-size: 0.9rem; color: var(--dark); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      background: #fff;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus { border-color: var(--red); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form .btn-primary { border: none; cursor: pointer; width: 100%; }
+
+    /* FOOTER */
+    footer {
+      background: var(--carbon);
+      padding: 3rem 5vw 2rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand .logo { font-size: 1.3rem; display: block; margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.82rem; color: #555; line-height: 1.6; }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: #555;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: #444; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      nav .nav-links, nav .btn-call { display: none; }
+      .topbar-right { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Brickell Auto Detailing</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>📍 1234 SW 8th St, Miami, FL 33130</span>
+    <div class="topbar-right">
+      <a href="mailto:info@brickelldetailing.com">info@brickelldetailing.com</a>
+      <span>Lun–Sáb 8am–7pm</span>
     </div>
   </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <h1>Brickell Auto Detailing</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Tu auto, impecable. Siempre.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Pide tu cita</a>
-  </div>
-</section>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo"><span>BRICKELL</span> AUTO</div>
+    <ul class="nav-links">
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#paquetes">Paquetes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="tel:3055550101" class="btn-call">📞 (305) 555-0101</a>
+  </nav>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-car-front-fill"></i></div>
-          <h5 class="fw-bold">Detailing Exterior Completo</h5>
-          <p class="text-muted small">Lavado, pulido y cera profesional para restaurar el brillo original.</p>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>★ 4.9 / 5</span> · Certificado IDA · Miami Premium Detailer
       </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-stars"></i></div>
-          <h5 class="fw-bold">Detailing Interior</h5>
-          <p class="text-muted small">Limpieza profunda de tapicería, alfombras y consola.</p>
-        </div>
+      <h1>Tu auto<br/><em>impecable.</em><br/>Siempre.</h1>
+      <p>Detailing profesional de alta gama en el corazón de Brickell. Protección cerámica, pulido de pintura, y tratamientos premium para tu vehículo.</p>
+      <div class="hero-ctas">
+        <a href="#paquetes" class="btn-primary">Ver Paquetes</a>
+        <a href="#contacto" class="btn-outline">Reservar Cita</a>
       </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-shield-check"></i></div>
-          <h5 class="fw-bold">Protección Cerámica</h5>
-          <p class="text-muted small">Recubrimiento cerámico de larga duración contra rasguños y UV.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-sun-fill"></i></div>
-          <h5 class="fw-bold">Tinte de Ventanas</h5>
-          <p class="text-muted small">Instalación de tinte premium para privacidad y protección solar.</p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+    <div class="hero-visual">
+      <!-- Car SVG Silhouette -->
+      <div class="car-svg-wrap">
+        <svg viewBox="0 0 520 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- car body -->
+          <rect x="40" y="120" width="440" height="50" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+          <!-- cabin -->
+          <path d="M140 120 L180 60 L340 60 L380 120Z" fill="#222" stroke="#333" stroke-width="1"/>
+          <!-- windows -->
+          <path d="M195 68 L210 80 L245 80 L245 68Z" fill="#0a0a0a" stroke="#dc2626" stroke-width="0.5"/>
+          <path d="M255 68 L255 80 L320 80 L335 68Z" fill="#0a0a0a" stroke="#dc2626" stroke-width="0.5"/>
+          <!-- wheels -->
+          <circle cx="150" cy="170" r="28" fill="#111" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="150" cy="170" r="14" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <circle cx="370" cy="170" r="28" fill="#111" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="370" cy="170" r="14" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <!-- ground reflection -->
+          <ellipse cx="260" cy="200" rx="200" ry="6" fill="rgba(220,38,38,0.08)"/>
+          <!-- red accent line -->
+          <line x1="40" y1="135" x2="480" y2="135" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,8" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">8k+</div>
+          <div class="hero-stat-label">Autos Tratados</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">7y</div>
+          <div class="hero-stat-label">Experiencia</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.9</div>
+          <div class="hero-stat-label">Valoración</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stripe"></div>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill text-primary me-2"></i><a href="tel:3055550101">(305) 555-0101</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i><a href="mailto:info@brickelldetailing.com">info@brickelldetailing.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i>1234 SW 8th St, Miami, FL 33130</li>
+  <!-- PROCESS -->
+  <section class="process" id="proceso">
+    <div class="section-label">Cómo Trabajamos</div>
+    <h2 class="section-title">Nuestro Proceso</h2>
+    <p class="section-sub">Cuatro pasos para devolver a tu vehículo su brillo original — o superar el de fábrica.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Diagnóstico</div>
+        <div class="step-desc">Inspeccionamos la pintura, tapicería y estado general para determinar el tratamiento ideal.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Descontaminación</div>
+        <div class="step-desc">Eliminamos residuos de hierro, alquitrán, óxido y contaminantes con productos profesionales.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Corrección</div>
+        <div class="step-desc">Pulido de pintura en máquina para eliminar arañazos, remolinos y marcas de lavado.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Protección</div>
+        <div class="step-desc">Aplicamos cera, sealant o recubrimiento cerámico según el paquete elegido.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div class="section-label">Lo Que Hacemos</div>
+    <h2 class="section-title" style="color:#0f0f0f;">Servicios</h2>
+    <p class="section-sub" style="color:#666;">Cada servicio ejecutado por técnicos certificados con productos de grado profesional.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <div class="service-body">
+          <div class="service-name">Detailing Exterior</div>
+          <div class="service-desc">Lavado con dos cubos, descontaminación química, pulido de pintura y cera de carnauba de 2 capas. Resultados visibles desde la primera sesión.</div>
+          <div class="service-price">Desde $149</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪑</div>
+        <div class="service-body">
+          <div class="service-name">Detailing Interior</div>
+          <div class="service-desc">Extracción de vapor en tapicería, limpieza profunda de consola, paneles y alfombras. Eliminación de malos olores con ozono.</div>
+          <div class="service-price">Desde $119</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💎</div>
+        <div class="service-body">
+          <div class="service-name">Recubrimiento Cerámico</div>
+          <div class="service-desc">Capa SiO2 de 9H de dureza. Protección hasta 3 años contra UV, lluvia ácida y arañazos superficiales. Con garantía certificada.</div>
+          <div class="service-price">Desde $599</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔲</div>
+        <div class="service-body">
+          <div class="service-name">Tinte de Ventanas</div>
+          <div class="service-desc">Lámina de alto rendimiento 3M o Llumar. Bloqueo de hasta 99% de rayos UV, reducción de calor y privacidad según la tonalidad seleccionada.</div>
+          <div class="service-price">Desde $249</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages" id="paquetes">
+    <div class="section-label">Paquetes</div>
+    <h2 class="section-title">Elige Tu Nivel</h2>
+    <p class="section-sub">De mantenimiento básico a protección de élite. Todos incluyen lavado + inspección final.</p>
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <div class="pkg-tier">Nivel 01</div>
+        <div class="pkg-name">Básico</div>
+        <div class="pkg-price">Desde $129</div>
+        <ul class="pkg-features">
+          <li>Lavado exterior completo</li>
+          <li>Limpieza interior básica</li>
+          <li>Aspirado de tapicería</li>
+          <li>Limpieza de llantas y gomas</li>
+          <li>Cera de acabado simple</li>
         </ul>
+        <a href="#contacto" class="pkg-cta">Reservar</a>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn btn-primary px-5">Enviar mensaje</button>
-        </form>
+      <div class="pkg-card featured">
+        <div class="pkg-tier">Más Popular</div>
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price">Desde $299</div>
+        <ul class="pkg-features">
+          <li>Todo lo del paquete Básico</li>
+          <li>Descontaminación química</li>
+          <li>Corrección de arañazos (1 paso)</li>
+          <li>Sealant sintético 6 meses</li>
+          <li>Acondicionador de cuero/plásticos</li>
+          <li>Limpieza de motor exterior</li>
+        </ul>
+        <a href="#contacto" class="pkg-cta">Reservar</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-tier">Nivel 03</div>
+        <div class="pkg-name">Élite</div>
+        <div class="pkg-price">Desde $699</div>
+        <ul class="pkg-features">
+          <li>Todo lo del paquete Premium</li>
+          <li>Corrección de pintura 2 pasos</li>
+          <li>Recubrimiento cerámico SiO2</li>
+          <li>Garantía de 2 años</li>
+          <li>Tinte de ventanas incluido</li>
+          <li>Lavado de mantenimiento gratis</li>
+        </ul>
+        <a href="#contacto" class="pkg-cta">Reservar</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Brickell Auto Detailing. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
-  </div>
-</footer>
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Contáctanos</div>
+        <h2 class="section-title">Reserva Tu Cita</h2>
+        <p class="section-sub">Cuéntanos tu vehículo y el servicio que necesitas. Te respondemos en menos de 2 horas.</p>
+        <div class="contact-info">
+          <div class="contact-info-row">
+            <span class="ci-icon">📍</span>
+            <div><div class="ci-label">Dirección</div><div class="ci-val">1234 SW 8th St, Miami, FL 33130</div></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ci-icon">📞</span>
+            <div><div class="ci-label">Teléfono</div><div class="ci-val">(305) 555-0101</div></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ci-icon">⏰</span>
+            <div><div class="ci-label">Horario</div><div class="ci-val">Lun–Sáb 8:00am – 7:00pm</div></div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Tu nombre" />
+          <input type="tel" placeholder="Teléfono" />
+        </div>
+        <input type="text" placeholder="Marca y modelo del vehículo" />
+        <select>
+          <option value="">Servicio de interés</option>
+          <option>Detailing Exterior</option>
+          <option>Detailing Interior</option>
+          <option>Recubrimiento Cerámico</option>
+          <option>Tinte de Ventanas</option>
+          <option>Paquete Premium</option>
+          <option>Paquete Élite</option>
+        </select>
+        <textarea placeholder="Detalles adicionales (año del auto, condición actual, etc.)"></textarea>
+        <button type="submit" class="btn-primary">Enviar Solicitud</button>
+      </form>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo"><span>BRICKELL</span> AUTO</span>
+        <p>Detailing profesional de alta gama en Miami. Más de 7 años transformando vehículos con los más altos estándares de la industria.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <a href="#">Detailing Exterior</a>
+        <a href="#">Detailing Interior</a>
+        <a href="#">Recubrimiento Cerámico</a>
+        <a href="#">Tinte de Ventanas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="tel:3055550101">(305) 555-0101</a>
+        <a href="mailto:info@brickelldetailing.com">info@brickelldetailing.com</a>
+        <a href="#">1234 SW 8th St, Miami</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Brickell Auto Detailing. Todos los derechos reservados.</p>
+      <p style="color:#333;">Diseño por <strong style="color:#555;">Sara Vrai</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.5)' : '';
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // WhatsApp float
+    const wa = document.createElement('a');
+    wa.href = 'https://wa.me/13055550101?text=Hola,%20me%20interesa%20el%20detailing';
+    wa.target = '_blank';
+    wa.innerHTML = '💬';
+    wa.style.cssText = 'position:fixed;bottom:2rem;right:2rem;width:3.2rem;height:3.2rem;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.3);z-index:999;text-decoration:none;animation:pulse 2s infinite;';
+    const style = document.createElement('style');
+    style.textContent = '@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}';
+    document.head.appendChild(style);
+    document.body.appendChild(wa);
+  </script>
 </body>
 </html>

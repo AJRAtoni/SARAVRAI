@@ -3,126 +3,1199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Little Havana Catering – El sabor auténtico de Cuba en tu evento.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Little Havana Catering – El sabor auténtico de Cuba en tu evento</title>
+  <meta name="description" content="Catering cubano auténtico en Miami. Bodas, quinceañeras, corporativo y food truck. Solicita tu cotización." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #fd7e14; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #fd7e14 0%, #a04800 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #fd7e14; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracotta: #c2410c;
+      --terracotta-dark: #9a340a;
+      --cream: #fef3c7;
+      --coffee: #1c0a00;
+      --coffee-mid: #3d1a07;
+      --gold: #f59e0b;
+      --gold-light: #fde68a;
+      --white: #fffdf7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--white);
+      color: var(--coffee);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lora', serif; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: var(--coffee);
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      color: rgba(254,243,199,0.7);
+    }
+    .top-bar a { color: var(--gold); text-decoration: none; font-weight: 700; }
+    .top-bar .hours { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .top-bar .hours span { display: flex; align-items: center; gap: 0.35rem; }
+    .top-bar .hours svg { width: 13px; height: 13px; fill: var(--gold); flex-shrink: 0; }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: var(--white);
+      border-bottom: 2px solid var(--cream);
+      padding: 0.9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(28,10,0,0.06);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--coffee);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-brand em { font-style: normal; color: var(--terracotta); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--coffee-mid);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); background: rgba(194,65,12,0.06); }
+    .btn-nav-cta {
+      background: var(--terracotta);
+      color: #fff !important;
+      padding: 0.48rem 1.2rem !important;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .btn-nav-cta:hover { background: var(--terracotta-dark) !important; transform: translateY(-1px); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--coffee);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--coffee);
+      background-image:
+        radial-gradient(ellipse at 20% 80%, rgba(194,65,12,0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 10%, rgba(245,158,11,0.18) 0%, transparent 50%),
+        linear-gradient(160deg, #2a0e00 0%, var(--coffee) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 48px,
+        rgba(245,158,11,0.03) 48px,
+        rgba(245,158,11,0.03) 49px
+      );
+      pointer-events: none;
+    }
+    .hero-deco {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      font-size: 18rem;
+      color: rgba(254,243,199,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.35);
+      color: var(--gold-light);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 0.35rem 1.1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 1.2rem;
+      max-width: 760px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(254,243,199,0.72);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.8rem;
+      font-weight: 500;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary-warm {
+      background: var(--terracotta);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary-warm:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(194,65,12,0.4);
+    }
+    .btn-outline-cream {
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.83rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 2px solid rgba(254,243,199,0.45);
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-outline-cream:hover {
+      border-color: var(--cream);
+      background: rgba(254,243,199,0.08);
+      color: var(--cream);
+    }
+    .hero-contact-line {
+      font-size: 0.85rem;
+      color: rgba(254,243,199,0.45);
+    }
+    .hero-contact-line a { color: var(--gold); font-weight: 700; text-decoration: none; }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section-wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-pad { padding: 6rem 0; }
+
+    /* ─── SECTION HEADER ─── */
+    .section-overline {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--coffee);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .section-title-light {
+      color: var(--cream);
+    }
+    .section-bar {
+      width: 52px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      border-radius: 2px;
+      margin: 0.9rem auto 0;
+    }
+    .section-bar-left { margin: 0.9rem 0 0; }
+    .section-desc {
+      font-size: 1rem;
+      color: #6b4020;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+    .section-desc-light { color: rgba(254,243,199,0.65); }
+
+    /* ─── PARA CADA OCASIÓN — 2×2 grid ─── */
+    .bg-cream { background: var(--cream); }
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .occasion-card {
+      background: var(--white);
+      border: 1.5px solid #e9d8b4;
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .occasion-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      border-radius: 20px 20px 0 0;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .occasion-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(194,65,12,0.13);
+      transform: translateY(-5px);
+    }
+    .occasion-card:hover::before { opacity: 1; }
+    .occasion-icon {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      margin-bottom: 1.4rem;
+    }
+    .occasion-card h4 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--coffee);
+      margin-bottom: 0.6rem;
+    }
+    .occasion-card p {
+      font-size: 0.91rem;
+      color: #7a4a1e;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .occasion-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--cream);
+      border: 1px solid #d4a85a;
+      color: var(--terracotta);
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 0.22rem 0.8rem;
+      border-radius: 100px;
+    }
+
+    /* ─── MENÚ ESTRELLA — horizontal scroll ─── */
+    .bg-coffee { background: var(--coffee); }
+    .bg-coffee-rich {
+      background: #160700;
+      background-image: radial-gradient(ellipse at top right, rgba(194,65,12,0.12) 0%, transparent 55%);
+    }
+    .menu-scroll-container {
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--terracotta) rgba(255,255,255,0.05);
+      margin-top: 3rem;
+    }
+    .menu-scroll-container::-webkit-scrollbar { height: 4px; }
+    .menu-scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 4px; }
+    .menu-scroll-container::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 4px; }
+    .menu-scroll-track {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.5rem 0.25rem 0.5rem;
+      min-width: max-content;
+    }
+    .dish-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 18px;
+      padding: 2rem 1.6rem;
+      width: 240px;
+      flex-shrink: 0;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    }
+    .dish-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(245,158,11,0.45);
+      transform: translateY(-4px);
+    }
+    .dish-emoji {
+      font-size: 2.8rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .dish-card h5 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .dish-card p {
+      font-size: 0.83rem;
+      color: rgba(254,243,199,0.55);
+      line-height: 1.6;
+    }
+    .dish-card .dish-tag {
+      display: inline-block;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.25);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 100px;
+      margin-top: 0.8rem;
+    }
+
+    /* ─── ASÍ TRABAJAMOS — 4 steps ─── */
+    .bg-white { background: #fff; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 34px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 8px, transparent 8px, transparent 16px);
+      z-index: 0;
+    }
+    .step-block {
+      text-align: center;
+      padding: 0 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step-circle {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.4rem;
+      font-size: 1.7rem;
+      box-shadow: 0 6px 20px rgba(194,65,12,0.25);
+      position: relative;
+    }
+    .step-num-overlay {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 24px;
+      height: 24px;
+      background: var(--coffee);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-block h5 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--coffee);
+      margin-bottom: 0.5rem;
+    }
+    .step-block p {
+      font-size: 0.85rem;
+      color: #7a4a1e;
+      line-height: 1.6;
+    }
+    .step-arrow {
+      position: absolute;
+      top: 21px;
+      right: -10px;
+      font-size: 1.2rem;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ─── TESTIMONIOS ─── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border: 1.5px solid #e9d8b4;
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Lora', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+    }
+    .testi-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+    .testi-card p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--coffee-mid);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testi-avatar {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--terracotta), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--coffee);
+    }
+    .testi-event {
+      font-size: 0.75rem;
+      color: #9a6030;
+    }
+
+    /* ─── COTIZACIÓN FORM ─── */
+    .form-section {
+      background: var(--coffee);
+      background-image: radial-gradient(ellipse at 10% 90%, rgba(194,65,12,0.2) 0%, transparent 50%);
+      padding: 6rem 0;
+    }
+    .form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .form-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--coffee);
+      margin-bottom: 0.4rem;
+    }
+    .form-card .form-intro {
+      font-size: 0.9rem;
+      color: #8a5a28;
+      margin-bottom: 2rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .form-row-single { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--coffee-mid);
+      margin-bottom: 0.4rem;
+    }
+    .form-input, .form-select, .form-textarea {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.93rem;
+      color: var(--coffee);
+      background: #fdf6e8;
+      border: 1.5px solid #d9c49a;
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(194,65,12,0.12);
+      background: #fff;
+    }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%231c0a00' d='M8 10.5L2.5 5h11z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      background-size: 14px;
+      padding-right: 2.5rem;
+    }
+    .btn-submit-warm {
+      width: 100%;
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .btn-submit-warm:hover { opacity: 0.88; transform: translateY(-2px); }
+    .form-note {
+      font-size: 0.78rem;
+      color: #9a7040;
+      text-align: center;
+      margin-top: 0.9rem;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #100500;
+      border-top: 3px solid rgba(245,158,11,0.2);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .footer-brand em { font-style: normal; color: var(--gold); }
+    .footer-tagline {
+      font-size: 0.83rem;
+      color: rgba(254,243,199,0.45);
+      margin-top: 0.4rem;
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+    .footer-contact a {
+      font-size: 0.83rem;
+      color: rgba(254,243,199,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-col-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(254,243,199,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-services {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-services span {
+      font-size: 0.83rem;
+      color: rgba(254,243,199,0.45);
+    }
+    .footer-divider { border-color: rgba(254,243,199,0.06); margin: 0 0 1.5rem; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .footer-copy {
+      font-size: 0.77rem;
+      color: rgba(254,243,199,0.28);
+    }
+    .sara-credit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.73rem;
+      color: rgba(254,243,199,0.45);
+    }
+    .sara-credit a { color: var(--gold); font-weight: 700; text-decoration: none; }
+    .sara-credit a:hover { color: var(--gold-light); }
+    .sara-pill {
+      background: var(--terracotta);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.67rem;
+      border-radius: 100px;
+      padding: 0.1rem 0.5rem;
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 62px;
+      height: 62px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      animation: wapulse 2.5s infinite;
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); animation: none; }
+    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+    @keyframes wapulse {
+      0%   { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4); }
+      60%  { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 15px rgba(37,211,102,0); }
+      100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .occasions-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .steps-grid::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-top: 2px solid var(--cream); padding: 1rem 1.5rem; gap: 0.25rem; box-shadow: 0 8px 24px rgba(28,10,0,0.1); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .occasions-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .hero h1 { font-size: 2.4rem; }
+      .form-card { padding: 2rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Little Havana Catering</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="section-wrap" style="padding-top:0;padding-bottom:0;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+      <div class="hours">
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Lun–Sáb: 9am–7pm
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.12-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+          <a href="tel:3055550303">(305) 555-0303</a>
+        </span>
+      </div>
+      <span style="font-size:0.75rem; color:rgba(254,243,199,0.5);">📍 3456 SW 27th Ave, Miami, FL 33133</span>
     </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Little Havana <em>Catering</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#ocasiones">Servicios</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#testimonios">Clientes</a></li>
+      <li><a href="#cotizar" class="btn-nav-cta">Solicitar Cotización</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-cup-hot-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Little Havana Catering</h1>
-    <p class="lead mt-3 mb-4 opacity-75">El sabor auténtico de Cuba en tu evento.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-deco">🍽</div>
+  <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center;">
+    <div class="hero-eyebrow">
+      <span>🌴</span> Miami, FL · Little Havana
+    </div>
+    <h1>El sabor auténtico<br>de Cuba en <em>tu evento.</em></h1>
+    <p class="hero-sub">Catering cubano de primera para bodas, quinceañeras, empresas y más. Cocina con alma caribeña, preparada con amor y tradición.</p>
+    <div class="hero-ctas">
+      <a href="#cotizar" class="btn-primary-warm">
+        <span>📋</span> Solicitar Cotización
+      </a>
+      <a href="tel:3055550303" class="btn-outline-cream">
+        <span>📞</span> (305) 555-0303
+      </a>
+    </div>
+    <p class="hero-contact-line">Disponible lunes a sábado · <a href="mailto:eventos@lhcatering.com">eventos@lhcatering.com</a></p>
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
+<!-- PARA CADA OCASIÓN -->
+<section class="section-pad bg-cream" id="ocasiones">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-overline">Lo que hacemos</span>
+      <h2 class="section-title">Para Cada Ocasión</h2>
+      <div class="section-bar"></div>
+      <p class="section-desc" style="margin: 1.2rem auto 0; text-align:center;">Más de 15 años sirviendo la cocina cubana más auténtica de Miami para todo tipo de eventos.</p>
+    </div>
+    <div class="occasions-grid">
+      <!-- Bodas -->
+      <div class="occasion-card">
+        <div class="occasion-icon">💍</div>
+        <h4>Bodas</h4>
+        <p>Banquetes completos con lo mejor de la cocina cubana tradicional y moderna. Hacemos de tu día especial un festín inolvidable lleno de sabor, color y elegancia. Servicio de mesa blanca incluido.</p>
+        <span class="occasion-tag">⭐ Servicio personalizado</span>
+      </div>
+      <!-- Corporativo -->
+      <div class="occasion-card">
+        <div class="occasion-icon">🏢</div>
+        <h4>Catering Corporativo</h4>
+        <p>Menús cubanos diseñados para reuniones de trabajo, almuerzos ejecutivos y eventos empresariales. Puntualidad impecable, presentación profesional y sabores que impresionan.</p>
+        <span class="occasion-tag">👥 Hasta 500 personas</span>
+      </div>
+      <!-- Quinceañeras -->
+      <div class="occasion-card">
+        <div class="occasion-icon">👑</div>
+        <h4>Quinceañeras</h4>
+        <p>El banquete perfecto para celebrar los 15 años más especiales. Menús cubanos que deleitan a toda la familia con estaciones de comida, cócteles y postres artesanales.</p>
+        <span class="occasion-tag">🎉 Decoración incluida</span>
+      </div>
+      <!-- Food Truck -->
+      <div class="occasion-card">
+        <div class="occasion-icon">🚚</div>
+        <h4>Food Truck</h4>
+        <p>Nuestro food truck lleva el sabor cubano a donde tú lo necesites: festivales, campus universitarios, parques y eventos privados. Menú completo, preparación en vivo.</p>
+        <span class="occasion-tag">📍 En tu ubicación</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Catering Corporativo</h5>
-          <p class="text-muted small">Menús cubanos para reuniones, lunch y eventos empresariales.</p>
+<!-- MENÚ ESTRELLA -->
+<section class="section-pad bg-coffee-rich" id="menu">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-overline" style="color:var(--gold);">Nuestros sabores</span>
+      <h2 class="section-title section-title-light">Nuestro Menú Estrella</h2>
+      <div class="section-bar"></div>
+      <p class="section-desc section-desc-light" style="margin: 1.2rem auto 0; text-align:center;">Una selección de nuestros platos más queridos. Todo preparado con ingredientes frescos y recetas auténticas de Cuba.</p>
+    </div>
+    <div class="menu-scroll-container">
+      <div class="menu-scroll-track">
+        <div class="dish-card">
+          <span class="dish-emoji">🥩</span>
+          <h5>Ropa Vieja</h5>
+          <p>Carne de res desmenuzada en salsa criolla con tomate, pimiento y especias. El plato nacional de Cuba.</p>
+          <span class="dish-tag">Plato Principal</span>
+        </div>
+        <div class="dish-card">
+          <span class="dish-emoji">🐷</span>
+          <h5>Lechón Asado Criollo</h5>
+          <p>Cerdo marinado en mojo de naranja agria, ajo y orégano. Asado a fuego lento por horas para máxima ternura.</p>
+          <span class="dish-tag">Plato Principal</span>
+        </div>
+        <div class="dish-card">
+          <span class="dish-emoji">🍌</span>
+          <h5>Tostones con Mojo</h5>
+          <p>Plátano verde frito dos veces, crujiente por fuera y suave por dentro. Servido con mojo de ajo tradicional.</p>
+          <span class="dish-tag">Entrante</span>
+        </div>
+        <div class="dish-card">
+          <span class="dish-emoji">🥘</span>
+          <h5>Picadillo Cubano</h5>
+          <p>Carne molida con aceitunas, alcaparras, pasas y especias. Acompañado de arroz blanco y frijoles negros.</p>
+          <span class="dish-tag">Plato Principal</span>
+        </div>
+        <div class="dish-card">
+          <span class="dish-emoji">🥐</span>
+          <h5>Croquetas de Jamón</h5>
+          <p>Cremosas croquetas de jamón serrano cubano, rebozadas y fritas hasta dorarse. El snack favorito de La Habana.</p>
+          <span class="dish-tag">Entrante</span>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Bodas & Quinceañeras</h5>
-          <p class="text-muted small">Banquetes completos con cocina cubana tradicional y moderna.</p>
+    </div>
+    <p style="text-align:center; font-size:0.8rem; color:rgba(254,243,199,0.3); margin-top:1.5rem; font-style:italic;">
+      ← Desliza para ver más platos · Menús personalizados disponibles para cada evento →
+    </p>
+  </div>
+</section>
+
+<!-- ASÍ TRABAJAMOS -->
+<section class="section-pad bg-white" id="proceso">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-overline">El proceso</span>
+      <h2 class="section-title">Así Trabajamos</h2>
+      <div class="section-bar"></div>
+      <p class="section-desc" style="margin: 1.2rem auto 0; text-align:center;">Un proceso simple y transparente para que solo te preocupes de disfrutar el día.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-block">
+        <div class="step-circle">
+          <span>💬</span>
+          <span class="step-num-overlay">01</span>
+        </div>
+        <h5>Consulta</h5>
+        <p>Cuéntanos sobre tu evento: tipo, fecha, número de personas y preferencias.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-circle">
+          <span>📝</span>
+          <span class="step-num-overlay">02</span>
+        </div>
+        <h5>Menú Personalizado</h5>
+        <p>Diseñamos un menú a tu medida adaptado a tu presupuesto y gustos.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-circle">
+          <span>📄</span>
+          <span class="step-num-overlay">03</span>
+        </div>
+        <h5>Cotización</h5>
+        <p>Recibes una propuesta detallada sin compromiso en menos de 24 horas.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-circle">
+          <span>🎉</span>
+          <span class="step-num-overlay">04</span>
+        </div>
+        <h5>Tu Evento</h5>
+        <p>Llegamos puntuales, servimos con pasión y hacemos que todo salga perfecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section-pad bg-cream" id="testimonios">
+  <div class="section-wrap">
+    <div style="text-align:center;">
+      <span class="section-overline">Opiniones reales</span>
+      <h2 class="section-title">Dicen Nuestros Clientes</h2>
+      <div class="section-bar"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"La boda de mi hija fue un sueño hecho realidad. El lechón asado y la ropa vieja fueron los protagonistas de la noche. Todos los invitados preguntaron por el catering. ¡100% recomendado!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">María González</div>
+            <div class="testi-event">Boda · 180 personas</div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Food Truck</h5>
-          <p class="text-muted small">Nuestro food truck lleva el sabor cubano a donde tú lo necesites.</p>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Para nuestra conferencia anual contratamos a Little Havana Catering y superaron todas las expectativas. Puntualidad perfecta, presentación impecable y un sabor que no olvido."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Roberto Martínez</div>
+            <div class="testi-event">Corporativo · 220 personas</div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Clases de Cocina</h5>
-          <p class="text-muted small">Aprende a preparar los platos más icónicos de la cocina cubana.</p>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"La quinceañera de mi nieta fue la más comentada del vecindario. Las croquetas y los tostones desaparecieron en minutos. El servicio fue cálido y muy profesional."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Carmen Valdés</div>
+            <div class="testi-event">Quinceañera · 95 personas</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#fd7e14"></i><a href="tel:3055550303">(305) 555-0303</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#fd7e14"></i><a href="mailto:eventos@lhcatering.com">eventos@lhcatering.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#fd7e14"></i>3456 SW 27th Ave, Miami, FL 33133</li>
-        </ul>
-      </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#fd7e14">Enviar mensaje</button>
-        </form>
-      </div>
+<!-- COTIZACIÓN FORM -->
+<section class="form-section" id="cotizar">
+  <div class="section-wrap">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="section-overline" style="color:var(--gold);">Hablemos</span>
+      <h2 class="section-title section-title-light">Solicita Tu Cotización</h2>
+      <div class="section-bar"></div>
+      <p class="section-desc section-desc-light" style="margin:1.2rem auto 0; text-align:center;">Cuéntanos los detalles de tu evento y te enviamos una propuesta sin compromiso en 24 horas.</p>
+    </div>
+    <div class="form-card">
+      <h3>Cuéntanos sobre tu evento</h3>
+      <p class="form-intro">Completa el formulario y nos ponemos en contacto contigo a la brevedad.</p>
+      <form action="#" method="post" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre completo *</label>
+            <input type="text" class="form-input" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-input" placeholder="(305) 000-0000" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Fecha del evento</label>
+            <input type="date" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de evento</label>
+            <select class="form-select">
+              <option value="" disabled selected>Selecciona</option>
+              <option>Boda</option>
+              <option>Quinceañera</option>
+              <option>Catering Corporativo</option>
+              <option>Food Truck</option>
+              <option>Clases de Cocina</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Número de invitados</label>
+            <input type="number" class="form-input" placeholder="Ej. 80" min="1" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Presupuesto aproximado</label>
+            <select class="form-select">
+              <option value="" disabled selected>Rango de presupuesto</option>
+              <option>Menos de $1,000</option>
+              <option>$1,000 – $3,000</option>
+              <option>$3,000 – $7,000</option>
+              <option>$7,000 – $15,000</option>
+              <option>Más de $15,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row form-row-single">
+          <div class="form-group">
+            <label class="form-label">Mensaje *</label>
+            <textarea class="form-textarea" placeholder="Cuéntanos más: lugar del evento, horario, requerimientos especiales, tipo de menú que tienes en mente..." required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit-warm">
+          <span>📩</span> Enviar Solicitud de Cotización
+        </button>
+        <p class="form-note">Te respondemos en menos de 24 horas · Sin compromiso</p>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Little Havana Catering. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+<footer class="footer">
+  <div class="section-wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Little Havana <em>Catering</em></div>
+        <div class="footer-tagline">El sabor auténtico de Cuba en tu evento.</div>
+        <div class="footer-contact">
+          <a href="tel:3055550303">📞 (305) 555-0303</a>
+          <a href="mailto:eventos@lhcatering.com">✉️ eventos@lhcatering.com</a>
+          <a href="#">📍 3456 SW 27th Ave, Miami, FL 33133</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegación</div>
+        <div class="footer-links">
+          <a href="#ocasiones">Servicios</a>
+          <a href="#menu">Menú</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#testimonios">Testimonios</a>
+          <a href="#cotizar">Cotizar evento</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <div class="footer-services">
+          <span>💍 Bodas</span>
+          <span>🏢 Catering Corporativo</span>
+          <span>👑 Quinceañeras</span>
+          <span>🚚 Food Truck</span>
+          <span>👨‍🍳 Clases de Cocina</span>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Little Havana Catering · Miami, FL 33133</span>
+      <span class="sara-credit">
+        Sitio web por <a href="https://saravrai.com" target="_blank" rel="noopener">Sara Vrai</a>
+        <span class="sara-pill">$99</span>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- WHATSAPP -->
+<a href="https://wa.me/13055550303" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('open');
+    });
+  }
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
 </body>
 </html>

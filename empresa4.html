@@ -3,126 +3,1371 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doral Fence & Gates – Seguridad y estilo para tu propiedad.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Doral Fence &amp; Gates — Seguridad y estilo para tu propiedad</title>
+  <meta name="description" content="Instalación y reparación de cercas y portones automáticos en Doral y Miami-Dade. Aluminio, madera, PVC y hierro forjado. Licenciados y asegurados. Cotización gratis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #198754; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #198754 0%, #0c4f30 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #198754; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --steel: #0f1923;
+      --steel-mid: #1a2d3d;
+      --steel-light: #243b52;
+      --orange: #f97316;
+      --orange-dark: #c25e10;
+      --silver: #94a3b8;
+      --silver-light: #cbd5e1;
+      --white: #ffffff;
+      --offwhite: #f8fafc;
+      --border: #1e3448;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Source Sans 3', sans-serif; background: var(--white); color: var(--steel); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* CREDENTIAL STRIP */
+    .cred-strip {
+      background: var(--orange);
+      padding: 0.4rem 0;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .cred-strip span { margin: 0 1.5rem; opacity: 0.9; }
+    .cred-strip strong { opacity: 1; }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--steel);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+    .nav-logo-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .nav-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo-text span { display: block; font-size: 0.6rem; font-weight: 600; color: var(--silver); letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+    .nav-links a {
+      display: block;
+      padding: 0 1.1rem;
+      height: 72px;
+      line-height: 72px;
+      color: var(--silver);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .btn-nav-quote {
+      background: var(--orange);
+      color: #fff !important;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0 1.5rem;
+      height: 72px;
+      line-height: 72px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-nav-quote:hover { background: var(--orange-dark) !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; }
+
+    /* HERO */
+    .hero {
+      background: var(--steel);
+      background-image:
+        linear-gradient(135deg, rgba(249,115,22,0.08) 0%, transparent 60%),
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px);
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(249,115,22,0.05), transparent);
+    }
+    /* Fence post decorative element */
+    .hero-fence {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 42%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.15;
+    }
+    .hero-fence svg { width: 100%; height: 100%; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 2rem 5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.35);
+      color: var(--orange);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      color: #fff;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; display: block; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--silver);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--silver-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .trust-item::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+    /* HERO QUOTE CARD */
+    .hero-quote-card {
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .hqc-header {
+      background: var(--orange);
+      padding: 1.25rem 1.5rem;
+    }
+    .hqc-header h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.15rem;
+    }
+    .hqc-header p { font-size: 0.82rem; color: rgba(255,255,255,0.8); }
+    .hqc-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
+    .hqc-field label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 0.35rem;
+    }
+    .hqc-field input,
+    .hqc-field select {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--steel);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hqc-field input:focus,
+    .hqc-field select:focus { border-color: var(--orange); }
+    .hqc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .btn-hqc {
+      background: var(--steel);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.25rem;
+    }
+    .btn-hqc:hover { background: var(--orange); }
+    .hqc-disclaimer { font-size: 0.72rem; color: #94a3b8; text-align: center; }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--orange);
+      padding: 0;
+    }
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.2rem;
+    }
+
+    /* SECTION SHARED */
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .sec-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      color: var(--steel);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .sec-sub {
+      font-size: 1rem;
+      color: #64748b;
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    /* MATERIALES SECTION */
+    .materials-section {
+      padding: 6rem 0;
+      background: var(--offwhite);
+    }
+    .materials-header { margin-bottom: 3.5rem; }
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .material-card {
+      background: #fff;
+      border-right: 1.5px solid #e2e8f0;
+      padding: 2rem 1.5rem;
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .material-card:last-child { border-right: none; }
+    .material-card:hover { background: var(--steel); }
+    .material-card:hover .mat-name,
+    .material-card:hover .mat-prop span,
+    .material-card:hover .mat-label { color: #fff; }
+    .material-card:hover .mat-prop { border-color: rgba(255,255,255,0.1); }
+    .material-card:hover .mat-icon-wrap { background: rgba(249,115,22,0.2); }
+    .mat-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: rgba(249,115,22,0.08);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: background 0.2s;
+    }
+    .mat-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--steel);
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+      transition: color 0.2s;
+    }
+    .mat-props { display: flex; flex-direction: column; gap: 0; }
+    .mat-prop {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.2s;
+    }
+    .mat-prop:last-child { border-bottom: none; }
+    .mat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+    .mat-prop span:last-child {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--steel);
+      transition: color 0.2s;
+    }
+    .mat-prop .star { color: var(--orange); }
+
+    /* GALLERY SECTION */
+    .gallery-section {
+      padding: 6rem 0;
+      background: var(--steel);
+    }
+    .gallery-section .sec-title { color: #fff; }
+    .gallery-section .sec-eyebrow { color: var(--orange); }
+    .gallery-section .sec-sub { color: var(--silver); }
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 240px 200px;
+      gap: 3px;
+    }
+    .gal-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--steel-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .gal-item:first-child { grid-row: span 2; }
+    .gal-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      opacity: 0.12;
+    }
+    .gal-item:hover .gal-bg { opacity: 0.2; }
+    .gal-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    }
+    .gal-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.25rem;
+    }
+    .gal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    /* Grid item color variants */
+    .gal-item:nth-child(1) { background: #1e3a2f; }
+    .gal-item:nth-child(2) { background: #1a2d3d; }
+    .gal-item:nth-child(3) { background: #2d1f3d; }
+    .gal-item:nth-child(4) { background: #3d2d1a; }
+    .gal-item:nth-child(5) { background: #1a3d2d; }
+
+    /* PROCESS */
+    .process-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+    .process-header { text-align: center; margin-bottom: 4rem; }
+    .process-header .sec-sub { margin: 0 auto; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr 60px 1fr;
+      align-items: start;
+      gap: 0;
+    }
+    .process-step { text-align: center; }
+    .process-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2rem;
+      color: var(--orange);
+      font-size: 1.5rem;
+    }
+    .step-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+    }
+    .step-num-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      color: var(--orange);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+    .step-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .step-desc { font-size: 0.88rem; color: #64748b; line-height: 1.6; max-width: 220px; margin: 0 auto; }
+
+    /* CREDENTIALS SECTION */
+    .credentials-section {
+      padding: 4rem 0;
+      background: var(--steel-mid);
+    }
+    .credentials-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+      text-align: center;
+    }
+    .cred-item {
+      padding: 2.5rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .cred-item:last-child { border-right: none; }
+    .cred-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .cred-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .cred-value {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      color: var(--silver);
+      line-height: 1.5;
+    }
+    .cred-value strong { color: #fff; display: block; font-size: 0.95rem; margin-bottom: 0.1rem; }
+
+    /* SERVICE AREAS */
+    .areas-section {
+      padding: 5rem 0;
+      background: var(--offwhite);
+    }
+    .areas-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .areas-text p { font-size: 0.95rem; color: #64748b; line-height: 1.7; margin-bottom: 1.5rem; }
+    .areas-highlight {
+      background: var(--steel);
+      border-radius: 6px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .areas-highlight-icon { font-size: 2rem; flex-shrink: 0; }
+    .areas-highlight p { color: var(--silver); font-size: 0.88rem; margin: 0; line-height: 1.55; }
+    .areas-highlight strong { color: var(--orange); display: block; margin-bottom: 0.2rem; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .areas-chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .area-chip {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      padding: 0.6rem 0.75rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+    .area-chip:hover { background: var(--steel); color: #fff; border-color: var(--steel); }
+    .area-chip.featured {
+      background: var(--orange);
+      color: #fff;
+      border-color: var(--orange);
+      grid-column: span 3;
+    }
+
+    /* QUOTE SECTION */
+    .quote-section {
+      padding: 6rem 0;
+      background: var(--steel);
+      background-image: linear-gradient(135deg, rgba(249,115,22,0.06) 0%, transparent 60%);
+    }
+    .quote-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .quote-left {}
+    .quote-section .sec-title { color: #fff; }
+    .quote-section .sec-eyebrow { color: var(--orange); }
+    .quote-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .quote-feat {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .qf-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(249,115,22,0.12);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .qf-body h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .qf-body p { font-size: 0.85rem; color: var(--silver); line-height: 1.5; }
+    .quote-form {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+    .qf-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+    .qf-subtitle { font-size: 0.88rem; color: #64748b; margin-bottom: 1.75rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--steel);
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--orange); }
+    .form-group textarea { min-height: 90px; resize: vertical; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .btn-submit-quote {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit-quote:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .form-note { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 0.75rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--steel);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .footer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .footer-brand p { font-size: 0.85rem; color: #475569; line-height: 1.65; }
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+    .footer-col a, .footer-col p {
+      display: block;
+      font-size: 0.85rem;
+      color: #475569;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: #334155; }
+    .footer-lic {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--orange);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .materials-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-quote-card { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--steel); padding: 1rem 0; z-index: 999; }
+      .nav-links.open a { height: auto; line-height: 1; padding: 0.85rem 2rem; }
+      .nav-toggle { display: block; }
+      .materials-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-arrow { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .quote-inner { grid-template-columns: 1fr; }
+      .areas-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .credentials-inner { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gal-item:first-child { grid-row: auto; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Doral Fence & Gates</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+  <!-- CREDENTIAL STRIP -->
+  <div class="cred-strip">
+    <span>Licencia CGC <strong>#FL-2026-0404</strong></span>
+    <span>Asegurado &amp; Bonded</span>
+    <span>Garantia de <strong>5 Anos</strong> en mano de obra</span>
+    <span>Cotizacion Gratis en <strong>24h</strong></span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h2v18H3V3zm4 0h2v4H7V3zm0 6h2v4H7V9zm0 6h2v4H7v-4zm4-12h2v4h-2V3zm0 6h2v4h-2V9zm0 6h2v4h-2v-4zm4-12h2v4h-2V3zm0 6h2v4h-2V9zm0 6h2v4h-2v-4z"/></svg>
+        </div>
+        <div class="nav-logo-text">
+          Doral Fence &amp; Gates
+          <span>Doral, Florida — Est. 2008</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#materiales">Materiales</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#cotizar" class="btn-nav-quote">Cotizacion Gratis</a></li>
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-house-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Doral Fence & Gates</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Seguridad y estilo para tu propiedad.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Cercas de Aluminio</h5>
-          <p class="text-muted small">Instalación de cercas de aluminio resistentes y elegantes.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-fence">
+      <svg viewBox="0 0 500 600" fill="none">
+        <!-- Fence pattern SVG -->
+        <g stroke="white" stroke-width="3">
+          <line x1="50" y1="0" x2="50" y2="600"/>
+          <line x1="150" y1="0" x2="150" y2="600"/>
+          <line x1="250" y1="0" x2="250" y2="600"/>
+          <line x1="350" y1="0" x2="350" y2="600"/>
+          <line x1="450" y1="0" x2="450" y2="600"/>
+          <line x1="0" y1="150" x2="500" y2="150"/>
+          <line x1="0" y1="350" x2="500" y2="350"/>
+          <polygon points="50,0 100,40 150,0"/>
+          <polygon points="150,0 200,40 250,0"/>
+          <polygon points="250,0 300,40 350,0"/>
+          <polygon points="350,0 400,40 450,0"/>
+          <polygon points="450,0 500,40 550,0"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">Instaladores certificados desde 2008 — Doral, FL</div>
+        <h1>PROTEGE<br/><em>TU PROPIEDAD.</em><br/>HOY.</h1>
+        <p class="hero-sub">Instalamos cercas y portones de alta seguridad en aluminio, hierro forjado, madera y PVC. Diseno personalizado, instalacion profesional y garantia de 5 anos en cada proyecto.</p>
+        <div class="hero-trust">
+          <div class="trust-item">Licenciado CGC #FL-2026-0404</div>
+          <div class="trust-item">Seguro de $2M</div>
+          <div class="trust-item">Garantia 5 anos</div>
+          <div class="trust-item">Cotizacion en 24h</div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Portones Automáticos</h5>
-          <p class="text-muted small">Puertas automáticas con control remoto y acceso seguro.</p>
+      <div class="hero-quote-card">
+        <div class="hqc-header">
+          <h3>Cotizacion Rapida</h3>
+          <p>Respuesta garantizada en menos de 24 horas</p>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Cercas de Privacidad</h5>
-          <p class="text-muted small">Madera compuesta y PVC para total privacidad en tu patio.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Reparación & Mantenimiento</h5>
-          <p class="text-muted small">Servicio rápido de reparación para todo tipo de cercas y portones.</p>
+        <div class="hqc-body">
+          <div class="hqc-row">
+            <div class="hqc-field">
+              <label>Nombre</label>
+              <input type="text" placeholder="Tu nombre" />
+            </div>
+            <div class="hqc-field">
+              <label>Telefono</label>
+              <input type="tel" placeholder="(305) 000-0000" />
+            </div>
+          </div>
+          <div class="hqc-field">
+            <label>Tipo de cerca</label>
+            <select>
+              <option value="">Selecciona el material</option>
+              <option>Aluminio — Residencial</option>
+              <option>Aluminio — Comercial</option>
+              <option>Hierro Forjado</option>
+              <option>Madera Compuesta</option>
+              <option>PVC / Vinilo</option>
+              <option>Chain Link / Ciclonica</option>
+              <option>Porton Automatico</option>
+            </select>
+          </div>
+          <div class="hqc-row">
+            <div class="hqc-field">
+              <label>Pies lineales (aprox.)</label>
+              <input type="text" placeholder="Ej: 150 pies" />
+            </div>
+            <div class="hqc-field">
+              <label>Tipo de propiedad</label>
+              <select>
+                <option value="">Tipo</option>
+                <option>Residencial</option>
+                <option>Comercial</option>
+                <option>Industrial</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-hqc">Solicitar Cotizacion Gratis</button>
+          <p class="hqc-disclaimer">Sin compromiso. Respuesta en menos de 24 horas.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#198754"></i><a href="tel:3055550404">(305) 555-0404</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#198754"></i><a href="mailto:cotiza@doralfence.com">cotiza@doralfence.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#198754"></i>4567 NW 87th Ave, Doral, FL 33178</li>
-        </ul>
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">2,400+</div>
+        <div class="stat-label">Proyectos Completados</div>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#198754">Enviar mensaje</button>
-        </form>
+      <div class="stat-item">
+        <div class="stat-num">18</div>
+        <div class="stat-label">Anos de Experiencia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9/5</div>
+        <div class="stat-label">Valoracion Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5 Ano</div>
+        <div class="stat-label">Garantia Mano de Obra</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Doral Fence & Gates. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+  <!-- MATERIALES -->
+  <section class="materials-section" id="materiales">
+    <div class="wrap">
+      <div class="materials-header">
+        <div class="sec-eyebrow">Nuestros Materiales</div>
+        <h2 class="sec-title">EL MATERIAL CORRECTO<br/>PARA CADA NECESIDAD</h2>
+        <p class="sec-sub">Cada propiedad es diferente. Comparamos los 5 materiales que instalamos para que tomes la decision correcta.</p>
+      </div>
+      <div class="materials-grid">
+        <div class="material-card">
+          <div class="mat-icon-wrap">&#x1F6E1;&#xFE0F;</div>
+          <div class="mat-name">Aluminio</div>
+          <div class="mat-props">
+            <div class="mat-prop"><span class="mat-label">Durabilidad</span><span><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span></div>
+            <div class="mat-prop"><span class="mat-label">Mantenimiento</span><span>Minimo</span></div>
+            <div class="mat-prop"><span class="mat-label">Costo</span><span>Desde $22/pie</span></div>
+            <div class="mat-prop"><span class="mat-label">Ideal para</span><span>Residencial</span></div>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="mat-icon-wrap">&#x2694;&#xFE0F;</div>
+          <div class="mat-name">Hierro Forjado</div>
+          <div class="mat-props">
+            <div class="mat-prop"><span class="mat-label">Seguridad</span><span><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span></div>
+            <div class="mat-prop"><span class="mat-label">Mantenimiento</span><span>Pintura cada 5a</span></div>
+            <div class="mat-prop"><span class="mat-label">Costo</span><span>Desde $35/pie</span></div>
+            <div class="mat-prop"><span class="mat-label">Ideal para</span><span>Lujo / Frente</span></div>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="mat-icon-wrap">&#x1F333;</div>
+          <div class="mat-name">Madera</div>
+          <div class="mat-props">
+            <div class="mat-prop"><span class="mat-label">Privacidad</span><span><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span></div>
+            <div class="mat-prop"><span class="mat-label">Mantenimiento</span><span>Sellado anual</span></div>
+            <div class="mat-prop"><span class="mat-label">Costo</span><span>Desde $18/pie</span></div>
+            <div class="mat-prop"><span class="mat-label">Ideal para</span><span>Patio trasero</span></div>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="mat-icon-wrap">&#x1F4A7;</div>
+          <div class="mat-name">PVC / Vinilo</div>
+          <div class="mat-props">
+            <div class="mat-prop"><span class="mat-label">Resistencia</span><span><span class="star">&#9733;&#9733;&#9733;&#9733;</span></span></div>
+            <div class="mat-prop"><span class="mat-label">Mantenimiento</span><span>Casi ninguno</span></div>
+            <div class="mat-prop"><span class="mat-label">Costo</span><span>Desde $25/pie</span></div>
+            <div class="mat-prop"><span class="mat-label">Ideal para</span><span>Piscinas / Patios</span></div>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="mat-icon-wrap">&#x26D3;&#xFE0F;</div>
+          <div class="mat-name">Chain Link</div>
+          <div class="mat-props">
+            <div class="mat-prop"><span class="mat-label">Cobertura</span><span><span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span></div>
+            <div class="mat-prop"><span class="mat-label">Mantenimiento</span><span>Minimo</span></div>
+            <div class="mat-prop"><span class="mat-label">Costo</span><span>Desde $10/pie</span></div>
+            <div class="mat-prop"><span class="mat-label">Ideal para</span><span>Comercial / Grande</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT GALLERY -->
+  <section class="gallery-section" id="proyectos">
+    <div class="wrap">
+      <div class="gallery-header">
+        <div>
+          <div class="sec-eyebrow">Nuestro Trabajo</div>
+          <h2 class="sec-title">PROYECTOS<br/>RECIENTES</h2>
+          <p class="sec-sub">Mas de 2,400 instalaciones en Miami-Dade. Cada proyecto con garantia de mano de obra.</p>
+        </div>
+        <a href="#cotizar" style="background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.85rem 1.75rem;text-decoration:none;border-radius:3px;white-space:nowrap;flex-shrink:0;align-self:flex-end;transition:background 0.2s;">Ver Cotizacion</a>
+      </div>
+      <div class="gallery-grid">
+        <div class="gal-item">
+          <div class="gal-bg">&#x2694;&#xFE0F;</div>
+          <div class="gal-overlay">
+            <div class="gal-tag">Hierro Forjado — Doral</div>
+            <div class="gal-title">Porton doble con diseno clasico, 28 pies</div>
+          </div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-bg">&#x1F6E1;&#xFE0F;</div>
+          <div class="gal-overlay">
+            <div class="gal-tag">Aluminio — Kendall</div>
+            <div class="gal-title">Cerca perimetral 220 pies + porton automatico</div>
+          </div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-bg">&#x1F333;</div>
+          <div class="gal-overlay">
+            <div class="gal-tag">Madera Compuesta — Hialeah</div>
+            <div class="gal-title">Cerca de privacidad 6 pies de altura, patio trasero</div>
+          </div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-bg">&#x1F4A7;</div>
+          <div class="gal-overlay">
+            <div class="gal-tag">PVC — Miami Lakes</div>
+            <div class="gal-title">Cerca piscina reglamentaria con puerta de seguridad</div>
+          </div>
+        </div>
+        <div class="gal-item">
+          <div class="gal-bg">&#x26D3;&#xFE0F;</div>
+          <div class="gal-overlay">
+            <div class="gal-tag">Chain Link — Medley</div>
+            <div class="gal-title">Perimetro comercial 800 pies con razor wire</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="proceso">
+    <div class="wrap">
+      <div class="process-header">
+        <div class="sec-eyebrow">Como Trabajamos</div>
+        <h2 class="sec-title">INSTALACION EN 3 PASOS</h2>
+        <p class="sec-sub">Desde la medicion hasta la garantia, hacemos todo. Tu solo debes aprobar el diseno.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">&#x1F4CF;</div>
+          <div class="step-num-label">Paso 01</div>
+          <div class="step-title">Medicion &amp; Diseno</div>
+          <p class="step-desc">Visitamos tu propiedad, tomamos medidas exactas, verificamos lineas de propiedad y presentamos diseno con render 2D.</p>
+        </div>
+        <div class="process-arrow">&#x279C;</div>
+        <div class="process-step">
+          <div class="step-circle">&#x1F528;</div>
+          <div class="step-num-label">Paso 02</div>
+          <div class="step-title">Permiso &amp; Instalacion</div>
+          <p class="step-desc">Tramitamos el permiso municipal si aplica. Instalacion profesional con equipo certificado. Limpieza total al finalizar.</p>
+        </div>
+        <div class="process-arrow">&#x279C;</div>
+        <div class="process-step">
+          <div class="step-circle">&#x2705;</div>
+          <div class="step-num-label">Paso 03</div>
+          <div class="step-title">Inspeccion &amp; Garantia</div>
+          <p class="step-desc">Inspeccion final contigo. Activamos garantia de 5 anos en mano de obra y te entregamos toda la documentacion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <div class="credentials-section">
+    <div class="credentials-inner">
+      <div class="cred-item">
+        <div class="cred-icon">&#x1F4CB;</div>
+        <div class="cred-title">Licencia Estatal</div>
+        <div class="cred-value"><strong>CGC #FL-2026-0404</strong>Certified General Contractor — Florida Dept. of Business &amp; Professional Regulation</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#x1F4B0;</div>
+        <div class="cred-title">Seguro &amp; Bonded</div>
+        <div class="cred-value"><strong>$2,000,000 cobertura</strong>Liability Insurance + Workers Comp. Certificado disponible bajo pedido.</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#x1F3C6;</div>
+        <div class="cred-title">Garantia de Trabajo</div>
+        <div class="cred-value"><strong>5 anos en mano de obra</strong>Cualquier defecto de instalacion lo reparamos sin costo adicional.</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#x2B50;</div>
+        <div class="cred-title">Valoracion Google</div>
+        <div class="cred-value"><strong>4.9 / 5.0 estrellas</strong>Mas de 380 resenas verificadas de clientes en Miami-Dade.</div>
+      </div>
+    </div>
   </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SERVICE AREAS -->
+  <section class="areas-section" id="areas">
+    <div class="wrap">
+      <div class="sec-eyebrow">Cobertura</div>
+      <h2 class="sec-title">SERVIMOS TODO<br/>MIAMI-DADE</h2>
+      <div class="areas-layout">
+        <div class="areas-text">
+          <p>Atendemos proyectos residenciales, comerciales e industriales en todo el condado Miami-Dade. Nuestro equipo de 12 instaladores cubre desde Homestead hasta Aventura.</p>
+          <p>Para proyectos fuera de Miami-Dade (Broward, Palm Beach), contactanos para una cotizacion especial.</p>
+          <div class="areas-highlight">
+            <div class="areas-highlight-icon">&#x1F4DE;</div>
+            <div>
+              <strong>Zona de cobertura prioritaria</strong>
+              <p>Doral, Hialeah, Medley, Miami Lakes y areas circundantes — respuesta garantizada en 24 horas para cotizacion y 72 horas para inicio de proyecto urgente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="areas-chips">
+          <div class="area-chip featured">Doral — Zona Prioritaria</div>
+          <div class="area-chip">Hialeah</div>
+          <div class="area-chip">Miami Lakes</div>
+          <div class="area-chip">Medley</div>
+          <div class="area-chip">Kendall</div>
+          <div class="area-chip">Westchester</div>
+          <div class="area-chip">Sweetwater</div>
+          <div class="area-chip">Fontainebleau</div>
+          <div class="area-chip">Tamiami</div>
+          <div class="area-chip">Coral Gables</div>
+          <div class="area-chip">West Miami</div>
+          <div class="area-chip">Flagami</div>
+          <div class="area-chip">Opa-locka</div>
+          <div class="area-chip">Miami Gardens</div>
+          <div class="area-chip">Cutler Bay</div>
+          <div class="area-chip">Homestead</div>
+          <div class="area-chip">Pinecrest</div>
+          <div class="area-chip">+Broward*</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE SECTION -->
+  <section class="quote-section" id="cotizar">
+    <div class="quote-inner">
+      <div class="quote-left">
+        <div class="sec-eyebrow">Cotizacion Sin Costo</div>
+        <h2 class="sec-title">DINOS LO QUE NECESITAS. NOSOTROS LO HACEMOS.</h2>
+        <div class="quote-features">
+          <div class="quote-feat">
+            <div class="qf-icon">&#x1F4CF;</div>
+            <div class="qf-body">
+              <h4>Medicion Gratis en tu Propiedad</h4>
+              <p>Un tecnico visita tu propiedad sin costo para medir, evaluar el terreno y recomendar el mejor material.</p>
+            </div>
+          </div>
+          <div class="quote-feat">
+            <div class="qf-icon">&#x1F4B0;</div>
+            <div class="qf-body">
+              <h4>Precio Fijo — Sin Sorpresas</h4>
+              <p>El precio cotizado es el precio final. Sin costos ocultos, sin cargos extra por materiales o mano de obra.</p>
+            </div>
+          </div>
+          <div class="quote-feat">
+            <div class="qf-icon">&#x23F0;</div>
+            <div class="qf-body">
+              <h4>Cotizacion en 24 Horas</h4>
+              <p>Recibes tu cotizacion detallada por escrito en menos de 24 horas. Valida por 30 dias.</p>
+            </div>
+          </div>
+          <div class="quote-feat">
+            <div class="qf-icon">&#x1F4DE;</div>
+            <div class="qf-body">
+              <h4>Atencion en Espanol e Ingles</h4>
+              <p>Nuestro equipo de ventas e instalacion habla espanol. Comunicacion clara en todo el proceso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="quote-form">
+        <div class="qf-title">Solicita Tu Cotizacion</div>
+        <p class="qf-subtitle">Completa el formulario — te contactamos en menos de 24 horas con precio detallado.</p>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre" />
+          </div>
+          <div class="form-group">
+            <label>Telefono</label>
+            <input type="tel" placeholder="(305) 000-0000" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Direccion de la propiedad</label>
+          <input type="text" placeholder="Calle, ciudad, zip code" />
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Material deseado</label>
+            <select>
+              <option value="">Selecciona</option>
+              <option>Aluminio</option>
+              <option>Hierro Forjado</option>
+              <option>Madera / Compuesta</option>
+              <option>PVC / Vinilo</option>
+              <option>Chain Link</option>
+              <option>Porton Automatico</option>
+              <option>No estoy seguro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipo de propiedad</label>
+            <select>
+              <option value="">Selecciona</option>
+              <option>Residencial</option>
+              <option>Comercial</option>
+              <option>Industrial</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Pies lineales (aprox.)</label>
+            <input type="text" placeholder="Ej: 200 pies" />
+          </div>
+          <div class="form-group">
+            <label>Urgencia</label>
+            <select>
+              <option value="">Selecciona</option>
+              <option>Lo antes posible</option>
+              <option>Dentro de 1 mes</option>
+              <option>2-3 meses</option>
+              <option>Solo cotizacion por ahora</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Detalles adicionales</label>
+          <textarea placeholder="Incluye porton automatico, altura deseada, motivo principal (privacidad, seguridad, decoracion), etc."></textarea>
+        </div>
+        <button class="btn-submit-quote" type="button">Solicitar Cotizacion Gratis</button>
+        <p class="form-note">Respuesta garantizada en menos de 24 horas hábiles. Sin compromiso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 3h2v18H3V3zm4 0h2v4H7V3zm0 6h2v4H7V9zm0 6h2v4H7v-4zm4-12h2v4h-2V3zm0 6h2v4h-2V9zm0 6h2v4h-2v-4zm4-12h2v4h-2V3zm0 6h2v4h-2V9zm0 6h2v4h-2v-4z"/></svg>
+            </div>
+            <div class="footer-logo-text">Doral Fence &amp; Gates</div>
+          </div>
+          <p>Instaladores de cercas y portones con 18 anos de experiencia en Miami-Dade. Licenciados, asegurados y con garantia de 5 anos en mano de obra.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <a href="#">Cercas de Aluminio</a>
+          <a href="#">Hierro Forjado</a>
+          <a href="#">Cercas de Madera</a>
+          <a href="#">PVC / Vinilo</a>
+          <a href="#">Portones Automaticos</a>
+          <a href="#">Reparacion de Cercas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#">Sobre Nosotros</a>
+          <a href="#">Proyectos</a>
+          <a href="#">Garantia</a>
+          <a href="#">Licencias</a>
+          <a href="#">Trabaja con Nosotros</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="tel:3055550404">(305) 555-0404</a>
+          <a href="mailto:cotiza@doralfence.com">cotiza@doralfence.com</a>
+          <p>4567 NW 87th Ave<br/>Doral, FL 33178</p>
+          <p>Lun–Sab 7am–7pm</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Doral Fence &amp; Gates. Todos los derechos reservados.</p>
+        <p class="footer-lic">Lic. CGC #FL-2026-0404 | Insured &amp; Bonded</p>
+        <p style="font-size:0.75rem;color:#334155;">Diseno por <strong style="color:#475569;">Sara Vrai</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // WhatsApp
+    const wa = document.createElement('a');
+    wa.href = 'https://wa.me/13055550404?text=Hola,%20necesito%20cotizacion%20de%20cerca';
+    wa.target = '_blank';
+    wa.textContent = '💬';
+    wa.style.cssText = 'position:fixed;bottom:2rem;right:2rem;width:3.2rem;height:3.2rem;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.35);z-index:999;text-decoration:none;';
+    document.body.appendChild(wa);
+  </script>
 </body>
 </html>

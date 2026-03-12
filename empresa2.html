@@ -3,126 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wynwood Nail Studio – Arte en cada uña.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Wynwood Nail Studio — Arte en cada uña.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #e83e8c; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #e83e8c 0%, #9b1e5a 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #e83e8c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose: #e879a0;
+      --rose-dark: #be185d;
+      --rose-light: #fce7f3;
+      --mauve: #c084fc;
+      --cream: #fdf8f4;
+      --dark: #1e1a1e;
+      --mid: #6b6472;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    .promo-banner {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--mauve) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .promo-banner strong { font-weight: 700; }
+
+    nav {
+      background: rgba(253,248,244,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232,121,160,0.12);
+      padding: 1.2rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--dark); letter-spacing: 0.02em; }
+    .logo span { color: var(--rose); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--mid); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rose); }
+    .btn-book { background: var(--rose); color: #fff; font-weight: 600; font-size: 0.85rem; padding: 0.6rem 1.6rem; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.15s; box-shadow: 0 2px 12px rgba(232,121,160,0.3); }
+    .btn-book:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh; }
+    .hero-left { background: var(--cream); display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 5vw; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--rose); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--rose); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.1; color: var(--dark); margin-bottom: 1.25rem; }
+    .hero h1 em { color: var(--rose); font-style: italic; }
+    .hero p { font-size: 1.05rem; color: var(--mid); line-height: 1.7; max-width: 400px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .btn-primary-rose { background: var(--rose); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 20px rgba(232,121,160,0.35); display: inline-block; }
+    .btn-primary-rose:hover { background: var(--rose-dark); transform: translateY(-2px); }
+    .btn-ghost-rose { color: var(--rose); font-size: 0.9rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+    .btn-ghost-rose:hover { gap: 0.8rem; }
+    .hero-trust { display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(232,121,160,0.15); }
+    .trust-item { text-align: center; }
+    .trust-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--rose); }
+    .trust-label { font-size: 0.75rem; color: var(--mid); margin-top: 0.15rem; }
+
+    .hero-right { background: #f3e8ff; position: relative; overflow: hidden; }
+    .gallery-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; height: 100%; gap: 3px; }
+    .mosaic-cell { background: linear-gradient(135deg, var(--rose-light), #fdf2ff); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; position: relative; overflow: hidden; }
+    .mosaic-cell:first-child { grid-row: span 2; background: linear-gradient(135deg, #fce7f3, #f0abfc); }
+    .mosaic-label { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border-radius: 6px; padding: 0.4rem 0.7rem; font-size: 0.72rem; font-weight: 600; color: var(--dark); }
+
+    .colors-section { background: #fff; padding: 4rem 5vw; text-align: center; }
+    .colors-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; }
+    .colors-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--dark); margin-bottom: 2rem; }
+    .swatches { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .swatch { width: 3.5rem; height: 3.5rem; border-radius: 50%; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .swatch:hover { transform: scale(1.18); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
+    .services { background: var(--cream); padding: 6rem 5vw; }
+    .sec-header { text-align: center; margin-bottom: 3.5rem; }
+    .sec-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; }
+    .sec-sub { font-size: 1rem; color: var(--mid); max-width: 500px; margin: 0 auto; line-height: 1.65; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .service-card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(232,121,160,0.1); transition: transform 0.2s, box-shadow 0.2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(232,121,160,0.15); }
+    .service-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+    .s1 { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+    .s2 { background: linear-gradient(135deg, #f0abfc, rgba(217,70,239,0.13)); }
+    .s3 { background: linear-gradient(135deg, #e9d5ff, #c4b5fd); }
+    .s4 { background: linear-gradient(135deg, #fecdd3, #fda4af); }
+    .service-body { padding: 1.25rem; }
+    .service-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+    .service-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.55; margin-bottom: 0.9rem; }
+    .service-price { font-size: 1rem; font-weight: 700; color: var(--rose); }
+
+    .gallery { background: #fff; padding: 6rem 5vw; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 120px; gap: 8px; margin-top: 3rem; }
+    .gallery-item { border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; transition: transform 0.2s; }
+    .gallery-item:hover { transform: scale(1.03); z-index: 2; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+    .g1 { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+    .g2 { background: linear-gradient(135deg, #f0abfc, #e879a0); }
+    .g3 { background: linear-gradient(135deg, #e9d5ff, #c4b5fd); }
+    .g4 { background: linear-gradient(135deg, #fecdd3, #fda4af); }
+    .g5 { background: linear-gradient(135deg, #fde68a, #f59e0b); }
+    .g6 { background: linear-gradient(135deg, #a5f3fc, #67e8f9); }
+    .g7 { background: linear-gradient(135deg, #bbf7d0, #86efac); }
+    .g8 { background: linear-gradient(135deg, #c7d2fe, #a5b4fc); }
+    .g9 { background: linear-gradient(135deg, #fda4af, #fb7185); }
+    .g10 { background: linear-gradient(135deg, #f9a8d4, #f472b6); }
+    .g11 { background: linear-gradient(135deg, #d8b4fe, #a855f7); }
+    .g12 { background: linear-gradient(135deg, #6ee7b7, #34d399); }
+
+    .booking-cta { background: linear-gradient(135deg, var(--rose) 0%, var(--mauve) 100%); padding: 5rem 5vw; text-align: center; color: #fff; position: relative; overflow: hidden; }
+    .booking-cta::before { content: '💅'; position: absolute; font-size: 20rem; opacity: 0.04; top: -5rem; right: -3rem; line-height: 1; }
+    .booking-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .booking-cta p { font-size: 1.1rem; opacity: 0.85; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .btn-white { background: #fff; color: var(--rose); font-weight: 700; font-size: 0.95rem; padding: 0.95rem 2.5rem; border-radius: 50px; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+    .testimonials { background: var(--cream); padding: 6rem 5vw; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .testi-card { background: #fff; border-radius: 16px; padding: 2rem; border: 1px solid rgba(232,121,160,0.1); }
+    .testi-stars { color: var(--rose); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .testi-text { font-size: 0.9rem; color: var(--mid); line-height: 1.65; font-style: italic; margin-bottom: 1.25rem; }
+    .testi-author { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+
+    .location { background: #fff; padding: 6rem 5vw; }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .location-map { background: linear-gradient(135deg, var(--rose-light), #f3e8ff); border-radius: 16px; height: 350px; display: flex; align-items: center; justify-content: center; font-size: 4rem; border: 1px solid rgba(232,121,160,0.15); }
+    .location-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .info-row { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+    .info-icon { font-size: 1.1rem; margin-top: 0.1rem; }
+    .info-content .label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem; }
+    .info-content .val { font-size: 0.9rem; color: var(--dark); }
+
+    footer { background: var(--dark); padding: 3rem 5vw 2rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .footer-logo span { color: var(--rose); font-style: italic; }
+    .footer-desc { font-size: 0.82rem; color: #666; line-height: 1.6; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 1rem; }
+    .footer-col a { display: block; font-size: 0.85rem; color: #666; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--rose); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 0.78rem; color: #444; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 300px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      nav .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Wynwood Nail Studio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
+  <div class="promo-banner">
+    🌸 <strong>Martes + Miércoles:</strong> 20% OFF en Nail Art — Reserva hoy con código <strong>ARTE20</strong>
   </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-heart-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Wynwood Nail Studio</h1>
-    <p class="lead mt-3 mb-4 opacity-75">Arte en cada uña.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
-  </div>
-</section>
+  <nav>
+    <div class="logo">Wynwood <span>Nail</span> Studio</div>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#testimonios">Reseñas</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a href="#reservar" class="btn-book">✨ Reservar Cita</a>
+  </nav>
 
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Manicure Clásica</h5>
-          <p class="text-muted small">Cuidado completo de manos con esmalte de tu elección.</p>
-        </div>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Wynwood, Miami · Nail Studio</div>
+      <h1>Arte en<br/><em>cada uña.</em></h1>
+      <p>Diseños únicos creados por nuestras artistas especializadas. Desde manicura clásica hasta nail art personalizado que refleja tu estilo.</p>
+      <div class="hero-actions">
+        <a href="#reservar" class="btn-primary-rose">Reservar Cita</a>
+        <a href="#galeria" class="btn-ghost-rose">Ver Galería →</a>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Gel & Acrílico</h5>
-          <p class="text-muted small">Uñas de larga duración con acabado perfecto.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Nail Art</h5>
-          <p class="text-muted small">Diseños personalizados creados por nuestras artistas especializadas.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Pedicure Spa</h5>
-          <p class="text-muted small">Tratamiento relajante de pies con exfoliación y masaje.</p>
-        </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-num">2k+</div><div class="trust-label">Clientas</div></div>
+        <div class="trust-item"><div class="trust-num">★4.9</div><div class="trust-label">Google</div></div>
+        <div class="trust-item"><div class="trust-num">5y</div><div class="trust-label">En Wynwood</div></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#e83e8c"></i><a href="tel:3055550202">(305) 555-0202</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#e83e8c"></i><a href="mailto:citas@wynwoodnails.com">citas@wynwoodnails.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#e83e8c"></i>2345 NW 2nd Ave, Miami, FL 33127</li>
-        </ul>
-      </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#e83e8c">Enviar mensaje</button>
-        </form>
+    <div class="hero-right">
+      <div class="gallery-mosaic">
+        <div class="mosaic-cell" style="background:linear-gradient(160deg,#fce7f3,#f0abfc);">💅<div class="mosaic-label">Nail Art Premium</div></div>
+        <div class="mosaic-cell" style="background:linear-gradient(135deg,#fde68a,#f9a8d4);">✨<div class="mosaic-label">Gel Francés</div></div>
+        <div class="mosaic-cell" style="background:linear-gradient(135deg,#e9d5ff,#c4b5fd);">🌸<div class="mosaic-label">Diseño Floral</div></div>
+        <div class="mosaic-cell" style="background:linear-gradient(135deg,var(--rose),var(--mauve));">💜<div class="mosaic-label" style="background:rgba(0,0,0,0.3);color:#fff;">Grooming Spa</div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Wynwood Nail Studio. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+  <div class="colors-section">
+    <div class="colors-label">Primavera 2026</div>
+    <div class="colors-title">Paleta de la Temporada</div>
+    <div class="swatches">
+      <div class="swatch" style="background:#e879a0;"></div>
+      <div class="swatch" style="background:#f9a8d4;"></div>
+      <div class="swatch" style="background:#c084fc;"></div>
+      <div class="swatch" style="background:#fde68a;"></div>
+      <div class="swatch" style="background:#fb7185;"></div>
+      <div class="swatch" style="background:#a5f3fc;"></div>
+      <div class="swatch" style="background:#86efac;"></div>
+      <div class="swatch" style="background:#1e1b4b;"></div>
+      <div class="swatch" style="background:#fef3c7;"></div>
+      <div class="swatch" style="background:#d8b4fe;"></div>
+    </div>
   </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <section class="services" id="servicios">
+    <div class="sec-header">
+      <div class="sec-label">Nuestros Servicios</div>
+      <h2 class="sec-title">Todo Para Tus Uñas</h2>
+      <p class="sec-sub">Tratamientos y diseños para todos los gustos, con productos profesionales libres de tóxicos.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img s1">💅</div>
+        <div class="service-body"><div class="service-name">Manicure Clásica</div><div class="service-desc">Cuidado completo de manos con esmalte de tu elección. Lima, cutícula y masaje incluidos.</div><div class="service-price">Desde $28</div></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img s2">💎</div>
+        <div class="service-body"><div class="service-name">Gel & Acrílico</div><div class="service-desc">Uñas de larga duración con acabado perfecto. Estructura fuerte y natural al tacto.</div><div class="service-price">Desde $55</div></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img s3">🎨</div>
+        <div class="service-body"><div class="service-name">Nail Art</div><div class="service-desc">Diseños personalizados: flores, abstractos, francés, glitter y más. Sin límite creativo.</div><div class="service-price">Desde $65</div></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img s4">🛁</div>
+        <div class="service-body"><div class="service-name">Pedicure Spa</div><div class="service-desc">Tratamiento relajante con exfoliación, masaje y esmalte. Pies perfectos en 60 minutos.</div><div class="service-price">Desde $45</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="galeria">
+    <div class="sec-header">
+      <div class="sec-label">Nuestra Galería</div>
+      <h2 class="sec-title">Inspiración Sin Límites</h2>
+      <p class="sec-sub">Cada diseño es único. Encuentra tu próxima inspiración entre nuestros trabajos recientes.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall g1">💅</div>
+      <div class="gallery-item g2">✨</div>
+      <div class="gallery-item g3">🌸</div>
+      <div class="gallery-item g4">🦋</div>
+      <div class="gallery-item g5">⭐</div>
+      <div class="gallery-item g6">❄️</div>
+      <div class="gallery-item wide g7">🌺</div>
+      <div class="gallery-item g8">💜</div>
+      <div class="gallery-item g9">🌹</div>
+      <div class="gallery-item g10">🎀</div>
+      <div class="gallery-item g11">🔮</div>
+      <div class="gallery-item tall g12">🌿</div>
+    </div>
+  </section>
+
+  <section class="booking-cta" id="reservar">
+    <h2>¿Lista Para Tu Próximo Look?</h2>
+    <p>Reserva tu cita en minutos. Tenemos disponibilidad esta semana para nuevas clientas.</p>
+    <a href="tel:3055550202" class="btn-white">📞 Llamar para Reservar</a>
+    &nbsp;&nbsp;
+    <a href="https://wa.me/13055550202" target="_blank" class="btn-white" style="margin-top:1rem;display:inline-block;">💬 WhatsApp</a>
+  </section>
+
+  <section class="testimonials" id="testimonios">
+    <div class="sec-header">
+      <div class="sec-label">Lo Que Dicen</div>
+      <h2 class="sec-title">Clientas Felices</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"El mejor nail art de Miami. Vine con una foto de referencia y el resultado fue incluso mejor de lo que esperaba."</div>
+        <div class="testi-author">— María G., Wynwood</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Increíble atención, ambiente hermoso y mis uñas duran semanas. Ya llevo 8 meses siendo clienta."</div>
+        <div class="testi-author">— Daniela R., Brickell</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"El pedicure spa es una experiencia de otro nivel. El precio es súper justo para la calidad del servicio."</div>
+        <div class="testi-author">— Sofia M., South Beach</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="location" id="ubicacion">
+    <div class="location-grid">
+      <div class="location-map">📍</div>
+      <div class="location-info">
+        <h3>Encuéntranos en Wynwood</h3>
+        <div class="info-row"><span class="info-icon">📍</span><div class="info-content"><div class="label">Dirección</div><div class="val">2345 NW 2nd Ave, Miami, FL 33127</div></div></div>
+        <div class="info-row"><span class="info-icon">📞</span><div class="info-content"><div class="label">Teléfono / WhatsApp</div><div class="val">(305) 555-0202</div></div></div>
+        <div class="info-row"><span class="info-icon">📧</span><div class="info-content"><div class="label">Email</div><div class="val">citas@wynwoodnails.com</div></div></div>
+        <div class="info-row"><span class="info-icon">⏰</span><div class="info-content"><div class="label">Horario</div><div class="val">Mar–Sáb 9am–8pm · Dom 10am–5pm</div></div></div>
+        <a href="tel:3055550202" class="btn-primary-rose" style="margin-top:1.5rem;">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Wynwood <span>Nail</span> Studio</div>
+        <div class="footer-desc">Arte en cada uña. Tu nail studio de confianza en el corazón de Wynwood, Miami desde 2021.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <a href="#">Manicure Clásica</a>
+        <a href="#">Gel & Acrílico</a>
+        <a href="#">Nail Art</a>
+        <a href="#">Pedicure Spa</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="tel:3055550202">(305) 555-0202</a>
+        <a href="mailto:citas@wynwoodnails.com">citas@wynwoodnails.com</a>
+        <a href="#">2345 NW 2nd Ave, Miami</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Wynwood Nail Studio. Todos los derechos reservados.</p>
+      <p style="color:#333;">Diseño por <strong style="color:#555;">Sara Vrai</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    const wa = document.createElement('a');
+    wa.href = 'https://wa.me/13055550202?text=Hola,%20quiero%20reservar%20una%20cita';
+    wa.target = '_blank';
+    wa.innerHTML = '💬';
+    wa.style.cssText = 'position:fixed;bottom:2rem;right:2rem;width:3.2rem;height:3.2rem;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);z-index:999;text-decoration:none;';
+    document.body.appendChild(wa);
+  </script>
 </body>
 </html>

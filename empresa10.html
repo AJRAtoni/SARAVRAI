@@ -4,125 +4,1060 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kendall Tutoring Center – El éxito académico de tu hijo, garantizado.</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <meta name="description" content="Tutorías K-12, preparación SAT/ACT, ESL y clases online en Kendall, Miami. Más de 10 años de resultados comprobados. Inscripción gratuita." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand: #0dcaf0; --dark: #0a0a0a; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background: linear-gradient(135deg, #0dcaf0 0%, #0a7d9b 100%); color: #fff; padding: 100px 0 80px; }
-    .hero h1 { font-size: 3rem; font-weight: 800; }
-    .service-card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; color: var(--brand); }
-    #contacto { background: #f8f9fa; }
-    footer { background: var(--dark); color: #aaa; }
-    footer a { color: #fff; text-decoration: none; }
-    .sara-badge { background: #0dcaf0; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: .78rem; font-weight: 700; letter-spacing: .05em; }
+    /* ════════════════════════════════════
+       BASE
+    ════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e1b4b;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+
+    /* ════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════ */
+    .navbar {
+      background: #fff;
+      border-bottom: 1.5px solid #dbeafe;
+      position: sticky;
+      top: 0; z-index: 1000;
+    }
+    .nav-in {
+      max-width: 1160px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1rem; color: #1e40af;
+      letter-spacing: -0.01em;
+    }
+    .logo-box {
+      width: 36px; height: 36px;
+      background: #1e40af; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .nav-ul { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-ul a {
+      font-size: 0.87rem; font-weight: 600; color: #374151;
+      padding: 0.38rem 0.8rem; border-radius: 7px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-ul a:hover { color: #1e40af; background: #dbeafe; }
+    .btn-enroll {
+      background: #fbbf24 !important;
+      color: #1e1b4b !important;
+      font-weight: 800 !important;
+      padding: 0.45rem 1.15rem !important;
+      border-radius: 8px !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .btn-enroll:hover { background: #f59e0b !important; transform: translateY(-1px) !important; }
+    .nav-ham {
+      display: none; background: none;
+      border: 1.5px solid #dbeafe; border-radius: 8px;
+      padding: 0.4rem 0.6rem; cursor: pointer;
+      flex-direction: column; gap: 4px;
+    }
+    .nav-ham span { display: block; width: 20px; height: 2px; background: #1e40af; border-radius: 2px; }
+
+    /* ════════════════════════════════════
+       HERO — SPLIT
+    ════════════════════════════════════ */
+    .hero {
+      background: #1e40af;
+      padding: 5.5rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .hero-bg-glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-split {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(251,191,36,0.2); border: 1px solid rgba(251,191,36,0.4);
+      color: #fbbf24; font-size: 0.73rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.28rem 0.85rem; border-radius: 4px; margin-bottom: 1.3rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 4.5vw, 3.9rem);
+      font-weight: 800; color: #fff;
+      line-height: 1.06; letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span { color: #fbbf24; }
+    .hero-lead {
+      font-size: 1.08rem; color: rgba(255,255,255,0.72);
+      font-weight: 400; line-height: 1.65;
+      max-width: 460px; margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+    .btn-yellow {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #fbbf24; color: #1e1b4b;
+      font-weight: 800; font-size: 0.96rem;
+      padding: 0.82rem 1.8rem; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-yellow:hover { background: #f59e0b; transform: translateY(-2px); color: #1e1b4b; }
+    .btn-white-ghost {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: transparent; color: #fff;
+      font-weight: 600; font-size: 0.96rem;
+      padding: 0.82rem 1.8rem; border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.38);
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-white-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* Stats panel */
+    .stats-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px; padding: 1.8rem 1.6rem;
+      backdrop-filter: blur(8px);
+    }
+    .sp-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #fbbf24; margin-bottom: 1.2rem;
+    }
+    .sp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .sp-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 1.1rem 1rem; text-align: center;
+    }
+    .sp-num {
+      font-size: 1.7rem; font-weight: 800; color: #fbbf24;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .sp-desc { font-size: 0.74rem; color: rgba(255,255,255,0.65); font-weight: 500; }
+
+    /* ════════════════════════════════════
+       COMMON SECTION
+    ════════════════════════════════════ */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+    .tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #1e40af; margin-bottom: 0.5rem;
+    }
+    .sh2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800;
+      color: #1e1b4b; letter-spacing: -0.025em; line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .sp { font-size: 0.98rem; color: #64748b; margin-bottom: 0; }
+
+    /* ════════════════════════════════════
+       GRADE LEVEL TABS
+    ════════════════════════════════════ */
+    .grades-section { background: #dbeafe; padding: 5.5rem 0; }
+    .grade-tabs {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      background: #bfdbfe; padding: 5px;
+      border-radius: 12px; width: fit-content;
+      margin-bottom: 2.5rem;
+    }
+    .grade-btn {
+      background: transparent; border: none; cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem; font-weight: 700; color: #1e40af;
+      padding: 0.5rem 1.2rem; border-radius: 9px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .grade-btn.active {
+      background: #1e40af; color: #fff;
+      box-shadow: 0 3px 12px rgba(30,64,175,0.3);
+    }
+    .grade-btn:hover:not(.active) { background: rgba(30,64,175,0.1); }
+    .grade-content { display: none; }
+    .grade-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .grade-card {
+      background: #fff; border-radius: 14px;
+      padding: 1.6rem 1.5rem;
+      border: 1.5px solid #bfdbfe;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .grade-card:hover { box-shadow: 0 12px 32px rgba(30,64,175,0.12); transform: translateY(-4px); }
+    .grade-subject-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      background: #dbeafe; color: #1e40af;
+      padding: 0.18rem 0.6rem; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 0.7rem;
+    }
+    .grade-card h4 { font-size: 1rem; font-weight: 800; color: #1e1b4b; margin-bottom: 0.35rem; }
+    .grade-card p { font-size: 0.84rem; color: #64748b; line-height: 1.6; }
+
+    /* ════════════════════════════════════
+       PROGRAMS
+    ════════════════════════════════════ */
+    .programs-section { background: #fff; padding: 5.5rem 0; }
+    .prog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .prog-card {
+      border-radius: 16px; padding: 2rem 1.7rem;
+      border: 1.5px solid #e0e7ff;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .prog-card:hover { box-shadow: 0 16px 40px rgba(30,64,175,0.1); transform: translateY(-5px); border-color: #1e40af; }
+    .prog-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: #1e40af;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .prog-card:hover::after { transform: scaleX(1); }
+    .prog-icon {
+      width: 52px; height: 52px;
+      background: #dbeafe; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .prog-card h4 { font-size: 1.02rem; font-weight: 800; color: #1e1b4b; margin-bottom: 0.3rem; }
+    .prog-card p { font-size: 0.84rem; color: #64748b; line-height: 1.6; margin-bottom: 0.8rem; }
+    .prog-meta {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .prog-chip {
+      font-size: 0.74rem; font-weight: 700;
+      background: #f1f5f9; color: #475569;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+    }
+    .prog-price {
+      font-size: 0.82rem; font-weight: 800; color: #1e40af;
+      background: #dbeafe; padding: 0.2rem 0.6rem; border-radius: 4px;
+    }
+
+    /* ════════════════════════════════════
+       RESULTS
+    ════════════════════════════════════ */
+    .results-section {
+      background: #1e1b4b; padding: 5.5rem 0;
+    }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .result-item { text-align: center; }
+    .result-pct {
+      font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 800;
+      color: #fbbf24; line-height: 1;
+      letter-spacing: -0.04em; margin-bottom: 0.6rem;
+    }
+    .result-title {
+      font-size: 1.05rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .result-desc { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .result-divider {
+      width: 1px; background: rgba(255,255,255,0.1);
+      align-self: stretch;
+    }
+
+    /* ════════════════════════════════════
+       TUTORS
+    ════════════════════════════════════ */
+    .tutors-section { background: #fff; padding: 5.5rem 0; }
+    .tutors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .tutor-card {
+      border: 1.5px solid #e0e7ff; border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tutor-card:hover { box-shadow: 0 16px 40px rgba(30,64,175,0.12); transform: translateY(-5px); }
+    .tutor-avatar {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      height: 100px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .tutor-body { padding: 1.4rem 1.5rem; }
+    .tutor-name { font-size: 1.05rem; font-weight: 800; color: #1e1b4b; margin-bottom: 0.2rem; }
+    .tutor-subjects {
+      font-size: 0.78rem; font-weight: 700;
+      color: #1e40af; text-transform: uppercase;
+      letter-spacing: 0.07em; margin-bottom: 0.6rem;
+    }
+    .tutor-bio { font-size: 0.85rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem; }
+    .tutor-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tutor-tag {
+      font-size: 0.73rem; font-weight: 700;
+      background: #dbeafe; color: #1e40af;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+    }
+
+    /* ════════════════════════════════════
+       FAQ ACCORDION
+    ════════════════════════════════════ */
+    .faq-section { background: #f8faff; padding: 5.5rem 0; }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: #fff; border-radius: 12px;
+      border: 1.5px solid #e0e7ff; margin-bottom: 0.7rem;
+      overflow: hidden; transition: box-shadow 0.2s;
+    }
+    .faq-item.open { box-shadow: 0 6px 24px rgba(30,64,175,0.1); border-color: #1e40af; }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 1.4rem; cursor: pointer;
+      font-weight: 700; font-size: 0.95rem; color: #1e1b4b;
+      user-select: none; gap: 1rem;
+    }
+    .faq-arrow {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: #dbeafe; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #1e40af; font-size: 0.8rem; font-weight: 700;
+      transition: transform 0.3s, background 0.2s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: #1e40af; color: #fff; }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+      padding: 0 1.4rem;
+      font-size: 0.9rem; color: #475569; line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 1.4rem 1.2rem; }
+
+    /* ════════════════════════════════════
+       ENROLLMENT FORM
+    ════════════════════════════════════ */
+    .enroll-section { background: #fff; padding: 5.5rem 0; }
+    .enroll-wrap {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 3.5rem; align-items: start;
+    }
+    .enroll-info {
+      background: linear-gradient(150deg, #1e40af 0%, #1e3a8a 100%);
+      border-radius: 16px; padding: 2.2rem 2rem; color: #fff;
+      position: sticky; top: 90px;
+    }
+    .enroll-info h3 {
+      font-size: 1.3rem; font-weight: 800; color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .enroll-info p { font-size: 0.87rem; color: rgba(255,255,255,0.7); margin-bottom: 1.6rem; line-height: 1.6; }
+    .ei-row {
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-bottom: 1rem; font-size: 0.87rem;
+    }
+    .ei-icon {
+      width: 36px; height: 36px;
+      background: rgba(251,191,36,0.2); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .ei-lbl { font-size: 0.7rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.06em; }
+    .ei-val { font-size: 0.87rem; color: rgba(255,255,255,0.88); font-weight: 600; }
+    .ei-val a { color: #fbbf24; }
+    .enroll-promo {
+      background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.3);
+      border-radius: 10px; padding: 1rem 1.2rem; margin-top: 1.4rem;
+    }
+    .enroll-promo p {
+      font-size: 0.84rem; color: #fbbf24; font-weight: 700;
+      margin: 0; line-height: 1.5;
+    }
+    .enroll-form-card {
+      background: #f8faff; border: 1.5px solid #dbeafe;
+      border-radius: 16px; padding: 2.4rem 2.2rem;
+    }
+    .enroll-form-card h3 {
+      font-size: 1.25rem; font-weight: 800; color: #1e1b4b; margin-bottom: 0.3rem;
+    }
+    .ef-sub { font-size: 0.86rem; color: #64748b; margin-bottom: 1.6rem; }
+    .form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .fgg { margin-bottom: 1rem; }
+    .fll {
+      display: block; font-size: 0.77rem; font-weight: 700;
+      color: #1e40af; text-transform: uppercase; letter-spacing: 0.07em;
+      margin-bottom: 0.3rem;
+    }
+    .fcc {
+      width: 100%; border: 1.5px solid #bfdbfe; border-radius: 8px;
+      padding: 0.62rem 0.95rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem; color: #1e1b4b; background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .fcc:focus {
+      outline: none; border-color: #1e40af;
+      box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
+    }
+    textarea.fcc { resize: vertical; min-height: 85px; }
+    .btn-enroll-form {
+      width: 100%;
+      background: #1e40af; color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: 0.96rem;
+      padding: 0.88rem; border: none; border-radius: 10px;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-enroll-form:hover { background: #1e3a8a; transform: translateY(-2px); }
+    .enroll-disclaimer {
+      font-size: 0.76rem; color: #94a3b8; text-align: center;
+      margin-top: 0.7rem; line-height: 1.5;
+    }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    footer {
+      background: #0f0f2e; color: rgba(255,255,255,0.5);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-wrap { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .footer-brand { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
+    .footer-sub { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; }
+    .footer-contact-info { font-size: 0.83rem; line-height: 1.9; }
+    .footer-contact-info a { color: #fbbf24; }
+    .fcol h5 { font-size: 0.75rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .fcol ul { list-style: none; padding: 0; }
+    .fcol ul li { margin-bottom: 0.4rem; }
+    .fcol ul li a { color: rgba(255,255,255,0.45); font-size: 0.83rem; transition: color 0.2s; }
+    .fcol ul li a:hover { color: #fbbf24; }
+    .footer-bot {
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-bot p { font-size: 0.77rem; margin: 0; }
+    .sara-badge {
+      font-size: 0.74rem; font-weight: 800;
+      background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.25);
+      color: #fbbf24; padding: 0.26rem 0.85rem; border-radius: 20px;
+    }
+
+    /* WhatsApp */
+    .wa-fab {
+      position: fixed; bottom: 26px; right: 26px; z-index: 9999;
+      width: 60px; height: 60px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 22px rgba(37,211,102,0.45);
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+    .wa-fab svg { width: 28px; height: 28px; fill: #fff; }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 22px rgba(37,211,102,0.45); }
+      50%       { box-shadow: 0 4px 38px rgba(37,211,102,0.8), 0 0 0 10px rgba(37,211,102,0.1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .stats-panel { max-width: 420px; }
+      .prog-grid { grid-template-columns: repeat(2, 1fr); }
+      .tutors-grid { grid-template-columns: repeat(2, 1fr); }
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .result-divider { display: none; }
+      .enroll-wrap { grid-template-columns: 1fr; }
+      .enroll-info { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .grade-content.active { grid-template-columns: 1fr 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .tutors-grid { grid-template-columns: 1fr; }
+      .form-row2 { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bot { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .nav-ham { display: flex; }
+      .nav-ul.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 66px; left: 0; right: 0;
+        background: #fff; border-top: 1px solid #dbeafe;
+        border-bottom: 2px solid #dbeafe;
+        padding: 1rem 1.5rem; gap: 0.2rem; z-index: 999;
+      }
+      .hero { padding: 4rem 1.2rem 3.5rem; }
+      .prog-grid { grid-template-columns: 1fr; }
+      .grade-content.active { grid-template-columns: 1fr; }
+      .grade-tabs { gap: 0.3rem; }
+      .grade-btn { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Kendall Tutoring Center</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar" id="top">
+  <div class="nav-in">
+    <a class="nav-logo" href="#">
+      <div class="logo-box">🎓</div>
+      Kendall Tutoring Center
+    </a>
+    <button class="nav-ham" id="navHam" aria-label="Menú">
+      <span></span><span></span><span></span>
     </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
+    <ul class="nav-ul" id="navUl">
+      <li><a href="#programas">Programas</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#tutores">Tutores</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#inscripcion" class="btn-enroll">Inscripción Gratis</a></li>
+    </ul>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="mb-3"><i class="bi bi-book-fill" style="font-size:3.5rem;opacity:.8"></i></div>
-    <h1>Kendall Tutoring Center</h1>
-    <p class="lead mt-3 mb-4 opacity-75">El éxito académico de tu hijo, garantizado.</p>
-    <a href="#contacto" class="btn btn-light btn-lg px-5 fw-semibold">Contáctanos</a>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Nuestros Servicios</h2>
-    <p class="text-center text-muted mb-5">Profesionalismo y calidad en cada detalle.</p>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-check-circle-fill"></i></div>
-          <h5 class="fw-bold">Tutorías K-12</h5>
-          <p class="text-muted small">Apoyo académico personalizado en matemáticas, ciencias y lectura.</p>
-        </div>
+<section class="hero" id="inicio">
+  <div class="hero-bg-dots"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-split">
+    <div class="hero-left">
+      <div class="hero-label">⭐ 10 años en Kendall — Resultados comprobados</div>
+      <h1>Tu hijo<br>puede <span>más.</span></h1>
+      <p class="hero-lead">El éxito académico de tu hijo, garantizado. Tutorías personalizadas K-12, SAT/ACT, ESL y clases online con los mejores educadores de Kendall.</p>
+      <div class="hero-btns">
+        <a href="#inscripcion" class="btn-yellow">🎓 Inscripción Gratuita</a>
+        <a href="tel:3055551010" class="btn-white-ghost">📞 (305) 555-1010</a>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
-          <h5 class="fw-bold">Preparación SAT/ACT</h5>
-          <p class="text-muted small">Cursos intensivos para maximizar el puntaje en exámenes de admisión.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold">Inglés como Segunda Lengua</h5>
-          <p class="text-muted small">Clases de ESL para niños y adultos con instructores bilingües.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 p-4">
-          <div class="service-icon mb-3"><i class="bi bi-trophy-fill"></i></div>
-          <h5 class="fw-bold">Tutoría en Línea</h5>
-          <p class="text-muted small">Sesiones virtuales flexibles para adaptarse a tu horario.</p>
+    </div>
+    <div class="hero-right">
+      <div class="stats-panel">
+        <div class="sp-label">📊 Nuestros números hablan</div>
+        <div class="sp-grid">
+          <div class="sp-item">
+            <div class="sp-num">95%</div>
+            <div class="sp-desc">Tasa de mejora de notas</div>
+          </div>
+          <div class="sp-item">
+            <div class="sp-num">500+</div>
+            <div class="sp-desc">Estudiantes atendidos</div>
+          </div>
+          <div class="sp-item">
+            <div class="sp-num">12</div>
+            <div class="sp-desc">Materias disponibles</div>
+          </div>
+          <div class="sp-item">
+            <div class="sp-num">10 yrs</div>
+            <div class="sp-desc">En Kendall, FL</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-2">Contáctanos</h2>
-    <p class="text-center text-muted mb-5">Estamos listos para atenderte.</p>
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5">
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><i class="bi bi-telephone-fill me-2" style="color:#0dcaf0"></i><a href="tel:3055551010">(305) 555-1010</a></li>
-          <li class="mb-3"><i class="bi bi-envelope-fill me-2" style="color:#0dcaf0"></i><a href="mailto:info@kendalltutoring.com">info@kendalltutoring.com</a></li>
-          <li class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:#0dcaf0"></i>1011 SW 107th Ave, Kendall, FL 33176</li>
-        </ul>
+<!-- GRADE LEVEL TABS -->
+<section class="grades-section" id="grados">
+  <div class="wrap">
+    <div style="margin-bottom: 2.5rem;">
+      <div class="tag">Programa por nivel</div>
+      <h2 class="sh2">¿Para Quién?</h2>
+      <p class="sp">Selecciona el nivel de tu hijo para ver los programas disponibles.</p>
+    </div>
+    <div class="grade-tabs">
+      <button class="grade-btn active" data-grade="k5">📚 Primaria K-5</button>
+      <button class="grade-btn" data-grade="ms">📖 Secundaria 6-8</button>
+      <button class="grade-btn" data-grade="hs">🏫 Bachillerato 9-12</button>
+      <button class="grade-btn" data-grade="sat">📝 SAT/ACT</button>
+    </div>
+    <div class="grade-content active" id="grade-k5">
+      <div class="grade-card">
+        <span class="grade-subject-tag">Matemáticas</span>
+        <h4>Fundamentos de Matemáticas</h4>
+        <p>Aritmética, fracciones, geometría básica y resolución de problemas. Desde Kindergarten hasta 5to grado.</p>
       </div>
-      <div class="col-lg-7">
-        <form>
-          <div class="mb-3"><input type="text" class="form-control" placeholder="Tu nombre" required /></div>
-          <div class="mb-3"><input type="email" class="form-control" placeholder="Tu correo" required /></div>
-          <div class="mb-3"><textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea></div>
-          <button class="btn px-5 text-white fw-semibold" style="background:#0dcaf0">Enviar mensaje</button>
-        </form>
+      <div class="grade-card">
+        <span class="grade-subject-tag">Lectura & Escritura</span>
+        <h4>Comprensión Lectora</h4>
+        <p>Vocabulario, fonética, comprensión y escritura creativa. Fortalecemos las habilidades fundamentales del lenguaje.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">Ciencias</span>
+        <h4>Ciencias Naturales</h4>
+        <p>Experimentos divertidos, biología básica y ciencias de la tierra. Aprender haciendo desde pequeños.</p>
+      </div>
+    </div>
+    <div class="grade-content" id="grade-ms">
+      <div class="grade-card">
+        <span class="grade-subject-tag">Álgebra</span>
+        <h4>Pre-Álgebra y Álgebra I</h4>
+        <p>Variables, ecuaciones lineales, funciones y gráficas. Preparamos a los estudiantes para el bachillerato.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">Ciencias</span>
+        <h4>Ciencias Físicas y Biología</h4>
+        <p>Física, química básica y biología celular. Apoyo para los exámenes de Florida Standards (FSA).</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">Inglés</span>
+        <h4>English Language Arts</h4>
+        <p>Redacción de ensayos, literatura y análisis textual para los exámenes estatales de Language Arts.</p>
+      </div>
+    </div>
+    <div class="grade-content" id="grade-hs">
+      <div class="grade-card">
+        <span class="grade-subject-tag">Matemáticas Avanzadas</span>
+        <h4>Álgebra II, Pre-Calc & Cálculo</h4>
+        <p>Incluye AP Calculus AB/BC. Preparación para exámenes avanzados con alto nivel de exigencia.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">AP Courses</span>
+        <h4>AP Biology, Chemistry & Physics</h4>
+        <p>Preparación intensiva para exámenes AP. Nuestros alumnos obtienen 4s y 5s consistentemente.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">Historia & Literatura</span>
+        <h4>Historia de EE.UU. y Literatura</h4>
+        <p>AP US History, World History y Literatura inglesa. Metodología de ensayo y análisis crítico.</p>
+      </div>
+    </div>
+    <div class="grade-content" id="grade-sat">
+      <div class="grade-card">
+        <span class="grade-subject-tag">SAT Math</span>
+        <h4>Matemáticas SAT — Nivel 800</h4>
+        <p>Álgebra avanzada, geometría y resolución de problemas tipo SAT. Más de 200 puntos de mejora promedio.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">SAT Reading & Writing</span>
+        <h4>Evidence-Based Reading & Writing</h4>
+        <p>Estrategias de lectura, gramática y redacción tipo SAT. Vocabulario contextual y análisis de pasajes.</p>
+      </div>
+      <div class="grade-card">
+        <span class="grade-subject-tag">ACT</span>
+        <h4>ACT Completo — 4 Secciones</h4>
+        <p>English, Math, Reading y Science. Plan intensivo de 8 semanas con 4 exámenes de práctica incluidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMAS -->
+<section class="programs-section" id="programas">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom: 3rem;">
+      <div class="tag">Oferta educativa</div>
+      <h2 class="sh2">Nuestros Programas</h2>
+      <p class="sp">Educación personalizada adaptada a cada estudiante y familia.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-icon">📚</div>
+        <h4>Tutorías K-12</h4>
+        <p>Apoyo académico personalizado en todas las materias. Una a una o en grupos pequeños de máximo 4 estudiantes.</p>
+        <div class="prog-meta">
+          <span class="prog-chip">1 hora/sesión</span>
+          <span class="prog-price">Desde $35/hr</span>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon">📝</div>
+        <h4>Prep SAT/ACT</h4>
+        <p>Curso intensivo de 8 semanas. 4 exámenes de práctica, estrategias probadas y materiales incluidos.</p>
+        <div class="prog-meta">
+          <span class="prog-chip">8 semanas</span>
+          <span class="prog-price">$349/curso</span>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon">🌐</div>
+        <h4>ESL — Inglés</h4>
+        <p>Clases de inglés como segunda lengua para niños y adultos. Bilingüe, paciente y orientado a la comunicación real.</p>
+        <div class="prog-meta">
+          <span class="prog-chip">Todos los niveles</span>
+          <span class="prog-price">Desde $30/hr</span>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-icon">💻</div>
+        <h4>Tutoría en Línea</h4>
+        <p>Sesiones virtuales en tiempo real con los mismos tutores. Acceso desde cualquier dispositivo, total flexibilidad.</p>
+        <div class="prog-meta">
+          <span class="prog-chip">Zoom/Meet</span>
+          <span class="prog-price">Mismo precio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="results-section" id="resultados">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom: 4rem;">
+      <div class="tag" style="color:#fbbf24;">Impacto comprobado</div>
+      <h2 class="sh2" style="color:#fff;">Resultados que Hablan</h2>
+      <p class="sp" style="color:rgba(255,255,255,0.55);">Datos reales de nuestros estudiantes en los últimos 12 meses.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-pct">94%</div>
+        <div class="result-title">Mejoran sus notas</div>
+        <div class="result-desc">El 94% de nuestros estudiantes mejoran al menos una letra en su promedio durante el primer mes de tutorías.</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item">
+        <div class="result-pct">+230</div>
+        <div class="result-title">Puntos más en SAT</div>
+        <div class="result-desc">Promedio de mejora de 230 puntos en el SAT después de completar nuestro programa de preparación de 8 semanas.</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item">
+        <div class="result-pct">3x</div>
+        <div class="result-title">Más confianza en clase</div>
+        <div class="result-desc">Los maestros reportan que nuestros estudiantes participan activamente 3 veces más después de 6 semanas con nosotros.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TUTORES -->
+<section class="tutors-section" id="tutores">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom: 3.5rem;">
+      <div class="tag">El equipo</div>
+      <h2 class="sh2">Conoce a Nuestros Tutores</h2>
+      <p class="sp">Educadores certificados, apasionados y con resultados comprobados.</p>
+    </div>
+    <div class="tutors-grid">
+      <div class="tutor-card">
+        <div class="tutor-avatar">👩‍🏫</div>
+        <div class="tutor-body">
+          <div class="tutor-name">Ms. Patricia Vidal</div>
+          <div class="tutor-subjects">Matemáticas K-12 · SAT Math</div>
+          <p class="tutor-bio">Licenciada en Educación Matemática con Master en Curriculum & Instruction. Anteriormente maestra en Miami-Dade Public Schools durante 9 años.</p>
+          <div class="tutor-tags">
+            <span class="tutor-tag">Álgebra</span>
+            <span class="tutor-tag">Cálculo AP</span>
+            <span class="tutor-tag">SAT/ACT</span>
+            <span class="tutor-tag">12 años exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="tutor-card">
+        <div class="tutor-avatar">👨‍🏫</div>
+        <div class="tutor-body">
+          <div class="tutor-name">Mr. Daniel Orozco</div>
+          <div class="tutor-subjects">Ciencias · AP Biology · Física</div>
+          <p class="tutor-bio">PhD candidato en Biología Molecular. Instructor bilingüe con especialización en preparación AP Sciences. Todos sus alumnos AP obtienen 4 o 5.</p>
+          <div class="tutor-tags">
+            <span class="tutor-tag">AP Bio</span>
+            <span class="tutor-tag">AP Chemistry</span>
+            <span class="tutor-tag">AP Physics</span>
+            <span class="tutor-tag">8 años exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="tutor-card">
+        <div class="tutor-avatar">👩‍💼</div>
+        <div class="tutor-body">
+          <div class="tutor-name">Ms. Lauren Torres</div>
+          <div class="tutor-subjects">ELA · ESL · SAT Reading & Writing</div>
+          <p class="tutor-bio">Certificada TESOL y graduada de FIU en Lingüística Aplicada. Especialista en ESL y preparación de escritura para exámenes estandarizados.</p>
+          <div class="tutor-tags">
+            <span class="tutor-tag">ESL</span>
+            <span class="tutor-tag">Redacción</span>
+            <span class="tutor-tag">Literatura AP</span>
+            <span class="tutor-tag">7 años exp.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom: 3.5rem;">
+      <div class="tag">Preguntas frecuentes</div>
+      <h2 class="sh2">¿Tienes Dudas?</h2>
+      <p class="sp">Respondemos las preguntas más comunes de los padres.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Cuánto tiempo tarda en verse una mejora en las notas de mi hijo?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">La mayoría de nuestros estudiantes comienzan a ver mejoras dentro de las primeras 3 a 4 semanas. El 94% de los estudiantes mejoran al menos una letra en su promedio durante el primer mes de tutorías consistentes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Las clases son en persona o también se ofrecen en línea?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">Ofrecemos ambas modalidades. Clases presenciales en nuestro centro en Kendall (1011 SW 107th Ave) y clases en línea mediante Zoom o Google Meet con los mismos tutores, al mismo precio.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Qué materiales incluye el programa SAT/ACT?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">El programa SAT/ACT incluye 4 exámenes de práctica completos, workbook impreso, acceso a plataforma digital con ejercicios ilimitados, y sesiones de repaso grabadas para revisar en casa.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Trabajan con estudiantes de educación especial o con ADHD?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">Sí, varios de nuestros tutores tienen formación en educación diferenciada y trabajamos con estudiantes con ADHD, dislexia y otros perfiles de aprendizaje. Adaptamos cada plan de estudio a las necesidades individuales.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Cuál es la política de cancelación de clases?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">Puedes cancelar o reprogramar una sesión con al menos 24 horas de anticipación sin penalidad. Cancelaciones con menos de 24 horas se facturan al 50% del valor de la sesión.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          ¿Ofrecen descuentos para familias con más de un hijo?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">Sí. Para familias con dos o más hijos inscritos ofrecemos 10% de descuento para el segundo hijo y 15% para el tercero. Aplica a todos los programas excepto SAT/ACT intensivo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPCIÓN -->
+<section class="enroll-section" id="inscripcion">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom: 3.5rem;">
+      <div class="tag">Sin costo · Sin compromiso</div>
+      <h2 class="sh2">Inscripción Gratuita</h2>
+      <p class="sp">Empieza hoy. La primera sesión es una evaluación gratuita sin compromiso.</p>
+    </div>
+    <div class="enroll-wrap">
+      <div>
+        <div class="enroll-info">
+          <h3>📍 Contáctanos</h3>
+          <p>Respondemos en menos de 4 horas en horario de atención. Primera sesión de evaluación gratuita.</p>
+          <div class="ei-row">
+            <div class="ei-icon">📞</div>
+            <div>
+              <div class="ei-lbl">Teléfono</div>
+              <div class="ei-val"><a href="tel:3055551010">(305) 555-1010</a></div>
+            </div>
+          </div>
+          <div class="ei-row">
+            <div class="ei-icon">✉️</div>
+            <div>
+              <div class="ei-lbl">Email</div>
+              <div class="ei-val"><a href="mailto:info@kendalltutoring.com">info@kendalltutoring.com</a></div>
+            </div>
+          </div>
+          <div class="ei-row">
+            <div class="ei-icon">📍</div>
+            <div>
+              <div class="ei-lbl">Dirección</div>
+              <div class="ei-val">1011 SW 107th Ave,<br>Kendall, FL 33176</div>
+            </div>
+          </div>
+          <div class="ei-row" style="margin-bottom:0">
+            <div class="ei-icon">🕐</div>
+            <div>
+              <div class="ei-lbl">Horario</div>
+              <div class="ei-val">Lun–Vie: 8 AM – 8 PM<br>Sáb: 9 AM – 5 PM</div>
+            </div>
+          </div>
+          <div class="enroll-promo">
+            <p>🎁 Primera sesión de evaluación 100% gratuita. Sin compromisos, sin tarjeta de crédito.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="enroll-form-card">
+          <h3>Formulario de Inscripción</h3>
+          <p class="ef-sub">Completa el formulario y te contactamos hoy mismo para agendar la evaluación.</p>
+          <form onsubmit="alert('¡Excelente! Te contactaremos en las próximas 4 horas para agendar la evaluación gratuita.'); return false;">
+            <div class="form-row2">
+              <div class="fgg" style="margin-bottom:0">
+                <label class="fll">Nombre del padre/madre</label>
+                <input type="text" class="fcc" placeholder="Tu nombre completo" required />
+              </div>
+              <div class="fgg" style="margin-bottom:0">
+                <label class="fll">Teléfono</label>
+                <input type="tel" class="fcc" placeholder="(305) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-row2" style="margin-top:1rem;">
+              <div class="fgg" style="margin-bottom:0">
+                <label class="fll">Nombre del estudiante</label>
+                <input type="text" class="fcc" placeholder="Nombre del hijo/a" required />
+              </div>
+              <div class="fgg" style="margin-bottom:0">
+                <label class="fll">Grado actual</label>
+                <select class="fcc">
+                  <option value="">Seleccionar…</option>
+                  <option>Kinder (K)</option>
+                  <option>1er Grado</option>
+                  <option>2do Grado</option>
+                  <option>3er Grado</option>
+                  <option>4to Grado</option>
+                  <option>5to Grado</option>
+                  <option>6to Grado</option>
+                  <option>7mo Grado</option>
+                  <option>8vo Grado</option>
+                  <option>9no Grado</option>
+                  <option>10mo Grado</option>
+                  <option>11vo Grado</option>
+                  <option>12vo Grado</option>
+                  <option>Adulto (ESL)</option>
+                </select>
+              </div>
+            </div>
+            <div class="fgg" style="margin-top:1rem;">
+              <label class="fll">Materia o programa de interés</label>
+              <select class="fcc">
+                <option value="">Seleccionar…</option>
+                <option>Matemáticas</option>
+                <option>Ciencias (Science)</option>
+                <option>Inglés / ELA</option>
+                <option>Preparación SAT</option>
+                <option>Preparación ACT</option>
+                <option>ESL (Inglés como 2da lengua)</option>
+                <option>Tutoría en Línea</option>
+                <option>Varias materias</option>
+              </select>
+            </div>
+            <div class="fgg">
+              <label class="fll">Horario preferido</label>
+              <select class="fcc">
+                <option value="">Seleccionar…</option>
+                <option>Mañanas (8 AM – 12 PM)</option>
+                <option>Tardes (12 PM – 5 PM)</option>
+                <option>Noches (5 PM – 8 PM)</option>
+                <option>Fines de semana</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div class="fgg">
+              <label class="fll">¿Algo más que debamos saber?</label>
+              <textarea class="fcc" placeholder="Cuéntanos sobre los retos académicos actuales, diagnósticos especiales u objetivos específicos…"></textarea>
+            </div>
+            <button type="submit" class="btn-enroll-form">
+              🎓 Solicitar Evaluación Gratuita
+            </button>
+            <p class="enroll-disclaimer">100% gratuito. Sin compromisos. Te respondemos dentro de las próximas 4 horas hábiles.</p>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-1">&copy; 2026 Kendall Tutoring Center. Todos los derechos reservados.</p>
-    <p class="mb-0 small">
-      Sitio web creado por <a href="https://saravrai.com" target="_blank">Sara Vrai</a>
-      <span class="sara-badge ms-2">$99</span>
-    </p>
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🎓 Kendall Tutoring Center</div>
+        <div class="footer-sub">El éxito académico de tu hijo, garantizado.</div>
+        <div class="footer-contact-info">
+          <div>📞 <a href="tel:3055551010">(305) 555-1010</a></div>
+          <div style="margin-top:0.2rem;"><a href="mailto:info@kendalltutoring.com">info@kendalltutoring.com</a></div>
+          <div style="margin-top:0.2rem; color:rgba(255,255,255,0.35);">1011 SW 107th Ave, Kendall, FL 33176</div>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Programas</h5>
+        <ul>
+          <li><a href="#programas">Tutorías K-12</a></li>
+          <li><a href="#programas">Preparación SAT/ACT</a></li>
+          <li><a href="#programas">ESL — Inglés</a></li>
+          <li><a href="#programas">Tutoría en Línea</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Información</h5>
+        <ul>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#tutores">Nuestros Tutores</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#inscripcion">Inscripción Gratis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2026 Kendall Tutoring Center · Todos los derechos reservados.</p>
+      <span class="sara-badge">Sitio web por Sara Vrai · $99</span>
+    </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- WhatsApp -->
+<a href="https://wa.me/13055551010" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Nav toggle
+  document.getElementById('navHam').addEventListener('click', function() {
+    document.getElementById('navUl').classList.toggle('open');
+  });
+
+  // Grade tabs
+  document.querySelectorAll('.grade-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.grade-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.grade-content').forEach(function(c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('grade-' + btn.dataset.grade).classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('navUl').classList.remove('open');
+      }
+    });
+  });
+</script>
 </body>
 </html>
