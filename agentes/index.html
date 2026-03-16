@@ -403,12 +403,13 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .main-layout { grid-template-columns: 1fr; gap: 0; }
-      .sidebar { padding-bottom: 8px; }
+      .sidebar { padding-bottom: 4px; }
       .sidebar-title { display: none; }
       .category-list {
         flex-direction: row; flex-wrap: nowrap;
         overflow-x: auto; gap: 6px;
         padding: 4px 0 12px;
+        margin: 0 -16px; padding-left: 16px; padding-right: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
       }
@@ -419,21 +420,53 @@
       .nav-badge { display: none; }
     }
     @media (max-width: 640px) {
-      .hero { padding: 120px 20px 60px; }
-      .hero-stats { gap: 0; }
-      .hero-stat { padding: 0 16px; }
+      .hero { padding: 110px 16px 48px; }
+      .hero-sub { font-size: 15px; margin-bottom: 28px; }
+      .hero-eyebrow { font-size: 10px; padding: 5px 12px; gap: 6px; text-overflow: ellipsis; }
+      .hero-stats {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 16px 0;
+      }
+      .hero-stat { padding: 0; border-right: none; }
+      .hero-stat:nth-child(odd) { border-right: 1px solid var(--border); }
       .hero-stat-num { font-size: 28px; }
+      .hero-stat-label { font-size: 10px; }
       .container { padding: 0 16px; }
-      .modal { border-radius: 16px; }
+      .filter-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+      .filter-bar > div { width: 100%; }
+      #mobile-search { width: 100% !important; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .agent-card { padding: 16px; }
+      .card-cat-badge { font-size: 9px; padding: 2px 6px; }
+      .card-desc { font-size: 12px; -webkit-line-clamp: 2; margin-bottom: 12px; }
+      .card-tags { margin-bottom: 12px; }
+      .card-footer .btn-copy, .card-footer .btn-view { padding: 7px 10px; font-size: 11px; }
+      .modal { border-radius: 14px; max-height: 90vh; }
+      .modal-header { padding: 20px 16px 14px; margin-bottom: 16px; }
+      .modal-body { padding: 0 16px 20px; }
+      .modal-name { font-size: 22px; }
+      .modal-desc { font-size: 14px; }
+      .soul-block { padding: 14px; font-size: 11px; max-height: 220px; }
+      .modal-overlay { padding: 10px; }
       .nav-logo { font-size: 13px; }
-      .nav-left { gap: 12px; }
+      .nav-left { gap: 10px; }
+      .nav-back { font-size: 12px; }
+      footer { padding: 28px 16px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links { justify-content: center; }
     }
     @media (max-width: 480px) {
-      nav { padding: 14px 16px; }
+      nav { padding: calc(env(safe-area-inset-top, 0px) + 10px) 12px 10px; }
       .nav-logo { display: none; }
       .nav-stars { display: none; }
-      .hero-stat-label { font-size: 10px; }
+      .nav-back span { display: none; }
+      .hero { padding: 100px 12px 40px; }
+      .hero h1 { font-size: 28px; }
+      .container { padding: 0 12px; }
+      .category-list { margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
       .modal-actions { flex-direction: column; }
+      .modal-actions .modal-btn-copy,
+      .modal-actions .modal-btn-github { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -446,7 +479,7 @@
   <div class="nav-left">
     <a href="https://saravrai.com" class="nav-back">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      saravrai.com
+      <span>saravrai.com</span>
     </a>
     <span class="nav-logo">OPENCLAW AGENTES</span>
     <span class="nav-badge">162 agentes</span>
@@ -502,7 +535,7 @@
   <div class="filter-bar">
     <div class="results-count">Mostrando <span id="result-count">162</span> agentes</div>
     <div style="display:flex;gap:10px;align-items:center;">
-      <div class="nav-search" style="display:flex;width:220px;" id="mobile-search">
+      <div class="nav-search" style="display:flex;width:100%;max-width:280px;" id="mobile-search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:#555;flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input type="text" id="mobile-search-input" placeholder="Buscar..." autocomplete="off" style="background:none;border:none;outline:none;font-family:inherit;font-size:13px;color:#f0f0f0;width:100%">
       </div>
