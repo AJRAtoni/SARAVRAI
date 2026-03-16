@@ -96,6 +96,17 @@
       width: 100%;
     }
     .nav-search input::placeholder { color: var(--text-muted); }
+    .nav-stars {
+      display: flex; align-items: center; gap: 7px;
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 7px 12px;
+      font-size: 13px; font-weight: 600; color: var(--text-secondary);
+      text-decoration: none; transition: all 0.2s; white-space: nowrap;
+    }
+    .nav-stars:hover { border-color: var(--border-hover); color: var(--text); }
+    .nav-stars svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .nav-stars-count { color: var(--text); }
+    .nav-stars-star { color: var(--gold); font-size: 12px; }
 
     /* ─── HERO ─── */
     .hero {
@@ -408,6 +419,7 @@
     @media (max-width: 480px) {
       nav { padding: 14px 16px; }
       .nav-badge { display: none; }
+      .nav-stars { display: none; }
       .hero-stat-label { font-size: 10px; }
       .modal-actions { flex-direction: column; }
     }
@@ -427,9 +439,16 @@
     <span class="nav-logo">OPENCLAW AGENTES</span>
     <span class="nav-badge">162 agentes</span>
   </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="https://github.com/AJRAtoni/agentes-openclaw" target="_blank" rel="noopener" class="nav-stars" id="nav-stars-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      <span class="nav-stars-star">★</span>
+      <span class="nav-stars-count" id="star-count">—</span>
+    </a>
   <div class="nav-search">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <input type="text" id="nav-search-input" placeholder="Buscar agentes..." autocomplete="off">
+  </div>
   </div>
 </nav>
 
@@ -987,6 +1006,19 @@ document.getElementById('modal-copy-btn').addEventListener('click', () => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
+
+// GitHub stars
+fetch('https://api.github.com/repos/AJRAtoni/agentes-openclaw')
+  .then(r => r.json())
+  .then(d => {
+    const n = d.stargazers_count;
+    if (typeof n === 'number') {
+      document.getElementById('star-count').textContent = n >= 1000
+        ? (n / 1000).toFixed(1) + 'k'
+        : n;
+    }
+  })
+  .catch(() => {}); // silencioso si falla
 </script>
 </body>
 </html>
