@@ -85,13 +85,13 @@
   <text x="112" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="130" font-weight="700" fill="url(#gold)" letter-spacing="-2">SARA VRAI</text>
 
   <!-- Italic accent line -->
-  <text x="114" y="370" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-style="italic" font-weight="400" fill="#888888" letter-spacing="1">Web Agency &amp; IA Consciente</text>
+  <text x="114" y="370" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-style="italic" font-weight="400" fill="#888888" letter-spacing="1">Automatización IA &amp; Agentes Inteligentes</text>
 
   <!-- Divider line -->
   <rect x="112" y="400" width="60" height="1" fill="#c9a96e" opacity="0.6"/>
 
   <!-- Subtitle -->
-  <text x="112" y="440" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#666666" letter-spacing="0.5" font-weight="400">Desarrollo web custom · E-commerce Shopify · Automatizaciones N8N</text>
+  <text x="112" y="440" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#666666" letter-spacing="0.5" font-weight="400">Automatización de procesos · Agentes IA personales · Ebook OpenClaw</text>
 
   <!-- URL badge bottom right -->
   <rect x="900" y="560" width="220" height="34" rx="17" fill="#0d0d0d" stroke="#c9a96e" stroke-opacity="0.25" stroke-width="1"/>
