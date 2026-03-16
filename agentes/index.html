@@ -360,13 +360,6 @@
     }
     .modal-btn-copy:hover { opacity: 0.9; }
     .modal-btn-copy.copied { background: linear-gradient(135deg,#5dc87a,#4ab56a); }
-    .modal-btn-deploy {
-      padding: 12px 20px; border-radius: var(--radius-sm);
-      font-size: 13px; font-weight: 600;
-      background: none; color: var(--text-secondary);
-      border: 1px solid var(--border); transition: all 0.2s;
-    }
-    .modal-btn-deploy:hover { color: var(--text); border-color: var(--border-hover); }
     .modal-btn-github {
       padding: 12px 16px; border-radius: var(--radius-sm);
       font-size: 13px; font-weight: 600;
@@ -517,9 +510,6 @@
       <div class="soul-block" id="modal-soul"></div>
       <div class="modal-actions">
         <button class="modal-btn-copy" id="modal-copy-btn">Copiar SOUL.md</button>
-        <a href="https://crewclaw.com/create-agent" target="_blank" rel="noopener">
-          <button class="modal-btn-deploy">Desplegar en CrewClaw →</button>
-        </a>
         <button class="modal-btn-github" id="modal-github-btn">GitHub ↗</button>
       </div>
     </div>
@@ -533,7 +523,7 @@
     <div class="footer-links">
       <a href="https://saravrai.com">Inicio</a>
       <a href="https://saravrai.com/#servicios">Servicios</a>
-      <a href="https://github.com/mergisi/awesome-openclaw-agents" target="_blank" rel="noopener">GitHub Original</a>
+      <a href="https://github.com/AJRAtoni/SARAVRAI" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-copy">© 2026 SARA VRAI · Basado en awesome-openclaw-agents (MIT)</div>
   </div>
@@ -821,8 +811,7 @@ ${agent.desc}
 
 ## Notas de Integración
 - Compatible con el ecosistema OpenClaw completo
-- Despliega en: https://crewclaw.com/create-agent
-- Fuente original (EN): https://github.com/mergisi/awesome-openclaw-agents/tree/main/agents/${agent.cat}/${agent.id}/SOUL.md`;
+- Repositorio: https://github.com/AJRAtoni/SARAVRAI/tree/main/agentes`;
 }
 
 // ─────────────────────────────────────────────
@@ -938,7 +927,7 @@ function openModal(id) {
   document.getElementById('modal-copy-btn').textContent = 'Copiar SOUL.md';
   document.getElementById('modal-copy-btn').classList.remove('copied');
   document.getElementById('modal-github-btn').onclick = () => {
-    window.open(`https://github.com/mergisi/awesome-openclaw-agents/tree/main/agents/${agent.cat}/${agent.id}`, '_blank', 'noopener');
+    window.open('https://github.com/AJRAtoni/SARAVRAI/tree/main/agentes', '_blank', 'noopener');
   };
 
   document.getElementById('modal-overlay').classList.add('open');
