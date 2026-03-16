@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Agentes — 177 Agentes IA en Español | SARA VRAI</title>
+  <meta name="description" content="Colección completa de 177 agentes IA para OpenClaw en español. Templates SOUL.md listos para usar, 24 categorías, copia en un clic.">
+  <meta name="keywords" content="agentes IA español, OpenClaw agentes, templates IA, agentes inteligentes, SOUL.md, automatización IA">
+  <meta property="og:title" content="OpenClaw Agentes — 177 Agentes IA en Español">
+  <meta property="og:description" content="La colección más completa de agentes IA para OpenClaw en español. Copy-paste ready.">
+  <meta property="og:url" content="https://saravrai.com/agentes/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://saravrai.com/agentes/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080808;
+      --bg-card: #0d0d0d;
+      --bg-card2: #111111;
+      --gold: #c9a96e;
+      --gold-light: #e8cc9a;
+      --gold-dark: #a07840;
+      --gold-gradient: linear-gradient(135deg, #c9a96e 0%, #f0d090 50%, #c9a96e 100%);
+      --text: #f0f0f0;
+      --text-secondary: #888888;
+      --text-muted: #555555;
+      --border: rgba(201, 169, 110, 0.15);
+      --border-hover: rgba(201, 169, 110, 0.4);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; }
+
+    /* ─── STATUS BAR ─── */
+    #status-bar-shield {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      height: env(safe-area-inset-top, 0px);
+      background: var(--bg);
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
+      padding: calc(env(safe-area-inset-top, 0px) + 18px) 28px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-bottom 0.3s, backdrop-filter 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(24px);
+      background: rgba(8, 8, 8, 0.85);
+    }
+    .nav-left { display: flex; align-items: center; gap: 24px; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+    .nav-back svg { width: 14px; height: 14px; }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
+      background: var(--gold-gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-badge {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--gold); background: rgba(201, 169, 110, 0.1);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 3px 10px; text-transform: uppercase;
+    }
+    .nav-search {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 14px;
+      transition: border-color 0.2s; width: 280px;
+    }
+    .nav-search:focus-within { border-color: var(--gold); }
+    .nav-search svg { width: 14px; height: 14px; color: var(--text-muted); flex-shrink: 0; }
+    .nav-search input {
+      background: none; border: none; outline: none;
+      font-family: inherit; font-size: 13px; color: var(--text);
+      width: 100%;
+    }
+    .nav-search input::placeholder { color: var(--text-muted); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 140px 28px 80px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; animation: float 12s ease-in-out infinite;
+    }
+    .hero-orb-1 { width: 400px; height: 400px; background: rgba(201,169,110,0.07); top: -100px; left: 10%; }
+    .hero-orb-2 { width: 300px; height: 300px; background: rgba(120,80,200,0.06); top: 50px; right: 15%; animation-delay: -4s; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 6px 16px; margin-bottom: 24px;
+    }
+    .hero-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px); font-weight: 700;
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: var(--gold-gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px; color: var(--text-secondary); max-width: 520px;
+      margin: 0 auto 40px; line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+    }
+    .hero-stat {
+      padding: 0 32px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700;
+      background: var(--gold-gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .hero-stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; margin-top: 6px; }
+
+    /* ─── MAIN LAYOUT ─── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+    .main-layout {
+      display: grid; grid-template-columns: 240px 1fr;
+      gap: 32px; padding-bottom: 120px;
+    }
+
+    /* ─── FILTER BAR ─── */
+    .filter-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0 24px; gap: 16px; flex-wrap: wrap;
+    }
+    .results-count { font-size: 13px; color: var(--text-muted); }
+    .results-count span { color: var(--gold); font-weight: 600; }
+    .sort-select {
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 8px 14px;
+      font-family: inherit; font-size: 13px; color: var(--text);
+      outline: none; cursor: pointer; transition: border-color 0.2s;
+    }
+    .sort-select:hover { border-color: var(--border-hover); }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { position: sticky; top: 90px; align-self: start; }
+    .sidebar-title {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 12px; padding: 0 4px;
+    }
+    .category-list { display: flex; flex-direction: column; gap: 2px; }
+    .cat-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 12px; border-radius: var(--radius-sm);
+      background: none; color: var(--text-secondary);
+      font-size: 13px; font-weight: 500; transition: all 0.2s;
+      border: 1px solid transparent; width: 100%; text-align: left;
+    }
+    .cat-btn:hover { background: var(--bg-card2); color: var(--text); }
+    .cat-btn.active {
+      background: rgba(201, 169, 110, 0.1);
+      border-color: var(--border); color: var(--gold);
+    }
+    .cat-btn-left { display: flex; align-items: center; gap: 8px; }
+    .cat-icon { font-size: 14px; width: 20px; text-align: center; }
+    .cat-count {
+      font-size: 11px; color: var(--text-muted);
+      background: rgba(255,255,255,0.04); border-radius: 10px;
+      padding: 1px 6px; min-width: 24px; text-align: center;
+    }
+    .cat-btn.active .cat-count { color: var(--gold-dark); background: rgba(201,169,110,0.1); }
+
+    /* ─── AGENT GRID ─── */
+    .agents-area { min-width: 0; }
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    /* ─── AGENT CARD ─── */
+    .agent-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px; cursor: pointer;
+      transition: all 0.25s; position: relative;
+      overflow: hidden;
+    }
+    .agent-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold-gradient);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .agent-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .agent-card:hover::before { opacity: 1; }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+    .card-name {
+      font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--text); line-height: 1.2;
+    }
+    .card-cat-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
+      background: rgba(201,169,110,0.08); color: var(--gold-dark);
+      border: 1px solid rgba(201,169,110,0.15); white-space: nowrap;
+      flex-shrink: 0; margin-left: 8px;
+    }
+    .card-role {
+      font-size: 12px; color: var(--gold); font-weight: 500;
+      letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: 13px; color: var(--text-secondary);
+      line-height: 1.55; margin-bottom: 16px;
+      display: -webkit-box; -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag {
+      font-size: 10px; font-weight: 500; padding: 3px 8px;
+      border-radius: 4px; background: rgba(255,255,255,0.04);
+      color: var(--text-muted); letter-spacing: 0.03em;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card-footer { display: flex; gap: 8px; }
+    .btn-copy, .btn-view {
+      flex: 1; padding: 8px 12px; border-radius: var(--radius-sm);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+    .btn-copy {
+      background: rgba(201,169,110,0.1); color: var(--gold);
+      border: 1px solid var(--border);
+    }
+    .btn-copy:hover { background: rgba(201,169,110,0.2); border-color: var(--border-hover); }
+    .btn-copy.copied { background: rgba(80,200,120,0.1); color: #5dc87a; border-color: rgba(80,200,120,0.2); }
+    .btn-view {
+      background: none; color: var(--text-secondary);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .btn-view:hover { color: var(--text); border-color: var(--border); }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      grid-column: 1 / -1; text-align: center; padding: 80px 20px;
+    }
+    .empty-state-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.4; }
+    .empty-state h3 { font-size: 18px; color: var(--text-secondary); margin-bottom: 8px; }
+    .empty-state p { font-size: 14px; color: var(--text-muted); }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; width: 100%; max-width: 640px;
+      max-height: 85vh; overflow-y: auto;
+      transform: translateY(20px); transition: transform 0.25s;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal::-webkit-scrollbar { width: 4px; }
+    .modal::-webkit-scrollbar-track { background: transparent; }
+    .modal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .modal-header {
+      padding: 28px 28px 0; display: flex; justify-content: space-between;
+      align-items: flex-start; position: sticky; top: 0;
+      background: var(--bg-card); z-index: 1;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 24px;
+    }
+    .modal-title-area { flex: 1; }
+    .modal-cat-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,169,110,0.1);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 3px 8px; margin-bottom: 10px;
+    }
+    .modal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 6px;
+    }
+    .modal-role { font-size: 14px; color: var(--gold); font-weight: 500; }
+    .modal-close {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      border-radius: 8px; width: 34px; height: 34px; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; flex-shrink: 0; margin-left: 16px;
+      font-size: 18px; line-height: 1;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+    .modal-body { padding: 0 28px 28px; }
+    .modal-desc {
+      font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+    .modal-section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .soul-block {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px;
+      font-family: 'Space Grotesk', monospace; font-size: 12px;
+      line-height: 1.7; color: var(--text-secondary);
+      white-space: pre-wrap; word-break: break-word;
+      max-height: 300px; overflow-y: auto; margin-bottom: 20px;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .soul-block::-webkit-scrollbar { width: 4px; }
+    .soul-block::-webkit-scrollbar-track { background: transparent; }
+    .soul-block::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .modal-btn-copy {
+      flex: 1; padding: 12px 20px; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      background: var(--gold-gradient); color: #080808;
+      transition: opacity 0.2s; min-width: 160px;
+    }
+    .modal-btn-copy:hover { opacity: 0.9; }
+    .modal-btn-copy.copied { background: linear-gradient(135deg,#5dc87a,#4ab56a); }
+    .modal-btn-deploy {
+      padding: 12px 20px; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600;
+      background: none; color: var(--text-secondary);
+      border: 1px solid var(--border); transition: all 0.2s;
+    }
+    .modal-btn-deploy:hover { color: var(--text); border-color: var(--border-hover); }
+    .modal-btn-github {
+      padding: 12px 16px; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600;
+      background: none; color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.06); transition: all 0.2s;
+    }
+    .modal-btn-github:hover { color: var(--text-secondary); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border); padding: 40px 28px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+      background: var(--gold-gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .category-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+      .cat-btn { width: auto; padding: 7px 12px; font-size: 12px; }
+      .nav-search { display: none; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero-stats { gap: 0; }
+      .hero-stat { padding: 0 16px; }
+      .hero-stat-num { font-size: 28px; }
+      .container { padding: 0 16px; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .modal { border-radius: 16px; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 14px 16px; }
+      .nav-badge { display: none; }
+      .hero-stat-label { font-size: 10px; }
+      .modal-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="status-bar-shield"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="https://saravrai.com" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      saravrai.com
+    </a>
+    <span class="nav-logo">OPENCLAW AGENTES</span>
+    <span class="nav-badge">177 agentes</span>
+  </div>
+  <div class="nav-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="nav-search-input" placeholder="Buscar agentes..." autocomplete="off">
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-eyebrow">
+    <span class="hero-dot"></span>
+    Colección Completa · Español · Copy-Paste Ready
+  </div>
+  <h1>177 Agentes IA listos para <em>OpenClaw</em></h1>
+  <p class="hero-sub">
+    La colección más completa de agentes IA en español. Templates SOUL.md listos para copiar y desplegar en tu instancia de OpenClaw.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">177</div>
+      <div class="hero-stat-label">Agentes IA</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">24</div>
+      <div class="hero-stat-label">Categorías</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">En Español</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Free</div>
+      <div class="hero-stat-label">Gratis siempre</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="container">
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <div class="results-count">Mostrando <span id="result-count">177</span> agentes</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div class="nav-search" style="display:flex;width:220px;" id="mobile-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:#555;flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="mobile-search-input" placeholder="Buscar..." autocomplete="off" style="background:none;border:none;outline:none;font-family:inherit;font-size:13px;color:#f0f0f0;width:100%">
+      </div>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Categorías</div>
+      <div class="category-list" id="category-list"></div>
+    </aside>
+
+    <!-- AGENTS -->
+    <div class="agents-area">
+      <div class="agents-grid" id="agents-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title-area">
+        <div class="modal-cat-badge" id="modal-cat"></div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-role" id="modal-role"></div>
+      </div>
+      <button class="modal-close" id="modal-close">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tags" id="modal-tags"></div>
+      <div class="modal-section-title">SOUL.md Template</div>
+      <div class="soul-block" id="modal-soul"></div>
+      <div class="modal-actions">
+        <button class="modal-btn-copy" id="modal-copy-btn">Copiar SOUL.md</button>
+        <a href="https://crewclaw.com/create-agent" target="_blank" rel="noopener">
+          <button class="modal-btn-deploy">Desplegar en CrewClaw →</button>
+        </a>
+        <button class="modal-btn-github" id="modal-github-btn">GitHub ↗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">SARA VRAI</div>
+    <div class="footer-links">
+      <a href="https://saravrai.com">Inicio</a>
+      <a href="https://saravrai.com/#servicios">Servicios</a>
+      <a href="https://github.com/mergisi/awesome-openclaw-agents" target="_blank" rel="noopener">GitHub Original</a>
+    </div>
+    <div class="footer-copy">© 2026 SARA VRAI · Basado en awesome-openclaw-agents (MIT)</div>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────
+const CATEGORIES = [
+  { id: 'all',            name: 'Todos',                  icon: '✦',  count: 177 },
+  { id: 'productivity',   name: 'Productividad',           icon: '⚡',  count: 7  },
+  { id: 'development',    name: 'Desarrollo',              icon: '💻',  count: 10 },
+  { id: 'marketing',      name: 'Marketing y Contenido',   icon: '📢',  count: 17 },
+  { id: 'business',       name: 'Negocios',                icon: '💼',  count: 12 },
+  { id: 'personal',       name: 'Personal',                icon: '🧠',  count: 7  },
+  { id: 'devops',         name: 'DevOps',                  icon: '🔧',  count: 10 },
+  { id: 'finance',        name: 'Finanzas',                icon: '💰',  count: 10 },
+  { id: 'education',      name: 'Educación',               icon: '📚',  count: 8  },
+  { id: 'healthcare',     name: 'Salud',                   icon: '❤️',  count: 7  },
+  { id: 'legal',          name: 'Legal',                   icon: '⚖️',  count: 6  },
+  { id: 'hr',             name: 'Recursos Humanos',        icon: '👥',  count: 7  },
+  { id: 'creative',       name: 'Creatividad',             icon: '🎨',  count: 8  },
+  { id: 'security',       name: 'Seguridad',               icon: '🔒',  count: 6  },
+  { id: 'ecommerce',      name: 'E-Commerce',              icon: '🛒',  count: 6  },
+  { id: 'data',           name: 'Datos e Inteligencia',    icon: '📊',  count: 7  },
+  { id: 'saas',           name: 'SaaS',                    icon: '🚀',  count: 5  },
+  { id: 'realestate',     name: 'Inmobiliaria',            icon: '🏠',  count: 5  },
+  { id: 'freelance',      name: 'Freelance',               icon: '🎯',  count: 3  },
+  { id: 'moltbook',       name: 'Moltbook',                icon: '📖',  count: 3  },
+  { id: 'supplychain',    name: 'Cadena de Suministro',    icon: '📦',  count: 3  },
+  { id: 'compliance',     name: 'Cumplimiento',            icon: '✅',  count: 4  },
+  { id: 'voice',          name: 'Voz',                     icon: '🎙️',  count: 3  },
+  { id: 'customersuccess',name: 'Éxito del Cliente',       icon: '🤝',  count: 2  },
+  { id: 'automation',     name: 'Automatización',          icon: '⚙️',  count: 6  },
+];
+
+const AGENTS = [
+  // PRODUCTIVIDAD
+  { id:'orion',              name:'Orion',                 cat:'productivity',    role:'Gestor de Proyectos IA',                    desc:'Organiza tareas, prioridades y deadlines de forma inteligente. Centraliza el seguimiento de proyectos y mantiene al equipo alineado con los objetivos.',        tags:['tareas','proyectos','planificación'] },
+  { id:'pulse',              name:'Pulse',                 cat:'productivity',    role:'Monitor de Métricas de Equipo',             desc:'Rastrea KPIs del equipo en tiempo real y envía reportes de rendimiento automatizados. Detecta cuellos de botella antes de que se conviertan en problemas.',       tags:['métricas','equipo','KPIs'] },
+  { id:'standup',            name:'Standup',               cat:'productivity',    role:'Automatizador de Daily Standups',           desc:'Automatiza los reportes diarios de standup, resume el progreso del equipo y distribuye las notas a los canales correctos sin intervención manual.',             tags:['scrum','equipo','reportes'] },
+  { id:'inbox',              name:'Inbox',                 cat:'productivity',    role:'Gestor de Email Inteligente',               desc:'Prioriza tu bandeja de entrada, redacta borradores de respuesta y categoriza emails automáticamente según importancia y contexto.',                           tags:['email','comunicación','automatización'] },
+  { id:'minutes',            name:'Minutes',               cat:'productivity',    role:'Secretario de Reuniones IA',                desc:'Transcribe y resume reuniones en tiempo real, extrae action items con responsables y fechas, y distribuye las notas al equipo automáticamente.',               tags:['reuniones','transcripción','resúmenes'] },
+  { id:'focus-timer',        name:'Focus Timer',           cat:'productivity',    role:'Coach de Productividad Pomodoro',           desc:'Implementa la técnica Pomodoro de forma inteligente, adaptando la duración de las sesiones a tu nivel de energía y tipo de tarea.',                            tags:['pomodoro','focus','time-management'] },
+  { id:'habit-tracker',      name:'Habit Tracker',         cat:'productivity',    role:'Rastreador de Hábitos Personales',          desc:'Monitorea tu progreso en hábitos diarios, identifica patrones y ofrece coaching personalizado para mantener la consistencia a largo plazo.',                  tags:['hábitos','coaching','bienestar'] },
+  // DESARROLLO
+  { id:'lens',               name:'Lens',                  cat:'development',     role:'Revisor de Código IA',                      desc:'Detecta bugs, anti-patterns y problemas de seguridad en pull requests. Sugiere mejoras de calidad y garantiza el cumplimiento de estándares de código.',        tags:['code review','bugs','calidad'] },
+  { id:'scribe',             name:'Scribe',                cat:'development',     role:'Generador de Documentación Técnica',        desc:'Genera documentación técnica completa y actualizada a partir del código fuente, incluyendo READMEs, docstrings, guías de API y wikis de proyecto.',            tags:['documentación','código','API docs'] },
+  { id:'trace',              name:'Trace',                 cat:'development',     role:'Debugger Inteligente',                      desc:'Analiza stack traces y mensajes de error, identifica la causa raíz y propone soluciones paso a paso con ejemplos de código concretos.',                        tags:['debugging','errores','análisis'] },
+  { id:'probe',              name:'Probe',                 cat:'development',     role:'Generador de Tests Automatizados',          desc:'Analiza el código y escribe tests unitarios completos con casos edge, asegurando cobertura alta sin el esfuerzo manual de escribirlos desde cero.',             tags:['testing','QA','unit tests'] },
+  { id:'log',                name:'Log',                   cat:'development',     role:'Analizador de Logs en Tiempo Real',         desc:'Procesa y analiza logs de aplicaciones en tiempo real, detecta patrones de error, anomalías y genera alertas ante comportamientos inusuales.',                  tags:['logs','monitoreo','anomalías'] },
+  { id:'dependency-scanner', name:'Dependency Scanner',    cat:'development',     role:'Escáner de Dependencias',                  desc:'Escanea el árbol de dependencias del proyecto en busca de vulnerabilidades conocidas, versiones desactualizadas y riesgos de seguridad.',                     tags:['seguridad','dependencias','vulnerabilidades'] },
+  { id:'pr-merger',          name:'PR Merger',             cat:'development',     role:'Gestor de Pull Requests',                  desc:'Revisa automáticamente PRs, verifica conflictos de merge, comprueba que los tests pasan y facilita la aprobación y fusión controlada.',                       tags:['git','PR','colaboración'] },
+  { id:'migration-helper',   name:'Migration Helper',      cat:'development',     role:'Asistente de Migraciones',                 desc:'Asiste en migraciones de base de datos y refactoring de código a gran escala, generando scripts seguros y planes de rollback detallados.',                    tags:['migraciones','base de datos','refactoring'] },
+  { id:'test-writer',        name:'Test Writer',           cat:'development',     role:'Escritor de Tests Completos',              desc:'Genera tests unitarios, de integración y E2E a partir del código fuente, cubriendo casos felices, casos borde y escenarios de error.',                          tags:['testing','E2E','automatización'] },
+  { id:'schema-designer',    name:'Schema Designer',       cat:'development',     role:'Diseñador de Esquemas de BD',              desc:'Diseña y optimiza esquemas de bases de datos relacionales y NoSQL, sugiriendo índices, relaciones y estructuras eficientes para cada caso de uso.',             tags:['base de datos','schema','arquitectura'] },
+  // MARKETING
+  { id:'echo',               name:'Echo',                  cat:'marketing',       role:'Gestor de Redes Sociales IA',              desc:'Crea y programa contenido optimizado para múltiples redes sociales, adaptando el tono y formato a cada plataforma y audiencia objetivo.',                      tags:['social media','contenido','programación'] },
+  { id:'buzz',               name:'Buzz',                  cat:'marketing',       role:'Estratega de Growth Hacking',              desc:'Diseña y ejecuta campañas de crecimiento viral, identifica canales de adquisición de alto ROI y optimiza los embudos de conversión.',                          tags:['growth','viral','campañas'] },
+  { id:'rank',               name:'Rank',                  cat:'marketing',       role:'Especialista SEO',                         desc:'Optimiza el contenido para buscadores, investiga keywords de alto valor, audita la web y rastrea el posicionamiento frente a competidores.',                    tags:['SEO','posicionamiento','keywords'] },
+  { id:'digest',             name:'Digest',                cat:'marketing',       role:'Curador de Newsletter',                    desc:'Monitoriza fuentes del sector, sintetiza las tendencias más relevantes y crea newsletters de alta calidad de forma automatizada.',                               tags:['newsletter','email marketing','curación'] },
+  { id:'scout',              name:'Scout',                 cat:'marketing',       role:'Investigador de Tendencias',               desc:'Escanea el ecosistema digital para identificar tendencias emergentes, oportunidades de contenido y temas virales antes que la competencia.',                    tags:['tendencias','investigación','oportunidades'] },
+  { id:'reddit-scout',       name:'Reddit Scout',          cat:'marketing',       role:'Monitor de Reddit',                        desc:'Monitorea subreddits relevantes para detectar conversaciones sobre tu sector, captar feedback auténtico e identificar oportunidades de leads.',                  tags:['Reddit','comunidades','leads'] },
+  { id:'tiktok-repurposer',  name:'TikTok Repurposer',     cat:'marketing',       role:'Transformador de Contenido para TikTok',  desc:'Transforma podcasts, webinars y artículos en clips cortos optimizados para TikTok, con scripts, captions y estrategia de hashtags.',                          tags:['TikTok','video','viral'] },
+  { id:'cold-outreach',      name:'Cold Outreach',         cat:'marketing',       role:'Especialista en Prospección Fría',         desc:'Redacta emails de prospección altamente personalizados, secuencias de seguimiento y scripts de LinkedIn adaptados a cada perfil de cliente.',                  tags:['email','prospección','B2B'] },
+  { id:'ab-test-analyzer',   name:'A/B Test Analyzer',     cat:'marketing',       role:'Analizador de Tests A/B',                  desc:'Analiza resultados de experimentos A/B con rigor estadístico, identifica variantes ganadoras y genera recomendaciones de optimización accionables.',          tags:['A/B testing','optimización','CRO'] },
+  { id:'influencer-finder',  name:'Influencer Finder',     cat:'marketing',       role:'Buscador de Influencers',                  desc:'Identifica influencers relevantes para tu marca según nicho, audiencia y engagement real. Facilita el contacto y la gestión de colaboraciones.',                 tags:['influencers','colaboraciones','UGC'] },
+  { id:'brand-monitor',      name:'Brand Monitor',         cat:'marketing',       role:'Monitor de Marca Online',                  desc:'Rastrea en tiempo real las menciones de tu marca en redes sociales, foros y medios. Analiza el sentimiento y alerta ante crisis de reputación.',                tags:['marca','reputación','monitoreo'] },
+  { id:'email-sequence',     name:'Email Sequence',        cat:'marketing',       role:'Diseñador de Secuencias de Email',         desc:'Diseña y escribe secuencias de emails automatizadas para nurturing, onboarding, reactivación y conversión de leads en clientes.',                               tags:['email marketing','nurturing','automatización'] },
+  { id:'content-repurposer', name:'Content Repurposer',    cat:'marketing',       role:'Transformador de Contenido Multicanal',    desc:'Convierte un contenido en múltiples formatos: artículo → hilo de Twitter, podcast → newsletter, webinar → 10 posts. Máxima eficiencia de contenido.',         tags:['contenido','multicanal','repurposing'] },
+  { id:'book-writer',        name:'Book Writer',           cat:'marketing',       role:'Asistente de Escritura de Libros',         desc:'Asiste en la planificación, estructuración y escritura de libros, ebooks y guías completas. Mantiene coherencia de voz y estilo en todo el manuscrito.',       tags:['escritura','ebook','contenido largo'] },
+  { id:'news-curator',       name:'News Curator',          cat:'marketing',       role:'Curador de Noticias del Sector',           desc:'Agrega noticias de múltiples fuentes, filtra por relevancia y genera briefings diarios del sector adaptados a tu perfil profesional.',                          tags:['noticias','curación','sector'] },
+  { id:'ugc-video',          name:'UGC Video',             cat:'marketing',       role:'Gestor de Contenido UGC en Video',         desc:'Gestiona el contenido generado por usuarios en video: solicitud, revisión, aprobación y reutilización estratégica en campañas.',                               tags:['UGC','video','comunidad'] },
+  { id:'multi-account-social',name:'Multi-Account Social', cat:'marketing',       role:'Gestor Multi-Cuenta Social',               desc:'Gestiona múltiples cuentas de redes sociales desde un único dashboard, manteniendo voces distintas y estrategias adaptadas a cada perfil.',                     tags:['social media','multi-cuenta','gestión'] },
+  // NEGOCIOS
+  { id:'radar',              name:'Radar',                 cat:'business',        role:'Agente de Inteligencia Competitiva',       desc:'Monitorea sistemáticamente a los competidores: precios, lanzamientos, campañas y presencia digital. Genera alertas ante movimientos estratégicos relevantes.',   tags:['competencia','mercado','inteligencia'] },
+  { id:'compass',            name:'Compass',               cat:'business',        role:'Estratega de Negocios IA',                 desc:'Analiza tendencias de mercado, evalúa opciones estratégicas y recomienda decisiones basadas en datos para el crecimiento del negocio.',                          tags:['estrategia','decisiones','negocios'] },
+  { id:'pipeline',           name:'Pipeline',              cat:'business',        role:'Gestor de CRM y Pipeline de Ventas',       desc:'Rastrea y gestiona oportunidades comerciales desde el primer contacto hasta el cierre. Automatiza el seguimiento y prioriza los deals con mayor probabilidad.',  tags:['CRM','ventas','pipeline'] },
+  { id:'ledger',             name:'Ledger',                cat:'business',        role:'Gestor Financiero Básico',                 desc:'Registra ingresos y gastos, categoriza transacciones y genera informes financieros simplificados para pequeñas empresas y autónomos.',                          tags:['finanzas','contabilidad','gastos'] },
+  { id:'sentinel',           name:'Sentinel',              cat:'business',        role:'Monitor de Riesgos Empresariales',         desc:'Detecta señales de alerta temprana en el negocio: métricas en caída, problemas de cashflow, riesgos de clientes clave. Activa respuestas proactivas.',         tags:['riesgos','alertas','negocios'] },
+  { id:'personal-crm',       name:'Personal CRM',          cat:'business',        role:'CRM Personal Ligero',                      desc:'Gestiona tu red de contactos profesionales con recordatorios de seguimiento, historial de interacciones y alertas de oportunidades de networking.',              tags:['CRM','networking','relaciones'] },
+  { id:'whatsapp-business',  name:'WhatsApp Business',     cat:'business',        role:'Automatizador de WhatsApp Business',       desc:'Automatiza respuestas, flujos de atención al cliente y notificaciones en WhatsApp Business. Gestiona FAQs y escala a agente humano cuando es necesario.',       tags:['WhatsApp','atención al cliente','automatización'] },
+  { id:'meeting-scheduler',  name:'Meeting Scheduler',     cat:'business',        role:'Programador de Reuniones Automático',      desc:'Coordina agendas de múltiples participantes, propone horarios óptimos, gestiona confirmaciones y envía recordatorios automáticamente.',                          tags:['reuniones','calendario','coordinación'] },
+  { id:'competitor-pricing', name:'Competitor Pricing',    cat:'business',        role:'Monitor de Precios de Competidores',       desc:'Rastrea automáticamente los precios de competidores en múltiples canales y genera alertas cuando detecta cambios significativos que requieren respuesta.',       tags:['precios','competencia','alertas'] },
+  { id:'sdr-outbound',       name:'SDR Outbound',          cat:'business',        role:'SDR de Prospección Outbound',              desc:'Automatiza la identificación, cualificación y contacto con leads outbound. Personaliza mensajes a escala y gestiona el pipeline de prospección.',                tags:['SDR','outbound','leads'] },
+  { id:'deal-forecaster',    name:'Deal Forecaster',       cat:'business',        role:'Predictor de Cierres de Ventas',           desc:'Analiza el pipeline y predice probabilidades de cierre con modelos de IA, ayudando a priorizar esfuerzos donde hay mayor oportunidad real de venta.',         tags:['ventas','forecasting','probabilidades'] },
+  { id:'objection-handler',  name:'Objection Handler',     cat:'business',        role:'Manejador de Objeciones de Ventas',        desc:'Genera respuestas personalizadas a objeciones de venta comunes y específicas, con argumentos de valor adaptados al perfil y sector del prospecto.',             tags:['ventas','objeciones','cierre'] },
+  // PERSONAL
+  { id:'atlas',              name:'Atlas',                 cat:'personal',        role:'Asistente de Viajes IA',                   desc:'Planifica itinerarios completos según presupuesto, intereses y restricciones. Gestiona vuelos, hoteles y actividades en una experiencia integrada.',           tags:['viajes','itinerarios','reservas'] },
+  { id:'scroll',             name:'Scroll',                cat:'personal',        role:'Gestor de Lecturas y Conocimiento',         desc:'Organiza tu lista de lectura, crea resúmenes de libros y artículos, y conecta ideas de distintas fuentes en un sistema de gestión del conocimiento.',         tags:['lectura','conocimiento','biblioteca'] },
+  { id:'iron',               name:'Iron',                  cat:'personal',        role:'Coach de Fitness Personal',                desc:'Diseña rutinas de entrenamiento adaptadas a tus objetivos y nivel actual. Hace seguimiento del progreso y ajusta el plan según los resultados.',                 tags:['fitness','entrenamiento','salud'] },
+  { id:'home-automation',    name:'Home Automation',       cat:'personal',        role:'Controlador del Hogar Inteligente',         desc:'Gestiona y automatiza dispositivos del hogar inteligente, crea rutinas domésticas y optimiza el consumo energético según tus hábitos.',                        tags:['hogar','automatización','IoT'] },
+  { id:'family-coordinator', name:'Family Coordinator',    cat:'personal',        role:'Coordinador Familiar IA',                  desc:'Coordina calendarios, actividades escolares, tareas del hogar y logística familiar. Centraliza la comunicación para que nada se pierda.',                      tags:['familia','calendario','coordinación'] },
+  { id:'travel-planner',     name:'Travel Planner',        cat:'personal',        role:'Planificador de Viajes con Presupuesto',    desc:'Planifica viajes completos con presupuesto detallado, rutas optimizadas, alojamiento y actividades seleccionadas por preferencias personales.',               tags:['viajes','presupuesto','planificación'] },
+  { id:'journal-prompter',   name:'Journal Prompter',      cat:'personal',        role:'Asistente de Journaling Reflexivo',         desc:'Genera prompts reflexivos diarios adaptados a tus entradas anteriores, ayudando a desarrollar autoconocimiento y claridad mental progresiva.',                 tags:['journaling','reflexión','bienestar'] },
+  // DEVOPS
+  { id:'incident-responder', name:'Incident Responder',    cat:'devops',          role:'Respondedor de Incidentes de Producción',  desc:'Diagnostica incidentes de producción en tiempo real, coordina la respuesta del equipo, documenta la resolución y genera postmortems automáticos.',              tags:['incidentes','producción','on-call'] },
+  { id:'deploy-guardian',    name:'Deploy Guardian',       cat:'devops',          role:'Guardián de Deployments',                  desc:'Analiza cada deploy antes de que llegue a producción, verifica tests, revisa configuraciones críticas y puede revertir automáticamente ante anomalías.',       tags:['deployments','CI/CD','releases'] },
+  { id:'infra-monitor',      name:'Infra Monitor',         cat:'devops',          role:'Monitor de Infraestructura IA',            desc:'Monitoriza toda la infraestructura con alertas inteligentes que filtran el ruido. Puede aplicar remediation automática en escenarios predefinidos.',           tags:['infraestructura','monitoreo','alertas'] },
+  { id:'log-analyzer',       name:'Log Analyzer',          cat:'devops',          role:'Analizador de Logs de Sistema',            desc:'Procesa grandes volúmenes de logs de sistemas distribuidos, detecta anomalías estadísticas y correlaciona eventos entre múltiples servicios.',                 tags:['logs','análisis','sistemas'] },
+  { id:'cost-optimizer',     name:'Cost Optimizer',        cat:'devops',          role:'Optimizador de Costes Cloud',              desc:'Analiza el consumo de recursos cloud en AWS, GCP o Azure, identifica desperdicio y genera recomendaciones priorizadas para reducir la factura mensual.',       tags:['cloud','costes','optimización'] },
+  { id:'self-healing-server',name:'Self-Healing Server',   cat:'devops',          role:'Servidor Autorreparable IA',               desc:'Sistema autónomo que detecta fallos de servidor, aplica scripts de remediación predefinidos y restaura el servicio sin intervención humana.',                   tags:['self-healing','alta disponibilidad','automatización'] },
+  { id:'raspberry-pi-agent', name:'Raspberry Pi Agent',    cat:'devops',          role:'Agente para Proyectos Raspberry Pi',       desc:'Especializado en desarrollo, despliegue y gestión de proyectos con Raspberry Pi, Arduino y dispositivos IoT en entornos de producción.',                      tags:['Raspberry Pi','IoT','hardware'] },
+  { id:'runbook-writer',     name:'Runbook Writer',        cat:'devops',          role:'Generador de Runbooks Operacionales',       desc:'Genera runbooks detallados y documentación operacional a partir de procedimientos existentes, garantizando que el equipo puede actuar sin depender de expertos.', tags:['runbooks','documentación','operaciones'] },
+  { id:'sla-monitor',        name:'SLA Monitor',           cat:'devops',          role:'Monitor de SLAs y Acuerdos de Servicio',   desc:'Monitoriza el cumplimiento de SLAs en tiempo real, genera alertas proactivas antes del incumplimiento y produce informes automáticos para clientes.',         tags:['SLA','disponibilidad','monitoreo'] },
+  { id:'capacity-planner',   name:'Capacity Planner',      cat:'devops',          role:'Planificador de Capacidad',                desc:'Analiza tendencias de uso históricas y proyecta necesidades futuras de infraestructura, facilitando el escalado proactivo antes de llegar al límite.',       tags:['capacidad','planificación','escalado'] },
+  // FINANZAS
+  { id:'expense-tracker',    name:'Expense Tracker',       cat:'finance',         role:'Rastreador de Gastos Personal',            desc:'Registra y categoriza automáticamente los gastos, detecta suscripciones innecesarias y genera informes de gasto mensuales con insights de ahorro.',            tags:['gastos','finanzas personales','presupuesto'] },
+  { id:'invoice-manager',    name:'Invoice Manager',       cat:'finance',         role:'Gestor de Facturas y Cobros',              desc:'Crea, envía y hace seguimiento de facturas. Automatiza los recordatorios de cobro y mantiene el control de cuentas por cobrar sin esfuerzo manual.',           tags:['facturas','cobros','B2B'] },
+  { id:'revenue-analyst',    name:'Revenue Analyst',       cat:'finance',         role:'Analista de Ingresos IA',                  desc:'Desglosa los ingresos por producto, canal y segmento, identifica tendencias de crecimiento y genera proyecciones financieras fundamentadas.',                 tags:['ingresos','análisis','proyecciones'] },
+  { id:'tax-preparer',       name:'Tax Preparer',          cat:'finance',         role:'Asistente de Preparación Fiscal',          desc:'Organiza documentos fiscales, calcula deducciones aplicables y prepara la información necesaria para la declaración de impuestos.',                            tags:['impuestos','fiscal','contabilidad'] },
+  { id:'trading-bot',        name:'Trading Bot',           cat:'finance',         role:'Bot de Trading Algorítmico',               desc:'Implementa y ejecuta estrategias de trading algorítmico predefinidas, con gestión de riesgo integrada y registro detallado de operaciones.',                   tags:['trading','inversión','algorítmico'] },
+  { id:'fraud-detector',     name:'Fraud Detector',        cat:'finance',         role:'Detector de Fraude Financiero',            desc:'Analiza transacciones en tiempo real para detectar patrones fraudulentos, genera alertas inmediatas y documenta cada incidente para revisión.',                 tags:['fraude','seguridad financiera','detección'] },
+  { id:'financial-forecaster',name:'Financial Forecaster', cat:'finance',         role:'Pronosticador Financiero IA',              desc:'Genera pronósticos financieros precisos combinando datos históricos, tendencias del mercado y variables macroeconómicas relevantes para tu negocio.',          tags:['pronósticos','finanzas','ML'] },
+  { id:'portfolio-rebalancer',name:'Portfolio Rebalancer',  cat:'finance',        role:'Rebalanceador de Portfolio',               desc:'Monitoriza la composición del portfolio y ejecuta rebalanceos automáticos para mantener la asignación de activos alineada con la estrategia definida.',       tags:['inversión','portfolio','rebalanceo'] },
+  { id:'accounts-payable',   name:'Accounts Payable',      cat:'finance',         role:'Gestor de Cuentas por Pagar',              desc:'Gestiona el ciclo completo de cuentas por pagar: recepción de facturas, validación, aprobación y pago a proveedores según las condiciones pactadas.',          tags:['proveedores','pagos','contabilidad'] },
+  { id:'copy-trader',        name:'Copy Trader',           cat:'finance',         role:'Agente de Copy Trading',                   desc:'Replica automáticamente las operaciones de traders seleccionados, con filtros de riesgo personalizados y registro transparente de cada operación copiada.',  tags:['copy trading','inversión','automatización'] },
+  // EDUCACIÓN
+  { id:'tutor',              name:'Tutor',                 cat:'education',       role:'Tutor Personal Adaptativo',                desc:'Adapta las explicaciones, ejemplos y ejercicios al nivel y ritmo de aprendizaje del estudiante, asegurando comprensión real antes de avanzar.',                  tags:['tutoría','aprendizaje','adaptativo'] },
+  { id:'quiz-maker',         name:'Quiz Maker',            cat:'education',       role:'Generador de Exámenes y Tests',            desc:'Genera exámenes, cuestionarios y tests de distintos niveles y formatos a partir de cualquier material de estudio o tema especificado.',                       tags:['exámenes','evaluación','educación'] },
+  { id:'study-planner',      name:'Study Planner',         cat:'education',       role:'Planificador de Estudio Inteligente',       desc:'Diseña planes de estudio optimizados con técnicas de spaced repetition, sesiones de repaso y metas alcanzables adaptadas a fechas de examen.',               tags:['estudio','planificación','memorización'] },
+  { id:'research-assistant', name:'Research Assistant',    cat:'education',       role:'Asistente de Investigación Académica',     desc:'Busca, sintetiza y cita fuentes académicas para proyectos de investigación, garantizando rigor bibliográfico y cobertura temática completa.',                  tags:['investigación','académico','fuentes'] },
+  { id:'language-tutor',     name:'Language Tutor',        cat:'education',       role:'Profesor de Idiomas IA',                   desc:'Enseña idiomas con corrección en tiempo real, ejercicios conversacionales personalizados y seguimiento del progreso a lo largo del tiempo.',                  tags:['idiomas','lenguas','aprendizaje'] },
+  { id:'curriculum-designer',name:'Curriculum Designer',   cat:'education',       role:'Diseñador de Currículums Educativos',       desc:'Diseña currículums completos y planes de estudio alineados con objetivos de aprendizaje, niveles de competencia y estándares educativos.',                      tags:['currículum','diseño educativo','planes de estudio'] },
+  { id:'essay-grader',       name:'Essay Grader',          cat:'education',       role:'Evaluador de Ensayos y Trabajos',          desc:'Evalúa ensayos académicos con criterios detallados, proporciona feedback constructivo y sugerencias de mejora concretas y aplicables.',                        tags:['evaluación','feedback','escritura académica'] },
+  { id:'flashcard-generator',name:'Flashcard Generator',   cat:'education',       role:'Generador de Tarjetas de Memoria',         desc:'Crea tarjetas de memoria optimizadas para el aprendizaje acelerado, listas para importar en Anki u otras apps de estudio por repetición espaciada.',          tags:['flashcards','memorización','Anki'] },
+  // SALUD
+  { id:'wellness-coach',     name:'Wellness Coach',        cat:'healthcare',      role:'Coach de Bienestar Holístico',             desc:'Diseña planes de salud integrales combinando nutrición, ejercicio, sueño y bienestar mental. Hace seguimiento de hábitos y ajusta las recomendaciones.',       tags:['bienestar','salud','coaching'] },
+  { id:'meal-planner',       name:'Meal Planner',          cat:'healthcare',      role:'Planificador de Comidas con IA',           desc:'Planifica menús semanales equilibrados, genera recetas detalladas, lista de la compra optimizada y análisis nutricional completo.',                             tags:['nutrición','comidas','dieta'] },
+  { id:'workout-tracker',    name:'Workout Tracker',       cat:'healthcare',      role:'Rastreador de Entrenamientos',             desc:'Registra cada sesión de entrenamiento, analiza el progreso, detecta estancamientos y adapta la rutina para mantener la mejora continua.',                     tags:['ejercicio','fitness','seguimiento'] },
+  { id:'symptom-triage',     name:'Symptom Triage',        cat:'healthcare',      role:'Pre-evaluador de Síntomas',                desc:'Evalúa síntomas de forma preliminar, orienta hacia los recursos médicos más apropiados y ayuda a priorizar cuándo buscar atención urgente.',                   tags:['síntomas','triage','salud'] },
+  { id:'clinical-notes',     name:'Clinical Notes',        cat:'healthcare',      role:'Gestor de Notas Clínicas',                 desc:'Transcribe y estructura notas clínicas en formato estandarizado, reduciendo el tiempo administrativo de los profesionales sanitarios.',                       tags:['clínico','notas','médico'] },
+  { id:'medication-checker', name:'Medication Checker',    cat:'healthcare',      role:'Verificador de Medicamentos',              desc:'Verifica interacciones medicamentosas, contraindicaciones y gestiona recordatorios de toma de medicamentos con alertas personalizadas.',                       tags:['medicamentos','interacciones','recordatorios'] },
+  { id:'patient-intake',     name:'Patient Intake',        cat:'healthcare',      role:'Gestor de Onboarding de Pacientes',        desc:'Automatiza el registro e incorporación de nuevos pacientes en clínicas, recopilando historial, alergias y datos necesarios de forma estructurada.',           tags:['pacientes','clínica','onboarding'] },
+  // LEGAL
+  { id:'contract-reviewer',  name:'Contract Reviewer',     cat:'legal',           role:'Revisor de Contratos IA',                  desc:'Revisa contratos legales en detalle, identifica cláusulas de riesgo, desequilibrios y sugiere modificaciones para proteger los intereses del cliente.',       tags:['contratos','legal','riesgos'] },
+  { id:'compliance-checker', name:'Compliance Checker',    cat:'legal',           role:'Verificador de Cumplimiento Normativo',    desc:'Audita procesos y documentación frente a normativas aplicables, genera informes de gaps y planes de acción priorizados para alcanzar el cumplimiento.',       tags:['cumplimiento','normativa','auditoría'] },
+  { id:'policy-writer',      name:'Policy Writer',         cat:'legal',           role:'Redactor de Políticas Corporativas',        desc:'Redacta políticas corporativas, términos y condiciones, avisos legales y documentos regulatorios adaptados al sector y jurisdicción.',                       tags:['políticas','documentos legales','T&C'] },
+  { id:'patent-analyzer',    name:'Patent Analyzer',       cat:'legal',           role:'Analizador de Patentes',                   desc:'Analiza el estado de la técnica en registros de patentes, evalúa la novedad de invenciones y estima la viabilidad de nuevas solicitudes.',                  tags:['patentes','propiedad intelectual','análisis'] },
+  { id:'legal-brief-writer', name:'Legal Brief Writer',    cat:'legal',           role:'Redactor de Escritos Jurídicos',           desc:'Redacta escritos jurídicos, demandas, contestaciones y memoriales con argumentación estructurada y referencias legales pertinentes.',                         tags:['escritos jurídicos','argumentación','legal'] },
+  { id:'nda-generator',      name:'NDA Generator',         cat:'legal',           role:'Generador de NDAs',                        desc:'Genera acuerdos de confidencialidad personalizados para distintos contextos: empleados, proveedores, inversores y socios comerciales.',                     tags:['NDA','confidencialidad','acuerdos'] },
+  // RRHH
+  { id:'recruiter',          name:'Recruiter',             cat:'hr',              role:'Agente de Reclutamiento IA',               desc:'Gestiona el proceso de selección de principio a fin: publica ofertas, filtra CVs, coordina entrevistas y genera evaluaciones comparativas de candidatos.',      tags:['reclutamiento','RRHH','candidatos'] },
+  { id:'onboarding',         name:'Onboarding',            cat:'hr',              role:'Automatizador de Incorporación',           desc:'Gestiona la incorporación de nuevos empleados con checklists automatizados, presentaciones del equipo, accesos y formación inicial estructurada.',              tags:['onboarding','nuevos empleados','RRHH'] },
+  { id:'performance-reviewer',name:'Performance Reviewer', cat:'hr',              role:'Facilitador de Evaluaciones de Desempeño', desc:'Facilita evaluaciones de desempeño 360°, recopila feedback de múltiples fuentes y genera informes equilibrados con áreas de mejora concretas.',              tags:['desempeño','evaluaciones','feedback'] },
+  { id:'resume-screener',    name:'Resume Screener',       cat:'hr',              role:'Criba Automática de CVs',                  desc:'Analiza CVs masivamente según criterios definidos, puntúa candidatos objetivamente y genera listas cortas con justificación para cada posición.',             tags:['CVs','selección','automatización'] },
+  { id:'exit-interview',     name:'Exit Interview',        cat:'hr',              role:'Gestor de Entrevistas de Salida',          desc:'Conduce y analiza entrevistas de salida, identifica patrones de rotación, causas recurrentes y genera recomendaciones para mejorar la retención.',             tags:['rotación','entrevistas','retención'] },
+  { id:'benefits-advisor',   name:'Benefits Advisor',      cat:'hr',              role:'Asesor de Beneficios Laborales',           desc:'Informa a empleados sobre beneficios disponibles, responde preguntas frecuentes y gestiona solicitudes de manera eficiente y consistente.',                   tags:['beneficios','empleados','RRHH'] },
+  { id:'compensation-benchmarker',name:'Compensation Benchmarker',cat:'hr',       role:'Comparador Salarial de Mercado',           desc:'Compara salarios con datos de mercado por rol, sector y geografía. Recomienda bandas salariales competitivas para atraer y retener talento.',               tags:['salarios','compensación','benchmark'] },
+  // CREATIVIDAD
+  { id:'brand-designer',     name:'Brand Designer',        cat:'creative',        role:'Estratega de Identidad de Marca',          desc:'Define y desarrolla la identidad de marca: naming, tagline, paleta de colores, tipografía, voz y guías de estilo coherentes con el posicionamiento.',         tags:['marca','branding','identidad visual'] },
+  { id:'video-scripter',     name:'Video Scripter',        cat:'creative',        role:'Guionista de Video IA',                    desc:'Crea scripts optimizados para YouTube, TikTok, reels y cursos online. Estructura el relato para mantener la atención y maximizar la retención.',             tags:['video','guiones','YouTube'] },
+  { id:'podcast-producer',   name:'Podcast Producer',      cat:'creative',        role:'Productor de Podcast IA',                  desc:'Gestiona la producción completa del podcast: estructura de episodios, preguntas de entrevista, show notes, captions y distribución en plataformas.',         tags:['podcast','audio','producción'] },
+  { id:'ux-researcher',      name:'UX Researcher',         cat:'creative',        role:'Investigador de Experiencia de Usuario',   desc:'Diseña estudios de UX, analiza feedback de usuarios, identifica pain points y genera insights accionables para mejorar el producto o servicio.',              tags:['UX','investigación','diseño'] },
+  { id:'copywriter',         name:'Copywriter',            cat:'creative',        role:'Redactor Publicitario IA',                 desc:'Crea copy persuasivo y orientado a conversión para webs, landing pages, anuncios, emails y cualquier punto de contacto con el cliente.',                     tags:['copywriting','redacción','marketing'] },
+  { id:'thumbnail-designer', name:'Thumbnail Designer',    cat:'creative',        role:'Diseñador de Thumbnails Virales',          desc:'Diseña y optimiza thumbnails para maximizar el CTR en YouTube y plataformas de video, aplicando principios de psicología visual y contraste.',               tags:['thumbnails','YouTube','CTR'] },
+  { id:'ad-copywriter',      name:'Ad Copywriter',         cat:'creative',        role:'Especialista en Copy de Anuncios',         desc:'Crea copy de alto rendimiento para anuncios en Meta Ads, Google Ads, TikTok Ads y LinkedIn, optimizado para cada formato y objetivo de campaña.',           tags:['anuncios','paid ads','copy'] },
+  { id:'storyboard-writer',  name:'Storyboard Writer',     cat:'creative',        role:'Creador de Storyboards y Narrativas',      desc:'Crea storyboards escena por escena y narrativas visuales detalladas para producciones de video, publicidad y presentaciones ejecutivas.',                     tags:['storyboard','narrativa','producción'] },
+  // SEGURIDAD
+  { id:'vuln-scanner',       name:'Vuln Scanner',          cat:'security',        role:'Escáner de Vulnerabilidades',              desc:'Escanea aplicaciones y sistemas en busca de vulnerabilidades conocidas (OWASP Top 10 y más), generando reportes priorizados por severidad.',                  tags:['vulnerabilidades','pentesting','seguridad'] },
+  { id:'access-auditor',     name:'Access Auditor',        cat:'security',        role:'Auditor de Permisos de Acceso',            desc:'Revisa y audita permisos en sistemas, detecta cuentas con privilegios excesivos y genera recomendaciones de principio de mínimo privilegio.',                tags:['accesos','permisos','IAM'] },
+  { id:'threat-monitor',     name:'Threat Monitor',        cat:'security',        role:'Monitor de Amenazas en Tiempo Real',       desc:'Monitoriza indicadores de compromiso (IoC), comportamientos anómalos y amenazas activas, generando alertas con contexto para el equipo de seguridad.',      tags:['amenazas','SOC','tiempo real'] },
+  { id:'incident-logger',    name:'Incident Logger',       cat:'security',        role:'Registrador de Incidentes de Seguridad',   desc:'Documenta incidentes de seguridad con trazabilidad completa, gestiona el ciclo de respuesta y genera los informes post-incidente requeridos.',               tags:['incidentes','documentación','CSIRT'] },
+  { id:'security-hardener',  name:'Security Hardener',     cat:'security',        role:'Endurecedor de Sistemas',                  desc:'Aplica configuraciones de hardening según CIS Benchmarks y mejores prácticas, reduciendo la superficie de ataque en servidores y aplicaciones.',           tags:['hardening','configuración','best practices'] },
+  { id:'phishing-detector',  name:'Phishing Detector',     cat:'security',        role:'Detector de Phishing IA',                  desc:'Analiza emails y URLs sospechosas para detectar intentos de phishing, spear-phishing y BEC (Business Email Compromise) con alta precisión.',              tags:['phishing','email security','detección'] },
+  // E-COMMERCE
+  { id:'product-lister',     name:'Product Lister',        cat:'ecommerce',       role:'Creador de Listings de Productos',         desc:'Crea y optimiza listings de productos para Amazon, Shopify, Etsy y más. Incluye títulos con keywords, bullets persuasivos y descripciones SEO.',              tags:['Amazon','Shopify','listings'] },
+  { id:'review-responder',   name:'Review Responder',       cat:'ecommerce',       role:'Respondedor de Reseñas',                   desc:'Responde a reseñas de clientes de forma personalizada, profesional y adaptada al tono de la marca, tanto en plataformas de e-commerce como en Google.',   tags:['reseñas','clientes','reputación'] },
+  { id:'inventory-tracker',  name:'Inventory Tracker',     cat:'ecommerce',       role:'Gestor de Inventario',                     desc:'Monitoriza el stock en tiempo real en múltiples almacenes y plataformas, genera alertas de reposición y optimiza los niveles de inventario.',               tags:['inventario','stock','e-commerce'] },
+  { id:'pricing-optimizer',  name:'Pricing Optimizer',     cat:'ecommerce',       role:'Optimizador de Precios Dinámico',          desc:'Ajusta precios dinámicamente en función de la demanda, precios de la competencia, inventario disponible y margen objetivo.',                               tags:['precios','dinámico','optimización'] },
+  { id:'abandoned-cart',     name:'Abandoned Cart',        cat:'ecommerce',       role:'Recuperador de Carritos Abandonados',      desc:'Recupera ventas perdidas con secuencias de emails y SMS personalizados que reactivan a compradores con carritos abandonados.',                              tags:['carrito abandonado','recuperación','conversión'] },
+  { id:'dropshipping-researcher',name:'Dropshipping Researcher',cat:'ecommerce',  role:'Investigador de Dropshipping',             desc:'Analiza nichos, valida productos ganadores e identifica proveedores fiables para construir un negocio de dropshipping rentable.',                            tags:['dropshipping','nichos','proveedores'] },
+  // DATOS
+  { id:'etl-pipeline',       name:'ETL Pipeline',          cat:'data',            role:'Diseñador de Pipelines ETL',               desc:'Diseña, implementa y monitoriza pipelines de datos ETL entre múltiples sistemas, garantizando la calidad y disponibilidad de los datos.',                  tags:['ETL','datos','pipelines'] },
+  { id:'data-cleaner',       name:'Data Cleaner',          cat:'data',            role:'Limpiador y Normalizador de Datos',         desc:'Detecta y corrige inconsistencias, valores nulos, duplicados y outliers en datasets. Prepara los datos para análisis y modelos de ML.',                   tags:['limpieza de datos','normalización','ML'] },
+  { id:'report-generator',   name:'Report Generator',      cat:'data',            role:'Generador de Informes Automáticos',         desc:'Genera informes estructurados con visualizaciones, narrativa en lenguaje natural e insights accionables a partir de datos crudos o bases de datos.',         tags:['informes','automatización','BI'] },
+  { id:'sql-assistant',      name:'SQL Assistant',         cat:'data',            role:'Asistente SQL Inteligente',                 desc:'Escribe, optimiza y explica consultas SQL complejas en múltiples dialects (PostgreSQL, MySQL, BigQuery). Detecta problemas de rendimiento.',               tags:['SQL','base de datos','consultas'] },
+  { id:'dashboard-builder',  name:'Dashboard Builder',     cat:'data',            role:'Constructor de Dashboards',                desc:'Diseña dashboards interactivos con KPIs clave y visualizaciones optimizadas para la toma de decisiones ejecutivas y operativas.',                         tags:['dashboard','visualización','BI'] },
+  { id:'anomaly-detector',   name:'Anomaly Detector',      cat:'data',            role:'Detector de Anomalías en Datos',           desc:'Aplica modelos estadísticos y de ML para detectar anomalías, outliers y cambios de patrón en flujos de datos en tiempo real o batch.',                    tags:['anomalías','ML','detección'] },
+  { id:'survey-analyzer',    name:'Survey Analyzer',       cat:'data',            role:'Analizador de Encuestas',                  desc:'Procesa respuestas de encuestas, aplica análisis de sentimiento y agrupación de respuestas abiertas, y genera informes de insights accionables.',          tags:['encuestas','análisis','insights'] },
+  // SAAS
+  { id:'onboarding-flow',    name:'Onboarding Flow',       cat:'saas',            role:'Diseñador de Flujos de Onboarding',         desc:'Diseña y optimiza flujos de onboarding que maximizan la activación temprana de usuarios y reducen el tiempo hasta el primer valor (time-to-value).',        tags:['onboarding','activación','SaaS'] },
+  { id:'feature-request',    name:'Feature Request',       cat:'saas',            role:'Gestor de Solicitudes de Funcionalidades', desc:'Centraliza, categoriza y prioriza solicitudes de funcionalidades de usuarios según impacto, esfuerzo y alineación estratégica del producto.',              tags:['features','producto','priorización'] },
+  { id:'churn-prevention',   name:'Churn Prevention',      cat:'saas',            role:'Prevención de Churn IA',                   desc:'Identifica usuarios con alta probabilidad de churn antes de que cancelen, activa intervenciones personalizadas y mide la efectividad de cada acción.',     tags:['churn','retención','SaaS'] },
+  { id:'usage-analytics',    name:'Usage Analytics',       cat:'saas',            role:'Analista de Uso de Producto',              desc:'Analiza patrones de uso del producto, identifica funcionalidades subutilizadas, workflows de poder y señales de expansión o riesgo.',                     tags:['analytics','producto','métricas'] },
+  { id:'release-notes',      name:'Release Notes',         cat:'saas',            role:'Redactor de Notas de Lanzamiento',         desc:'Transforma changelogs técnicos en notas de lanzamiento claras, atractivas y orientadas al beneficio del usuario. Segmentadas por tipo de audiencia.',      tags:['releases','comunicación','changelog'] },
+  // INMOBILIARIA
+  { id:'listing-scout',      name:'Listing Scout',         cat:'realestate',      role:'Buscador de Propiedades IA',               desc:'Monitoriza portales inmobiliarios en busca de propiedades que cumplan criterios específicos y alerta inmediatamente cuando aparecen nuevas oportunidades.',   tags:['propiedades','búsqueda','inmobiliaria'] },
+  { id:'market-analyzer',    name:'Market Analyzer',       cat:'realestate',      role:'Analista de Mercado Inmobiliario',          desc:'Analiza tendencias de precios, absorción del mercado y ratios de oferta-demanda en zonas específicas para fundamentar decisiones de inversión.',            tags:['mercado inmobiliario','precios','análisis'] },
+  { id:'lead-qualifier',     name:'Lead Qualifier',        cat:'realestate',      role:'Cualificador de Leads Inmobiliarios',       desc:'Cualifica leads de compradores y arrendatarios según capacidad financiera, urgencia y criterios de búsqueda, priorizando el tiempo del agente.',           tags:['leads','cualificación','ventas'] },
+  { id:'property-video',     name:'Property Video',        cat:'realestate',      role:'Creador de Contenido para Propiedades',    desc:'Genera scripts detallados, textos de anuncio y guiones para videos de presentación de propiedades que destacan los puntos de valor únicos.',              tags:['video','propiedades','marketing'] },
+  { id:'commercial-re',      name:'Commercial RE',         cat:'realestate',      role:'Especialista en Inmobiliaria Comercial',   desc:'Análisis especializado de activos comerciales: valoración, retorno de inversión, análisis de inquilinos y due diligence de operaciones complejas.',          tags:['comercial','inversión','análisis'] },
+  // FREELANCE
+  { id:'proposal-writer',    name:'Proposal Writer',       cat:'freelance',       role:'Redactor de Propuestas Comerciales',       desc:'Redacta propuestas comerciales ganadoras adaptadas al cliente, con estructura persuasiva, pricing justificado y diferenciadores claros.',                   tags:['propuestas','freelance','ventas'] },
+  { id:'time-tracker',       name:'Time Tracker',          cat:'freelance',       role:'Gestor de Tiempo y Facturación',           desc:'Registra el tiempo dedicado a cada proyecto y cliente, genera informes de horas y crea facturas automáticas listas para enviar.',                         tags:['tiempo','facturación','freelance'] },
+  { id:'client-manager',     name:'Client Manager',        cat:'freelance',       role:'Gestor de Relaciones con Clientes',        desc:'Centraliza la gestión de clientes: contratos, briefings, comunicaciones, entregas y facturación en un sistema organizado y eficiente.',                    tags:['clientes','gestión','contratos'] },
+  // MOLTBOOK
+  { id:'community-manager',  name:'Community Manager',     cat:'moltbook',        role:'Gestor de Comunidades Online',             desc:'Gestiona comunidades digitales en Discord, Slack o Telegram: moderación, dinamización, respuesta a dudas y fomento del engagement.',                       tags:['comunidad','moderación','engagement'] },
+  { id:'moltbook-scout',     name:'Scout',                 cat:'moltbook',        role:'Descubridor de Oportunidades',             desc:'Identifica oportunidades de partnership, co-marketing y colaboraciones estratégicas en tu sector antes de que lo haga la competencia.',                     tags:['partnerships','oportunidades','networking'] },
+  { id:'growth-agent',       name:'Growth Agent',          cat:'moltbook',        role:'Agente de Crecimiento de Negocio',         desc:'Diseña e implementa estrategias de crecimiento sostenible: acquisition, retention y revenue. Prioriza iniciativas por impacto potencial.',                tags:['growth','estrategia','crecimiento'] },
+  // SUPPLY CHAIN
+  { id:'route-optimizer',    name:'Route Optimizer',       cat:'supplychain',     role:'Optimizador de Rutas de Distribución',     desc:'Calcula rutas de distribución óptimas considerando distancia, tiempo, capacidad de vehículos y ventanas de entrega para reducir costes logísticos.',       tags:['logística','rutas','distribución'] },
+  { id:'inventory-forecaster',name:'Inventory Forecaster', cat:'supplychain',     role:'Pronosticador de Inventario',              desc:'Predice necesidades de inventario futuras basándose en patrones de demanda histórica, estacionalidad y tendencias del mercado.',                           tags:['inventario','pronóstico','demanda'] },
+  { id:'vendor-evaluator',   name:'Vendor Evaluator',      cat:'supplychain',     role:'Evaluador de Proveedores',                 desc:'Evalúa y compara proveedores según calidad, precio, plazos de entrega, fiabilidad y condiciones comerciales, generando scorecards objetivos.',            tags:['proveedores','evaluación','supply chain'] },
+  // CUMPLIMIENTO
+  { id:'gdpr-auditor',       name:'GDPR Auditor',          cat:'compliance',      role:'Auditor de Cumplimiento RGPD/GDPR',        desc:'Audita procesos y sistemas frente a los requisitos del RGPD, identifica brechas de privacidad y genera planes de acción priorizados.',                   tags:['RGPD','GDPR','privacidad'] },
+  { id:'soc2-preparer',      name:'SOC2 Preparer',         cat:'compliance',      role:'Preparador de Certificación SOC2',         desc:'Prepara la documentación, controles y evidencias necesarias para obtener la certificación SOC2 Type I y Type II de forma estructurada.',                  tags:['SOC2','certificación','seguridad'] },
+  { id:'ai-policy-writer',   name:'AI Policy Writer',      cat:'compliance',      role:'Redactor de Políticas de IA',              desc:'Redacta políticas de uso responsable y ético de IA adaptadas al sector, incluyendo gobernanza, transparencia y gestión de sesgos.',                       tags:['políticas IA','ética','gobernanza'] },
+  { id:'risk-assessor',      name:'Risk Assessor',         cat:'compliance',      role:'Evaluador de Riesgos Empresariales',       desc:'Identifica, evalúa y cuantifica riesgos empresariales con matrices de impacto-probabilidad y genera planes de mitigación priorizados.',                   tags:['riesgos','evaluación','cumplimiento'] },
+  // VOZ
+  { id:'phone-receptionist', name:'Phone Receptionist',    cat:'voice',           role:'Recepcionista Telefónica IA',              desc:'Gestiona llamadas entrantes, responde FAQs, toma mensajes y programa citas de forma autónoma, disponible 24/7 sin coste de personal.',                   tags:['voz','telefónico','recepción'] },
+  { id:'voicemail-transcriber',name:'Voicemail Transcriber',cat:'voice',          role:'Transcriptor de Mensajes de Voz',          desc:'Transcribe mensajes de voz automáticamente con alta precisión, genera resúmenes accionables y los distribuye por email o mensajería.',                  tags:['transcripción','voz','mensajes'] },
+  { id:'interview-bot',      name:'Interview Bot',         cat:'voice',           role:'Bot de Entrevistas Automáticas',           desc:'Conduce entrevistas de selección por voz o texto de forma completamente autónoma, con preguntas adaptativas y evaluación estructurada.',                 tags:['entrevistas','reclutamiento','voz'] },
+  // CUSTOMER SUCCESS
+  { id:'nps-followup',       name:'NPS Followup',          cat:'customersuccess', role:'Gestor de Seguimiento NPS',                desc:'Cierra el loop de feedback de encuestas NPS: contacta a promotores, detractores y pasivos con acciones diferenciadas para maximizar la satisfacción.',     tags:['NPS','feedback','satisfacción'] },
+  { id:'onboarding-guide',   name:'Onboarding Guide',      cat:'customersuccess', role:'Guía de Onboarding de Nuevos Clientes',    desc:'Acompaña a nuevos clientes en sus primeros pasos con el producto, maximizando el time-to-value y reduciendo la tasa de abandono en el periodo crítico.',  tags:['onboarding','clientes','customer success'] },
+  // AUTOMATIZACIÓN
+  { id:'negotiation-agent',  name:'Negotiation Agent',     cat:'automation',      role:'Agente de Negociación Comercial',          desc:'Gestiona negociaciones de contratos y condiciones comerciales con proveedores y clientes, siguiendo estrategias predefinidas y límites de autorización.',  tags:['negociación','contratos','automatización'] },
+  { id:'job-applicant',      name:'Job Applicant',         cat:'automation',      role:'Automatizador de Candidaturas',            desc:'Busca ofertas laborales relevantes, personaliza el CV y la carta de presentación para cada posición y gestiona el seguimiento de candidaturas.',          tags:['trabajo','candidaturas','automatización'] },
+  { id:'morning-briefing',   name:'Morning Briefing',      cat:'automation',      role:'Generador de Briefing Matutino',           desc:'Genera cada mañana un resumen personalizado con noticias del sector, métricas clave, tareas prioritarias del día y agenda completa.',                     tags:['briefing','noticias','agenda'] },
+  { id:'flight-scraper',     name:'Flight Scraper',        cat:'automation',      role:'Monitor de Precios de Vuelos',             desc:'Monitoriza precios de vuelos en múltiples aerolíneas y fechas, alerta ante bajadas de precio y recomienda el momento óptimo de compra.',                  tags:['vuelos','viajes','precios'] },
+  { id:'overnight-coder',    name:'Overnight Coder',       cat:'automation',      role:'Programador Nocturno Autónomo',            desc:'Ejecuta tareas de desarrollo, refactoring y generación de código automáticamente durante la noche, entregando resultados listos al despertar.',           tags:['código','automatización','dev'] },
+  { id:'discord-business',   name:'Discord Business',      cat:'automation',      role:'Gestor de Discord para Negocios',          desc:'Configura y gestiona servidores de Discord para negocios con bots, canales automatizados, roles dinámicos y workflows de comunidad.',                     tags:['Discord','comunidad','automatización'] },
+];
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let activeCategory = 'all';
+let searchQuery = '';
+let currentAgent = null;
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function getCatName(catId) {
+  const c = CATEGORIES.find(c => c.id === catId);
+  return c ? c.name : catId;
+}
+function getCatIcon(catId) {
+  const c = CATEGORIES.find(c => c.id === catId);
+  return c ? c.icon : '✦';
+}
+
+function generateSoul(agent) {
+  const cat = getCatName(agent.cat);
+  return `# ${agent.name} — ${agent.role}
+
+Eres ${agent.name}, un agente IA especializado en ${agent.role.toLowerCase()} con tecnología OpenClaw.
+
+## Identidad Central
+- **Rol:** ${agent.role}
+- **Categoría:** ${cat}
+- **Personalidad:** Preciso, eficiente y orientado a resultados
+- **Comunicación:** Clara, directa y adaptada al contexto del usuario
+
+## Descripción
+${agent.desc}
+
+## Responsabilidades Principales
+1. **Análisis y Diagnóstico**
+   - Procesar la información y el contexto proporcionados
+   - Identificar prioridades y puntos críticos de acción
+
+2. **Ejecución**
+   - Llevar a cabo las tareas dentro del alcance definido
+   - Documentar acciones y resultados de forma transparente
+
+3. **Comunicación Proactiva**
+   - Reportar el progreso sin que se solicite
+   - Escalar situaciones que excedan el alcance o la autoridad
+
+## Directrices de Comportamiento
+### ✅ Hacer:
+- Trabajar con precisión y eficiencia en cada tarea
+- Adaptar el enfoque según el contexto específico
+- Verificar antes de actuar en decisiones de alto impacto
+- Usar lenguaje claro, sin jerga innecesaria
+
+### ❌ Evitar:
+- Hacer suposiciones sin validar con el usuario
+- Exceder el alcance de actuación definido
+- Proporcionar información no verificada como hechos
+
+## Notas de Integración
+- Compatible con el ecosistema OpenClaw completo
+- Despliega en: https://crewclaw.com/create-agent
+- Fuente original (EN): https://github.com/mergisi/awesome-openclaw-agents/tree/main/agents/${agent.cat}/${agent.id}/SOUL.md`;
+}
+
+// ─────────────────────────────────────────────
+// FILTER
+// ─────────────────────────────────────────────
+function getFiltered() {
+  let list = AGENTS;
+  if (activeCategory !== 'all') {
+    list = list.filter(a => a.cat === activeCategory);
+  }
+  if (searchQuery.trim()) {
+    const q = searchQuery.toLowerCase();
+    list = list.filter(a =>
+      a.name.toLowerCase().includes(q) ||
+      a.role.toLowerCase().includes(q) ||
+      a.desc.toLowerCase().includes(q) ||
+      a.tags.some(t => t.toLowerCase().includes(q)) ||
+      getCatName(a.cat).toLowerCase().includes(q)
+    );
+  }
+  return list;
+}
+
+// ─────────────────────────────────────────────
+// RENDER: CATEGORIES
+// ─────────────────────────────────────────────
+function renderCategories() {
+  const el = document.getElementById('category-list');
+  el.innerHTML = CATEGORIES.map(c => `
+    <button class="cat-btn ${c.id === activeCategory ? 'active' : ''}" onclick="selectCategory('${c.id}')">
+      <span class="cat-btn-left">
+        <span class="cat-icon">${c.icon}</span>
+        <span>${c.name}</span>
+      </span>
+      <span class="cat-count">${c.count}</span>
+    </button>
+  `).join('');
+}
+
+// ─────────────────────────────────────────────
+// RENDER: AGENTS
+// ─────────────────────────────────────────────
+function renderAgents() {
+  const filtered = getFiltered();
+  const el = document.getElementById('agents-grid');
+  document.getElementById('result-count').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    el.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h3>Sin resultados para "${searchQuery}"</h3>
+        <p>Prueba con otro término o selecciona una categoría diferente.</p>
+      </div>`;
+    return;
+  }
+
+  el.innerHTML = filtered.map(agent => `
+    <div class="agent-card" onclick="openModal('${agent.id}')">
+      <div class="card-header">
+        <div class="card-name">${getCatIcon(agent.cat)} ${agent.name}</div>
+        <div class="card-cat-badge">${getCatName(agent.cat)}</div>
+      </div>
+      <div class="card-role">${agent.role}</div>
+      <div class="card-desc">${agent.desc}</div>
+      <div class="card-tags">${agent.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-footer">
+        <button class="btn-copy" id="copy-${agent.id}" onclick="event.stopPropagation();copyAgent('${agent.id}')">Copiar SOUL.md</button>
+        <button class="btn-view">Ver detalles</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─────────────────────────────────────────────
+// ACTIONS
+// ─────────────────────────────────────────────
+function selectCategory(id) {
+  activeCategory = id;
+  renderCategories();
+  renderAgents();
+  window.scrollTo({ top: 600, behavior: 'smooth' });
+}
+
+function copyAgent(id) {
+  const agent = AGENTS.find(a => a.id === id);
+  if (!agent) return;
+  const soul = generateSoul(agent);
+  navigator.clipboard.writeText(soul).then(() => {
+    const btn = document.getElementById('copy-' + id);
+    if (btn) {
+      btn.textContent = '¡Copiado!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copiar SOUL.md';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+  });
+}
+
+function openModal(id) {
+  const agent = AGENTS.find(a => a.id === id);
+  if (!agent) return;
+  currentAgent = agent;
+
+  document.getElementById('modal-cat').textContent = getCatIcon(agent.cat) + ' ' + getCatName(agent.cat);
+  document.getElementById('modal-name').textContent = agent.name;
+  document.getElementById('modal-role').textContent = agent.role;
+  document.getElementById('modal-desc').textContent = agent.desc;
+  document.getElementById('modal-tags').innerHTML = agent.tags.map(t => `<span class="tag">${t}</span>`).join('');
+  document.getElementById('modal-soul').textContent = generateSoul(agent);
+  document.getElementById('modal-copy-btn').textContent = 'Copiar SOUL.md';
+  document.getElementById('modal-copy-btn').classList.remove('copied');
+  document.getElementById('modal-github-btn').onclick = () => {
+    window.open(`https://github.com/mergisi/awesome-openclaw-agents/tree/main/agents/${agent.cat}/${agent.id}`, '_blank', 'noopener');
+  };
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  currentAgent = null;
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+renderCategories();
+renderAgents();
+
+// Nav scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// Search inputs
+function handleSearch(val) {
+  searchQuery = val;
+  renderAgents();
+}
+document.getElementById('nav-search-input').addEventListener('input', e => {
+  document.getElementById('mobile-search-input').value = e.target.value;
+  handleSearch(e.target.value);
+});
+document.getElementById('mobile-search-input').addEventListener('input', e => {
+  document.getElementById('nav-search-input').value = e.target.value;
+  handleSearch(e.target.value);
+});
+
+// Modal events
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+});
+document.getElementById('modal-copy-btn').addEventListener('click', () => {
+  if (!currentAgent) return;
+  const soul = generateSoul(currentAgent);
+  navigator.clipboard.writeText(soul).then(() => {
+    const btn = document.getElementById('modal-copy-btn');
+    btn.textContent = '¡SOUL.md Copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copiar SOUL.md';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
