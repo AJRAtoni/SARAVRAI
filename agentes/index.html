@@ -185,7 +185,7 @@
     .sort-select:hover { border-color: var(--border-hover); }
 
     /* ─── SIDEBAR ─── */
-    .sidebar { position: sticky; top: 90px; align-self: start; }
+    .sidebar { }
     .sidebar-title {
       font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--text-muted);
@@ -401,10 +401,19 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      .main-layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-      .category-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
-      .cat-btn { width: auto; padding: 7px 12px; font-size: 12px; }
+      .main-layout { grid-template-columns: 1fr; gap: 0; }
+      .sidebar { padding-bottom: 8px; }
+      .sidebar-title { display: none; }
+      .category-list {
+        flex-direction: row; flex-wrap: nowrap;
+        overflow-x: auto; gap: 6px;
+        padding: 4px 0 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .category-list::-webkit-scrollbar { display: none; }
+      .cat-btn { width: auto; flex-shrink: 0; padding: 6px 12px; font-size: 12px; }
+      .cat-count { display: none; }
       .nav-search { display: none; }
     }
     @media (max-width: 640px) {
@@ -466,7 +475,7 @@
   </p>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="hero-stat-num">177</div>
+      <div class="hero-stat-num">162</div>
       <div class="hero-stat-label">Agentes IA</div>
     </div>
     <div class="hero-stat">
@@ -488,7 +497,7 @@
 <div class="container">
   <!-- Filter bar -->
   <div class="filter-bar">
-    <div class="results-count">Mostrando <span id="result-count">177</span> agentes</div>
+    <div class="results-count">Mostrando <span id="result-count">162</span> agentes</div>
     <div style="display:flex;gap:10px;align-items:center;">
       <div class="nav-search" style="display:flex;width:220px;" id="mobile-search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:#555;flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
