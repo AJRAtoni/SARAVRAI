@@ -32,7 +32,7 @@
       --radius-sm: 8px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
     body {
       font-family: 'Space Grotesk', sans-serif;
       background: var(--bg);
@@ -122,10 +122,11 @@
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--gold);
       border: 1px solid var(--border); border-radius: 20px;
       padding: 6px 16px; margin-bottom: 24px;
+      max-width: 90vw; white-space: nowrap; overflow: hidden;
     }
     .hero-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
@@ -217,7 +218,7 @@
     .agents-area { min-width: 0; }
     .agents-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
       gap: 16px;
     }
 
@@ -415,6 +416,7 @@
       .cat-btn { width: auto; flex-shrink: 0; padding: 6px 12px; font-size: 12px; }
       .cat-count { display: none; }
       .nav-search { display: none; }
+      .nav-badge { display: none; }
     }
     @media (max-width: 640px) {
       .hero { padding: 120px 20px 60px; }
@@ -422,12 +424,13 @@
       .hero-stat { padding: 0 16px; }
       .hero-stat-num { font-size: 28px; }
       .container { padding: 0 16px; }
-      .agents-grid { grid-template-columns: 1fr; }
       .modal { border-radius: 16px; }
+      .nav-logo { font-size: 13px; }
+      .nav-left { gap: 12px; }
     }
     @media (max-width: 480px) {
       nav { padding: 14px 16px; }
-      .nav-badge { display: none; }
+      .nav-logo { display: none; }
       .nav-stars { display: none; }
       .hero-stat-label { font-size: 10px; }
       .modal-actions { flex-direction: column; }
