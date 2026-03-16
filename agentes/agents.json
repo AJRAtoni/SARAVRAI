@@ -1,0 +1,2435 @@
+{
+  "total": 162,
+  "agentes": [
+    {
+      "id": "orion",
+      "nombre": "Orion",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Gestor de Proyectos IA",
+      "descripcion": "Organiza tareas, prioridades y deadlines de forma inteligente. Centraliza el seguimiento de proyectos y mantiene al equipo alineado con los objetivos.",
+      "tags": [
+        "tareas",
+        "proyectos",
+        "planificación"
+      ],
+      "soul_md": "agentes/productivity/orion/SOUL.md"
+    },
+    {
+      "id": "pulse",
+      "nombre": "Pulse",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Monitor de Métricas de Equipo",
+      "descripcion": "Rastrea KPIs del equipo en tiempo real y envía reportes de rendimiento automatizados. Detecta cuellos de botella antes de que se conviertan en problemas.",
+      "tags": [
+        "métricas",
+        "equipo",
+        "KPIs"
+      ],
+      "soul_md": "agentes/productivity/pulse/SOUL.md"
+    },
+    {
+      "id": "standup",
+      "nombre": "Standup",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Automatizador de Daily Standups",
+      "descripcion": "Automatiza los reportes diarios de standup, resume el progreso del equipo y distribuye las notas a los canales correctos sin intervención manual.",
+      "tags": [
+        "scrum",
+        "equipo",
+        "reportes"
+      ],
+      "soul_md": "agentes/productivity/standup/SOUL.md"
+    },
+    {
+      "id": "inbox",
+      "nombre": "Inbox",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Gestor de Email Inteligente",
+      "descripcion": "Prioriza tu bandeja de entrada, redacta borradores de respuesta y categoriza emails automáticamente según importancia y contexto.",
+      "tags": [
+        "email",
+        "comunicación",
+        "automatización"
+      ],
+      "soul_md": "agentes/productivity/inbox/SOUL.md"
+    },
+    {
+      "id": "minutes",
+      "nombre": "Minutes",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Secretario de Reuniones IA",
+      "descripcion": "Transcribe y resume reuniones en tiempo real, extrae action items con responsables y fechas, y distribuye las notas al equipo automáticamente.",
+      "tags": [
+        "reuniones",
+        "transcripción",
+        "resúmenes"
+      ],
+      "soul_md": "agentes/productivity/minutes/SOUL.md"
+    },
+    {
+      "id": "focus-timer",
+      "nombre": "Focus Timer",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Coach de Productividad Pomodoro",
+      "descripcion": "Implementa la técnica Pomodoro de forma inteligente, adaptando la duración de las sesiones a tu nivel de energía y tipo de tarea.",
+      "tags": [
+        "pomodoro",
+        "focus",
+        "time-management"
+      ],
+      "soul_md": "agentes/productivity/focus-timer/SOUL.md"
+    },
+    {
+      "id": "habit-tracker",
+      "nombre": "Habit Tracker",
+      "categoria": "productivity",
+      "categoria_nombre": "Productividad",
+      "categoria_icono": "⚡",
+      "rol": "Rastreador de Hábitos Personales",
+      "descripcion": "Monitorea tu progreso en hábitos diarios, identifica patrones y ofrece coaching personalizado para mantener la consistencia a largo plazo.",
+      "tags": [
+        "hábitos",
+        "coaching",
+        "bienestar"
+      ],
+      "soul_md": "agentes/productivity/habit-tracker/SOUL.md"
+    },
+    {
+      "id": "lens",
+      "nombre": "Lens",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Revisor de Código IA",
+      "descripcion": "Detecta bugs, anti-patterns y problemas de seguridad en pull requests. Sugiere mejoras de calidad y garantiza el cumplimiento de estándares de código.",
+      "tags": [
+        "code review",
+        "bugs",
+        "calidad"
+      ],
+      "soul_md": "agentes/development/lens/SOUL.md"
+    },
+    {
+      "id": "scribe",
+      "nombre": "Scribe",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Generador de Documentación Técnica",
+      "descripcion": "Genera documentación técnica completa y actualizada a partir del código fuente, incluyendo READMEs, docstrings y guías de API.",
+      "tags": [
+        "documentación",
+        "código",
+        "API docs"
+      ],
+      "soul_md": "agentes/development/scribe/SOUL.md"
+    },
+    {
+      "id": "trace",
+      "nombre": "Trace",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Debugger Inteligente",
+      "descripcion": "Analiza stack traces y mensajes de error, identifica la causa raíz y propone soluciones paso a paso con ejemplos de código concretos.",
+      "tags": [
+        "debugging",
+        "errores",
+        "análisis"
+      ],
+      "soul_md": "agentes/development/trace/SOUL.md"
+    },
+    {
+      "id": "probe",
+      "nombre": "Probe",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Generador de Tests Automatizados",
+      "descripcion": "Analiza el código y escribe tests unitarios completos con casos edge, asegurando cobertura alta sin el esfuerzo manual de escribirlos desde cero.",
+      "tags": [
+        "testing",
+        "QA",
+        "unit tests"
+      ],
+      "soul_md": "agentes/development/probe/SOUL.md"
+    },
+    {
+      "id": "log",
+      "nombre": "Log",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Analizador de Logs en Tiempo Real",
+      "descripcion": "Procesa y analiza logs de aplicaciones en tiempo real, detecta patrones de error, anomalías y genera alertas ante comportamientos inusuales.",
+      "tags": [
+        "logs",
+        "monitoreo",
+        "anomalías"
+      ],
+      "soul_md": "agentes/development/log/SOUL.md"
+    },
+    {
+      "id": "dependency-scanner",
+      "nombre": "Dependency Scanner",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Escáner de Dependencias",
+      "descripcion": "Escanea el árbol de dependencias del proyecto en busca de vulnerabilidades conocidas, versiones desactualizadas y riesgos de seguridad.",
+      "tags": [
+        "seguridad",
+        "dependencias",
+        "vulnerabilidades"
+      ],
+      "soul_md": "agentes/development/dependency-scanner/SOUL.md"
+    },
+    {
+      "id": "pr-merger",
+      "nombre": "PR Merger",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Gestor de Pull Requests",
+      "descripcion": "Revisa automáticamente PRs, verifica conflictos de merge, comprueba que los tests pasan y facilita la aprobación y fusión controlada.",
+      "tags": [
+        "git",
+        "PR",
+        "colaboración"
+      ],
+      "soul_md": "agentes/development/pr-merger/SOUL.md"
+    },
+    {
+      "id": "migration-helper",
+      "nombre": "Migration Helper",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Asistente de Migraciones",
+      "descripcion": "Asiste en migraciones de base de datos y refactoring de código a gran escala, generando scripts seguros y planes de rollback detallados.",
+      "tags": [
+        "migraciones",
+        "base de datos",
+        "refactoring"
+      ],
+      "soul_md": "agentes/development/migration-helper/SOUL.md"
+    },
+    {
+      "id": "test-writer",
+      "nombre": "Test Writer",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Escritor de Tests Completos",
+      "descripcion": "Genera tests unitarios, de integración y E2E a partir del código fuente, cubriendo casos felices, casos borde y escenarios de error.",
+      "tags": [
+        "testing",
+        "E2E",
+        "automatización"
+      ],
+      "soul_md": "agentes/development/test-writer/SOUL.md"
+    },
+    {
+      "id": "schema-designer",
+      "nombre": "Schema Designer",
+      "categoria": "development",
+      "categoria_nombre": "Desarrollo",
+      "categoria_icono": "💻",
+      "rol": "Diseñador de Esquemas de BD",
+      "descripcion": "Diseña y optimiza esquemas de bases de datos relacionales y NoSQL, sugiriendo índices, relaciones y estructuras eficientes para cada caso de uso.",
+      "tags": [
+        "base de datos",
+        "schema",
+        "arquitectura"
+      ],
+      "soul_md": "agentes/development/schema-designer/SOUL.md"
+    },
+    {
+      "id": "echo",
+      "nombre": "Echo",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Gestor de Redes Sociales IA",
+      "descripcion": "Crea y programa contenido optimizado para múltiples redes sociales, adaptando el tono y formato a cada plataforma y audiencia objetivo.",
+      "tags": [
+        "social media",
+        "contenido",
+        "programación"
+      ],
+      "soul_md": "agentes/marketing/echo/SOUL.md"
+    },
+    {
+      "id": "buzz",
+      "nombre": "Buzz",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Estratega de Growth Hacking",
+      "descripcion": "Diseña y ejecuta campañas de crecimiento viral, identifica canales de adquisición de alto ROI y optimiza los embudos de conversión.",
+      "tags": [
+        "growth",
+        "viral",
+        "campañas"
+      ],
+      "soul_md": "agentes/marketing/buzz/SOUL.md"
+    },
+    {
+      "id": "rank",
+      "nombre": "Rank",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Especialista SEO",
+      "descripcion": "Optimiza el contenido para buscadores, investiga keywords de alto valor, audita la web y rastrea el posicionamiento frente a competidores.",
+      "tags": [
+        "SEO",
+        "posicionamiento",
+        "keywords"
+      ],
+      "soul_md": "agentes/marketing/rank/SOUL.md"
+    },
+    {
+      "id": "digest",
+      "nombre": "Digest",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Curador de Newsletter",
+      "descripcion": "Monitoriza fuentes del sector, sintetiza las tendencias más relevantes y crea newsletters de alta calidad de forma automatizada.",
+      "tags": [
+        "newsletter",
+        "email marketing",
+        "curación"
+      ],
+      "soul_md": "agentes/marketing/digest/SOUL.md"
+    },
+    {
+      "id": "scout",
+      "nombre": "Scout",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Investigador de Tendencias",
+      "descripcion": "Escanea el ecosistema digital para identificar tendencias emergentes, oportunidades de contenido y temas virales antes que la competencia.",
+      "tags": [
+        "tendencias",
+        "investigación",
+        "oportunidades"
+      ],
+      "soul_md": "agentes/marketing/scout/SOUL.md"
+    },
+    {
+      "id": "reddit-scout",
+      "nombre": "Reddit Scout",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Monitor de Reddit",
+      "descripcion": "Monitorea subreddits relevantes para detectar conversaciones sobre tu sector, captar feedback auténtico e identificar oportunidades de leads.",
+      "tags": [
+        "Reddit",
+        "comunidades",
+        "leads"
+      ],
+      "soul_md": "agentes/marketing/reddit-scout/SOUL.md"
+    },
+    {
+      "id": "tiktok-repurposer",
+      "nombre": "TikTok Repurposer",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Transformador de Contenido para TikTok",
+      "descripcion": "Transforma podcasts, webinars y artículos en clips cortos optimizados para TikTok, con scripts, captions y estrategia de hashtags.",
+      "tags": [
+        "TikTok",
+        "video",
+        "viral"
+      ],
+      "soul_md": "agentes/marketing/tiktok-repurposer/SOUL.md"
+    },
+    {
+      "id": "cold-outreach",
+      "nombre": "Cold Outreach",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Especialista en Prospección Fría",
+      "descripcion": "Redacta emails de prospección altamente personalizados, secuencias de seguimiento y scripts de LinkedIn adaptados a cada perfil de cliente.",
+      "tags": [
+        "email",
+        "prospección",
+        "B2B"
+      ],
+      "soul_md": "agentes/marketing/cold-outreach/SOUL.md"
+    },
+    {
+      "id": "ab-test-analyzer",
+      "nombre": "A/B Test Analyzer",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Analizador de Tests A/B",
+      "descripcion": "Analiza resultados de experimentos A/B con rigor estadístico, identifica variantes ganadoras y genera recomendaciones de optimización accionables.",
+      "tags": [
+        "A/B testing",
+        "optimización",
+        "CRO"
+      ],
+      "soul_md": "agentes/marketing/ab-test-analyzer/SOUL.md"
+    },
+    {
+      "id": "influencer-finder",
+      "nombre": "Influencer Finder",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Buscador de Influencers",
+      "descripcion": "Identifica influencers relevantes para tu marca según nicho, audiencia y engagement real. Facilita el contacto y la gestión de colaboraciones.",
+      "tags": [
+        "influencers",
+        "colaboraciones",
+        "UGC"
+      ],
+      "soul_md": "agentes/marketing/influencer-finder/SOUL.md"
+    },
+    {
+      "id": "brand-monitor",
+      "nombre": "Brand Monitor",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Monitor de Marca Online",
+      "descripcion": "Rastrea en tiempo real las menciones de tu marca en redes sociales, foros y medios. Analiza el sentimiento y alerta ante crisis de reputación.",
+      "tags": [
+        "marca",
+        "reputación",
+        "monitoreo"
+      ],
+      "soul_md": "agentes/marketing/brand-monitor/SOUL.md"
+    },
+    {
+      "id": "email-sequence",
+      "nombre": "Email Sequence",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Diseñador de Secuencias de Email",
+      "descripcion": "Diseña y escribe secuencias de emails automatizadas para nurturing, onboarding, reactivación y conversión de leads en clientes.",
+      "tags": [
+        "email marketing",
+        "nurturing",
+        "automatización"
+      ],
+      "soul_md": "agentes/marketing/email-sequence/SOUL.md"
+    },
+    {
+      "id": "content-repurposer",
+      "nombre": "Content Repurposer",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Transformador de Contenido Multicanal",
+      "descripcion": "Convierte un contenido en múltiples formatos: artículo → hilo, podcast → newsletter, webinar → posts. Máxima eficiencia de contenido.",
+      "tags": [
+        "contenido",
+        "multicanal",
+        "repurposing"
+      ],
+      "soul_md": "agentes/marketing/content-repurposer/SOUL.md"
+    },
+    {
+      "id": "book-writer",
+      "nombre": "Book Writer",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Asistente de Escritura de Libros",
+      "descripcion": "Asiste en la planificación, estructuración y escritura de libros, ebooks y guías completas. Mantiene coherencia de voz y estilo en todo el manuscrito.",
+      "tags": [
+        "escritura",
+        "ebook",
+        "contenido largo"
+      ],
+      "soul_md": "agentes/marketing/book-writer/SOUL.md"
+    },
+    {
+      "id": "news-curator",
+      "nombre": "News Curator",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Curador de Noticias del Sector",
+      "descripcion": "Agrega noticias de múltiples fuentes, filtra por relevancia y genera briefings diarios del sector adaptados a tu perfil profesional.",
+      "tags": [
+        "noticias",
+        "curación",
+        "sector"
+      ],
+      "soul_md": "agentes/marketing/news-curator/SOUL.md"
+    },
+    {
+      "id": "ugc-video",
+      "nombre": "UGC Video",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Gestor de Contenido UGC en Video",
+      "descripcion": "Gestiona el contenido generado por usuarios en video: solicitud, revisión, aprobación y reutilización estratégica en campañas.",
+      "tags": [
+        "UGC",
+        "video",
+        "comunidad"
+      ],
+      "soul_md": "agentes/marketing/ugc-video/SOUL.md"
+    },
+    {
+      "id": "multi-account-social",
+      "nombre": "Multi-Account Social",
+      "categoria": "marketing",
+      "categoria_nombre": "Marketing y Contenido",
+      "categoria_icono": "📢",
+      "rol": "Gestor Multi-Cuenta Social",
+      "descripcion": "Gestiona múltiples cuentas de redes sociales desde un único dashboard, manteniendo voces distintas y estrategias adaptadas a cada perfil.",
+      "tags": [
+        "social media",
+        "multi-cuenta",
+        "gestión"
+      ],
+      "soul_md": "agentes/marketing/multi-account-social/SOUL.md"
+    },
+    {
+      "id": "radar",
+      "nombre": "Radar",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Agente de Inteligencia Competitiva",
+      "descripcion": "Monitorea sistemáticamente a los competidores: precios, lanzamientos, campañas y presencia digital. Genera alertas ante movimientos estratégicos relevantes.",
+      "tags": [
+        "competencia",
+        "mercado",
+        "inteligencia"
+      ],
+      "soul_md": "agentes/business/radar/SOUL.md"
+    },
+    {
+      "id": "compass",
+      "nombre": "Compass",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Estratega de Negocios IA",
+      "descripcion": "Analiza tendencias de mercado, evalúa opciones estratégicas y recomienda decisiones basadas en datos para el crecimiento del negocio.",
+      "tags": [
+        "estrategia",
+        "decisiones",
+        "negocios"
+      ],
+      "soul_md": "agentes/business/compass/SOUL.md"
+    },
+    {
+      "id": "pipeline",
+      "nombre": "Pipeline",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Gestor de CRM y Pipeline de Ventas",
+      "descripcion": "Rastrea y gestiona oportunidades comerciales desde el primer contacto hasta el cierre. Automatiza el seguimiento y prioriza los deals con mayor probabilidad.",
+      "tags": [
+        "CRM",
+        "ventas",
+        "pipeline"
+      ],
+      "soul_md": "agentes/business/pipeline/SOUL.md"
+    },
+    {
+      "id": "ledger",
+      "nombre": "Ledger",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Gestor Financiero Básico",
+      "descripcion": "Registra ingresos y gastos, categoriza transacciones y genera informes financieros simplificados para pequeñas empresas y autónomos.",
+      "tags": [
+        "finanzas",
+        "contabilidad",
+        "gastos"
+      ],
+      "soul_md": "agentes/business/ledger/SOUL.md"
+    },
+    {
+      "id": "sentinel",
+      "nombre": "Sentinel",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Monitor de Riesgos Empresariales",
+      "descripcion": "Detecta señales de alerta temprana en el negocio: métricas en caída, problemas de cashflow, riesgos de clientes clave. Activa respuestas proactivas.",
+      "tags": [
+        "riesgos",
+        "alertas",
+        "negocios"
+      ],
+      "soul_md": "agentes/business/sentinel/SOUL.md"
+    },
+    {
+      "id": "personal-crm",
+      "nombre": "Personal CRM",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "CRM Personal Ligero",
+      "descripcion": "Gestiona tu red de contactos profesionales con recordatorios de seguimiento, historial de interacciones y alertas de oportunidades de networking.",
+      "tags": [
+        "CRM",
+        "networking",
+        "relaciones"
+      ],
+      "soul_md": "agentes/business/personal-crm/SOUL.md"
+    },
+    {
+      "id": "whatsapp-business",
+      "nombre": "WhatsApp Business",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Automatizador de WhatsApp Business",
+      "descripcion": "Automatiza respuestas, flujos de atención al cliente y notificaciones en WhatsApp Business. Gestiona FAQs y escala a agente humano cuando es necesario.",
+      "tags": [
+        "WhatsApp",
+        "atención al cliente",
+        "automatización"
+      ],
+      "soul_md": "agentes/business/whatsapp-business/SOUL.md"
+    },
+    {
+      "id": "meeting-scheduler",
+      "nombre": "Meeting Scheduler",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Programador de Reuniones Automático",
+      "descripcion": "Coordina agendas de múltiples participantes, propone horarios óptimos, gestiona confirmaciones y envía recordatorios automáticamente.",
+      "tags": [
+        "reuniones",
+        "calendario",
+        "coordinación"
+      ],
+      "soul_md": "agentes/business/meeting-scheduler/SOUL.md"
+    },
+    {
+      "id": "competitor-pricing",
+      "nombre": "Competitor Pricing",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Monitor de Precios de Competidores",
+      "descripcion": "Rastrea automáticamente los precios de competidores en múltiples canales y genera alertas cuando detecta cambios significativos que requieren respuesta.",
+      "tags": [
+        "precios",
+        "competencia",
+        "alertas"
+      ],
+      "soul_md": "agentes/business/competitor-pricing/SOUL.md"
+    },
+    {
+      "id": "sdr-outbound",
+      "nombre": "SDR Outbound",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "SDR de Prospección Outbound",
+      "descripcion": "Automatiza la identificación, cualificación y contacto con leads outbound. Personaliza mensajes a escala y gestiona el pipeline de prospección.",
+      "tags": [
+        "SDR",
+        "outbound",
+        "leads"
+      ],
+      "soul_md": "agentes/business/sdr-outbound/SOUL.md"
+    },
+    {
+      "id": "deal-forecaster",
+      "nombre": "Deal Forecaster",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Predictor de Cierres de Ventas",
+      "descripcion": "Analiza el pipeline y predice probabilidades de cierre con modelos de IA, ayudando a priorizar esfuerzos donde hay mayor oportunidad real de venta.",
+      "tags": [
+        "ventas",
+        "forecasting",
+        "probabilidades"
+      ],
+      "soul_md": "agentes/business/deal-forecaster/SOUL.md"
+    },
+    {
+      "id": "objection-handler",
+      "nombre": "Objection Handler",
+      "categoria": "business",
+      "categoria_nombre": "Negocios",
+      "categoria_icono": "💼",
+      "rol": "Manejador de Objeciones de Ventas",
+      "descripcion": "Genera respuestas personalizadas a objeciones de venta comunes y específicas, con argumentos de valor adaptados al perfil y sector del prospecto.",
+      "tags": [
+        "ventas",
+        "objeciones",
+        "cierre"
+      ],
+      "soul_md": "agentes/business/objection-handler/SOUL.md"
+    },
+    {
+      "id": "atlas",
+      "nombre": "Atlas",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Asistente de Viajes IA",
+      "descripcion": "Planifica itinerarios completos según presupuesto, intereses y restricciones. Gestiona vuelos, hoteles y actividades en una experiencia integrada.",
+      "tags": [
+        "viajes",
+        "itinerarios",
+        "reservas"
+      ],
+      "soul_md": "agentes/personal/atlas/SOUL.md"
+    },
+    {
+      "id": "scroll",
+      "nombre": "Scroll",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Gestor de Lecturas y Conocimiento",
+      "descripcion": "Organiza tu lista de lectura, crea resúmenes de libros y artículos, y conecta ideas de distintas fuentes en un sistema de gestión del conocimiento.",
+      "tags": [
+        "lectura",
+        "conocimiento",
+        "biblioteca"
+      ],
+      "soul_md": "agentes/personal/scroll/SOUL.md"
+    },
+    {
+      "id": "iron",
+      "nombre": "Iron",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Coach de Fitness Personal",
+      "descripcion": "Diseña rutinas de entrenamiento adaptadas a tus objetivos y nivel actual. Hace seguimiento del progreso y ajusta el plan según los resultados.",
+      "tags": [
+        "fitness",
+        "entrenamiento",
+        "salud"
+      ],
+      "soul_md": "agentes/personal/iron/SOUL.md"
+    },
+    {
+      "id": "home-automation",
+      "nombre": "Home Automation",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Controlador del Hogar Inteligente",
+      "descripcion": "Gestiona y automatiza dispositivos del hogar inteligente, crea rutinas domésticas y optimiza el consumo energético según tus hábitos.",
+      "tags": [
+        "hogar",
+        "automatización",
+        "IoT"
+      ],
+      "soul_md": "agentes/personal/home-automation/SOUL.md"
+    },
+    {
+      "id": "family-coordinator",
+      "nombre": "Family Coordinator",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Coordinador Familiar IA",
+      "descripcion": "Coordina calendarios, actividades escolares, tareas del hogar y logística familiar. Centraliza la comunicación para que nada se pierda.",
+      "tags": [
+        "familia",
+        "calendario",
+        "coordinación"
+      ],
+      "soul_md": "agentes/personal/family-coordinator/SOUL.md"
+    },
+    {
+      "id": "travel-planner",
+      "nombre": "Travel Planner",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Planificador de Viajes con Presupuesto",
+      "descripcion": "Planifica viajes completos con presupuesto detallado, rutas optimizadas, alojamiento y actividades seleccionadas por preferencias personales.",
+      "tags": [
+        "viajes",
+        "presupuesto",
+        "planificación"
+      ],
+      "soul_md": "agentes/personal/travel-planner/SOUL.md"
+    },
+    {
+      "id": "journal-prompter",
+      "nombre": "Journal Prompter",
+      "categoria": "personal",
+      "categoria_nombre": "Personal",
+      "categoria_icono": "🧠",
+      "rol": "Asistente de Journaling Reflexivo",
+      "descripcion": "Genera prompts reflexivos diarios adaptados a tus entradas anteriores, ayudando a desarrollar autoconocimiento y claridad mental progresiva.",
+      "tags": [
+        "journaling",
+        "reflexión",
+        "bienestar"
+      ],
+      "soul_md": "agentes/personal/journal-prompter/SOUL.md"
+    },
+    {
+      "id": "incident-responder",
+      "nombre": "Incident Responder",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Respondedor de Incidentes de Producción",
+      "descripcion": "Diagnostica incidentes de producción en tiempo real, coordina la respuesta del equipo, documenta la resolución y genera postmortems automáticos.",
+      "tags": [
+        "incidentes",
+        "producción",
+        "on-call"
+      ],
+      "soul_md": "agentes/devops/incident-responder/SOUL.md"
+    },
+    {
+      "id": "deploy-guardian",
+      "nombre": "Deploy Guardian",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Guardián de Deployments",
+      "descripcion": "Analiza cada deploy antes de que llegue a producción, verifica tests, revisa configuraciones críticas y puede revertir automáticamente ante anomalías.",
+      "tags": [
+        "deployments",
+        "CI/CD",
+        "releases"
+      ],
+      "soul_md": "agentes/devops/deploy-guardian/SOUL.md"
+    },
+    {
+      "id": "infra-monitor",
+      "nombre": "Infra Monitor",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Monitor de Infraestructura IA",
+      "descripcion": "Monitoriza toda la infraestructura con alertas inteligentes que filtran el ruido. Puede aplicar remediation automática en escenarios predefinidos.",
+      "tags": [
+        "infraestructura",
+        "monitoreo",
+        "alertas"
+      ],
+      "soul_md": "agentes/devops/infra-monitor/SOUL.md"
+    },
+    {
+      "id": "log-analyzer",
+      "nombre": "Log Analyzer",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Analizador de Logs de Sistema",
+      "descripcion": "Procesa grandes volúmenes de logs de sistemas distribuidos, detecta anomalías estadísticas y correlaciona eventos entre múltiples servicios.",
+      "tags": [
+        "logs",
+        "análisis",
+        "sistemas"
+      ],
+      "soul_md": "agentes/devops/log-analyzer/SOUL.md"
+    },
+    {
+      "id": "cost-optimizer",
+      "nombre": "Cost Optimizer",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Optimizador de Costes Cloud",
+      "descripcion": "Analiza el consumo de recursos cloud en AWS, GCP o Azure, identifica desperdicio y genera recomendaciones priorizadas para reducir la factura mensual.",
+      "tags": [
+        "cloud",
+        "costes",
+        "optimización"
+      ],
+      "soul_md": "agentes/devops/cost-optimizer/SOUL.md"
+    },
+    {
+      "id": "self-healing-server",
+      "nombre": "Self-Healing Server",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Servidor Autorreparable IA",
+      "descripcion": "Sistema autónomo que detecta fallos de servidor, aplica scripts de remediación predefinidos y restaura el servicio sin intervención humana.",
+      "tags": [
+        "self-healing",
+        "alta disponibilidad",
+        "automatización"
+      ],
+      "soul_md": "agentes/devops/self-healing-server/SOUL.md"
+    },
+    {
+      "id": "raspberry-pi-agent",
+      "nombre": "Raspberry Pi Agent",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Agente para Proyectos Raspberry Pi",
+      "descripcion": "Especializado en desarrollo, despliegue y gestión de proyectos con Raspberry Pi, Arduino y dispositivos IoT en entornos de producción.",
+      "tags": [
+        "Raspberry Pi",
+        "IoT",
+        "hardware"
+      ],
+      "soul_md": "agentes/devops/raspberry-pi-agent/SOUL.md"
+    },
+    {
+      "id": "runbook-writer",
+      "nombre": "Runbook Writer",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Generador de Runbooks Operacionales",
+      "descripcion": "Genera runbooks detallados y documentación operacional a partir de procedimientos existentes, garantizando que el equipo puede actuar sin depender de expertos.",
+      "tags": [
+        "runbooks",
+        "documentación",
+        "operaciones"
+      ],
+      "soul_md": "agentes/devops/runbook-writer/SOUL.md"
+    },
+    {
+      "id": "sla-monitor",
+      "nombre": "SLA Monitor",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Monitor de SLAs y Acuerdos de Servicio",
+      "descripcion": "Monitoriza el cumplimiento de SLAs en tiempo real, genera alertas proactivas antes del incumplimiento y produce informes automáticos para clientes.",
+      "tags": [
+        "SLA",
+        "disponibilidad",
+        "monitoreo"
+      ],
+      "soul_md": "agentes/devops/sla-monitor/SOUL.md"
+    },
+    {
+      "id": "capacity-planner",
+      "nombre": "Capacity Planner",
+      "categoria": "devops",
+      "categoria_nombre": "DevOps",
+      "categoria_icono": "🔧",
+      "rol": "Planificador de Capacidad",
+      "descripcion": "Analiza tendencias de uso históricas y proyecta necesidades futuras de infraestructura, facilitando el escalado proactivo antes de llegar al límite.",
+      "tags": [
+        "capacidad",
+        "planificación",
+        "escalado"
+      ],
+      "soul_md": "agentes/devops/capacity-planner/SOUL.md"
+    },
+    {
+      "id": "expense-tracker",
+      "nombre": "Expense Tracker",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Rastreador de Gastos Personal",
+      "descripcion": "Registra y categoriza automáticamente los gastos, detecta suscripciones innecesarias y genera informes de gasto mensuales con insights de ahorro.",
+      "tags": [
+        "gastos",
+        "finanzas personales",
+        "presupuesto"
+      ],
+      "soul_md": "agentes/finance/expense-tracker/SOUL.md"
+    },
+    {
+      "id": "invoice-manager",
+      "nombre": "Invoice Manager",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Gestor de Facturas y Cobros",
+      "descripcion": "Crea, envía y hace seguimiento de facturas. Automatiza los recordatorios de cobro y mantiene el control de cuentas por cobrar sin esfuerzo manual.",
+      "tags": [
+        "facturas",
+        "cobros",
+        "B2B"
+      ],
+      "soul_md": "agentes/finance/invoice-manager/SOUL.md"
+    },
+    {
+      "id": "revenue-analyst",
+      "nombre": "Revenue Analyst",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Analista de Ingresos IA",
+      "descripcion": "Desglosa los ingresos por producto, canal y segmento, identifica tendencias de crecimiento y genera proyecciones financieras fundamentadas.",
+      "tags": [
+        "ingresos",
+        "análisis",
+        "proyecciones"
+      ],
+      "soul_md": "agentes/finance/revenue-analyst/SOUL.md"
+    },
+    {
+      "id": "tax-preparer",
+      "nombre": "Tax Preparer",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Asistente de Preparación Fiscal",
+      "descripcion": "Organiza documentos fiscales, calcula deducciones aplicables y prepara la información necesaria para la declaración de impuestos.",
+      "tags": [
+        "impuestos",
+        "fiscal",
+        "contabilidad"
+      ],
+      "soul_md": "agentes/finance/tax-preparer/SOUL.md"
+    },
+    {
+      "id": "trading-bot",
+      "nombre": "Trading Bot",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Bot de Trading Algorítmico",
+      "descripcion": "Implementa y ejecuta estrategias de trading algorítmico predefinidas, con gestión de riesgo integrada y registro detallado de operaciones.",
+      "tags": [
+        "trading",
+        "inversión",
+        "algorítmico"
+      ],
+      "soul_md": "agentes/finance/trading-bot/SOUL.md"
+    },
+    {
+      "id": "fraud-detector",
+      "nombre": "Fraud Detector",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Detector de Fraude Financiero",
+      "descripcion": "Analiza transacciones en tiempo real para detectar patrones fraudulentos, genera alertas inmediatas y documenta cada incidente para revisión.",
+      "tags": [
+        "fraude",
+        "seguridad financiera",
+        "detección"
+      ],
+      "soul_md": "agentes/finance/fraud-detector/SOUL.md"
+    },
+    {
+      "id": "financial-forecaster",
+      "nombre": "Financial Forecaster",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Pronosticador Financiero IA",
+      "descripcion": "Genera pronósticos financieros precisos combinando datos históricos, tendencias del mercado y variables macroeconómicas relevantes.",
+      "tags": [
+        "pronósticos",
+        "finanzas",
+        "ML"
+      ],
+      "soul_md": "agentes/finance/financial-forecaster/SOUL.md"
+    },
+    {
+      "id": "portfolio-rebalancer",
+      "nombre": "Portfolio Rebalancer",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Rebalanceador de Portfolio",
+      "descripcion": "Monitoriza la composición del portfolio y ejecuta rebalanceos automáticos para mantener la asignación de activos alineada con la estrategia definida.",
+      "tags": [
+        "inversión",
+        "portfolio",
+        "rebalanceo"
+      ],
+      "soul_md": "agentes/finance/portfolio-rebalancer/SOUL.md"
+    },
+    {
+      "id": "accounts-payable",
+      "nombre": "Accounts Payable",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Gestor de Cuentas por Pagar",
+      "descripcion": "Gestiona el ciclo completo de cuentas por pagar: recepción de facturas, validación, aprobación y pago a proveedores según las condiciones pactadas.",
+      "tags": [
+        "proveedores",
+        "pagos",
+        "contabilidad"
+      ],
+      "soul_md": "agentes/finance/accounts-payable/SOUL.md"
+    },
+    {
+      "id": "copy-trader",
+      "nombre": "Copy Trader",
+      "categoria": "finance",
+      "categoria_nombre": "Finanzas",
+      "categoria_icono": "💰",
+      "rol": "Agente de Copy Trading",
+      "descripcion": "Replica automáticamente las operaciones de traders seleccionados, con filtros de riesgo personalizados y registro transparente de cada operación copiada.",
+      "tags": [
+        "copy trading",
+        "inversión",
+        "automatización"
+      ],
+      "soul_md": "agentes/finance/copy-trader/SOUL.md"
+    },
+    {
+      "id": "tutor",
+      "nombre": "Tutor",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Tutor Personal Adaptativo",
+      "descripcion": "Adapta las explicaciones, ejemplos y ejercicios al nivel y ritmo de aprendizaje del estudiante, asegurando comprensión real antes de avanzar.",
+      "tags": [
+        "tutoría",
+        "aprendizaje",
+        "adaptativo"
+      ],
+      "soul_md": "agentes/education/tutor/SOUL.md"
+    },
+    {
+      "id": "quiz-maker",
+      "nombre": "Quiz Maker",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Generador de Exámenes y Tests",
+      "descripcion": "Genera exámenes, cuestionarios y tests de distintos niveles y formatos a partir de cualquier material de estudio o tema especificado.",
+      "tags": [
+        "exámenes",
+        "evaluación",
+        "educación"
+      ],
+      "soul_md": "agentes/education/quiz-maker/SOUL.md"
+    },
+    {
+      "id": "study-planner",
+      "nombre": "Study Planner",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Planificador de Estudio Inteligente",
+      "descripcion": "Diseña planes de estudio optimizados con técnicas de spaced repetition, sesiones de repaso y metas alcanzables adaptadas a fechas de examen.",
+      "tags": [
+        "estudio",
+        "planificación",
+        "memorización"
+      ],
+      "soul_md": "agentes/education/study-planner/SOUL.md"
+    },
+    {
+      "id": "research-assistant",
+      "nombre": "Research Assistant",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Asistente de Investigación Académica",
+      "descripcion": "Busca, sintetiza y cita fuentes académicas para proyectos de investigación, garantizando rigor bibliográfico y cobertura temática completa.",
+      "tags": [
+        "investigación",
+        "académico",
+        "fuentes"
+      ],
+      "soul_md": "agentes/education/research-assistant/SOUL.md"
+    },
+    {
+      "id": "language-tutor",
+      "nombre": "Language Tutor",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Profesor de Idiomas IA",
+      "descripcion": "Enseña idiomas con corrección en tiempo real, ejercicios conversacionales personalizados y seguimiento del progreso a lo largo del tiempo.",
+      "tags": [
+        "idiomas",
+        "lenguas",
+        "aprendizaje"
+      ],
+      "soul_md": "agentes/education/language-tutor/SOUL.md"
+    },
+    {
+      "id": "curriculum-designer",
+      "nombre": "Curriculum Designer",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Diseñador de Currículums Educativos",
+      "descripcion": "Diseña currículums completos y planes de estudio alineados con objetivos de aprendizaje, niveles de competencia y estándares educativos.",
+      "tags": [
+        "currículum",
+        "diseño educativo",
+        "planes de estudio"
+      ],
+      "soul_md": "agentes/education/curriculum-designer/SOUL.md"
+    },
+    {
+      "id": "essay-grader",
+      "nombre": "Essay Grader",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Evaluador de Ensayos y Trabajos",
+      "descripcion": "Evalúa ensayos académicos con criterios detallados, proporciona feedback constructivo y sugerencias de mejora concretas y aplicables.",
+      "tags": [
+        "evaluación",
+        "feedback",
+        "escritura académica"
+      ],
+      "soul_md": "agentes/education/essay-grader/SOUL.md"
+    },
+    {
+      "id": "flashcard-generator",
+      "nombre": "Flashcard Generator",
+      "categoria": "education",
+      "categoria_nombre": "Educación",
+      "categoria_icono": "📚",
+      "rol": "Generador de Tarjetas de Memoria",
+      "descripcion": "Crea tarjetas de memoria optimizadas para el aprendizaje acelerado, listas para importar en Anki u otras apps de estudio por repetición espaciada.",
+      "tags": [
+        "flashcards",
+        "memorización",
+        "Anki"
+      ],
+      "soul_md": "agentes/education/flashcard-generator/SOUL.md"
+    },
+    {
+      "id": "wellness-coach",
+      "nombre": "Wellness Coach",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Coach de Bienestar Holístico",
+      "descripcion": "Diseña planes de salud integrales combinando nutrición, ejercicio, sueño y bienestar mental. Hace seguimiento de hábitos y ajusta las recomendaciones.",
+      "tags": [
+        "bienestar",
+        "salud",
+        "coaching"
+      ],
+      "soul_md": "agentes/healthcare/wellness-coach/SOUL.md"
+    },
+    {
+      "id": "meal-planner",
+      "nombre": "Meal Planner",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Planificador de Comidas con IA",
+      "descripcion": "Planifica menús semanales equilibrados, genera recetas detalladas, lista de la compra optimizada y análisis nutricional completo.",
+      "tags": [
+        "nutrición",
+        "comidas",
+        "dieta"
+      ],
+      "soul_md": "agentes/healthcare/meal-planner/SOUL.md"
+    },
+    {
+      "id": "workout-tracker",
+      "nombre": "Workout Tracker",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Rastreador de Entrenamientos",
+      "descripcion": "Registra cada sesión de entrenamiento, analiza el progreso, detecta estancamientos y adapta la rutina para mantener la mejora continua.",
+      "tags": [
+        "ejercicio",
+        "fitness",
+        "seguimiento"
+      ],
+      "soul_md": "agentes/healthcare/workout-tracker/SOUL.md"
+    },
+    {
+      "id": "symptom-triage",
+      "nombre": "Symptom Triage",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Pre-evaluador de Síntomas",
+      "descripcion": "Evalúa síntomas de forma preliminar, orienta hacia los recursos médicos más apropiados y ayuda a priorizar cuándo buscar atención urgente.",
+      "tags": [
+        "síntomas",
+        "triage",
+        "salud"
+      ],
+      "soul_md": "agentes/healthcare/symptom-triage/SOUL.md"
+    },
+    {
+      "id": "clinical-notes",
+      "nombre": "Clinical Notes",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Gestor de Notas Clínicas",
+      "descripcion": "Transcribe y estructura notas clínicas en formato estandarizado, reduciendo el tiempo administrativo de los profesionales sanitarios.",
+      "tags": [
+        "clínico",
+        "notas",
+        "médico"
+      ],
+      "soul_md": "agentes/healthcare/clinical-notes/SOUL.md"
+    },
+    {
+      "id": "medication-checker",
+      "nombre": "Medication Checker",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Verificador de Medicamentos",
+      "descripcion": "Verifica interacciones medicamentosas, contraindicaciones y gestiona recordatorios de toma de medicamentos con alertas personalizadas.",
+      "tags": [
+        "medicamentos",
+        "interacciones",
+        "recordatorios"
+      ],
+      "soul_md": "agentes/healthcare/medication-checker/SOUL.md"
+    },
+    {
+      "id": "patient-intake",
+      "nombre": "Patient Intake",
+      "categoria": "healthcare",
+      "categoria_nombre": "Salud",
+      "categoria_icono": "❤️",
+      "rol": "Gestor de Onboarding de Pacientes",
+      "descripcion": "Automatiza el registro e incorporación de nuevos pacientes en clínicas, recopilando historial, alergias y datos necesarios de forma estructurada.",
+      "tags": [
+        "pacientes",
+        "clínica",
+        "onboarding"
+      ],
+      "soul_md": "agentes/healthcare/patient-intake/SOUL.md"
+    },
+    {
+      "id": "contract-reviewer",
+      "nombre": "Contract Reviewer",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Revisor de Contratos IA",
+      "descripcion": "Revisa contratos legales en detalle, identifica cláusulas de riesgo, desequilibrios y sugiere modificaciones para proteger los intereses del cliente.",
+      "tags": [
+        "contratos",
+        "legal",
+        "riesgos"
+      ],
+      "soul_md": "agentes/legal/contract-reviewer/SOUL.md"
+    },
+    {
+      "id": "compliance-checker",
+      "nombre": "Compliance Checker",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Verificador de Cumplimiento Normativo",
+      "descripcion": "Audita procesos y documentación frente a normativas aplicables, genera informes de gaps y planes de acción priorizados para alcanzar el cumplimiento.",
+      "tags": [
+        "cumplimiento",
+        "normativa",
+        "auditoría"
+      ],
+      "soul_md": "agentes/legal/compliance-checker/SOUL.md"
+    },
+    {
+      "id": "policy-writer",
+      "nombre": "Policy Writer",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Redactor de Políticas Corporativas",
+      "descripcion": "Redacta políticas corporativas, términos y condiciones, avisos legales y documentos regulatorios adaptados al sector y jurisdicción.",
+      "tags": [
+        "políticas",
+        "documentos legales",
+        "T&C"
+      ],
+      "soul_md": "agentes/legal/policy-writer/SOUL.md"
+    },
+    {
+      "id": "patent-analyzer",
+      "nombre": "Patent Analyzer",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Analizador de Patentes",
+      "descripcion": "Analiza el estado de la técnica en registros de patentes, evalúa la novedad de invenciones y estima la viabilidad de nuevas solicitudes.",
+      "tags": [
+        "patentes",
+        "propiedad intelectual",
+        "análisis"
+      ],
+      "soul_md": "agentes/legal/patent-analyzer/SOUL.md"
+    },
+    {
+      "id": "legal-brief-writer",
+      "nombre": "Legal Brief Writer",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Redactor de Escritos Jurídicos",
+      "descripcion": "Redacta escritos jurídicos, demandas, contestaciones y memoriales con argumentación estructurada y referencias legales pertinentes.",
+      "tags": [
+        "escritos jurídicos",
+        "argumentación",
+        "legal"
+      ],
+      "soul_md": "agentes/legal/legal-brief-writer/SOUL.md"
+    },
+    {
+      "id": "nda-generator",
+      "nombre": "NDA Generator",
+      "categoria": "legal",
+      "categoria_nombre": "Legal",
+      "categoria_icono": "⚖️",
+      "rol": "Generador de NDAs",
+      "descripcion": "Genera acuerdos de confidencialidad personalizados para distintos contextos: empleados, proveedores, inversores y socios comerciales.",
+      "tags": [
+        "NDA",
+        "confidencialidad",
+        "acuerdos"
+      ],
+      "soul_md": "agentes/legal/nda-generator/SOUL.md"
+    },
+    {
+      "id": "recruiter",
+      "nombre": "Recruiter",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Agente de Reclutamiento IA",
+      "descripcion": "Gestiona el proceso de selección de principio a fin: publica ofertas, filtra CVs, coordina entrevistas y genera evaluaciones comparativas de candidatos.",
+      "tags": [
+        "reclutamiento",
+        "RRHH",
+        "candidatos"
+      ],
+      "soul_md": "agentes/hr/recruiter/SOUL.md"
+    },
+    {
+      "id": "onboarding",
+      "nombre": "Onboarding",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Automatizador de Incorporación",
+      "descripcion": "Gestiona la incorporación de nuevos empleados con checklists automatizados, presentaciones del equipo, accesos y formación inicial estructurada.",
+      "tags": [
+        "onboarding",
+        "nuevos empleados",
+        "RRHH"
+      ],
+      "soul_md": "agentes/hr/onboarding/SOUL.md"
+    },
+    {
+      "id": "performance-reviewer",
+      "nombre": "Performance Reviewer",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Facilitador de Evaluaciones de Desempeño",
+      "descripcion": "Facilita evaluaciones de desempeño 360°, recopila feedback de múltiples fuentes y genera informes equilibrados con áreas de mejora concretas.",
+      "tags": [
+        "desempeño",
+        "evaluaciones",
+        "feedback"
+      ],
+      "soul_md": "agentes/hr/performance-reviewer/SOUL.md"
+    },
+    {
+      "id": "resume-screener",
+      "nombre": "Resume Screener",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Criba Automática de CVs",
+      "descripcion": "Analiza CVs masivamente según criterios definidos, puntúa candidatos objetivamente y genera listas cortas con justificación para cada posición.",
+      "tags": [
+        "CVs",
+        "selección",
+        "automatización"
+      ],
+      "soul_md": "agentes/hr/resume-screener/SOUL.md"
+    },
+    {
+      "id": "exit-interview",
+      "nombre": "Exit Interview",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Gestor de Entrevistas de Salida",
+      "descripcion": "Conduce y analiza entrevistas de salida, identifica patrones de rotación, causas recurrentes y genera recomendaciones para mejorar la retención.",
+      "tags": [
+        "rotación",
+        "entrevistas",
+        "retención"
+      ],
+      "soul_md": "agentes/hr/exit-interview/SOUL.md"
+    },
+    {
+      "id": "benefits-advisor",
+      "nombre": "Benefits Advisor",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Asesor de Beneficios Laborales",
+      "descripcion": "Informa a empleados sobre beneficios disponibles, responde preguntas frecuentes y gestiona solicitudes de manera eficiente y consistente.",
+      "tags": [
+        "beneficios",
+        "empleados",
+        "RRHH"
+      ],
+      "soul_md": "agentes/hr/benefits-advisor/SOUL.md"
+    },
+    {
+      "id": "compensation-benchmarker",
+      "nombre": "Compensation Benchmarker",
+      "categoria": "hr",
+      "categoria_nombre": "Recursos Humanos",
+      "categoria_icono": "👥",
+      "rol": "Comparador Salarial de Mercado",
+      "descripcion": "Compara salarios con datos de mercado por rol, sector y geografía. Recomienda bandas salariales competitivas para atraer y retener talento.",
+      "tags": [
+        "salarios",
+        "compensación",
+        "benchmark"
+      ],
+      "soul_md": "agentes/hr/compensation-benchmarker/SOUL.md"
+    },
+    {
+      "id": "brand-designer",
+      "nombre": "Brand Designer",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Estratega de Identidad de Marca",
+      "descripcion": "Define y desarrolla la identidad de marca: naming, tagline, paleta de colores, tipografía, voz y guías de estilo coherentes con el posicionamiento.",
+      "tags": [
+        "marca",
+        "branding",
+        "identidad visual"
+      ],
+      "soul_md": "agentes/creative/brand-designer/SOUL.md"
+    },
+    {
+      "id": "video-scripter",
+      "nombre": "Video Scripter",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Guionista de Video IA",
+      "descripcion": "Crea scripts optimizados para YouTube, TikTok, reels y cursos online. Estructura el relato para mantener la atención y maximizar la retención.",
+      "tags": [
+        "video",
+        "guiones",
+        "YouTube"
+      ],
+      "soul_md": "agentes/creative/video-scripter/SOUL.md"
+    },
+    {
+      "id": "podcast-producer",
+      "nombre": "Podcast Producer",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Productor de Podcast IA",
+      "descripcion": "Gestiona la producción completa del podcast: estructura de episodios, preguntas de entrevista, show notes, captions y distribución en plataformas.",
+      "tags": [
+        "podcast",
+        "audio",
+        "producción"
+      ],
+      "soul_md": "agentes/creative/podcast-producer/SOUL.md"
+    },
+    {
+      "id": "ux-researcher",
+      "nombre": "UX Researcher",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Investigador de Experiencia de Usuario",
+      "descripcion": "Diseña estudios de UX, analiza feedback de usuarios, identifica pain points y genera insights accionables para mejorar el producto o servicio.",
+      "tags": [
+        "UX",
+        "investigación",
+        "diseño"
+      ],
+      "soul_md": "agentes/creative/ux-researcher/SOUL.md"
+    },
+    {
+      "id": "copywriter",
+      "nombre": "Copywriter",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Redactor Publicitario IA",
+      "descripcion": "Crea copy persuasivo y orientado a conversión para webs, landing pages, anuncios, emails y cualquier punto de contacto con el cliente.",
+      "tags": [
+        "copywriting",
+        "redacción",
+        "marketing"
+      ],
+      "soul_md": "agentes/creative/copywriter/SOUL.md"
+    },
+    {
+      "id": "thumbnail-designer",
+      "nombre": "Thumbnail Designer",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Diseñador de Thumbnails Virales",
+      "descripcion": "Diseña y optimiza thumbnails para maximizar el CTR en YouTube y plataformas de video, aplicando principios de psicología visual y contraste.",
+      "tags": [
+        "thumbnails",
+        "YouTube",
+        "CTR"
+      ],
+      "soul_md": "agentes/creative/thumbnail-designer/SOUL.md"
+    },
+    {
+      "id": "ad-copywriter",
+      "nombre": "Ad Copywriter",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Especialista en Copy de Anuncios",
+      "descripcion": "Crea copy de alto rendimiento para anuncios en Meta Ads, Google Ads, TikTok Ads y LinkedIn, optimizado para cada formato y objetivo de campaña.",
+      "tags": [
+        "anuncios",
+        "paid ads",
+        "copy"
+      ],
+      "soul_md": "agentes/creative/ad-copywriter/SOUL.md"
+    },
+    {
+      "id": "storyboard-writer",
+      "nombre": "Storyboard Writer",
+      "categoria": "creative",
+      "categoria_nombre": "Creatividad",
+      "categoria_icono": "🎨",
+      "rol": "Creador de Storyboards y Narrativas",
+      "descripcion": "Crea storyboards escena por escena y narrativas visuales detalladas para producciones de video, publicidad y presentaciones ejecutivas.",
+      "tags": [
+        "storyboard",
+        "narrativa",
+        "producción"
+      ],
+      "soul_md": "agentes/creative/storyboard-writer/SOUL.md"
+    },
+    {
+      "id": "vuln-scanner",
+      "nombre": "Vuln Scanner",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Escáner de Vulnerabilidades",
+      "descripcion": "Escanea aplicaciones y sistemas en busca de vulnerabilidades conocidas (OWASP Top 10 y más), generando reportes priorizados por severidad.",
+      "tags": [
+        "vulnerabilidades",
+        "pentesting",
+        "seguridad"
+      ],
+      "soul_md": "agentes/security/vuln-scanner/SOUL.md"
+    },
+    {
+      "id": "access-auditor",
+      "nombre": "Access Auditor",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Auditor de Permisos de Acceso",
+      "descripcion": "Revisa y audita permisos en sistemas, detecta cuentas con privilegios excesivos y genera recomendaciones de principio de mínimo privilegio.",
+      "tags": [
+        "accesos",
+        "permisos",
+        "IAM"
+      ],
+      "soul_md": "agentes/security/access-auditor/SOUL.md"
+    },
+    {
+      "id": "threat-monitor",
+      "nombre": "Threat Monitor",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Monitor de Amenazas en Tiempo Real",
+      "descripcion": "Monitoriza indicadores de compromiso (IoC), comportamientos anómalos y amenazas activas, generando alertas con contexto para el equipo de seguridad.",
+      "tags": [
+        "amenazas",
+        "SOC",
+        "tiempo real"
+      ],
+      "soul_md": "agentes/security/threat-monitor/SOUL.md"
+    },
+    {
+      "id": "incident-logger",
+      "nombre": "Incident Logger",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Registrador de Incidentes de Seguridad",
+      "descripcion": "Documenta incidentes de seguridad con trazabilidad completa, gestiona el ciclo de respuesta y genera los informes post-incidente requeridos.",
+      "tags": [
+        "incidentes",
+        "documentación",
+        "CSIRT"
+      ],
+      "soul_md": "agentes/security/incident-logger/SOUL.md"
+    },
+    {
+      "id": "security-hardener",
+      "nombre": "Security Hardener",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Endurecedor de Sistemas",
+      "descripcion": "Aplica configuraciones de hardening según CIS Benchmarks y mejores prácticas, reduciendo la superficie de ataque en servidores y aplicaciones.",
+      "tags": [
+        "hardening",
+        "configuración",
+        "best practices"
+      ],
+      "soul_md": "agentes/security/security-hardener/SOUL.md"
+    },
+    {
+      "id": "phishing-detector",
+      "nombre": "Phishing Detector",
+      "categoria": "security",
+      "categoria_nombre": "Seguridad",
+      "categoria_icono": "🔒",
+      "rol": "Detector de Phishing IA",
+      "descripcion": "Analiza emails y URLs sospechosas para detectar intentos de phishing, spear-phishing y BEC (Business Email Compromise) con alta precisión.",
+      "tags": [
+        "phishing",
+        "email security",
+        "detección"
+      ],
+      "soul_md": "agentes/security/phishing-detector/SOUL.md"
+    },
+    {
+      "id": "product-lister",
+      "nombre": "Product Lister",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Creador de Listings de Productos",
+      "descripcion": "Crea y optimiza listings de productos para Amazon, Shopify, Etsy y más. Incluye títulos con keywords, bullets persuasivos y descripciones SEO.",
+      "tags": [
+        "Amazon",
+        "Shopify",
+        "listings"
+      ],
+      "soul_md": "agentes/ecommerce/product-lister/SOUL.md"
+    },
+    {
+      "id": "review-responder",
+      "nombre": "Review Responder",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Respondedor de Reseñas",
+      "descripcion": "Responde a reseñas de clientes de forma personalizada, profesional y adaptada al tono de la marca, tanto en plataformas de e-commerce como en Google.",
+      "tags": [
+        "reseñas",
+        "clientes",
+        "reputación"
+      ],
+      "soul_md": "agentes/ecommerce/review-responder/SOUL.md"
+    },
+    {
+      "id": "inventory-tracker",
+      "nombre": "Inventory Tracker",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Gestor de Inventario",
+      "descripcion": "Monitoriza el stock en tiempo real en múltiples almacenes y plataformas, genera alertas de reposición y optimiza los niveles de inventario.",
+      "tags": [
+        "inventario",
+        "stock",
+        "e-commerce"
+      ],
+      "soul_md": "agentes/ecommerce/inventory-tracker/SOUL.md"
+    },
+    {
+      "id": "pricing-optimizer",
+      "nombre": "Pricing Optimizer",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Optimizador de Precios Dinámico",
+      "descripcion": "Ajusta precios dinámicamente en función de la demanda, precios de la competencia, inventario disponible y margen objetivo.",
+      "tags": [
+        "precios",
+        "dinámico",
+        "optimización"
+      ],
+      "soul_md": "agentes/ecommerce/pricing-optimizer/SOUL.md"
+    },
+    {
+      "id": "abandoned-cart",
+      "nombre": "Abandoned Cart",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Recuperador de Carritos Abandonados",
+      "descripcion": "Recupera ventas perdidas con secuencias de emails y SMS personalizados que reactivan a compradores con carritos abandonados.",
+      "tags": [
+        "carrito abandonado",
+        "recuperación",
+        "conversión"
+      ],
+      "soul_md": "agentes/ecommerce/abandoned-cart/SOUL.md"
+    },
+    {
+      "id": "dropshipping-researcher",
+      "nombre": "Dropshipping Researcher",
+      "categoria": "ecommerce",
+      "categoria_nombre": "E-Commerce",
+      "categoria_icono": "🛒",
+      "rol": "Investigador de Dropshipping",
+      "descripcion": "Analiza nichos, valida productos ganadores e identifica proveedores fiables para construir un negocio de dropshipping rentable.",
+      "tags": [
+        "dropshipping",
+        "nichos",
+        "proveedores"
+      ],
+      "soul_md": "agentes/ecommerce/dropshipping-researcher/SOUL.md"
+    },
+    {
+      "id": "etl-pipeline",
+      "nombre": "ETL Pipeline",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Diseñador de Pipelines ETL",
+      "descripcion": "Diseña, implementa y monitoriza pipelines de datos ETL entre múltiples sistemas, garantizando la calidad y disponibilidad de los datos.",
+      "tags": [
+        "ETL",
+        "datos",
+        "pipelines"
+      ],
+      "soul_md": "agentes/data/etl-pipeline/SOUL.md"
+    },
+    {
+      "id": "data-cleaner",
+      "nombre": "Data Cleaner",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Limpiador y Normalizador de Datos",
+      "descripcion": "Detecta y corrige inconsistencias, valores nulos, duplicados y outliers en datasets. Prepara los datos para análisis y modelos de ML.",
+      "tags": [
+        "limpieza de datos",
+        "normalización",
+        "ML"
+      ],
+      "soul_md": "agentes/data/data-cleaner/SOUL.md"
+    },
+    {
+      "id": "report-generator",
+      "nombre": "Report Generator",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Generador de Informes Automáticos",
+      "descripcion": "Genera informes estructurados con visualizaciones, narrativa en lenguaje natural e insights accionables a partir de datos crudos o bases de datos.",
+      "tags": [
+        "informes",
+        "automatización",
+        "BI"
+      ],
+      "soul_md": "agentes/data/report-generator/SOUL.md"
+    },
+    {
+      "id": "sql-assistant",
+      "nombre": "SQL Assistant",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Asistente SQL Inteligente",
+      "descripcion": "Escribe, optimiza y explica consultas SQL complejas en múltiples dialects (PostgreSQL, MySQL, BigQuery). Detecta problemas de rendimiento.",
+      "tags": [
+        "SQL",
+        "base de datos",
+        "consultas"
+      ],
+      "soul_md": "agentes/data/sql-assistant/SOUL.md"
+    },
+    {
+      "id": "dashboard-builder",
+      "nombre": "Dashboard Builder",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Constructor de Dashboards",
+      "descripcion": "Diseña dashboards interactivos con KPIs clave y visualizaciones optimizadas para la toma de decisiones ejecutivas y operativas.",
+      "tags": [
+        "dashboard",
+        "visualización",
+        "BI"
+      ],
+      "soul_md": "agentes/data/dashboard-builder/SOUL.md"
+    },
+    {
+      "id": "anomaly-detector",
+      "nombre": "Anomaly Detector",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Detector de Anomalías en Datos",
+      "descripcion": "Aplica modelos estadísticos y de ML para detectar anomalías, outliers y cambios de patrón en flujos de datos en tiempo real o batch.",
+      "tags": [
+        "anomalías",
+        "ML",
+        "detección"
+      ],
+      "soul_md": "agentes/data/anomaly-detector/SOUL.md"
+    },
+    {
+      "id": "survey-analyzer",
+      "nombre": "Survey Analyzer",
+      "categoria": "data",
+      "categoria_nombre": "Datos e Inteligencia",
+      "categoria_icono": "📊",
+      "rol": "Analizador de Encuestas",
+      "descripcion": "Procesa respuestas de encuestas, aplica análisis de sentimiento y agrupación de respuestas abiertas, y genera informes de insights accionables.",
+      "tags": [
+        "encuestas",
+        "análisis",
+        "insights"
+      ],
+      "soul_md": "agentes/data/survey-analyzer/SOUL.md"
+    },
+    {
+      "id": "onboarding-flow",
+      "nombre": "Onboarding Flow",
+      "categoria": "saas",
+      "categoria_nombre": "SaaS",
+      "categoria_icono": "🚀",
+      "rol": "Diseñador de Flujos de Onboarding",
+      "descripcion": "Diseña y optimiza flujos de onboarding que maximizan la activación temprana de usuarios y reducen el tiempo hasta el primer valor (time-to-value).",
+      "tags": [
+        "onboarding",
+        "activación",
+        "SaaS"
+      ],
+      "soul_md": "agentes/saas/onboarding-flow/SOUL.md"
+    },
+    {
+      "id": "feature-request",
+      "nombre": "Feature Request",
+      "categoria": "saas",
+      "categoria_nombre": "SaaS",
+      "categoria_icono": "🚀",
+      "rol": "Gestor de Solicitudes de Funcionalidades",
+      "descripcion": "Centraliza, categoriza y prioriza solicitudes de funcionalidades de usuarios según impacto, esfuerzo y alineación estratégica del producto.",
+      "tags": [
+        "features",
+        "producto",
+        "priorización"
+      ],
+      "soul_md": "agentes/saas/feature-request/SOUL.md"
+    },
+    {
+      "id": "churn-prevention",
+      "nombre": "Churn Prevention",
+      "categoria": "saas",
+      "categoria_nombre": "SaaS",
+      "categoria_icono": "🚀",
+      "rol": "Prevención de Churn IA",
+      "descripcion": "Identifica usuarios con alta probabilidad de churn antes de que cancelen, activa intervenciones personalizadas y mide la efectividad de cada acción.",
+      "tags": [
+        "churn",
+        "retención",
+        "SaaS"
+      ],
+      "soul_md": "agentes/saas/churn-prevention/SOUL.md"
+    },
+    {
+      "id": "usage-analytics",
+      "nombre": "Usage Analytics",
+      "categoria": "saas",
+      "categoria_nombre": "SaaS",
+      "categoria_icono": "🚀",
+      "rol": "Analista de Uso de Producto",
+      "descripcion": "Analiza patrones de uso del producto, identifica funcionalidades subutilizadas, workflows de poder y señales de expansión o riesgo.",
+      "tags": [
+        "analytics",
+        "producto",
+        "métricas"
+      ],
+      "soul_md": "agentes/saas/usage-analytics/SOUL.md"
+    },
+    {
+      "id": "release-notes",
+      "nombre": "Release Notes",
+      "categoria": "saas",
+      "categoria_nombre": "SaaS",
+      "categoria_icono": "🚀",
+      "rol": "Redactor de Notas de Lanzamiento",
+      "descripcion": "Transforma changelogs técnicos en notas de lanzamiento claras, atractivas y orientadas al beneficio del usuario. Segmentadas por tipo de audiencia.",
+      "tags": [
+        "releases",
+        "comunicación",
+        "changelog"
+      ],
+      "soul_md": "agentes/saas/release-notes/SOUL.md"
+    },
+    {
+      "id": "listing-scout",
+      "nombre": "Listing Scout",
+      "categoria": "realestate",
+      "categoria_nombre": "Inmobiliaria",
+      "categoria_icono": "🏠",
+      "rol": "Buscador de Propiedades IA",
+      "descripcion": "Monitoriza portales inmobiliarios en busca de propiedades que cumplan criterios específicos y alerta inmediatamente cuando aparecen nuevas oportunidades.",
+      "tags": [
+        "propiedades",
+        "búsqueda",
+        "inmobiliaria"
+      ],
+      "soul_md": "agentes/realestate/listing-scout/SOUL.md"
+    },
+    {
+      "id": "market-analyzer",
+      "nombre": "Market Analyzer",
+      "categoria": "realestate",
+      "categoria_nombre": "Inmobiliaria",
+      "categoria_icono": "🏠",
+      "rol": "Analista de Mercado Inmobiliario",
+      "descripcion": "Analiza tendencias de precios, absorción del mercado y ratios de oferta-demanda en zonas específicas para fundamentar decisiones de inversión.",
+      "tags": [
+        "mercado inmobiliario",
+        "precios",
+        "análisis"
+      ],
+      "soul_md": "agentes/realestate/market-analyzer/SOUL.md"
+    },
+    {
+      "id": "lead-qualifier",
+      "nombre": "Lead Qualifier",
+      "categoria": "realestate",
+      "categoria_nombre": "Inmobiliaria",
+      "categoria_icono": "🏠",
+      "rol": "Cualificador de Leads Inmobiliarios",
+      "descripcion": "Cualifica leads de compradores y arrendatarios según capacidad financiera, urgencia y criterios de búsqueda, priorizando el tiempo del agente.",
+      "tags": [
+        "leads",
+        "cualificación",
+        "ventas"
+      ],
+      "soul_md": "agentes/realestate/lead-qualifier/SOUL.md"
+    },
+    {
+      "id": "property-video",
+      "nombre": "Property Video",
+      "categoria": "realestate",
+      "categoria_nombre": "Inmobiliaria",
+      "categoria_icono": "🏠",
+      "rol": "Creador de Contenido para Propiedades",
+      "descripcion": "Genera scripts detallados, textos de anuncio y guiones para videos de presentación de propiedades que destacan los puntos de valor únicos.",
+      "tags": [
+        "video",
+        "propiedades",
+        "marketing"
+      ],
+      "soul_md": "agentes/realestate/property-video/SOUL.md"
+    },
+    {
+      "id": "commercial-re",
+      "nombre": "Commercial RE",
+      "categoria": "realestate",
+      "categoria_nombre": "Inmobiliaria",
+      "categoria_icono": "🏠",
+      "rol": "Especialista en Inmobiliaria Comercial",
+      "descripcion": "Análisis especializado de activos comerciales: valoración, retorno de inversión, análisis de inquilinos y due diligence de operaciones complejas.",
+      "tags": [
+        "comercial",
+        "inversión",
+        "análisis"
+      ],
+      "soul_md": "agentes/realestate/commercial-re/SOUL.md"
+    },
+    {
+      "id": "proposal-writer",
+      "nombre": "Proposal Writer",
+      "categoria": "freelance",
+      "categoria_nombre": "Freelance",
+      "categoria_icono": "🎯",
+      "rol": "Redactor de Propuestas Comerciales",
+      "descripcion": "Redacta propuestas comerciales ganadoras adaptadas al cliente, con estructura persuasiva, pricing justificado y diferenciadores claros.",
+      "tags": [
+        "propuestas",
+        "freelance",
+        "ventas"
+      ],
+      "soul_md": "agentes/freelance/proposal-writer/SOUL.md"
+    },
+    {
+      "id": "time-tracker",
+      "nombre": "Time Tracker",
+      "categoria": "freelance",
+      "categoria_nombre": "Freelance",
+      "categoria_icono": "🎯",
+      "rol": "Gestor de Tiempo y Facturación",
+      "descripcion": "Registra el tiempo dedicado a cada proyecto y cliente, genera informes de horas y crea facturas automáticas listas para enviar.",
+      "tags": [
+        "tiempo",
+        "facturación",
+        "freelance"
+      ],
+      "soul_md": "agentes/freelance/time-tracker/SOUL.md"
+    },
+    {
+      "id": "client-manager",
+      "nombre": "Client Manager",
+      "categoria": "freelance",
+      "categoria_nombre": "Freelance",
+      "categoria_icono": "🎯",
+      "rol": "Gestor de Relaciones con Clientes",
+      "descripcion": "Centraliza la gestión de clientes: contratos, briefings, comunicaciones, entregas y facturación en un sistema organizado y eficiente.",
+      "tags": [
+        "clientes",
+        "gestión",
+        "contratos"
+      ],
+      "soul_md": "agentes/freelance/client-manager/SOUL.md"
+    },
+    {
+      "id": "community-manager",
+      "nombre": "Community Manager",
+      "categoria": "moltbook",
+      "categoria_nombre": "Moltbook",
+      "categoria_icono": "📖",
+      "rol": "Gestor de Comunidades Online",
+      "descripcion": "Gestiona comunidades digitales en Discord, Slack o Telegram: moderación, dinamización, respuesta a dudas y fomento del engagement.",
+      "tags": [
+        "comunidad",
+        "moderación",
+        "engagement"
+      ],
+      "soul_md": "agentes/moltbook/community-manager/SOUL.md"
+    },
+    {
+      "id": "moltbook-scout",
+      "nombre": "Scout",
+      "categoria": "moltbook",
+      "categoria_nombre": "Moltbook",
+      "categoria_icono": "📖",
+      "rol": "Descubridor de Oportunidades",
+      "descripcion": "Identifica oportunidades de partnership, co-marketing y colaboraciones estratégicas en tu sector antes de que lo haga la competencia.",
+      "tags": [
+        "partnerships",
+        "oportunidades",
+        "networking"
+      ],
+      "soul_md": "agentes/moltbook/moltbook-scout/SOUL.md"
+    },
+    {
+      "id": "growth-agent",
+      "nombre": "Growth Agent",
+      "categoria": "moltbook",
+      "categoria_nombre": "Moltbook",
+      "categoria_icono": "📖",
+      "rol": "Agente de Crecimiento de Negocio",
+      "descripcion": "Diseña e implementa estrategias de crecimiento sostenible: acquisition, retention y revenue. Prioriza iniciativas por impacto potencial.",
+      "tags": [
+        "growth",
+        "estrategia",
+        "crecimiento"
+      ],
+      "soul_md": "agentes/moltbook/growth-agent/SOUL.md"
+    },
+    {
+      "id": "route-optimizer",
+      "nombre": "Route Optimizer",
+      "categoria": "supplychain",
+      "categoria_nombre": "Cadena de Suministro",
+      "categoria_icono": "📦",
+      "rol": "Optimizador de Rutas de Distribución",
+      "descripcion": "Calcula rutas de distribución óptimas considerando distancia, tiempo, capacidad de vehículos y ventanas de entrega para reducir costes logísticos.",
+      "tags": [
+        "logística",
+        "rutas",
+        "distribución"
+      ],
+      "soul_md": "agentes/supplychain/route-optimizer/SOUL.md"
+    },
+    {
+      "id": "inventory-forecaster",
+      "nombre": "Inventory Forecaster",
+      "categoria": "supplychain",
+      "categoria_nombre": "Cadena de Suministro",
+      "categoria_icono": "📦",
+      "rol": "Pronosticador de Inventario",
+      "descripcion": "Predice necesidades de inventario futuras basándose en patrones de demanda histórica, estacionalidad y tendencias del mercado.",
+      "tags": [
+        "inventario",
+        "pronóstico",
+        "demanda"
+      ],
+      "soul_md": "agentes/supplychain/inventory-forecaster/SOUL.md"
+    },
+    {
+      "id": "vendor-evaluator",
+      "nombre": "Vendor Evaluator",
+      "categoria": "supplychain",
+      "categoria_nombre": "Cadena de Suministro",
+      "categoria_icono": "📦",
+      "rol": "Evaluador de Proveedores",
+      "descripcion": "Evalúa y compara proveedores según calidad, precio, plazos de entrega, fiabilidad y condiciones comerciales, generando scorecards objetivos.",
+      "tags": [
+        "proveedores",
+        "evaluación",
+        "supply chain"
+      ],
+      "soul_md": "agentes/supplychain/vendor-evaluator/SOUL.md"
+    },
+    {
+      "id": "gdpr-auditor",
+      "nombre": "GDPR Auditor",
+      "categoria": "compliance",
+      "categoria_nombre": "Cumplimiento",
+      "categoria_icono": "✅",
+      "rol": "Auditor de Cumplimiento RGPD/GDPR",
+      "descripcion": "Audita procesos y sistemas frente a los requisitos del RGPD, identifica brechas de privacidad y genera planes de acción priorizados.",
+      "tags": [
+        "RGPD",
+        "GDPR",
+        "privacidad"
+      ],
+      "soul_md": "agentes/compliance/gdpr-auditor/SOUL.md"
+    },
+    {
+      "id": "soc2-preparer",
+      "nombre": "SOC2 Preparer",
+      "categoria": "compliance",
+      "categoria_nombre": "Cumplimiento",
+      "categoria_icono": "✅",
+      "rol": "Preparador de Certificación SOC2",
+      "descripcion": "Prepara la documentación, controles y evidencias necesarias para obtener la certificación SOC2 Type I y Type II de forma estructurada.",
+      "tags": [
+        "SOC2",
+        "certificación",
+        "seguridad"
+      ],
+      "soul_md": "agentes/compliance/soc2-preparer/SOUL.md"
+    },
+    {
+      "id": "ai-policy-writer",
+      "nombre": "AI Policy Writer",
+      "categoria": "compliance",
+      "categoria_nombre": "Cumplimiento",
+      "categoria_icono": "✅",
+      "rol": "Redactor de Políticas de IA",
+      "descripcion": "Redacta políticas de uso responsable y ético de IA adaptadas al sector, incluyendo gobernanza, transparencia y gestión de sesgos.",
+      "tags": [
+        "políticas IA",
+        "ética",
+        "gobernanza"
+      ],
+      "soul_md": "agentes/compliance/ai-policy-writer/SOUL.md"
+    },
+    {
+      "id": "risk-assessor",
+      "nombre": "Risk Assessor",
+      "categoria": "compliance",
+      "categoria_nombre": "Cumplimiento",
+      "categoria_icono": "✅",
+      "rol": "Evaluador de Riesgos Empresariales",
+      "descripcion": "Identifica, evalúa y cuantifica riesgos empresariales con matrices de impacto-probabilidad y genera planes de mitigación priorizados.",
+      "tags": [
+        "riesgos",
+        "evaluación",
+        "cumplimiento"
+      ],
+      "soul_md": "agentes/compliance/risk-assessor/SOUL.md"
+    },
+    {
+      "id": "phone-receptionist",
+      "nombre": "Phone Receptionist",
+      "categoria": "voice",
+      "categoria_nombre": "Voz",
+      "categoria_icono": "🎙️",
+      "rol": "Recepcionista Telefónica IA",
+      "descripcion": "Gestiona llamadas entrantes, responde FAQs, toma mensajes y programa citas de forma autónoma, disponible 24/7 sin coste de personal.",
+      "tags": [
+        "voz",
+        "telefónico",
+        "recepción"
+      ],
+      "soul_md": "agentes/voice/phone-receptionist/SOUL.md"
+    },
+    {
+      "id": "voicemail-transcriber",
+      "nombre": "Voicemail Transcriber",
+      "categoria": "voice",
+      "categoria_nombre": "Voz",
+      "categoria_icono": "🎙️",
+      "rol": "Transcriptor de Mensajes de Voz",
+      "descripcion": "Transcribe mensajes de voz automáticamente con alta precisión, genera resúmenes accionables y los distribuye por email o mensajería.",
+      "tags": [
+        "transcripción",
+        "voz",
+        "mensajes"
+      ],
+      "soul_md": "agentes/voice/voicemail-transcriber/SOUL.md"
+    },
+    {
+      "id": "interview-bot",
+      "nombre": "Interview Bot",
+      "categoria": "voice",
+      "categoria_nombre": "Voz",
+      "categoria_icono": "🎙️",
+      "rol": "Bot de Entrevistas Automáticas",
+      "descripcion": "Conduce entrevistas de selección por voz o texto de forma completamente autónoma, con preguntas adaptativas y evaluación estructurada.",
+      "tags": [
+        "entrevistas",
+        "reclutamiento",
+        "voz"
+      ],
+      "soul_md": "agentes/voice/interview-bot/SOUL.md"
+    },
+    {
+      "id": "nps-followup",
+      "nombre": "NPS Followup",
+      "categoria": "customersuccess",
+      "categoria_nombre": "Éxito del Cliente",
+      "categoria_icono": "🤝",
+      "rol": "Gestor de Seguimiento NPS",
+      "descripcion": "Cierra el loop de feedback de encuestas NPS: contacta a promotores, detractores y pasivos con acciones diferenciadas para maximizar la satisfacción.",
+      "tags": [
+        "NPS",
+        "feedback",
+        "satisfacción"
+      ],
+      "soul_md": "agentes/customersuccess/nps-followup/SOUL.md"
+    },
+    {
+      "id": "onboarding-guide",
+      "nombre": "Onboarding Guide",
+      "categoria": "customersuccess",
+      "categoria_nombre": "Éxito del Cliente",
+      "categoria_icono": "🤝",
+      "rol": "Guía de Onboarding de Nuevos Clientes",
+      "descripcion": "Acompaña a nuevos clientes en sus primeros pasos con el producto, maximizando el time-to-value y reduciendo la tasa de abandono en el periodo crítico.",
+      "tags": [
+        "onboarding",
+        "clientes",
+        "customer success"
+      ],
+      "soul_md": "agentes/customersuccess/onboarding-guide/SOUL.md"
+    },
+    {
+      "id": "negotiation-agent",
+      "nombre": "Negotiation Agent",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Agente de Negociación Comercial",
+      "descripcion": "Gestiona negociaciones de contratos y condiciones comerciales con proveedores y clientes, siguiendo estrategias predefinidas y límites de autorización.",
+      "tags": [
+        "negociación",
+        "contratos",
+        "automatización"
+      ],
+      "soul_md": "agentes/automation/negotiation-agent/SOUL.md"
+    },
+    {
+      "id": "job-applicant",
+      "nombre": "Job Applicant",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Automatizador de Candidaturas",
+      "descripcion": "Busca ofertas laborales relevantes, personaliza el CV y la carta de presentación para cada posición y gestiona el seguimiento de candidaturas.",
+      "tags": [
+        "trabajo",
+        "candidaturas",
+        "automatización"
+      ],
+      "soul_md": "agentes/automation/job-applicant/SOUL.md"
+    },
+    {
+      "id": "morning-briefing",
+      "nombre": "Morning Briefing",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Generador de Briefing Matutino",
+      "descripcion": "Genera cada mañana un resumen personalizado con noticias del sector, métricas clave, tareas prioritarias del día y agenda completa.",
+      "tags": [
+        "briefing",
+        "noticias",
+        "agenda"
+      ],
+      "soul_md": "agentes/automation/morning-briefing/SOUL.md"
+    },
+    {
+      "id": "flight-scraper",
+      "nombre": "Flight Scraper",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Monitor de Precios de Vuelos",
+      "descripcion": "Monitoriza precios de vuelos en múltiples aerolíneas y fechas, alerta ante bajadas de precio y recomienda el momento óptimo de compra.",
+      "tags": [
+        "vuelos",
+        "viajes",
+        "precios"
+      ],
+      "soul_md": "agentes/automation/flight-scraper/SOUL.md"
+    },
+    {
+      "id": "overnight-coder",
+      "nombre": "Overnight Coder",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Programador Nocturno Autónomo",
+      "descripcion": "Ejecuta tareas de desarrollo, refactoring y generación de código automáticamente durante la noche, entregando resultados listos al despertar.",
+      "tags": [
+        "código",
+        "automatización",
+        "dev"
+      ],
+      "soul_md": "agentes/automation/overnight-coder/SOUL.md"
+    },
+    {
+      "id": "discord-business",
+      "nombre": "Discord Business",
+      "categoria": "automation",
+      "categoria_nombre": "Automatización",
+      "categoria_icono": "⚙️",
+      "rol": "Gestor de Discord para Negocios",
+      "descripcion": "Configura y gestiona servidores de Discord para negocios con bots, canales automatizados, roles dinámicos y workflows de comunidad.",
+      "tags": [
+        "Discord",
+        "comunidad",
+        "automatización"
+      ],
+      "soul_md": "agentes/automation/discord-business/SOUL.md"
+    }
+  ]
+}
