@@ -621,14 +621,9 @@
         background: rgba(201, 169, 110, 0.15);
       }
 
-      .svc-icon svg {
-        width: 26px;
-        height: 26px;
-        stroke: var(--gold);
-        fill: none;
-        stroke-width: 1.5;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .svc-icon i {
+        font-size: 26px;
+        color: var(--gold);
       }
 
       .svc-card h3 {
@@ -1304,6 +1299,9 @@
         }
       }
     </style>
+    <!-- FontAwesome Free Solid -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTfKJerWnVYg/2B2QkZ4l4d2zMgQ3RioKQhX4xmPs5Yqy45t0B5a0MQ/q3r9rI7hqf6G9r6nE2X8y2G+v3r2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- MailerLite Universal -->
     <script>
       (function (w, d, e, u, f, l, n) {
@@ -1467,15 +1465,7 @@
           <!-- Agente IA -->
           <div class="svc-card">
             <div class="svc-num">01</div>
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <!-- Cabeza cuadrada a full viewBox -->
-                <rect x="2" y="2" width="20" height="20" />
-                <!-- Ojos (dos puntos grandes) -->
-                <circle cx="7" cy="9" r="1.8" fill="currentColor"/>
-                <circle cx="17" cy="9" r="1.8" fill="currentColor"/>
-              </svg>
-            </div>
+            <div class="svc-icon"><i class="fa-solid fa-robot"></i></div>
             <h3>Tu Propio Agente IA</h3>
             <p>
               Te ayudo a crear y configurar tu asistente IA personal: con
@@ -1498,13 +1488,7 @@
           <!-- Directorio de Agentes -->
           <div class="svc-card">
             <div class="svc-num">02</div>
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                <line x1="9" y1="12" x2="15" y2="12" />
-                <line x1="12" y1="9" x2="12" y2="15" />
-              </svg>
-            </div>
+            <div class="svc-icon"><i class="fa-solid fa-folder-open"></i></div>
             <h3>Directorios de Agentes</h3>
             <p>
               162 agentes listos para usar en español. Templates SOUL.md 
@@ -1526,12 +1510,7 @@
           <!-- Ebook -->
           <div class="svc-card">
             <div class="svc-num">03</div>
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-              </svg>
-            </div>
+            <div class="svc-icon"><i class="fa-solid fa-book-open"></i></div>
             <h3>OpenClaw: La Guía Definitiva</h3>
             <p>
               El primer ebook en español sobre OpenClaw, co-escrito por una IA
