@@ -1059,14 +1059,21 @@ function closeModal() {
 renderCategories();
 renderAgents();
 
-// Deep linking: si hay hash en URL, abrir modal correspondiente al cargar
-if (window.location.hash) {
-  const hashId = window.location.hash.slice(1); // quitar #
-  const agent = AGENTS.find(a => a.id === hashId);
-  if (agent) {
-    // Esperar a que DOM esté listo
-    setTimeout(() => openModal(hashId), 100);
+// Deep linking: si hay hash en URL, abrir modal después de que AGENTS esté cargado
+const checkHashAndOpen = () => {
+  if (window.location.hash && AGENTS && AGENTS.length > 0) {
+    const hashId = window.location.hash.slice(1);
+    const agent = AGENTS.find(a => a.id === hashId);
+    if (agent) {
+      openModal(hashId);
+    }
   }
+};
+// Intentar ahora (AGENTS ya debería estar definido)
+checkHashAndOpen();
+// Y también cuando el DOM esté listo (por si acaso)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', checkHashAndOpen);
 }
 
 // Nav scroll effect
@@ -1104,6 +1111,7 @@ document.addEventListener('keydown', e => {
 
 // Hash change: si el usuario navega con botón atrás/adelante
 window.addEventListener('hashchange', () => {
+  if (!AGENTS || AGENTS.length === 0) return;
   if (window.location.hash) {
     const hashId = window.location.hash.slice(1);
     const agent = AGENTS.find(a => a.id === hashId);
