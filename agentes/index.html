@@ -1113,6 +1113,14 @@ document.getElementById('modal-overlay').addEventListener('click', e => {
 document.getElementById('modal-copy-btn').addEventListener('click', () => {
   if (!currentAgent) return;
   copyAgent(currentAgent.id);
+  // Feedback visual para botón del modal
+  const btn = document.getElementById('modal-copy-btn');
+  btn.textContent = '¡Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = 'Copiar SOUL.md';
+    btn.classList.remove('copied');
+  }, 2000);
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
