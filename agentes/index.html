@@ -1036,6 +1036,13 @@ function openModal(id) {
     window.open('https://github.com/AJRAtoni/agentes-openclaw', '_blank', 'noopener');
   };
 
+  // Deep linking: set hash
+  try {
+    window.location.hash = id;
+  } catch (e) {
+    console.warn('No se pudo actualizar hash:', e);
+  }
+
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1044,6 +1051,14 @@ function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
   currentAgent = null;
+  // Deep linking: clear hash
+  try {
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  } catch (e) {
+    console.warn('No se pudo limpiar hash:', e);
+  }
 }
 
 // ─────────────────────────────────────────────
@@ -1051,6 +1066,24 @@ function closeModal() {
 // ─────────────────────────────────────────────
 renderCategories();
 renderAgents();
+
+// Deep linking: abrir modal si hay hash en URL (después de que AGENTS esté cargado)
+const handleHash = () => {
+  if (!AGENTS || AGENTS.length === 0) return;
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const agent = AGENTS.find(a => a.id === hash);
+    if (agent) {
+      openModal(hash);
+    }
+  }
+};
+
+// Ejecutar ahora (AGENTS ya está definido)
+handleHash();
+
+// También escuchar cambios de hash (navegación atrás/adelante)
+window.addEventListener('hashchange', handleHash);
 
 // Nav scroll effect
 const navbar = document.getElementById('navbar');
