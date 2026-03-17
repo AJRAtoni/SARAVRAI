@@ -1036,7 +1036,10 @@ function openModal(id) {
     window.open('https://github.com/AJRAtoni/agentes-openclaw', '_blank', 'noopener');
   };
 
+  // Update hash for deep linking
+  window.location.hash = id;
   document.getElementById('modal-overlay').classList.add('open');
+}
   document.body.style.overflow = 'hidden';
 }
 
@@ -1044,6 +1047,10 @@ function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
   currentAgent = null;
+  // Clear hash
+  if (window.location.hash) {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
 }
 
 // ─────────────────────────────────────────────
@@ -1051,6 +1058,16 @@ function closeModal() {
 // ─────────────────────────────────────────────
 renderCategories();
 renderAgents();
+
+// Deep linking: si hay hash en URL, abrir modal correspondiente al cargar
+if (window.location.hash) {
+  const hashId = window.location.hash.slice(1); // quitar #
+  const agent = AGENTS.find(a => a.id === hashId);
+  if (agent) {
+    // Esperar a que DOM esté listo
+    setTimeout(() => openModal(hashId), 100);
+  }
+}
 
 // Nav scroll effect
 const navbar = document.getElementById('navbar');
@@ -1083,6 +1100,19 @@ document.getElementById('modal-copy-btn').addEventListener('click', () => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
+});
+
+// Hash change: si el usuario navega con botón atrás/adelante
+window.addEventListener('hashchange', () => {
+  if (window.location.hash) {
+    const hashId = window.location.hash.slice(1);
+    const agent = AGENTS.find(a => a.id === hashId);
+    if (agent) {
+      openModal(hashId);
+    }
+  } else {
+    closeModal();
+  }
 });
 
 // GitHub stars
