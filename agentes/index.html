@@ -1036,10 +1036,7 @@ function openModal(id) {
     window.open('https://github.com/AJRAtoni/agentes-openclaw', '_blank', 'noopener');
   };
 
-  // Update hash for deep linking
-  window.location.hash = id;
   document.getElementById('modal-overlay').classList.add('open');
-}
   document.body.style.overflow = 'hidden';
 }
 
@@ -1047,10 +1044,6 @@ function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
   currentAgent = null;
-  // Clear hash
-  if (window.location.hash) {
-    window.history.replaceState(null, '', window.location.pathname + window.location.search);
-  }
 }
 
 // ─────────────────────────────────────────────
@@ -1058,23 +1051,6 @@ function closeModal() {
 // ─────────────────────────────────────────────
 renderCategories();
 renderAgents();
-
-// Deep linking: si hay hash en URL, abrir modal después de que AGENTS esté cargado
-const checkHashAndOpen = () => {
-  if (window.location.hash && AGENTS && AGENTS.length > 0) {
-    const hashId = window.location.hash.slice(1);
-    const agent = AGENTS.find(a => a.id === hashId);
-    if (agent) {
-      openModal(hashId);
-    }
-  }
-};
-// Intentar ahora (AGENTS ya debería estar definido)
-checkHashAndOpen();
-// Y también cuando el DOM esté listo (por si acaso)
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', checkHashAndOpen);
-}
 
 // Nav scroll effect
 const navbar = document.getElementById('navbar');
@@ -1107,20 +1083,6 @@ document.getElementById('modal-copy-btn').addEventListener('click', () => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
-});
-
-// Hash change: si el usuario navega con botón atrás/adelante
-window.addEventListener('hashchange', () => {
-  if (!AGENTS || AGENTS.length === 0) return;
-  if (window.location.hash) {
-    const hashId = window.location.hash.slice(1);
-    const agent = AGENTS.find(a => a.id === hashId);
-    if (agent) {
-      openModal(hashId);
-    }
-  } else {
-    closeModal();
-  }
 });
 
 // GitHub stars
