@@ -11,7 +11,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".nl-form");
-  const emailInput = form?.querySelector(".email-input");
+  const emailInput = form?.querySelector("#nl-email");
+  const nameInput = form?.querySelector("#nl-name");
   const submitBtn = form?.querySelector(".subscribe-btn");
 
   if (!form || !emailInput || !submitBtn) {
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     const email = emailInput.value.trim();
+    const name = nameInput ? nameInput.value.trim() : "";
 
     // Validación básica del email
     if (!email || !isValidEmail(email)) {
@@ -48,6 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.textContent = "Enviando...";
     submitBtn.disabled = true;
 
+    const fields = { email: email };
+    if (name) fields.name = name;
+
     try {
       const response = await fetch(
         "https://assets.mailerlite.com/jsonp/2170745/forms/181330494966728632/subscribe",
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Accept: "application/json",
           },
           body: JSON.stringify({
-            fields: { email: email },
+            fields: fields,
             groups: [MAILERLITE_GROUP_ID],
             ml_submit: 1,
             anticsrf: true,
@@ -68,10 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (response.ok) {
         showMessage(
-          "¡Gracias! Te has suscrito correctamente a la Lista de Espera.",
+          "¡Bienvenid@! Revisa tu bandeja — tu primera ventaja llega pronto.",
           "success",
         );
         emailInput.value = "";
+        if (nameInput) nameInput.value = "";
       } else {
         throw new Error("Error en la respuesta del servidor");
       }
@@ -83,13 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (typeof ml === "function") {
           ml("subscribe", {
             formId: "181330494966728632",
-            fields: { email: email },
+            fields: fields,
           });
           showMessage(
-            "¡Gracias! Te has suscrito correctamente a la Lista de Espera.",
+            "¡Bienvenid@! Revisa tu bandeja — tu primera ventaja llega pronto.",
             "success",
           );
           emailInput.value = "";
+          if (nameInput) nameInput.value = "";
         } else {
           showMessage("Hubo un error. Por favor, inténtalo de nuevo.", "error");
         }

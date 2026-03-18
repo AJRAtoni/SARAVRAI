@@ -1067,6 +1067,31 @@
         font-size: 0.95rem;
       }
 
+      .nl-benefits {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nl-benefits li {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .nl-benefits li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
       .nl-form {
         display: flex;
         flex-direction: column;
@@ -1381,7 +1406,7 @@
               </svg>
             </a>
             <a href="#newsletter" class="btn-ghost">
-              Mantenme al tanto
+              Newsletter gratis
               <svg
                 width="15"
                 height="15"
@@ -1666,15 +1691,26 @@
       <div class="container">
         <div class="newsletter-box">
           <div class="nl-text">
-            <div class="section-label">Newsletter</div>
-            <h2>Mantente al día con la IA</h2>
+            <div class="section-label">Newsletter exclusiva</div>
+            <h2>Tu ventaja semanal en IA</h2>
             <p>
-              Automatización, agentes IA y los mejores trucos de OpenClaw
-              directamente en tu bandeja de entrada. Sin ruido.
+              Cada semana, directamente en tu bandeja:
             </p>
+            <ul class="nl-benefits">
+              <li>Tutoriales paso a paso de automatización con OpenClaw, N8N y Make</li>
+              <li>Casos reales de agentes IA que ya están generando ingresos</li>
+              <li>Acceso anticipado a mis herramientas y recursos premium</li>
+            </ul>
           </div>
           <div>
             <form class="nl-form" id="newsletter-form">
+              <input
+                type="text"
+                class="email-input"
+                id="nl-name"
+                placeholder="Tu nombre (opcional)"
+                autocomplete="given-name"
+              />
               <input
                 type="email"
                 class="email-input"
@@ -1683,10 +1719,10 @@
                 required
               />
               <button type="submit" class="subscribe-btn" id="nl-btn">
-                Suscribirme ahora
+                Quiero mi ventaja semanal →
               </button>
               <p class="form-note" id="nl-note">
-                Sin spam. Cancela cuando quieras.
+                Gratis. Sin spam. Cancela con un clic.
               </p>
             </form>
           </div>
