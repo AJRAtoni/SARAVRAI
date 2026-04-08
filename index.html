@@ -801,7 +801,6 @@
         opacity: 0.5;
       }
 
-      /* Miami badge on photo */
       .about-badge {
         position: absolute;
         bottom: 24px;
@@ -817,25 +816,28 @@
         font-size: 0.75rem;
         font-weight: 600;
         color: var(--gold-light);
-        letter-spacing: 0.08em;
-        z-index: 2;
+        letter-spacing: 0.04em;
       }
 
       .about-badge-dot {
-        width: 5px;
-        height: 5px;
-        background: var(--gold);
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
-        animation: pulse 2.5s ease-in-out infinite;
+        background: var(--gold);
+        box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4);
+        animation: pulse 2s ease-in-out infinite;
       }
 
-      /* Text side */
+      .about-text {
+        position: relative;
+      }
+
       .about-text h2 {
         font-family: "Playfair Display", serif;
-        font-size: clamp(2.4rem, 4vw, 3.8rem);
+        font-size: clamp(2.4rem, 4vw, 4.2rem);
         font-weight: 700;
-        line-height: 1.1;
-        margin-bottom: 28px;
+        line-height: 1.08;
+        margin-bottom: 24px;
       }
 
       .about-text h2 em {
@@ -844,322 +846,266 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        color: transparent;
       }
 
       .about-lead {
-        font-size: 1.1rem;
-        color: var(--text-secondary);
+        font-size: 1.01rem;
+        color: var(--text);
+        margin-bottom: 20px;
         line-height: 1.8;
-        margin-bottom: 24px;
-        font-weight: 300;
+        font-weight: 400;
       }
 
       .about-body {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        line-height: 1.85;
-        margin-bottom: 40px;
-        border-left: 1px solid var(--border);
-        padding-left: 24px;
+        color: var(--text-secondary);
+        font-size: 0.96rem;
+        margin-bottom: 28px;
+        line-height: 1.9;
       }
 
       .about-pills {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 48px;
+        gap: 9px;
+        margin-bottom: 36px;
       }
 
       .about-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        background: rgba(201, 169, 110, 0.07);
-        border: 1px solid rgba(201, 169, 110, 0.2);
-        border-radius: 50px;
-        padding: 7px 16px;
-        font-size: 0.8rem;
-        font-weight: 500;
+        background: rgba(201, 169, 110, 0.06);
+        border: 1px solid rgba(201, 169, 110, 0.12);
         color: var(--gold-light);
-        letter-spacing: 0.04em;
-      }
-
-      .about-pill::before {
-        content: "";
-        width: 5px;
-        height: 5px;
-        background: var(--gold);
-        border-radius: 50%;
-        opacity: 0.7;
+        padding: 7px 13px;
+        border-radius: 500px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
       }
 
       .about-signature {
-        font-family: "Playfair Display", serif;
-        font-style: italic;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        border-top: 1px solid var(--border);
-        padding-top: 24px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .about-signature strong {
-        color: var(--gold);
-        font-style: normal;
-        font-weight: 600;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 0.8rem;
-        letter-spacing: 0.1em;
+        color: var(--text-uted);
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
-      @media (max-width: 1024px) {
-        .about-grid {
-          grid-template-columns: 360px 1fr;
-          gap: 64px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .about-photo-frame {
-          aspect-ratio: 3 / 4;
-          max-width: 480px;
-        }
-      }
-
       /* =========================================
-   LAUNCH / COMING SOON
+   LAUNCH
 ========================================= */
       .launch {
-        padding: 140px 0;
+        padding: 120px 0;
         position: relative;
         overflow: hidden;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
 
       .launch-bg {
         position: absolute;
         inset: 0;
         background: radial-gradient(
-          ellipse 70% 60% at 50% 50%,
-          rgba(201, 169, 110, 0.045) 0%,
-          transparent 70%
+          circle at 50% 30%,
+          rgba(201, 169, 110, 0.09) 0%,
+          transparent 60%
         );
-        pointer-events: none;
       }
 
       .launch-grid {
         position: absolute;
         inset: 0;
         background-image:
-          linear-gradient(rgba(201, 169, 110, 0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(201, 169, 110, 0.02) 1px, transparent 1px);
+          linear-gradient(rgba(201, 169, 110, 0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(201, 169, 110, 0.018) 1px, transparent 1px);
         background-size: 48px 48px;
-        pointer-events: none;
+        mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
       }
 
       .launch-inner {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
         position: relative;
         z-index: 2;
-        text-align: center;
-        max-width: 720px;
-        margin: 0 auto;
       }
 
-      .launch .section-label {
+      .launch-inner .section-label {
+        margin-left: auto;
+        margin-right: auto;
         justify-content: center;
       }
 
-      .launch h2 {
+      .launch-inner h2 {
         font-family: "Playfair Display", serif;
-        font-size: clamp(2.8rem, 5.5vw, 5rem);
+        font-size: clamp(2.6rem, 5vw, 4.8rem);
         font-weight: 700;
-        line-height: 1.08;
-        margin-bottom: 30px;
+        line-height: 1.11;
+        margin-bottom: 16px;
       }
 
-      .launch h2 .accent {
-        font-style: italic;
+      .launch-inner h2 .accent {
         background: var(--gold-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        color: transparent;
+        font-style: italic;
       }
 
       .launch-line {
-        width: 1px;
-        height: 60px;
-        background: linear-gradient(to bottom, var(--gold), transparent);
-        margin: 0 auto 30px;
+        width: 88px;
+        height: 1px;
+        background: var(--gold-gradient);
+        margin: 0 auto 24px;
+        opacity: 0.9;
       }
 
-      .launch p {
+      .launch-inner p {
+        max-width: 600px;
+        margin: 0 auto 36px;
         color: var(--text-secondary);
-        font-size: 1.1rem;
-        max-width: 480px;
-        margin: 0 auto 48px;
-        line-height: 1.75;
-        font-weight: 300;
+        font-size: 1.02s;
+        line-height: 1.85;
       }
 
       /* =========================================
    NEWSLETTER
 ========================================= */
       .newsletter {
-        padding: 80px 0 120px;
+        padding: 130px 0;
       }
 
       .newsletter-box {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: 24px;
-        padding: 72px 64px;
+        padding: 60px 48px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 72px;
-        align-items: center;
+        grid-template-columns: 1.1fr0.9fr;
+        gap: 60px;
         position: relative;
         overflow: hidden;
       }
 
-      /* Top gold line */
       .newsletter-box::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--gold-gradient);
+        top: -140px;
+        right: -80px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+        filter: blur(100px);
+        pointer-events: none;
       }
 
-      /* Corner decorations */
-      .newsletter-box::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 120px;
-        height: 120px;
-        background: radial-gradient(
-          circle at bottom right,
-          rgba(201, 169, 110, 0.06) 0%,
-          transparent 70%
-        );
+      .nl-text {
+        position: relative;
+        z-index: 2;
       }
 
       .nl-text h2 {
         font-family: "Playfair Display", serif;
-        font-size: 2.3rem;
+        font-size: clamp(2.2, 4vw, 3.4rem);
         font-weight: 700;
-        line-height: 1.2;
         margin-bottom: 16px;
+        line-height: 1.15;
       }
 
       .nl-text p {
         color: var(--text-secondary);
-        line-height: 1.75;
-        font-size: 0.95rem;
+        font-size: 1.02rem;
+        margin-bottom: 20px;
+        line-height: 1.8;
       }
 
       .nl-benefits {
         list-style: none;
-        padding: 0;
-        margin: 16px 0 0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        display: grid;
+        gap: 14px;
+        margin-top: 12px;
       }
 
       .nl-benefits li {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        padding-left: 24px;
+        color: var(--text);
+        font-size: 0.93rem;
+        line-height: 1.65;
         position: relative;
+        padding-left: 28px;
       }
 
       .nl-benefits li::before {
-        content: "✓";
+        content: "";
         position: absolute;
         left: 0;
-        color: var(--gold);
-        font-weight: 700;
+        top: 0cpx;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 169, 110, 0.35);
+        box-shadow: inset 0 0 0 4px rgba(201, 169, 110, 0.08);
+        background: rgba(201, 169, 110, 0.04);
       }
 
       .nl-form {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        display: grid;
+        gap: 14px;
+        position: relative;
+        z-index: 2;
       }
 
       .email-input {
         background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 12px;
-        padding: 15px 22px;
-        font-size: 0.95rem;
+        border: 1px solid rgba(201, 169, 110, 0.14);
+        border-radius: 14px;
         color: var(--text);
+        padding: 15px 16px;
+        font-size: 0.95rem;
         font-family: "Space Grotesk", sans-serif;
-        transition: border-color 0.2s;
         outline: none;
+        transition: border-color 0.2s, background 0.2s;
       }
 
       .email-input::placeholder {
-        color: var(--text-muted);
+        color: 88 88 88;
       }
+
       .email-input:focus {
-        border-color: rgba(201, 169, 110, 0.4);
+        border-color: rgba(201, 169, 110, 0.55);
+        background: rgba(255, 255, 255, 0.05);
       }
 
       .subscribe-btn {
         background: var(--gold-gradient);
         color: #060606;
         border: none;
-        border-radius: 12px;
-        padding: 15px 28px;
-        font-size: 0.9rem;
+        border-radius: 999px;
+        padding: 16px 20px;
         font-weight: 700;
-        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.95rem;
         cursor: pointer;
-        transition: all 0.3s;
-        letter-spacing: 0.02em;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-family: "Space Grotesk", sans-serif;
       }
 
       .subscribe-btn:hover {
-        box-shadow: 0 0 36px rgba(201, 169, 110, 0.45);
         transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(201, 169, 110, 0.27);
       }
 
       .form-note {
-        font-size: 0.76rem;
         color: var(--text-muted);
-        transition: color 0.3s;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        margin-top: 2px;
       }
 
       .form-note.success {
-        color: #4ade80;
-      }
-
-      .form-note.error {
-        color: #f87171;
-      }
-
-      .subscribe-btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none !important;
-        box-shadow: none !important;
+        color: var(--gold-light);
       }
 
       /* =========================================
    FOOTER
-========================================= */
+=========================================== */
       footer {
         border-top: 1px solid var(--border);
         padding: 48px 0;
@@ -1254,7 +1200,7 @@
 
       /* =========================================
    RESPONSIVE
-========================================= */
+========================================== */
       @media (max-width: 1024px) {
         .services-grid {
           grid-template-columns: 1fr 1fr;
@@ -1381,17 +1327,17 @@
             IA Consciente · Agentes IA
           </div>
           <h1>
-            Ideas que se<br />
-            convierten en<br />
-            <span class="hero-accent">realidades.</span>
+            Automatiza tu negocio con IA<br />
+            que convierte más y te ahorra<br />
+            <span class="hero-accent">horas cada semana.</span>
           </h1>
           <p class="hero-sub">
-            Automatización de procesos, agentes IA personales y formación.
-            Tecnología que trabaja sola, resultados que se notan.
+            Implemento agentes y automatizaciones prácticas para que captes
+            leads, respondas más rápido y escales sin aumentar carga operativa.
           </p>
           <div class="hero-actions">
-            <a href="#servicios" class="btn-primary">
-              Explorar servicios
+            <a href="/lead-magnet/" class="btn-primary">
+              Descargar guía gratis
               <svg
                 width="15"
                 height="15"
@@ -1405,8 +1351,11 @@
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="#newsletter" class="btn-ghost">
-              Newsletter gratis
+            <a
+              href="mailto:sara@ajra.es?subject=Solicitar%20diagn%C3%B3stico"
+              class="btn-ghost"
+            >
+              Solicitar diagnóstico
               <svg
                 width="15"
                 height="15"
@@ -1630,18 +1579,18 @@
             <a href="#servicios" class="btn-primary">
               Ver qué puedo hacer por ti
               <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
 
             <div class="about-signature" style="margin-top: 32px">
               Creada con propósito — Miami, 2026
