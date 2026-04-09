@@ -1262,22 +1262,15 @@
 
       .page-hero h1 {
         font-family: "Playfair Display", serif;
-        font-size: clamp(3.2rem, 7vw, 6.2rem);
-        line-height: 0.98;
+        font-size: clamp(3.8rem, 9vw, 7.5rem);
+        line-height: 0.92;
         font-weight: 400;
-        margin-bottom: 24px;
-        letter-spacing: -0.04em;
+        margin-bottom: 32px;
+        letter-spacing: -0.06em;
       }
 
-      .page-hero h1 .accent {
-        color: var(--gold-light);
-        font-style: italic;
-      }
-
-      .page-lead {
+      .page-hero .hero-sub {
         max-width: 760px;
-        font-size: 1.12rem;
-        color: var(--text-secondary);
         margin-bottom: 34px;
       }
 
