@@ -1223,6 +1223,10 @@
           font-size: clamp(3.1rem, 12vw, 3.9rem);
         }
 
+        .page-hero h1 {
+          font-size: clamp(3.1rem, 12vw, 3.9rem);
+        }
+
         .stats-grid {
           grid-template-columns: 1fr;
         }
