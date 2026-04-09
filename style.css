@@ -1263,10 +1263,10 @@
       .page-hero h1 {
         font-family: "Playfair Display", serif;
         font-size: clamp(3.8rem, 9vw, 7.5rem);
-        line-height: 0.92;
-        font-weight: 400;
-        margin-bottom: 32px;
-        letter-spacing: -0.06em;
+        font-weight: 700;
+        line-height: 1.04;
+        margin-bottom: 28px;
+        animation: fade-up 0.9s ease 0.1s both;
       }
 
       .page-hero .hero-sub {
