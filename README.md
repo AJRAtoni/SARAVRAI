@@ -1,4 +1,4 @@
-![SARA VRAI](og-image.png)
+![SARA VRAI](assets/img/og-image-home.png)
 
 # SARA VRAI — Web Agency & IA Consciente
 
