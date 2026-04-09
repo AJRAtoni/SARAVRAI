@@ -1235,29 +1235,14 @@
    LANDING PAGE — AGENTE IA
 ========================================= */
       .page-hero {
-        min-height: 88vh;
-        padding: 180px 0 120px;
+        min-height: 100vh;
+        padding: 140px 0 100px;
         position: relative;
         overflow: hidden;
       }
 
       .page-hero .hero-content {
-        max-width: 920px;
-      }
-
-      .page-kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 9px 18px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        color: var(--gold-light);
-        font-size: 0.8rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 28px;
-        background: rgba(255,255,255,0.02);
+        max-width: 860px;
       }
 
       .page-hero h1 {
@@ -1270,14 +1255,11 @@
       }
 
       .page-hero .hero-sub {
-        max-width: 760px;
-        margin-bottom: 34px;
+        max-width: 540px;
+        margin-bottom: 52px;
       }
 
-      .btn-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
+      .page-hero .hero-actions {
         margin-bottom: 26px;
       }
 
@@ -1466,7 +1448,7 @@
 
       @media (max-width: 768px) {
         .page-hero {
-          padding: 150px 0 90px;
+          padding: 110px 0 70px;
         }
 
         .detail-grid,
