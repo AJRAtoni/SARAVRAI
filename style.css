@@ -907,10 +907,13 @@
       .launch p {
         color: var(--text-secondary);
         font-size: 1.1rem;
-        max-width: 480px;
-        margin: 0 auto 48px;
         line-height: 1.75;
         font-weight: 300;
+      }
+
+      .launch-inner > p {
+        max-width: 480px;
+        margin: 0 auto 48px;
       }
 
       /* =========================================
