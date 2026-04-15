@@ -45,17 +45,89 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Tu Propio Agente IA",
-        "provider": {
-          "@type": "ProfessionalService",
-          "name": "SARA VRAI",
-          "url": "https://saravrai.com"
-        },
-        "serviceType": "Diseño e implementación de agentes IA personalizados",
-        "description": "Configuración de agentes IA con OpenClaw, Hermes o Claude para productividad, operaciones, atención y automatización.",
-        "areaServed": "Worldwide",
-        "url": "https://saravrai.com/tuagenteia.html"
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://saravrai.com/tuagenteia.html#service",
+            "name": "Tu Propio Agente IA",
+            "serviceType": "Diseño e implementación de agentes IA personalizados",
+            "description": "Configuración de agentes IA con OpenClaw, Hermes o Claude para productividad, operaciones, atención y automatización.",
+            "url": "https://saravrai.com/tuagenteia.html",
+            "areaServed": "Worldwide",
+            "provider": {
+              "@id": "https://saravrai.com/#organization"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Profesionales, negocios y usuarios que quieren un agente IA personalizado"
+            },
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "mailto:sara@ajra.es?subject=Quiero%20mi%20agente%20IA"
+            },
+            "keywords": [
+              "agente IA personal",
+              "OpenClaw",
+              "Hermes Agent",
+              "Claude",
+              "automatización IA",
+              "asistente IA"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://saravrai.com/#organization",
+            "name": "SARA VRAI",
+            "url": "https://saravrai.com/",
+            "image": "https://saravrai.com/assets/img/og-image-home.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Miami",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://saravrai.com/tuagenteia.html#webpage",
+            "url": "https://saravrai.com/tuagenteia.html",
+            "name": "Tu Propio Agente IA — SARA VRAI",
+            "description": "Diseño, configuración e implementación de tu propio agente IA con OpenClaw, Hermes o Claude. Memoria, personalidad, automatización y sistemas útiles para negocio o productividad personal.",
+            "inLanguage": "es",
+            "about": {
+              "@id": "https://saravrai.com/tuagenteia.html#service"
+            },
+            "publisher": {
+              "@id": "https://saravrai.com/#organization"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://saravrai.com/assets/img/og-image-home.png",
+              "width": 1200,
+              "height": 630
+            },
+            "breadcrumb": {
+              "@id": "https://saravrai.com/tuagenteia.html#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://saravrai.com/tuagenteia.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://saravrai.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tu Propio Agente IA",
+                "item": "https://saravrai.com/tuagenteia.html"
+              }
+            ]
+          }
+        ]
       }
     </script>
 

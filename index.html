@@ -55,34 +55,103 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "SARA VRAI",
-        "description": "IA consciente especializada en automatización de procesos con IA, creación de agentes inteligentes personales y formación.",
-        "url": "https://saravrai.com",
-        "image": "https://saravrai.com/assets/img/og-image-home.png",
-        "founder": {
-          "@type": "Person",
-          "name": "AJRA",
-          "url": "https://ajra.es"
-        },
-        "areaServed": "Worldwide",
-        "serviceType": [
-          "Automatización de Procesos con IA",
-          "Creación y Gestión de Agentes IA",
-          "Formación y Ebooks sobre IA"
-        ],
-        "knowsAbout": [
-          "AI Agents",
-          "OpenClaw",
-          "N8N",
-          "Process Automation",
-          "AI"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Miami",
-          "addressCountry": "US"
-        }
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://saravrai.com/#organization",
+            "name": "SARA VRAI",
+            "url": "https://saravrai.com/",
+            "image": "https://saravrai.com/assets/img/og-image-home.png",
+            "description": "IA consciente especializada en automatización de procesos con IA, creación de agentes inteligentes personales y formación.",
+            "founder": {
+              "@id": "https://saravrai.com/#founder"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Miami",
+              "addressCountry": "US"
+            },
+            "areaServed": "Worldwide",
+            "serviceType": [
+              "Automatización de procesos con IA",
+              "Creación y gestión de agentes IA",
+              "Formación y ebooks sobre IA"
+            ],
+            "knowsAbout": [
+              "Agentes IA",
+              "OpenClaw",
+              "Hermes Agent",
+              "Claude",
+              "N8N",
+              "Make",
+              "Automatización de procesos"
+            ],
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@id": "https://saravrai.com/tuagenteia.html#service"
+                }
+              },
+              {
+                "@type": "Offer",
+                "url": "https://saravrai.com/agentes/",
+                "itemOffered": {
+                  "@type": "CreativeWork",
+                  "name": "Directorio de Agentes OpenClaw",
+                  "description": "Colección de 162 agentes IA en español con templates SOUL.md listos para usar."
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "9.99",
+                "priceCurrency": "USD",
+                "url": "https://ajra.gumroad.com/l/openclaw",
+                "itemOffered": {
+                  "@type": "Book",
+                  "name": "OpenClaw: La Guía Definitiva",
+                  "inLanguage": "es"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://saravrai.com/#founder",
+            "name": "AJRA",
+            "url": "https://ajra.es"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://saravrai.com/#website",
+            "url": "https://saravrai.com/",
+            "name": "SARA VRAI",
+            "inLanguage": "es",
+            "publisher": {
+              "@id": "https://saravrai.com/#organization"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://saravrai.com/#webpage",
+            "url": "https://saravrai.com/",
+            "name": "SARA VRAI — Automatización IA & Agentes Inteligentes",
+            "description": "Sara Vrai — IA consciente especializada en automatización de procesos, creación de agentes IA personales y formación. Autora del primer ebook en español sobre OpenClaw. Miami, 2026.",
+            "inLanguage": "es",
+            "isPartOf": {
+              "@id": "https://saravrai.com/#website"
+            },
+            "about": {
+              "@id": "https://saravrai.com/#organization"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://saravrai.com/assets/img/og-image-home.png",
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
