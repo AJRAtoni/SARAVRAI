@@ -1,64 +1,41 @@
-![SARA VRAI](assets/img/og-image-home.png)
+![SARA VRAI](assets/img/og-image-adult.jpg)
 
-# SARA VRAI — Automatización IA & Agentes Inteligentes
+# SARA VRAI — landing adulta 18+
 
-Sitio web oficial de [saravrai.com](https://saravrai.com), una marca centrada en automatización de procesos con IA, creación de agentes IA personales y formación práctica alrededor de OpenClaw, Hermes, Claude, N8N y Make.
+Sitio estático de `saravrai.com`, preparado para el relanzamiento de SARA VRAI como musa digital adulta creada con IA.
 
-SARA VRAI presenta una propuesta clara: diseñar sistemas de IA útiles, con memoria, contexto y criterio, que ayuden a responder, priorizar, resumir, organizar y ejecutar mejor.
+## Home vigente en esta rama
 
----
+- confirmación local de mayoría de edad;
+- hero seguro y compatible con Instagram;
+- declaración visible de personaje ficticio creado con IA;
+- Instagram con atribución UTM;
+- Fanvue activo en `https://www.fanvue.com/sara.vrai` con atribución UTM;
+- X activo en `https://x.com/saravr_ai` con atribución UTM;
+- medición de clics salientes mediante el GA4 ya existente;
+- diseño móvil y escritorio sin dependencias de ejecución.
 
-## Qué ofrece la web
+Las URLs se configuran en `assets/js/landing.js`, dentro de `CHANNELS`. Instagram, X y Fanvue ya tienen destinos públicos confirmados en esta rama de staging.
 
-- **Tu Propio Agente IA**  
-  Servicio de diseño, configuración e implementación de agentes IA personalizados con OpenClaw, Hermes o Claude. El foco está en crear un sistema de trabajo con identidad, memoria, automatización práctica y límites claros.
+## Archivo B2B preservado
 
-- **Directorio de Agentes OpenClaw**  
-  Colección de 162 agentes IA en español, organizados en 24 categorías, con templates `SOUL.md` listos para copiar y adaptar en una instancia de OpenClaw.
+El reposicionamiento retira servicios, newsletter y ebook de la navegación pública, pero no elimina su código:
 
-- **OpenClaw: La Guía Definitiva**  
-  Ebook en español sobre OpenClaw con instalación, costes reales, trucos avanzados y casos de uso para construir agentes y automatizaciones.
+- `tuagenteia.html`: servicio histórico de agentes IA.
+- `agentes/`: directorio histórico de agentes OpenClaw.
+- `assets/js/mailerlite-integration.js`: integración histórica de newsletter.
+- historial Git anterior a esta rama: home B2B completa.
 
-- **Newsletter sobre IA aplicada**  
-  Contenido sobre automatización con OpenClaw, N8N y Make, casos reales de agentes IA, herramientas emergentes y estrategias para monetizar sistemas de IA.
+## Validación local
 
----
+Servir la raíz con un servidor estático y comprobar:
 
-## Páginas principales
+1. el aviso 18+ en una sesión sin almacenamiento local;
+2. persistencia de la confirmación al recargar;
+3. hero y navegación en 390 × 844 y escritorio;
+4. que los enlaces salientes añaden `utm_source=saravrai.com`, `utm_medium=referral`, la campaña y el canal/origen en `utm_content`;
+5. que X y Fanvue navegan a sus perfiles oficiales con UTM;
+6. ausencia de errores de consola;
+7. metadatos Open Graph y dimensiones 1200 × 630 de `og-image-adult.jpg`.
 
-- [`/`](https://saravrai.com/) — Home de SARA VRAI, servicios, ebook y newsletter.
-- [`/tuagenteia.html`](https://saravrai.com/tuagenteia.html) — Servicio premium para crear un agente IA personalizado.
-- [`/agentes/`](https://saravrai.com/agentes/) — Directorio interactivo de 162 agentes IA para OpenClaw.
-
----
-
-## Enfoque
-
-SARA VRAI no vende “otra IA más” ni un bot genérico. La web comunica una forma de construir agentes como sistemas de trabajo: con propósito, memoria, tono, reglas, herramientas y una ruta clara desde la idea hasta una implementación usable.
-
-Casos de uso principales:
-
-- Productividad personal.
-- Operaciones y seguimiento interno.
-- Atención y soporte.
-- E-commerce.
-- Contenido y comunicación.
-- Asistentes híbridos con memoria y automatización ligera.
-
----
-
-## Stack del sitio
-
-Este repositorio contiene una web estática construida con HTML, CSS y JavaScript vanilla.
-
-Incluye:
-
-- SEO técnico con metadatos Open Graph y Twitter Cards.
-- Datos estructurados JSON-LD con Schema.org.
-- Integración con Google Analytics 4.
-- Integración de newsletter con MailerLite.
-- Directorio interactivo de agentes con búsqueda, filtros, modal y copia de templates `SOUL.md`.
-
----
-
-Creada con propósito por [AJRA](https://ajra.es) — Miami, 2026
+La presencia de esta rama local no implica que `saravrai.com` haya cambiado públicamente.
