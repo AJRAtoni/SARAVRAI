@@ -6,7 +6,6 @@
   const CAMPAIGN = "relaunch_2026";
   const CHANNELS = {
     instagram: "https://www.instagram.com/sara.vrai/",
-    x: "https://x.com/saravr_ai",
     fanvue: "https://www.fanvue.com/sara.vrai",
   };
 
@@ -64,20 +63,8 @@
   }
 
   function activateChannel(channel, url) {
-    const pendingCard = document.querySelector(`[data-pending-channel="${channel}"]`);
-    if (pendingCard) {
-      const link = document.createElement("a");
-      link.className = pendingCard.className.replace("is-pending", "").trim() + " channel-link";
-      link.dataset.channel = channel;
-      link.dataset.label = channel === "fanvue" ? "Entrar a Fanvue" : "Ver X";
-      link.href = buildTrackedUrl(url, channel);
-      link.innerHTML = pendingCard.innerHTML.replace("Se activa en el lanzamiento", "Disponible ahora ↗");
-      pendingCard.replaceWith(link);
-    }
-
     document.querySelectorAll(`.channel-link[data-channel="${channel}"]`).forEach((link) => {
       link.href = buildTrackedUrl(url, channel);
-      if (link.dataset.label) link.textContent = link.dataset.label;
     });
   }
 

@@ -109,7 +109,7 @@ nav a:hover { color: var(--paper); }
 .story-copy { align-self: end; color: #d7cec8; font-size: 1.04rem; }
 .story-copy p { margin: 0 0 22px; }
 .section-heading { max-width: 800px; }
-.channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 64px; }
+.channel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 64px; }
 .channel-card { position: relative; display: flex; flex-direction: column; min-height: 310px; padding: 28px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.018); color: var(--paper); text-decoration: none; transition: transform 220ms ease, border-color 220ms ease, background 220ms ease; }
 a.channel-card:hover { transform: translateY(-5px); border-color: rgba(210, 176, 124, 0.5); background: rgba(210, 176, 124, 0.05); }
 .channel-featured { background: linear-gradient(145deg, rgba(124, 16, 28, 0.25), rgba(255, 255, 255, 0.018)); }
@@ -117,7 +117,6 @@ a.channel-card:hover { transform: translateY(-5px); border-color: rgba(210, 176,
 .channel-card strong { margin-top: 60px; font: 400 2.1rem / 1 var(--serif); }
 .channel-card p { margin: 18px 0 0; color: var(--muted); font-size: 0.9rem; }
 .channel-status { margin-top: auto; padding-top: 32px; color: #d7cec8; font-size: 0.76rem; }
-.is-pending { opacity: 0.7; }
 .truth-note { display: grid; grid-template-columns: 0.5fr 1fr; gap: 60px; }
 .truth-note > p:last-child { max-width: 720px; margin: 0; font: 400 clamp(1.8rem, 4vw, 3.4rem) / 1.18 var(--serif); }
 footer { display: flex; justify-content: space-between; gap: 20px; width: min(100% - 48px, 1320px); margin: 0 auto; padding: 26px 0 calc(26px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.72rem; }
